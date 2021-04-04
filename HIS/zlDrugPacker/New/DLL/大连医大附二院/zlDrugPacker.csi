@@ -1,0 +1,16 @@
+[History]
+1=#P0#=mb	#P1#=TestURL	#P2#=zlDrugPacker/mdlDefine/TestURL	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130730151719	#P7#=0	#P8#=-1	.
+2=#P0#=mb	#P1#=FindDeviceID	#P2#=zlDrugPacker/mdlDefine/FindDeviceID	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130730151640	#P7#=0	#P8#=78	.
+3=#P0#=mb	#P1#=SetSendWin	#P2#=zlDrugPacker/mdlDefine/SetSendWin	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130730151401	#P7#=0	#P8#=21	.
+4=#P0#=mb	#P1#=InitCommon	#P2#=zlDrugPacker/clsDrugPacker/InitCommon	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130730103226	#P7#=0	#P8#=24	.
+5=#P0#=mb	#P1#=SetMenuItem	#P2#=zlDrugPacker/mdlDefine/SetMenuItem	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130730101509	#P7#=0	#P8#=48	.
+6=#P0#=mb	#P1#=GetConnectStrEle	#P2#=zlDrugPacker/mdlDefine/GetConnectStrEle	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130729175345	#P7#=0	#P8#=13	.
+7=#P0#=mb	#P1#=CreateWebServices	#P2#=zlDrugPacker/mdlDefine/CreateWebServices	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130729171307	#P7#=0	#P8#=24	.
+8=#P0#=mb	#P1#=DrugInfo	#P2#=zlDrugPacker/mdlDrugPacker/DrugInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130729171134	#P7#=0	#P8#=18	.
+9=#P0#=mb	#P1#=GetHisRecord_DrugInf	#P2#=zlDrugPacker/mdlDefine/GetHisRecord_DrugInf	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130729154814	#P7#=0	#P8#=5	.
+10=#P0#=mb	#P1#=ShowMe	#P2#=zlDrugPacker/frmDrugStock/ShowMe	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130729153615	#P7#=0	#P8#=8	.
+11=#P0#=mb	#P1#=Class_Initialize	#P2#=zlDrugPacker/clsDrugPacker/Class_Initialize	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130705151357	#P7#=0	#P8#=1	.
+12=#P0#=mb	#P1#=IniData	#P2#=zlDrugPacker/frmDeviceParam/IniData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130705150810	#P7#=0	#P8#=85	.
+13=#P0#=mb	#P1#=GetTheDeviceInfo	#P2#=zlDrugPacker/frmDeviceBase/GetTheDeviceInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130705150750	#P7#=0	#P8#=22	.
+14=#P0#=mb	#P1#=optLink_Click	#P2#=zlDrugPacker/frmDeviceBase/optLink_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130705150556	#P7#=0	#P8#=3	.
+15=#P0#=mb	#P1#=GetFolder	#P2#=zlDrugPacker/frmDeviceBase/GetFolder	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130705102718	#P7#=0	#P8#=6	.

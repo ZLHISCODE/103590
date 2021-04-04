@@ -1,0 +1,46 @@
+
+2007/10/31     16:04
+GEB-11        No.068-056
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+*VC       2.8mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     16:13
+GEB-11        No.069-057
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     16:16
+GEB-11        No.070-058
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+

@@ -1,0 +1,4 @@
+行 29: 控件 lvwType 的类 MSComctlLib.ListView 不是一个已加载的控件类。
+行 165: 控件 dtpEnd 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 180: 控件 dtpBegin 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 195: 控件 IDKind 的类 zlIDKind.IDKindNew 不是一个已加载的控件类。

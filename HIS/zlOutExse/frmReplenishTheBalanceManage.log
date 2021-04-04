@@ -1,0 +1,6 @@
+行 37: 控件 dtpStartDate 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 50: 控件 dtpEndDate 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 96: 控件 IDKind 的类 zlIDKind.IDKindNew 不是一个已加载的控件类。
+行 118: 控件 tabMain 的类 XtremeSuiteControls.TabControl 不是一个已加载的控件类。
+行 129: 控件 stbThis 的类 MSComctlLib.StatusBar 不是一个已加载的控件类。
+行 191: 控件 cbsThis 的类 XtremeCommandBars.CommandBars 不是一个已加载的控件类。

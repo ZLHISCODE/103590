@@ -1,0 +1,8 @@
+行 49: 控件 cbr 的类 ComCtl3.CoolBar 不是一个已加载的控件类。
+行 66: 控件 tbr 的类 MSComctlLib.Toolbar 不是一个已加载的控件类。
+行 180: 控件 stbThis 的类 MSComctlLib.StatusBar 不是一个已加载的控件类。
+行 240: 控件 mshMoney 的类 MSHierarchicalFlexGridLib.MSHFlexGrid 不是一个已加载的控件类。
+行 263: 控件 mshDetail 的类 MSHierarchicalFlexGridLib.MSHFlexGrid 不是一个已加载的控件类。
+行 286: 控件 mshList 的类 MSHierarchicalFlexGridLib.MSHFlexGrid 不是一个已加载的控件类。
+行 309: 控件 imgColor 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 367: 控件 imgGray 的类 MSComctlLib.ImageList 不是一个已加载的控件类。

@@ -1,0 +1,328 @@
+CREATE OR REPLACE Procedure zl_住院记帐记录_Insert(
+	NO_IN			病人费用记录.NO%Type, 
+	序号_IN			病人费用记录.序号%Type, 
+	病人ID_IN		病人费用记录.病人ID%Type, 
+	主页ID_IN		病人费用记录.主页ID%Type, 
+	标识号_IN		病人费用记录.标识号%Type, 
+	姓名_IN			病人费用记录.姓名%Type, 
+	性别_IN			病人费用记录.性别%Type, 
+	年龄_IN			病人费用记录.年龄%Type, 
+	床号_IN			病人费用记录.床号%Type, 
+	费别_IN			病人费用记录.费别%Type, 
+	病区ID_IN		病人费用记录.病人病区ID%Type, 
+	科室ID_IN		病人费用记录.病人科室ID%Type, 
+	加班标志_IN		病人费用记录.加班标志%Type, 
+	婴儿费_IN		病人费用记录.婴儿费%Type, 
+	开单部门ID_IN	病人费用记录.开单部门ID%Type, 
+	开单人_IN		病人费用记录.开单人%Type, 
+	从属父号_IN		病人费用记录.从属父号%Type, 
+	收费细目ID_IN	病人费用记录.收费细目ID%Type, 
+	收费类别_IN		病人费用记录.收费类别%Type, 
+	计算单位_IN		病人费用记录.计算单位%Type, 
+	保险项目否_IN	病人费用记录.保险项目否%Type, 
+	保险大类ID_IN	病人费用记录.保险大类ID%Type, 
+	保险编码_IN		病人费用记录.保险编码%Type, 
+	付数_IN			病人费用记录.付数%Type, 
+	数次_IN			病人费用记录.数次%Type, 
+	附加标志_IN		病人费用记录.附加标志%Type, 
+	执行部门ID_IN	病人费用记录.执行部门ID%Type, 
+	价格父号_IN		病人费用记录.价格父号%Type, 
+	收入项目ID_IN	病人费用记录.收入项目ID%Type, 
+	收据费目_IN		病人费用记录.收据费目%Type, 
+	标准单价_IN		病人费用记录.标准单价%Type, 
+	应收金额_IN		病人费用记录.应收金额%Type, 
+	实收金额_IN		病人费用记录.实收金额%Type, 
+	统筹金额_IN		病人费用记录.统筹金额%Type, 
+	发生时间_IN		病人费用记录.发生时间%Type, 
+	登记时间_IN		病人费用记录.登记时间%Type, 
+	药品摘要_IN		药品收发记录.摘要%Type, 
+	划价_IN			Number, 
+	操作员编号_IN	病人费用记录.操作员编号%Type, 
+	操作员姓名_IN	病人费用记录.操作员姓名%Type, 
+	多病人单_IN		Number := 0, 
+	类别ID_IN		药品单据性质.类别ID%Type:=Null, 
+	记帐单ID_IN		病人费用记录.记帐单ID%Type:=Null, 
+	费用摘要_IN		病人费用记录.摘要%Type:=Null, 
+	是否急诊_IN		病人费用记录.是否急诊%Type:=0, 
+	医嘱序号_IN		病人费用记录.医嘱序号%TYPE:=NULL, 
+	频次_IN			药品收发记录.频次%Type:=NULL, 
+	单量_IN			药品收发记录.单量%Type:=NULL, 
+	用法_IN			药品收发记录.用法%Type:=NULL, 
+	期效_IN			药品收发记录.扣率%Type:=NULL, 
+	计价特性_IN		药品收发记录.扣率%Type:=NULL, 
+	简单记帐_IN		Number:=0,
+  费用类型_IN   病人费用记录.费用类型%Type:=Null 
+) 
+AS 
+	--功能：新收一张住院记帐单据 
+	--参数： 
+	--   药品摘要_IN:存放医嘱中的附加说明或修改保存新单据时用。目前仅用于存放于药品收发记录的摘要中。 
+	-- 		原单据(记录状态=2)记录修改产生的新单据号。 
+	-- 		新单据(记录状态=1)记录所修改的原单据号。 
+	--   划价-是否属于住院划价。 
+	v_费用ID 病人费用记录.ID%Type; 
+	v_优先级 未发药品记录.优先级%Type; 
+ 
+	--药房分批、时价药品-- 
+	------------------------------------------------------------ 
+	--该游标用于分批药品数量分解 
+	Cursor c_Stock is 
+		Select * From 药品库存 
+		Where 药品ID=收费细目ID_IN And 库房ID=执行部门ID_IN 
+			And 性质=1 And(Nvl(批次,0)=0 Or 效期 is Null Or 效期>Trunc(Sysdate)) 
+			And Nvl(可用数量,0)<>0 
+		Order By Nvl(批次,0); 
+	r_Stock c_Stock%RowType; 
+	 
+	--属性 
+	v_分批		药品目录.药房分批核算%Type; 
+	v_时价		收费细目.是否变价%Type; 
+	v_名称		收费细目.名称%Type; 
+	--临时变量 
+	v_总数量	Number; 
+	v_当前数量	Number; 
+	v_总金额	Number; 
+	v_当前单价	Number; 
+	--药品收发记录 
+	v_批次		药品收发记录.批次%Type; 
+	v_产地		药品收发记录.产地%Type; 
+	v_批号		药品收发记录.批号%Type; 
+	v_效期		药品收发记录.效期%Type; 
+	v_序号		药品收发记录.序号%Type; 
+	v_扣率		药品收发记录.扣率%Type; 
+	------------------------------------------------------------ 
+	v_Dec		Number; 
+	Err_custom	Exception; 
+	v_Error		Varchar2(255); 
+Begin 
+	--金额小数位数 
+	Begin 
+		Select To_Number(参数值) Into v_Dec From 系统参数表 Where 参数号=9; 
+	Exception 
+		When Others Then v_Dec:=2; 
+	End; 
+ ---20071012周玉强修改:病人费用记录中的执行状态:0 改为decode(执行部门ID_IN,577,1,539,1,1017,1,0),主要是为了将执行状态自动传为1,
+ ----,577表示执行科室为普放室,539为ct室,1017为磁共振室
+	--病人费用记录 
+	Select 病人费用记录_ID.Nextval Into v_费用ID From Dual; 
+ 
+	Insert Into 病人费用记录( 
+		ID,记录性质,NO,记录状态,序号,从属父号,价格父号,多病人单,门诊标志,病人ID,主页ID, 
+		标识号,姓名,性别,年龄,床号,病人病区ID,病人科室ID,费别,收费类别,收费细目ID,计算单位, 
+		保险项目否,保险大类ID,保险编码,发药窗口,付数,数次,加班标志,附加标志,婴儿费,收入项目ID,收据费目, 
+		标准单价,应收金额,实收金额,统筹金额,记帐费用,开单部门ID,开单人,发生时间,登记时间, 
+		执行部门ID,执行状态,划价人,操作员编号,操作员姓名,记帐单ID,摘要,是否急诊,医嘱序号) 
+	Values( 
+		v_费用ID,2,NO_IN,1,序号_IN,Decode(从属父号_IN,0,Null,从属父号_IN), 
+		Decode(价格父号_IN,0,Null,价格父号_IN),多病人单_IN,2,病人ID_IN,主页ID_IN, 
+		Decode(标识号_IN,0,Null,标识号_IN),姓名_IN,性别_IN,年龄_IN, 
+		Decode(床号_IN,0,Null,床号_IN),Decode(病区ID_IN,0,Null,病区ID_IN), 
+		Decode(科室ID_IN,0,Null,科室ID_IN),费别_IN,收费类别_IN,收费细目ID_IN, 
+		计算单位_IN,保险项目否_IN,保险大类ID_IN,保险编码_IN,Decode(Nvl(简单记帐_IN,0),0,NULL,收费类别_IN), 
+		付数_IN,数次_IN,加班标志_IN,附加标志_IN,婴儿费_IN,收入项目ID_IN,收据费目_IN,标准单价_IN,应收金额_IN, 
+		实收金额_IN,统筹金额_IN,1,开单部门ID_IN,开单人_IN,发生时间_IN,登记时间_IN, 
+		执行部门ID_IN,decode(执行部门ID_IN,577,1,539,1,1017,1,0),操作员姓名_IN,Decode(划价_IN,1,Null,操作员编号_IN), 
+		Decode(划价_IN,1,Null,操作员姓名_IN),记帐单ID_IN,费用摘要_IN,是否急诊_IN,医嘱序号_IN); 
+ 
+	--相关汇总表的处理 
+	--病人余额 
+	Update 病人余额 
+		Set 费用余额=Nvl(费用余额,0)+实收金额_IN 
+	 Where 病人ID=病人ID_IN And 性质=1; 
+ 
+	IF SQL%RowCount=0 Then 
+		Insert Into 病人余额( 
+			病人ID,性质,费用余额,预交余额) 
+		Values( 
+			病人ID_IN,1,实收金额_IN,0); 
+	End IF; 
+ 
+	--病人未结费用 
+	Update 病人未结费用 
+		Set 金额=Nvl(金额,0)+实收金额_IN 
+	 Where 病人ID=病人ID_IN 
+		And Nvl(主页ID,0)=Nvl(主页ID_IN,0) 
+		And Nvl(病人病区ID,0)=Nvl(病区ID_IN,0) 
+		And Nvl(病人科室ID,0)=Nvl(科室ID_IN,0) 
+		And Nvl(开单部门ID,0)=Nvl(开单部门ID_IN,0) 
+		And Nvl(执行部门ID,0)=Nvl(执行部门ID_IN,0) 
+		And 收入项目ID+0=收入项目ID_IN 
+		And 来源途径+0=2; 
+ 
+	IF SQL%RowCount=0 Then 
+		Insert Into 病人未结费用( 
+			病人ID,主页ID,病人病区ID,病人科室ID,开单部门ID,执行部门ID,收入项目ID,来源途径,金额) 
+		Values( 
+			病人ID_IN,主页ID_IN,病区ID_IN,科室ID_IN,开单部门ID_IN,执行部门ID_IN,收入项目ID_IN,2,实收金额_IN); 
+	End IF; 
+ 
+	--病人费用汇总 
+	Update 病人费用汇总 
+		Set 应收金额=Nvl(应收金额,0)+应收金额_IN, 
+			 实收金额=Nvl(实收金额,0)+实收金额_IN 
+	 Where 日期=Trunc(登记时间_IN) 
+		And Nvl(病人病区ID,0)=Nvl(病区ID_IN,0) 
+		And Nvl(病人科室ID,0)=Nvl(科室ID_IN,0) 
+		And Nvl(开单部门ID,0)=Nvl(开单部门ID_IN,0) 
+		And Nvl(执行部门ID,0)=Nvl(执行部门ID_IN,0) 
+		And 收入项目ID+0=收入项目ID_IN 
+		And 来源途径=2 And 记帐费用=1; 
+ 
+	IF SQL%RowCount=0 Then 
+		Insert Into 病人费用汇总( 
+			日期,病人病区ID,病人科室ID,开单部门ID,执行部门ID,收入项目ID,来源途径,记帐费用,应收金额,实收金额,结帐金额) 
+		Values( 
+			Trunc(登记时间_IN),病区ID_IN,科室ID_IN,开单部门ID_IN,执行部门ID_IN,收入项目ID_IN,2,1,应收金额_IN,实收金额_IN,0); 
+	End IF; 
+ 
+	--药品部分 
+	IF 收费类别_IN IN('5','6','7') Then 
+		Select Nvl(A.药房分批核算,0),Nvl(A.是否变价,0),B.名称 
+			Into v_分批,v_时价,v_名称 
+		From 药品目录 A,收费细目 B 
+		Where A.药品ID=B.ID And B.ID=收费细目ID_IN; 
+ 
+		v_总数量:=付数_IN*数次_IN; 
+		v_总金额:=0; 
+		Open c_Stock; 
+ 
+		While v_总数量<>0 Loop 
+			Fetch c_Stock Into r_Stock; 
+			IF c_Stock%NotFound Then 
+				--第一次就没有库存,分批或时价都不允许。 
+				--分批药品数量分解不完,也就是库存不足。 
+				IF v_分批=1 Or v_时价=1 Then 
+					Close c_Stock; 
+					If 医嘱序号_IN IS NULL Then 
+						v_Error:='第 '||序号_IN||' 行的分批或时价药品"'||v_名称||'"没有足够的药品库存！'; 
+					Else 
+						v_Error:='在处理病人"'||姓名_IN||'"时发现分批或时价药品"'||v_名称||'"没有足够的药品库存！'; 
+					End IF; 
+					Raise Err_Custom; 
+				End IF; 
+			ElsIF(v_分批=1 And Nvl(r_Stock.批次,0)=0) Or(v_分批=0 And Nvl(r_Stock.批次,0)<>0) Then 
+				Close c_Stock; 
+				If 医嘱序号_IN IS NULL Then 
+					v_Error:='第 '||序号_IN||' 行药品"'||v_名称||'"的分批属性与库存记录不相符,请检查药品数据的正确性！'; 
+				Else 
+					v_Error:='在处理病人"'||姓名_IN||'"时发现药品"'||v_名称||'"的分批属性与库存记录不相符,请检查药品数据的正确性！'; 
+				End IF; 
+				Raise Err_Custom; 
+			End IF; 
+ 
+			--确定本次分解数量 
+			IF v_分批=1 Or v_时价=1 Then 
+				--对于不分批的时价只可能分解一次,分解不完上面判断了.它分解是为了计算单价. 
+				--每次分解取小者,库存不够分解不完在上面判断. 
+				IF v_总数量<=Nvl(r_Stock.可用数量,0) Then 
+					v_当前数量:=v_总数量; 
+				Else 
+					v_当前数量:=Nvl(r_Stock.可用数量,0); 
+				End if; 
+				IF v_时价=1 Then 
+					If r_Stock.实际数量=0 Then 
+						v_当前单价:=0; 
+					Else 
+						v_当前单价:=Round(Nvl(r_Stock.实际金额/r_Stock.实际数量,0),4); 
+					End IF; 
+				ElsIf v_分批=1 Then 
+					v_当前单价:=标准单价_IN; 
+				End IF; 
+			Else 
+				--普通药品 
+				--不管够不够,程序中已根据参数判断 
+				v_当前数量:=v_总数量; 
+				v_当前单价:=标准单价_IN; 
+			End IF; 
+ 
+			--药品库存(普通情况可能没有记录) 
+			IF c_Stock%Found Then 
+				Update 药品库存 
+					Set 可用数量=Nvl(可用数量,0)-v_当前数量 
+				Where 库房ID=执行部门ID_IN And 药品ID=收费细目ID_IN 
+					And Nvl(批次,0)=Nvl(r_Stock.批次,0) And 性质=1; 
+			ElsIf 执行部门ID_IN IS Not NULL Then 
+				--只有不分批非时价药品可能库存不足出库 
+				Update 药品库存 
+					Set 可用数量=Nvl(可用数量,0)-v_当前数量 
+				Where 库房ID=执行部门ID_IN And 药品ID=收费细目ID_IN 
+					And Nvl(批次,0)=0 And 性质=1; 
+				IF SQL%RowCount=0 Then 
+					Insert Into 药品库存( 
+						库房ID,药品ID,性质,可用数量) 
+					Values( 
+						执行部门ID_IN,收费细目ID_IN,1,-1*v_当前数量); 
+				End IF; 
+			End IF; 
+ 
+			--药品收发记录 
+			IF c_Stock%Found Then 
+				v_批次:=r_Stock.批次; 
+				v_批号:=r_Stock.上次批号; 
+				v_效期:=r_Stock.效期; 
+				v_产地:=r_Stock.上次产地; 
+			End IF; 
+			Select Nvl(Max(序号),0)+1 Into v_序号 From 药品收发记录 Where 单据=Decode(多病人单_IN,1,10,9) And 记录状态=1 And NO=NO_IN; 
+ 
+			--修改的原单据号存放在摘要中 
+			If 期效_IN IS Not NULL Or 计价特性_IN IS Not NULL THEN 
+				v_扣率:=Nvl(期效_IN,0)||Nvl(计价特性_IN,0); 
+			End IF; 
+			Insert Into 药品收发记录( 
+				ID,记录状态,单据,NO,序号,库房ID,对方部门ID,入出类别ID,入出系数, 
+				药品ID,批次,产地,批号,效期,付数,填写数量,实际数量,零售价,零售金额, 
+				摘要,填制人,填制日期,费用ID,频次,单量,用法,扣率) 
+			Values( 
+				药品收发记录_ID.Nextval,1,Decode(多病人单_IN,1,10,9),NO_IN,v_序号,执行部门ID_IN,开单部门ID_IN, 
+				类别ID_IN,-1,收费细目ID_IN,v_批次,v_产地,v_批号,v_效期,Decode(v_分批,1,1,付数_IN), 
+				Decode(v_分批,1,v_当前数量,v_当前数量/付数_IN),Decode(v_分批,1,v_当前数量,v_当前数量/付数_IN), 
+				v_当前单价,Round(v_当前单价*v_当前数量,v_Dec),药品摘要_IN,操作员姓名_IN,登记时间_IN,v_费用ID, 
+				频次_IN,单量_IN,用法_IN,v_扣率); 
+ 
+			--未发药品记录 
+			Update 未发药品记录 
+				Set 病人ID=病人ID_IN, 
+					主页ID=主页ID_IN, 
+					姓名=姓名_IN 
+			 Where 单据=Decode(多病人单_IN,1,10,9) And NO=NO_IN And Nvl(库房ID,0)=Nvl(执行部门ID_IN,0); 
+ 
+			IF SQL%RowCount=0 Then 
+				--取身份优先级 
+				Begin 
+					Select B.优先级 Into v_优先级 From 病人信息 A,身份 B 
+					 Where A.身份=B.名称(+) And A.病人ID=病人ID_IN; 
+				Exception 
+					When Others Then Null; 
+				End; 
+ 
+				Insert Into 未发药品记录( 
+					单据,NO,病人ID,主页ID,姓名,优先级,对方部门ID,库房ID,填制日期,已收费,打印状态) 
+				Values( 
+					Decode(多病人单_IN,1,10,9),NO_IN,病人ID_IN,主页ID_IN,姓名_IN,v_优先级,开单部门ID_IN,执行部门ID_IN,登记时间_IN,1,0); 
+			End IF; 
+ 
+			v_总数量:=v_总数量-v_当前数量; 
+			v_总金额:=v_总金额+Round(v_当前数量*v_当前单价,v_Dec); 
+		End Loop; 
+		 
+		--可能时价药品的库存金额和数量变化了 
+		IF v_时价=1 Then 
+			IF Round(v_总金额/(付数_IN*数次_IN),4)<>标准单价_IN Then 
+				Close c_Stock;	 
+				If 医嘱序号_IN IS NULL Then 
+					v_Error:='第 '||序号_IN||' 行的时价药品"'||v_名称||'"当前计算单价不一致,请重新输入数量计算！'; 
+				Else 
+					--医嘱摆药时是按病人分次计算并提交数据库,因此不同病人使用相同实价药品没有问题。 
+					--但同一病人同时使用两笔以上相同实价药品则会有问题。 
+					v_Error:='在处理病人"'||姓名_IN||'"时发现时价药品"'||v_名称||'"当前计算的单价发生变化。'||CHR(13)||CHR(10)||'请检查该病人是否同时使用了两笔相同的"'||v_名称||'"！'; 
+				End IF; 
+				Raise Err_Custom; 
+			End IF; 
+		End IF; 
+ 
+		Close c_Stock; 
+	End IF; 
+Exception 
+	When Err_custom Then Raise_Application_Error(-20101,'[ZLSOFT]'||v_Error||'[ZLSOFT]'); 
+	When Others Then zl_ErrorCenter(SQLCODE,SQLERRM); 
+End zl_住院记帐记录_Insert; 

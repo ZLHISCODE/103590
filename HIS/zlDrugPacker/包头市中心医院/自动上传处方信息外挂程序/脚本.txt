@@ -1,0 +1,35 @@
+
+Alter Table 未发药品记录 Add 是否上传 Number(1);
+
+--新增过程，非zlhis用户需要授权
+Create Or Replace Procedure Zl_未发药品记录_更新上传标志
+(
+  库房id_In In 未发药品记录.库房id%Type,
+  单据no_In In Varchar2 --NO串:单据1,NO1|单据ID2,NO2....
+) Is
+  v_单据   未发药品记录.单据%Type;
+  v_No     未发药品记录.No%Type;
+  v_Tmp    Varchar2(4000);
+  v_Fields Varchar2(4000);
+Begin
+  If 单据no_In Is Null Then
+    v_Tmp := Null;
+  Else
+    v_Tmp := 单据no_In || '|';
+  End If;
+
+  While v_Tmp Is Not Null Loop
+    --分解单据ID串
+    v_Fields := Substr(v_Tmp, 1, Instr(v_Tmp, '|') - 1);
+    v_单据   := Substr(v_Fields, 1, Instr(v_Fields, ',') - 1);
+    v_No     := Substr(v_Fields, Instr(v_Fields, ',') + 1);
+  
+    v_Tmp := Replace('|' || v_Tmp, '|' || v_Fields || '|');
+  
+    Update 未发药品记录 Set 是否上传 = 1 Where 库房id = 库房id_In And 单据 = v_单据 And NO = v_No;
+  End Loop;
+Exception
+  When Others Then
+    zl_ErrorCenter(SQLCode, SQLErrM);
+End Zl_未发药品记录_更新上传标志;
+/

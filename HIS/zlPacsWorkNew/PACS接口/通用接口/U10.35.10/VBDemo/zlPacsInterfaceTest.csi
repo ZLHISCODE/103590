@@ -1,0 +1,6 @@
+[History]
+1=#P0#=mb	#P1#=Command2_Click	#P2#=zlPacsInterfaceTest/frmInterfaceTest/Command2_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130207115319	#P7#=0	#P8#=10	.
+2=#P0#=mb	#P1#=Command1_Click	#P2#=zlPacsInterfaceTest/frmInterfaceTest/Command1_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130205110416	#P7#=0	#P8#=1	.
+3=#P0#=mb	#P1#=cmdInsertReportImage_Click	#P2#=zlPacsInterfaceTest/frmInterfaceTest/cmdInsertReportImage_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130128134640	#P7#=0	#P8#=1	.
+4=#P0#=mb	#P1#=cmdtest2_Click	#P2#=zlPacsInterfaceTest/frmInterfaceTest/cmdtest2_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130128132313	#P7#=0	#P8#=-1	.
+5=#P0#=mb	#P1#=Form_Load	#P2#=zlPacsInterfaceTest/frmInterfaceTest/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130128132210	#P7#=0	#P8#=1	.

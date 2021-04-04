@@ -1,0 +1,33 @@
+记录：一个对象持续性产生多条数据，简写：RS
+信息：一个对象产生一条数据，简写：INF
+标准值域，简写：STD
+
+产程：stage of labor，简写：SOL，所有表名加该前缀
+SOL_RS_
+SOL_INF_
+SOL_STD_
+
+待产：Expectant,		SOL_RS_Expectant
+临产：Birth,		SOL_RS_Birth
+分娩：Delivery,		SOL_INF_Delivery
+产妇：Puerpera,		SOL_INF_Puerpera
+药物引产：DrugLabor,	SOL_RS_DrugLabor
+入房：CheckInRoom,	SOL_INF_CheckInRoom
+出房：CheckOutRoom,	SOL_INF_CheckOutRoom
+新生儿：Newborns,	SOL_INF_Newborns
+产后：Postpartum,	SOL_RS_Postpartum
+
+
+Select Table_Name, Comments From User_Tab_Comments Where Table_Name Like 'SOL%'
+
+SOL_INF_CHECKINROOM	入房信息
+SOL_INF_CHECKOUTROOM	出房信息
+SOL_INF_DELIVERY	分娩信息
+SOL_INF_NEWBORNS	新生儿信息
+SOL_INF_PUERPERA	产妇信息
+SOL_RS_BIRTH	临产记录
+SOL_RS_DRUGLABOR	药物引产记录
+SOL_RS_EXPECTANT	待产记录
+SOL_RS_POSTPARTUM	产后观察记录
+
+

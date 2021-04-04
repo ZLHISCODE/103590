@@ -1,0 +1,15 @@
+2007-08-03
+15:57:14
+021
+
+ LEU	-          
+ NIT	-          
+ URO	3.5 umol/L 
+ PRO	-          
+ PH 	6.0        
+ BLD	-          
+ SG 	1.020      
+ KET	Neg.       
+ BIL	Neg.       
+ GLU	Neg.       
+ ASC	0.56 mmol/L

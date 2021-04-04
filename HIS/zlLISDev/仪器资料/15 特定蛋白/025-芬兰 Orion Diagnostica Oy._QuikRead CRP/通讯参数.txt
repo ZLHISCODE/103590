@@ -1,0 +1,5 @@
+QuikRead C-Reactive Protein Test
+
+38400,8,1,n
+
+ºÚÏß: 235-325

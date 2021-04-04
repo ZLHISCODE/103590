@@ -1,0 +1,16 @@
+Date :2008-09-08 16:04:16
+ID_NO:2341-                
+Ward: 
+Name: 
+BLD    +++  250   RBC/ul 
+BIL    -    neg          
+URO    +     16   umol/L 
+KET    -    neg          
+PRO    +    0.3   g/L    
+NIT    -    neg          
+GLU    -    neg          
+p.H         5.0          
+S.G     >=1.030          
+LEU    ++    75   WBC/ul 
+VTC    +++  2.8   mmol/L 
+

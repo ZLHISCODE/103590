@@ -1,0 +1,164 @@
+!000a020022 0691 0153080712261              13 1               FF01.000  1C
+!001fAST    38.  U/L     0029
+!002fLDH   746.  U/L     0030
+!003fCKMB    4.6 U/L     003F
+!004fCK     61.  U/L     00EE
+!005h0022E2
+!000a020023 0691 0754420712262              13 2               FF01.000  24
+!001fALT    18.  U/L     0020
+!002fTBIL    6.9 umol/L  0059
+!003fAMYL   55.  U/L     0055
+!004h0023E2
+!000a020024 0691 1034340712263              11 3               FF01.000  1E
+!001fNa+   133.  mmol/L  0027
+!002fK+      3.78mmol/L  00EF
+!003fCl-    95.1 mmol/L  0033
+!004fCa      1.79mmol/L  001E
+!005fECO2   29.  mmol/L  002E
+!006fPHOS     .46mmol/L  005F
+!007fMg      1.43mmol/L  0028
+!008h0024E7
+!000a020025 0691 1101010712264              11 4               FF01.000  16
+!001fNa+   116.  mmol/L  0028
+!002fBu      8.6 umol/L  0024
+!003fAST    39.  U/L     002C
+!004fALKP  115.  U/L     0058
+!005fK+      2.67mmol/L  00EF
+!006fUREA    6.97mmol/L  006E
+!007fALB    21.4 g/L     0034
+!008fBc     14.4 umol/L  0023
+!009fGGT    69.  U/L     002F
+!010fCl-    77.0 mmol/L  0030
+!011fCREA   95.  umol/L  0048
+!012fCa      2.27mmol/L  0017
+!013fTBIL   18.5 umol/L  006A
+!014fLDH   439.  U/L     0032
+!015fAMYL   80.  U/L     0056
+!016fURIC  231.2 umol/L  007F
+!017fPHOS    1.09mmol/L  0071
+!018h0025E9
+!000a020026 0691 1115270712265              11 5               FF01.000  26
+!001fTP     72.4 g/L     0029
+!002fALT    48.  U/L     0024
+!003h0026E4
+!000a020027 0691 1119570712266              31 6               FF01.000  32
+!001fAMYL  276.  U/L     0068
+!002h0027E4
+!000a020028 0691 1123170712263              11 3               FF01.000  22
+!001fAMYL   48.  U/L     0055
+!002h0028E5
+!000a020029 0691 1231470712267              12 7               FF01.000  2F
+!001fNa+   127.  mmol/L  002A
+!002fGLU     6.4 mmol/L  0029
+!003fTP     53.1 g/L     0027
+!004fBu     10.5 umol/L  002E
+!005fAST    27.  U/L     002B
+!006fALKP  244.  U/L     005D
+!007fK+      3.42mmol/L  00EB
+!008fUREA    2.52mmol/L  0063
+!009fALB    24.2 g/L     0037
+!010fBc       .4 umol/L  00F7
+!011fALT    22.  U/L     001C
+!012fGGT    14.  U/L     001F
+!013fCl-    98.0 mmol/L  0036
+!014fCREA   60.  umol/L  0043
+!015fCa      2.16mmol/L  0018
+!016fTBIL    8.3 umol/L  005A
+!017fLDH   692.  U/L     0036
+!018fECO2   22.  mmol/L  002B
+!019fURIC  376.0 umol/L  008A
+!020fPHOS    1.01mmol/L  0063
+!021fMg      1.31mmol/L  0021
+!022h0029E8
+!000a020030 0691 1450010712268              11 8               FF01.000  21
+!001fNa+   133.  mmol/L  0027
+!002fGLU     9.6 mmol/L  002E
+!003fTP     55.5 g/L     002D
+!004fBu     13.5 umol/L  0031
+!005fAST    33.  U/L     0028
+!006fK+      2.47mmol/L  00EE
+!007fUREA   10.23mmol/L  006F
+!008fALB    22.7 g/L     0039
+!009fBc      5.3 umol/L  0013
+!010fALT    34.  U/L     001E
+!011fGGT   142.  U/L     0030
+!012fCl-    98.8 mmol/L  003D
+!013fCREA  100.  umol/L  004D
+!014fCa      2.05mmol/L  0015
+!015fTBIL   16.9 umol/L  006E
+!016fLDH   766.  U/L     0037
+!017fECO2   24.  mmol/L  002C
+!018fURIC  413.9 umol/L  008A
+!019fPHOS    1.04mmol/L  006E
+!020fCKMB    1.0 U/L     533D
+!021fCK     32.  U/L     00EB
+!022fMg       .76mmol/L  001A
+!023h0030E1
+!000a020031 0691 1527190712269              11 9               FF01.000  32
+!001fNa+   124.  mmol/L  0027
+!002fK+      3.90mmol/L  00E9
+!003fCl-    90.5 mmol/L  0032
+!004fCa      2.26mmol/L  0017
+!005fECO2   24.  mmol/L  0029
+!006fPHOS     .86mmol/L  0063
+!007fMg       .84mmol/L  001C
+!008h0031E5
+!000a020032 0691 17015307122610             13 1               FF01.000  2D
+!001fNa+   135.  mmol/L  0029
+!002fK+      3.77mmol/L  00EE
+!003fCl-   100.1 mmol/L  0036
+!004fCa      2.46mmol/L  0019
+!005fECO2   21.  mmol/L  0026
+!006fPHOS     .67mmol/L  0062
+!007fMg       .85mmol/L  001D
+!008h0032E6
+!000a020033 0691 17041907122611             14 1               FF01.000  35
+!001fNa+   130.  mmol/L  0024
+!002fK+      3.99mmol/L  00F2
+!003fCl-    95.5 mmol/L  0037
+!004fCa      2.28mmol/L  0019
+!005fECO2   23.  mmol/L  0028
+!006fPHOS     .85mmol/L  0062
+!007fMg       .95mmol/L  001E
+!008h0033E7
+!000a020034 0691 17171607122612             14 2               FF01.000  39
+!001fNa+   133.  mmol/L  0027
+!002fGLU    13.6 mmol/L  0039
+!003fTP     77.2 g/L     002E
+!004fBu     11.4 umol/L  002E
+!005fAST    41.  U/L     0027
+!006fAST    40.  U/L     0027
+!007fALKP   90.  U/L     004D
+!008fK+      3.65mmol/L  00F1
+!009fUREA    4.52mmol/L  0066
+!010fALB    41.7 g/L     0033
+!011fBc      2.9 umol/L  000F
+!012fALT    37.  U/L     0023
+!013fGGT    54.  U/L     0024
+!014fCl-    91.9 mmol/L  0039
+!015fCREA   97.  umol/L  004E
+!016fCa      2.34mmol/L  0019
+!017fTBIL   12.2 umol/L  0065
+!018fLDH   710.  U/L     002E
+!019fECO2   25.  mmol/L  002F
+!020fURIC  549.3 umol/L  0087
+!021fPHOS     .88mmol/L  0062
+!022fCKMB   10.1 U/L     0048
+!023fCK    109.  U/L     0002
+!024fMg       .65mmol/L  001A
+!025h0034E7
+!000a020035 0691 18540007122613             14 3               FF01.000  37
+!001fNa+   129.  mmol/L  002C
+!002fK+      3.97mmol/L  00F0
+!003fCl-    97.8 mmol/L  003C
+!004fCa      2.36mmol/L  0018
+!005fECO2   21.  mmol/L  0026
+!006fPHOS     .65mmol/L  0060
+!007fMg       .81mmol/L  0019
+!008h0035E9
+!000a020036 0691 21585607122614             12 4               FF01.000  41
+!001fAST    20.  U/L     0020
+!002fLDH   461.  U/L     002A
+!003fCKMB    1.0 U/L     533E
+!004fCK     48.  U/L     00F3
+!005h0036E7

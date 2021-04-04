@@ -1,0 +1,5 @@
+[History]
+1=#P0#=mb	#P1#=cmdExit_Click	#P2#=zlLisComPrintDemo/frmPrintDemo/cmdExit_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20120621115652	#P7#=0	#P8#=4	.
+2=#P0#=mb	#P1#=cmdPrint_Click	#P2#=zlLisComPrintDemo/frmPrintDemo/cmdPrint_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20120621115431	#P7#=0	#P8#=16	.
+3=#P0#=mb	#P1#=cmdGetList_Click	#P2#=zlLisComPrintDemo/frmPrintDemo/cmdGetList_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20120621115026	#P7#=0	#P8#=12	.
+4=#P0#=mb	#P1#=cmdLogin_Click	#P2#=zlLisComPrintDemo/frmPrintDemo/cmdLogin_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20120621114515	#P7#=0	#P8#=13	.

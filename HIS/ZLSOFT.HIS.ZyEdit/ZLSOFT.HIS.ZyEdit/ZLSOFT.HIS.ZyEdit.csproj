@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C97E644E-4082-4331-91EC-8981006A0C0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZLSOFT.HIS.ZyEdit</RootNamespace>
+    <AssemblyName>ZLSOFT.HIS.ZyEdit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>DLL\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="zlHisLibrary">
+      <HintPath>DLL\zlHisLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\ComLib.cs" />
+    <Compile Include="Class\Pinyin.cs" />
+    <Compile Include="Class\PyCode.cs" />
+    <Compile Include="Class\PyHash.cs" />
+    <Compile Include="From\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmAddDisEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmAddDisEdit.Designer.cs">
+      <DependentUpon>frmAddDisEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmDrugUseEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmDrugUseEdit.Designer.cs">
+      <DependentUpon>frmDrugUseEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmZxEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmZxEdit.Designer.cs">
+      <DependentUpon>frmZxEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmDiagEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmDiagEdit.Designer.cs">
+      <DependentUpon>frmDiagEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmFjEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmFjEdit.Designer.cs">
+      <DependentUpon>frmFjEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmDrugEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmDrugEdit.Designer.cs">
+      <DependentUpon>frmDrugEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Ishowfrm.cs" />
+    <Compile Include="Model\BaseData.cs" />
+    <Compile Include="UserControl\TextBoxEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\TextBoxEx.Designer.cs">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\CustTabs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\DataCenter.cs" />
+    <Compile Include="From\frmZyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmZyEdit.Designer.cs">
+      <DependentUpon>frmZyEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\frmZySelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\frmZySelect.Designer.cs">
+      <DependentUpon>frmZySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\HsComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\HsComboBox.designer.cs">
+      <DependentUpon>HsComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Class\ShowFrm.cs" />
+    <Compile Include="Class\SQLHelper_Oracle.cs" />
+    <EmbeddedResource Include="From\frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmAddDisEdit.resx">
+      <DependentUpon>frmAddDisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmDrugUseEdit.resx">
+      <DependentUpon>frmDrugUseEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmZxEdit.resx">
+      <DependentUpon>frmZxEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmDiagEdit.resx">
+      <DependentUpon>frmDiagEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmFjEdit.resx">
+      <DependentUpon>frmFjEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmDrugEdit.resx">
+      <DependentUpon>frmDrugEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmZyEdit.resx">
+      <DependentUpon>frmZyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\frmZySelect.resx">
+      <DependentUpon>frmZySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControl\HsComboBox.resx">
+      <DependentUpon>HsComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\TextBoxEx.resx">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\CustTabs.resx">
+      <DependentUpon>CustTabs.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

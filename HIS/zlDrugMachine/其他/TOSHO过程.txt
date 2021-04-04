@@ -1,0 +1,91 @@
+create procedure proHISDrug(
+  @code varchar(20),
+  @name varchar(50),
+  @spec varchar(20),
+  @type varchar(50),
+  @dosage float,
+  @dsg_unit varchar(10),
+  @pk_amount int,
+  @pk_unit varchar(10),
+  @manu_code varchar(20),
+  @manu varchar(100),
+  @py_code varchar(10)
+)
+as
+
+begin
+
+  if exists(select 1 from atf_his_druginfo where drug_code = @code) begin
+    update atf_his_druginfo 
+    set drugname=@name,specification=@spec,drug_type=@type,
+      dosage=@dosage,pack_amount=@pk_amount,pack_name=@pk_unit,manufactory=@manu,
+      manu_no=@manu_code,py_code=@py_code
+    where drug_code=@code
+  end
+  else begin
+    insert into atf_his_druginfo
+      (drug_code,drugname,specification,drug_type,dosage,dos_unit,pack_amount,pack_name,manufactory,manu_no,py_code)
+    values 
+      (@code,@name,@spce,@type,@dosage,@dsg_unit,@pk_amount,@pk_unit,@manu,@manu_code,@py_code)
+  end
+    
+end
+
+
+create procedure proHISDosage(
+  @ward_sn varchar(50),
+  @ward_name varchar(20),
+  @group_no varchar(10),
+  @inpatient_no varchar(20),
+  @p_id varchar(20),
+  @name varchar(20),
+  @doctor varchar(20),
+  @bed_no varchar(10),
+  @comment varchar(30),
+  @drug_code varchar(20),
+  @drug_name varchar(50),
+  @drug_spec varchar(30),
+  @dosage float,
+  @dos_unit varchar(20),
+  @amount float,
+  @occ_time smalldatetime,
+  @pri_flag varchar(1),
+  @detail_sn int
+)
+as 
+
+declare
+  @no varchar(10)
+begin
+
+  --产生唯一号
+  select @no = convert(char(6),getdate(),12) + right('000000'+cast(isnull(max(substring(page_no,7,len(page_no))),0)+1 as varchar(4)),4) 
+  from atf_ypxx where convert(char(6),getdate(),12)=left(page_no,6)
+
+  --插入主表
+  begin try
+    insert into atf_yp_page_no 
+      (ward_sn,group_no,atf_no,submit_time,page_no,flag)
+    values
+      (@ward_sn,@group_no,1,getdate(),@no,0)
+  end try
+  begin catch
+    raiseerror(error_message(), 1, 1)
+    return
+  end catch
+
+  --插入从表
+  begin try
+    insert into ypxx
+      (inpatient_no,p_id,name,ward_sn,ward_name,doctor,bed_no,comment,comm2,drug_code,drugname,specification,dosage,dos_unit,amount,
+       occ_time,flag,atf_no,pri_flag,page_no,detail_sn)
+    values
+      (@inpatient_no,@p_id,@name,@ward_sn,@ward_name,@doctor,@bed_no,@comment,null,@drug_code,@drug_name,@drug_spec,@dosage,@dos_unit,
+       @amount,@occ_time,0,1,@pri_flag,@no,@detail_sn)
+  end try
+  begin catch
+    raiseerror(error_message(), 1, 1)
+    return
+  end catch
+
+end

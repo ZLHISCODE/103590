@@ -1,0 +1,43 @@
+Public Const gstrRegPath As String = "公共模块\zlXWInterface\"   '注册表存储路径
+Public Function getDecryptionWord(ByVal strPassW As String) As String
+'------------------------------------------------
+'功能：获取解密的源文
+'参数： strPassW  --  需要解密的密文
+'返回：返回它的源文
+'------------------------------------------------
+    Dim i As Integer
+    Dim lngAsc  As Integer
+    Dim strTemp() As String
+    Dim lngPassWLength As Integer
+    Dim lngBase As Long
+    Dim strRandom As String
+    Dim strPassSouce As String
+
+    i = 0
+    
+    strPassSouce = Mid(strPassW, 2, Len(strPassW) - 2)
+    lngPassWLength = Len(strPassSouce)
+    lngBase = Asc(Mid(strPassW, 1, 1))
+    
+    strRandom = Right(strPassW, 1)
+    
+    ReDim intAsc(0 To lngPassWLength - 1), strTemp(0 To lngPassWLength - 1)
+    
+    Do While i < lngPassWLength
+        lngAsc = Asc(Mid(strPassSouce, i + 1, 1))
+        lngAsc = lngAsc Xor Asc(strRandom) Xor lngBase
+        strTemp(i) = Chr(lngAsc)
+        i = i + 1
+    Loop
+
+    getDecryptionWord = Join(strTemp, "") '解密后的字串
+End Function
+
+    strDBUser = getDecryptionWord(GetSetting("ZLSOFT", gstrRegPath & strDBUser, "1", "000")) 
+    '1、可以通过ZL9Comlib.clsDataBase.GetUserInfo获取（记录集的USer字段）
+    '2、外挂部件本身可能存在gstrDBUser的缓存，直接使用
+    
+    strDBPassword = getDecryptionWord(GetSetting("ZLSOFT", gstrRegPath & strDBUser, "2", "000"))
+    strDBServer = getDecryptionWord(GetSetting("ZLSOFT", gstrRegPath & strDBUser, "3", "000"))
+    blnTransPassword = getDecryptionWord(GetSetting("ZLSOFT", gstrRegPath & strDBUser, "4", "000"))
+

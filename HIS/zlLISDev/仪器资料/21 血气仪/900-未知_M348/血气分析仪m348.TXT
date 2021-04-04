@@ -1,0 +1,42 @@
+---- Chiron Diagnostics 348 ----
+Blood Gas Report
+348-        15:26     8 Sep 2008
+Sample No.  345          Syringe
+Operator ID 1
+Patient  ID 9408
+
+Corrected 36.7'C
+  pH          7.307 v 
+  pCO2        10.06 ^  kPa
+  pO2         13.96 ^  kPa
+^,v = outside ref. range
+
+Measured    37'C
+  pH          7.302 v    
+  pCO2        10.20 ^  kPa
+  pO2         14.21 ^  kPa
+^,v = outside ref. range
+
+Reference Ranges
+  pH          7.350 - 7.450
+  pCO2         4.27 -  6.00
+  pO2         10.00 - 13.33
+
+Calculated Data
+  HCO3act      37.0    mmol/L
+  HCO3std      32.5    mmol/L
+  BE(ecf)      10.6    mmol/L
+  BE(B)         8.7    mmol/L
+  ctCO2        39.3    mmol/L
+  O2SAT        97.1    %
+  O2CT         13.3    mL/dL
+  ctHb(est)
+
+Entered Data
+  Temp         36.7    'C
+  ctHb           96    g/L
+Short sample
+--------------------------------
+
+
+

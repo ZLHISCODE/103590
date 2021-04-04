@@ -1,0 +1,5 @@
+user:pacs
+pass:pacs
+IP:200.200.200.3
+SID:yygl
+table:pacs_bldak

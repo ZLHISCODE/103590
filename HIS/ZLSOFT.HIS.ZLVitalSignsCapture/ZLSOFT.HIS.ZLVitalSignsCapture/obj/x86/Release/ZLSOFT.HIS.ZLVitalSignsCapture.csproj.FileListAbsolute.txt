@@ -1,0 +1,2 @@
+D:\C#项目\ZLSOFT.HIS.ZLVitalSignsCapture\ZLSOFT.HIS.ZLVitalSignsCapture\bin\x86\Release\ZLSOFT.HIS.ZLVitalSignsCapture.dll
+D:\C#项目\ZLSOFT.HIS.ZLVitalSignsCapture\ZLSOFT.HIS.ZLVitalSignsCapture\obj\x86\Release\ZLSOFT.HIS.ZLVitalSignsCapture.dll

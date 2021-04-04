@@ -1,0 +1,293 @@
+准备安装包
+1.winx64_12201_database.zip（12.2及以上版本）
+2.apex_19.2.zip，及补丁：p30392181_1920_Generic.zip
+3.jdk-8u231-windows-x64.exe
+  linux版本下载：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+4.apache-tomcat-9.0.30.exe
+  linux版本下载：https://tomcat.apache.org/download-90.cgi
+  及apr部件文件tomcat-native-1.2.23-openssl-1.1.1c-win32-bin.zip
+  APR下载:http://archive.apache.org/dist/tomcat/tomcat-connectors/native/
+5.ords-19.4.0.352.1226.zip
+
+详细的安装可参考Oracle官方文档（安装过程遇到疑难问题时查阅）
+APEX安装：https://docs.oracle.com/en/database/oracle/application-express/19.2/htmig/index.html
+ORDS安装：https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/19.4/aelig/index.html
+
+-------------------------------------------------------------------------------------------------------
+1.安装Oracle数据库
+1.1安装12.2及以上版本
+1.2字符集采用缺省的AL32UTF8
+1.3建议创建实例为非容器数据库（如果创建成了容器数据库，后续的安装配置有少量特别处理）
+1.4建议实例名：ORCLAPEX
+1.5创建服务名：ORCLAPEX
+   
+1.6如果该机器同时安装了32位的Oracle客户端，当该版本低于11.2.0.3时，连接Oracle 12C服务器之前，须修改12C的配置文件：
+找到Oracle的Home目录下的文件，例如：D:\Oracle\12.2\network\admin\sqlnet.ora
+增加下面这一行
+SQLNET.ALLOWED_LOGON_VERSION_SERVER = 10
+
+1.7通过PLSQL连接Oracle数据库
+在Oracle客户端的配置文件中添加服务名（如果你的PLSQL是32位的，需要安装Oracle 32位客户端才能连接数据库）
+C:\oracle\product\10.2.0\client_1\network\ADMIN\tnsnames.ora
+添加一个服务名，ip,端口，实例名，这三项指向12C服务器。
+
+如果你仅通过SQLPLUS连接数据库，则可以使用Oracle服务器安装后自带的64位的SQLPLUS,需要先配置服务器的tnsnames.ora,添加服务名。
+例如：D:\Oracle\12.2\network\admin\tnsnames.ora
+
+
+
+-------------------------------------------------------------------------------------------------------
+2.安装APEX(19.2)
+2.1创建表空间
+用于安装APEX时指定：APEX应用表空间，文件表空间
+
+#注意：如果是容器数据库，建议安装到PDB中，在PDB中创建表空间之前先执行：ALTER SESSION SET CONTAINER = <PDB_name>;
+
+以sys用户进入sqlplus执行：
+C:\Users\zyk>sqlplus /@ORCLAPEX as sysdba
+SQL>CREATE TABLESPACE ZLAPEX_DATA  Datafile 'D:\oracle\APEX_Data\ZLAPEX_DATA.dbf'  SIZE 1G AUTOEXTEND ON NEXT 100M;
+SQL>CREATE TABLESPACE ZLAPEX_FILES Datafile 'D:\oracle\APEX_Data\ZLAPEX_FILES.dbf' SIZE 1G AUTOEXTEND ON NEXT 100M;
+
+#注意：数据文件路径，查询Select File_Name From Dba_Data_Files Where Tablespace_Name = 'SYSTEM'
+
+2.2执行APEX安装脚本
+将APEX安装文件压缩包解压
+进入命令行(Windows:cmd)
+进入到APEX安装文件所在的目录，以sys用户登录sqlplus并执行安装脚本，例：
+C:\Users\zyk>cd D:\DownLoad\soft\apex19.2
+C:\Users\zyk>d:
+D:\DownLoad\soft\apex19.2>sqlplus /@ORCLAPEX as sysdba
+SQL>@apexins.sql ZLAPEX_DATA ZLAPEX_FILES Temp /i/
+
+2.3基本配置
+设置APEX管理员admin的密码
+SQL>@apxchpwd.sql
+
+建议输入：Zlsoft:12
+#注意：admin的密码必须包含大小写字母、数字和特殊字符（可以在安装完成后在网页的管理界面取消复杂密码限制）
+如果ADMIN账户被锁或者忘记密码，可以通过执行这个脚本来重新配置
+
+解锁APEX相关帐号并设置密码（因为后面涉及多个用户的密码设置，为了方便记忆，建议统一密码为zlsoft）
+SQL>ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK;
+SQL>ALTER USER APEX_PUBLIC_USER IDENTIFIED BY zlsoft;
+SQL>ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+#注意：这个用户的密码必须配置为永不过期
+
+解锁匿名帐号
+SQL>ALTER USER ANONYMOUS ACCOUNT UNLOCK;
+
+关闭数据库XMLDB的http端口（因为我们将采用ORDS来提供Web服务）
+SQL>exec dbms_xdb.sethttpport(0);
+
+2.4配置RESTful服务
+SQL>@apex_rest_config.sql
+Enter a password for the APEX_LISTENER user              []zlsoft
+Enter a password for the APEX_REST_PUBLIC_USER user              []zlsoft
+
+
+2.5配置ACL访问权限
+Declare
+  Acl_Path Varchar2(4000);
+Begin
+  Select Acl Into Acl_Path From Dba_Network_Acls Where Host = '*' And Lower_Port Is Null And Upper_Port Is Null;
+  If Dbms_Network_Acl_Admin.Check_Privilege(Acl_Path, 'APEX_190200', 'connect') Is Null Then
+    Dbms_Network_Acl_Admin.Add_Privilege(Acl_Path, 'APEX_190200', True, 'connect');
+  End If;
+Exception
+  -- When no ACL has been assigned to '*'.
+  When No_Data_Found Then
+    Dbms_Network_Acl_Admin.Create_Acl('power_users.xml', 'ACL that lets power users to connect to everywhere',
+                                      'APEX_190200', True, 'connect');
+    Dbms_Network_Acl_Admin.Assign_Acl('power_users.xml', '*');
+End;
+/
+Commit;
+
+Begin
+  Dbms_Network_Acl_Admin.Append_Host_Ace(Host => '*',
+                                         Ace => Xs$ace_Type(Privilege_List => Xs$name_List('connect'),
+                                                             Principal_Name => 'APEX_190200',
+                                                             Principal_Type => Xs_Acl.Ptype_Db));
+End;
+/
+
+2.6安装汉化包
+在命令行进入apex安装脚本文件夹下的目录builder/zh-cn
+以sys用户登录sqlplus，并修改当前schema为APEX所有者模式，执行脚本load_zh-cn.sql
+C:\Users\ThinkPad>cd D:\DownLoad\soft\apex19.2\builder\zh-cn
+C:\Users\ThinkPad>d:
+D:\DownLoad\soft\apex19.2\builder\zh-cn>sqlplus /@ORCLAPEX as sysdba
+
+SQL>alter session set current_schema=APEX_190200;
+SQL>@load_zh-cn.sql;
+
+-------------------------------------------------------------------------------------------------------
+3.安装JDK及Tomcat
+3.1安装Java环境：jdk-8uXXX-windows-x64.exe
+3.2安装Tomcat,如果是免安装包，解压到C盘即可，暂时不用启动Tomcat(在后续安装完ORDS后再启动)
+   如果是exe安装程序，安装过程中用户名及密码建议为：admin/zlsoft，其余保持缺省即可。
+
+   为Apache安装APR(Apache portable Run-time libraries，Apache可移植运行库),以提高网站的并发访问性能。
+   解压文件：tomcat-native-1.2.23-openssl-1.1.1c-win32-bin.zip
+   将bin\x64下的两个文件：tcnative-1.dll，tcnative-1-src.pdb
+   拷贝到Tomcat的执行文件目录：C:\Program Files\Apache Software Foundation\Tomcat 9.0\bin
+   
+   另外，需要修改配置文件server.xml中的protocol，见后面的描述。
+	
+   配置成功后，在最后的步骤，启用tomcat之后，日志文件：
+   C:\Program Files\Apache Software Foundation\Tomcat 9.0\logs\catalina.2019-12-30.log
+   可以看到如下这样一行：
+   org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-apr-8080"]
+
+3.3将APEX安装包目录下的图片资源文件拷到Tomcat相关目录
+在tomcat/webapps下创建i文件夹，将apex\images目录下的内容copy到tomcat/webapps/i/目录下
+
+3.4调整配置文件，支持网页文件压缩以提高性能
+打开conf目录下的配置文件server.xml
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\server.xml
+
+找到第一个redirectPort="8443"的位置行
+在该行前面增加三行，配置compression、compressionMinSize、compressibleMimeType
+注意：网上很多文章写的是compressableMimeType，如果按此名称配置，会在日志中看到警告信息：
+ Setting property 'compressableMimeType' to  'text/html......' did not find a matching property.
+实际上该参数已更名为compressibleMimeType（字母a改成了i）
+用来提高网页相关文件的下载性能(以及解决使用火狐浏览器遇到的一些问题)。
+
+把下面这行的HTTP/1.1改为org.apache.coyote.http11.Http11AprProtocol，以支持APR(通过支持异步IO来提高并发性能)
+
+<Connector port="8080" protocol="org.apache.coyote.http11.Http11AprProtocol"
+connectionTimeout="20000"
+compression="on" 
+compressionMinSize="2048" 
+compressibleMimeType="text/html,text/xml,text/javascript,application/x-javascript,application/javascript,text/css,text/plain,application/json"
+redirectPort="8443" />
+
+3.5安装补丁p30392181_1920_Generic.zip
+解压该补丁包，在windows命令行进入到该目录：
+cd D:\DownLoad\APEX\30392181
+
+以sys用户登录sqlplus运行脚本catpatch.sql
+sqlplus "sys/ as sysdba" @catpatch.sql
+
+然后，将30392181\images目录下的libraries目录及子目录的内容拷贝到tomcat/webapps/i/目录下（将会替换其中的6个同名文件）
+
+
+-------------------------------------------------------------------------------------------------------
+4.安装ORDS
+4.1解压ORDS安装文件
+   为方便后续使用，将其中的ords.war文件重命名为apex.war
+
+4.2修改配置文件，以支持更大的并发访问量
+在解压出的ORDS安装目录下创建目录conf\apex，然后在该目录下创建配置文件defaults.xml
+D:\DownLoad\soft\ords-19.4.0.352.1226\conf\apex\defaults.xml
+(本来安装过程会自动创建该文件，我们为了预先指定配置文件中的参数，所以人工创建)
+
+在配置文件defaults.xml中添加以下内容：
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+ <entry key="jdbc.MaxLimit">100</entry>
+ <entry key="jdbc.MinLimit">10</entry>
+ <entry key="jdbc.InitialLimit">10</entry>
+ <entry key="jdbc.InactivityTimeout">1800</entry>
+ <entry key="apex.jdbc.InitialLimit">10</entry>
+ <entry key="apex.jdbc.AbandonedConnectionTimeout">900</entry>
+ <entry key="apex.jdbc.MaxConnectionReuseCount">50000</entry>
+ <entry key="apex.security.requestValidationFunction">wwv_flow_epg_include_modules.authorize</entry>
+</properties>
+
+4.3执行ORDS安装
+在命令行进入ORDS安装目录后执行安装(在命令行查看帮助：java -jar apex.war help)
+C:\Users\zyk>cd D:\DownLoad\soft\ords-19.4.0.352.1226
+C:\Users\zyk>d:
+D:\DownLoad\soft\ords-19.4.0.352.1226>java -jar apex.war install advanced
+
+#注意:以下安装过程涉及输入4个用户的密码，建议统一为zlsoft，以方便记忆
+
+输入要存储配置数据的位置:conf
+输入相应编号：[1] 基本  [2] TNS  [3] 定制 URL [1]:1		(19.4才有)
+输入数据库服务器的名称 [192.168.33.127]:
+输入数据库监听端口 [1521]:
+输入 1 指定数据库服务名称, 或输入 2 指定数据库 SID [1]:2
+	#独立实例选择2，如果是安装在容器数据库的pdb中，此处选择1（因为pdb的SID与cdb相同，会导致连接到CDB上）
+	输入数据库SID [orclapex]:
+#输入数据库服务名 [orclpdb]:你登录PLSQL时使用的服务名
+如果您希望验证/安装 Oracle REST Data Services 方案, 则输入 1; 或者输入 2 跳过此步骤 [1]:1
+输入ORDS_PUBLIC_USER的数据库口令:zlsoft
+确认口令:zlsoft
+
+	#如果这一步连接失败，需检查在SQLPLUS下是否能够以EZ Connect方式连接到数据库：
+	SQL>sqlplus sys/his@192.168.33.127:1521/orclapex
+	#如果连接失败，请检查数据库监听的配置，常见的情况是本机配置时没有监听该IP，而是监听的localhost
+	#分析诊断：在命令行下执行lsnrctl，执行status命令可查看监听情况
+	#解决办法：修改C:\oracle\product\12.0\db_1\network\admin\listener.ora中的监听IP及实例，并重启监听
+	#重新安装前，须删除含有apex.xml文件的最末级文件夹：conf\apex\conf(有的环境下可能没有,则无须删除)
+
+需要 SYS AS SYSDBA 以验证 Oracle REST Data Services 方案。
+Enter the administrator username:sys
+输入SYS AS SYSDBA的数据库口令:
+确认口令:
+检索信息.
+为 ORDS_METADATA 输入默认表空间 [SYSAUX]:
+为 ORDS_METADATA 输入临时表空间 [TEMP]:
+为 ORDS_PUBLIC_USER 输入默认表空间 [USERS]:
+为 ORDS_PUBLIC_USER 输入临时表空间 [TEMP]:
+如果您希望使用 PL/SQL 网关, 则输入 1; 或者输入 2 跳过此步骤。
+如果正在使用 Oracle Application Express 或者正在从 mod_plsql 移植, 则必须输入 1 [1]:1
+输入 PL/SQL 网关数据库用户名 [APEX_PUBLIC_USER]:
+输入APEX_PUBLIC_USER的数据库口令:zlsoft
+确认口令:zlsoft
+输入 1 可以为 Application Express RESTful 服务数据库用户 (APEX_LISTENER, APEX_REST_PUBLIC_USER) 指定口令; 或者输入 2 跳过此步骤 [1]:1
+输入APEX_LISTENER的数据库口令:zlsoft
+确认口令:zlsoft
+输入APEX_REST_PUBLIC_USER的数据库口令:zlsoft
+确认口令:zlsoft
+
+输入相应编号以选择要启用的功能：[1] SQL Developer Web [2] 启用 REST 的 SQL [3] 无 [1]:2
+2019-12-30T07:50:48.503Z INFO   reloaded pools: []
+正在安装Oracle REST Data Services版本 19.4.0.r3521226
+... 日志文件已写入C:\Users\ThinkPad\ords_install_core_2019-12-30_155048_00819.log
+... 已验证数据库的先决条件
+... 已创建 Oracle REST Data Services 代理用户
+... 已创建 Oracle REST Data Services 方案
+... 已授予 Oracle REST Data Services 权限
+... 已创建 Oracle REST Data Services 数据库对象
+... 日志文件已写入C:\Users\ThinkPad\ords_install_datamodel_2019-12-30_155111_00242.log
+... 日志文件已写入C:\Users\ThinkPad\ords_install_apex_2019-12-30_155116_00201.log
+已完成 Oracle REST Data Services 版本 19.4.0.r3521226 的安装。用时: 00:00:32.224
+
+要以独立模式启动, 请输入 1; 要退出, 请输入 2 [1]:2
+
+#如果以上过程出错，要重新配置，须删除含有apex.xml文件的最末级文件夹：conf\apex\conf(有的环境下可能没有,就无须删除)
+
+
+4.4把ORDS安装目录下的apex.war文件复制到tomcat/webapps目录下
+   如果重新制作并拷入apex.war，需先删除tomcat目录下的同名文件夹apex
+
+4.5启动Tomcat
+在Windows开始菜单中找到Apache Tomcat9.0 Tomcat\Monitor Tomcat,运行后，执行Start按钮。
+其中可以设置为系统启动时自动运行(startup type设置为automatic)。
+关闭后，Windows任务栏右下角会有一个小图标。
+如果要查看启动过程中的错误，可以用管理员用户在命令行下执行：
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\bin\startup.bat
+
+如果要启用网页管理界面，可以在这个目录下新增一个文件：manager.xml
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf\Catalina\localhost
+
+在文件manager.xml中拷入下面的内容,其中IP范围192.168.*根据当前授权访问的ip网段修改。
+<Context privileged="true" antiResourceLocking="false"
+         docBase="${catalina.home}/webapps/manager">
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^192.168.*$" />
+</Context>
+
+然后就可以通过下面这个网址查看和管理网站应用
+http://IP:8080/manager/html
+   
+-------------------------------------------------------------------------------------------------------
+5.调整APEX的初始配置
+访问网址：http://IP:8080/apex/apex_admin
+用户admin,密码是前面安装时输入的唯一一个复杂密码。
+进入之后，建议首先取消复杂密码策略并修改为一个方便使用的密码，以方便后续登录。
+管理实例\管理密码复杂性，拖到最底端：服务管理员密码策略，改为“使用在工作区密码策略中指定的策略”
+或者
+管理实例\安全性\密码策略 服务管理员密码策略，改为“使用在工作区密码策略中指定的策略”

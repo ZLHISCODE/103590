@@ -1,0 +1,10 @@
+SBrowser = 26, 26, 690, 354, , 130, 130, 794, 458, C
+wke = 52, 52, 812, 380, 
+MyModule = 104, 104, 768, 432, 
+MiniblinkAPI = 52, 52, 716, 380, C
+cUniversalDLLCalls = 26, 26, 786, 354, C
+MiniblinkCallBack = 0, 0, 664, 328, 
+MiniblinkTypeEnum = 0, 0, 0, 0, C
+SBrowserCls = 26, 26, 690, 354, 
+fastcallCallback = 78, 78, 783, 406, Z
+SBrowserCallBack = 0, 0, 0, 0, C

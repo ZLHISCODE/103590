@@ -1,0 +1,10 @@
+mdlDrugPacker = 100, 100, 1094, 604, C
+mdlDYEYMZYF = 50, 50, 1010, 554, 
+frmSelModel = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmOutsideLinkSet = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDYEY_MZ_SetServer = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDYEY_MZ_TransDrug = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+clsDrugPacker = 25, 25, 985, 529, 
+frmDrugPackerSet = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdlDIH = 0, 0, 0, 0, C
+clsXML = 75, 75, 1069, 579, C

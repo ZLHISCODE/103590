@@ -1,0 +1,10 @@
+行 23: 控件 sst1 的类 TabDlg.SSTab 不是一个已加载的控件类。
+行 358: 控件 dtpEnd 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 373: 控件 dtpBegin 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 388: 控件 IDKind 的类 zlIDKind.IDKindNew 不是一个已加载的控件类。
+行 556: 控件 tlbOpt 的类 MSComctlLib.Toolbar 不是一个已加载的控件类。
+行 592: 控件 ils16 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 622: 控件 dtpApplyB 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 637: 控件 dtpAuditB 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 653: 控件 dtpApplyE 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 668: 控件 dtpAuditE 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。

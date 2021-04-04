@@ -1,0 +1,5 @@
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\bin\Debug\ZLSOFT.HIS.ZLMediCare.dll
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\bin\Debug\ZLSOFT.HIS.ZLMediCare.pdb
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\obj\Debug\ZLSOFT.HIS.ZLMediCare.csprojResolveAssemblyReference.cache
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\obj\Debug\ZLSOFT.HIS.ZLMediCare.dll
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\obj\Debug\ZLSOFT.HIS.ZLMediCare.pdb

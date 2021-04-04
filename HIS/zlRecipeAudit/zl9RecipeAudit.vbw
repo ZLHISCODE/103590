@@ -1,0 +1,13 @@
+clsRecipeAudit = 195, 125, 1124, 478, C
+clsBusiness = 0, 0, 0, 0, C
+mdlDefine = 78, 50, 968, 459, C
+mdlRecipeAudit = 0, 0, 0, 0, C
+frmRAOutPatient = 0, 0, 890, 426, C, 39, 25, 989, 352, C
+frmRAInPatient = 0, 0, 890, 409, C, 39, 25, 929, 434, C
+frmRAResult = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmRASetup = 156, 100, 1050, 535, C, 195, 125, 1085, 534, C
+frmRAItems = 156, 100, 1085, 453, C, 195, 125, 1085, 534, C
+frmRAStatistics = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmRAParams = 0, 0, 0, 0, C, 156, 100, 1046, 509, C
+frmRAWarning = 0, 0, 0, 0, C, 273, 175, 1163, 584, C
+frmRAItemsEdit = 234, 150, 1163, 541, C, 234, 150, 1124, 559, C

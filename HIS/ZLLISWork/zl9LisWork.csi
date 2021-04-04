@@ -1,0 +1,11 @@
+[History]
+B0=zl9LisWork/frmLabFilter/cboMachine_Click
+B1=zl9LisWork/frmLabFilter/cboIF1_KeyPress
+B2=zl9LisWork/frmLabFilter/cboApplyMan_KeyPress
+B3=zl9LisWork/frmLabFilter/cboApplyDept_KeyPress
+B4=zl9LisWork/frmLabFilter
+B5=zl9LisWork/frmLabSampleRegisterFilter/InitinterFace
+B6=zl9LisWork/frmLabSampleRegisterFilter/cmdOK_Click
+[TaskList]
+0=12   科室ID增加为模块级变量1    00    19   2006-12-18 12:38:091    0
+1=8    增加病人清单图标1    00    19   2006-12-18 13:03:411    0

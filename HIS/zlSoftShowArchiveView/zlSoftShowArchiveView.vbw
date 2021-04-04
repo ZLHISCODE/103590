@@ -1,0 +1,6 @@
+clsArchive = 0, 0, 0, 0, C
+mdlPublic = 26, 26, 1048, 392, Z
+mdlAPI = 0, 0, 0, 0, C
+frmArchiveView = 0, 0, 0, 0, C, 26, 26, 1048, 392, C
+frmShowHisForms = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdlMain = 52, 52, 1074, 418, 

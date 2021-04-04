@@ -1,0 +1,9 @@
+clsPublicPacs = 26, 26, 868, 466, Z
+mdlPublic = 52, 52, 894, 492, 
+clsFtp = 78, 78, 920, 518, 
+frmReport = 130, 130, 947, 570, , 104, 104, 921, 544, C
+cZip = 0, 0, 0, 0, C
+cUnzip = 0, 0, 0, 0, C
+mUnzip = 0, 0, 0, 0, C
+mZip = 0, 0, 0, 0, C
+frmPrintReport = 0, 0, 0, 0, C, 0, 0, 0, 0, C

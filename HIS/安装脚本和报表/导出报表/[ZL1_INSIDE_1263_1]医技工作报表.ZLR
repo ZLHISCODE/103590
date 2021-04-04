@@ -1,0 +1,600 @@
+[HEAD]
+报表编号=ZL1_INSIDE_1263_1
+报表名称=医技工作报表
+报表说明=医技工作报表
+导出用户=YHIS
+导出时间=2011-09-02 17:14:34
+[ZLREPORTS]
+;
+ID=[NextVal];
+编号=[编号];
+名称=医技工作报表;
+说明=医技工作报表;
+密码=Wn?g$msv`!5@pfn)N*OD;
+打印机=Star AR-3200+;
+进纸=15;
+票据=1;
+打印方式=0;
+系统=;
+程序ID=;
+功能=;
+修改时间=Sysdate;
+发布时间=;
+[ZLRPTFMTS]
+;
+报表ID=[zlReports_ID.CurrVal];
+序号=1;
+说明=临时医嘱单;
+W=11904;
+H=16832;
+纸张=9;
+纸向=1;
+动态纸张=0;
+图样=0;
+[ZLRPTITEMS]
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签1;
+类型=2;
+上级ID=;
+序号=0;
+参照=;
+性质=0;
+内容=科室:[部门.科室];
+表头=;
+X=735;
+Y=1965;
+W=1440;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标题;
+类型=2;
+上级ID=;
+序号=0;
+参照=;
+性质=0;
+内容=诊疗执行汇总表;
+表头=;
+X=4425;
+Y=1185;
+W=3495;
+H=495;
+行高=0;
+对齐=1;
+自调=1;
+字体=宋体;
+字号=24;
+粗体=1;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签2;
+类型=2;
+上级ID=;
+序号=0;
+参照=;
+性质=0;
+内容=日期:[=开始时间] 至 [=截止时间];
+表头=;
+X=4530;
+Y=1965;
+W=2790;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=任意表1;
+类型=4;
+上级ID=;
+序号=0;
+参照=;
+性质=0;
+内容=执行情况;
+表头=;
+X=720;
+Y=2235;
+W=10040;
+H=13080;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=1;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=0;
+参照=;
+性质=;
+内容=[执行情况.编码];
+表头=4^255^诊疗项目|4^255^编码;
+X=0;
+Y=0;
+W=1005;
+H=0;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=1;
+参照=;
+性质=;
+内容=[执行情况.名称];
+表头=4^255^诊疗项目|4^255^名称;
+X=0;
+Y=0;
+W=3105;
+H=0;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=2;
+参照=;
+性质=;
+内容=[执行情况.单位];
+表头=4^255^诊疗项目|4^255^计算单位;
+X=0;
+Y=0;
+W=825;
+H=0;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=3;
+参照=;
+性质=;
+内容=[执行情况.接收];
+表头=4^255^工作量|4^255^接收;
+X=0;
+Y=0;
+W=1005;
+H=0;
+行高=255;
+对齐=2;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=4;
+参照=;
+性质=;
+内容=[执行情况.执行];
+表头=4^255^工作量|4^255^执行;
+X=0;
+Y=0;
+W=1020;
+H=0;
+行高=255;
+对齐=2;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+;
+系统=;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=5;
+参照=;
+性质=;
+内容=[执行情况.金额];
+表头=4^255^金额|4^255^金额;
+X=0;
+Y=0;
+W=1440;
+H=0;
+行高=0;
+对齐=2;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0.00;-0.00; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+[ZLRPTDATAS]
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+名称=部门;
+字段=科室,200;
+对象=USER.部门表;
+类型=0;
+说明=;
+[ZLRPTSQLS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=1;
+内容=select 名称 as 科室;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=2;
+内容=from 部门表;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=3;
+内容=where id=[0];
+[ZLRPTPARS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=0;
+名称=执行科室;
+类型=1;
+缺省值=选择器定义…;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=select 类别,编码,名称,id,简码
+from (
+select 0 as 类别,D.编码,D.名称,D.id,D.简码
+from 上机人员表 O,人员表 P,部门人员 R,部门表 D
+where upper(O.用户名)=user
+and O.人员id=P.id
+and P.id=R.人员id and R.缺省=1
+and R.部门id=D.id
+and D.id in
+(select 部门id
+from 部门性质说明
+where 工作性质 in ('检查','检验','手术','治疗','营养') and 服务对象 in (2,3))
+and (D.撤档时间=to_date('3000-01-01','YYYY-MM-DD') or D.撤档时间 is null)
+union
+select 1 as 类别,编码,名称,id,简码
+from 部门表
+where id in
+(select 部门id
+from 部门性质说明
+where 工作性质 in ('检查','检验','手术','治疗','营养') and 服务对象 in (2,3))
+and (撤档时间=to_date('3000-01-01','YYYY-MM-DD') or 撤档时间 is null)
+and id not in
+(select D.id
+from 上机人员表 O,人员表 P,部门人员 R,部门表 D
+where upper(O.用户名)=user
+and O.人员id=P.id
+and P.id=R.人员id and R.缺省=1
+and R.部门id=D.id))
+where 名称 like '[*]%' or 编码 like '[*]%' or 简码 like '[*]%'
+order by 类别,编码;
+分类字段=;
+明细字段=类别,139,|编码,200,&S|名称,200,&S&D|ID,139,&B|简码,200,&S;
+对象=USER.部门性质说明,USER.上机人员表,USER.人员表,USER.部门人员,USER.部门表|;
+[ZLRPTDATAS]
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+名称=执行情况;
+字段=编码,202|名称,202|单位,202|接收,139|执行,139|金额,139;
+对象=USER.病人医嘱发送,USER.病人医嘱记录,USER.病人医嘱附费,USER.住院费用记录,USER.门诊费用记录,USER.诊疗项目目录;
+类型=0;
+说明=;
+[ZLRPTSQLS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=1;
+内容=Select I.编码,I.名称,I.计算单位 as 单位,S.接收,S.执行,M.金额;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=2;
+内容=From (Select S.医嘱ID,S.发送号,A.诊疗项目ID,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=3;
+内容=	Sum(S.发送数次) 接收,Sum(Decode(S.执行状态,1,1,0)) As 执行 ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=4;
+内容=      From 病人医嘱发送 S,病人医嘱记录 A;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=5;
+内容=      Where S.医嘱id=A.ID ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=6;
+内容=            And S.执行部门id+0=[0] And S.发送时间 Between [1] And [2];
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=7;
+内容=      Group By S.医嘱ID,S.发送号,A.诊疗项目ID) S,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=8;
+内容=     (Select A.医嘱ID,A.发送号,Sum(Nvl(B.实收金额,0)+Nvl(C.实收金额,0)) as 金额;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=9;
+内容=      From (Select 医嘱ID,发送号,记录性质,NO;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=10;
+内容=            From 病人医嘱发送;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=11;
+内容=            Where 执行部门ID+0=[0] And 发送时间 Between [1] And [2];
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=12;
+内容=            Union ALL;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=13;
+内容=            Select A.医嘱ID,A.发送号,B.记录性质,B.NO;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=14;
+内容=            From 病人医嘱发送 A,病人医嘱附费 B;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=15;
+内容=            Where A.执行部门ID+0=[0] And A.发送时间 Between [1] And [2] ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=16;
+内容=             And A.医嘱ID=B.医嘱ID And A.发送号=B.发送号) A,住院费用记录 B, 门诊费用记录 C;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=17;
+内容=       Where A.记录性质=B.记录性质(+) and Nvl(B.记录状态(+),0)<>0 And A.NO=B.NO(+) and ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=18;
+内容=             A.记录性质=C.记录性质(+) and Nvl(C.记录状态(+),0)<>0 and Nvl(C.执行状态(+),0)<>9 And A.NO=C.NO(+) ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=19;
+内容=       Group by A.医嘱ID,A.发送号 Having Nvl(Sum(Nvl(B.实收金额,0)+Nvl(C.实收金额,0)),0)<>0) M,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=20;
+内容=      诊疗项目目录 I;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=21;
+内容=Where S.诊疗项目id=I.ID And S.医嘱ID=M.医嘱ID(+) And S.发送号=M.发送号(+);
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=22;
+内容=Order By I.编码;
+[ZLRPTPARS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=0;
+名称=执行科室;
+类型=1;
+缺省值=选择器定义…;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=select 类别,编码,名称,id,简码
+from (
+select 0 as 类别,D.编码,D.名称,D.id,D.简码
+from 上机人员表 O,人员表 P,部门人员 R,部门表 D
+where upper(O.用户名)=user
+and O.人员id=P.id
+and P.id=R.人员id and R.缺省=1
+and R.部门id=D.id
+and D.id in
+(select 部门id
+from 部门性质说明
+where 工作性质 in ('检查','检验','手术','治疗','营养') and 服务对象 in (2,3))
+and (D.撤档时间=to_date('3000-01-01','YYYY-MM-DD') or D.撤档时间 is null)
+union
+select 1 as 类别,编码,名称,id,简码
+from 部门表
+where id in
+(select 部门id
+from 部门性质说明
+where 工作性质 in ('检查','检验','手术','治疗','营养') and 服务对象 in (2,3))
+and (撤档时间=to_date('3000-01-01','YYYY-MM-DD') or 撤档时间 is null)
+and id not in
+(select D.id
+from 上机人员表 O,人员表 P,部门人员 R,部门表 D
+where upper(O.用户名)=user
+and O.人员id=P.id
+and P.id=R.人员id and R.缺省=1
+and R.部门id=D.id))
+where 名称 like '[*]%' or 编码 like '[*]%' or 简码 like '[*]%'
+order by 类别,编码;
+分类字段=;
+明细字段=类别,139,|编码,200,&S|名称,200,&S&D|ID,139,&B|简码,200,&S;
+对象=USER.部门性质说明,USER.上机人员表,USER.人员表,USER.部门人员,USER.部门表|;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=1;
+名称=开始时间;
+类型=2;
+缺省值=&当天开始时间;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=;
+分类字段=;
+明细字段=;
+对象=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=2;
+名称=截止时间;
+类型=2;
+缺省值=&当天结束时间;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=;
+分类字段=;
+明细字段=;
+对象=;

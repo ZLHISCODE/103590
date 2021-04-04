@@ -1,0 +1,11 @@
+FrmAccoutChoose = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+FrmChangePass = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmSplash = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmUserLogin = 78, 78, 866, 394, Z, 0, 0, 0, 0, C
+clsLogin = 0, 0, 0, 0, C
+clsConnect = 26, 26, 904, 342, 
+frmSelClient = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdlHisCrust = 0, 0, 0, 0, C
+mdlLogin = 52, 52, 930, 368, 
+mdlDefendGetText = 0, 0, 0, 0, C
+clsService = 0, 0, 0, 0, C

@@ -1,0 +1,5 @@
+VBGROUP 5.0
+StartupProject=ZLPacsBrowserStation.vbp
+Project=..\..\ZLRichEPR\zlRichEditor\zlRichEdit.vbp
+Project=..\..\ZLRichEPR\ZLRICHEPR\zlRichEPR.vbp
+Project=..\..\CommonProgram\zlPrintMode\zl9PrintMode.vbp

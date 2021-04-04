@@ -1,0 +1,110 @@
+[Root]
+Most Recent Package=单据控件安装脚本
+
+
+[Package|单据控件安装脚本|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=c:\TEMP\临时文件夹\单据控件安装包
+Controls Design-Time Support=No
+
+[Package|单据控件安装脚本|Configure DAO ISAMs]
+Applicable=No
+
+[Package|单据控件安装脚本|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|单据控件安装脚本|Files Found]
+
+[Package|单据控件安装脚本|Files Released]
+
+[Package|单据控件安装脚本|Missing Dependency Information]
+D:\Program Files\Common Files\System\ado\msado20.tlb=
+
+[Package|单据控件安装脚本|Out-of-Date Dependency Information]
+
+[Package|单据控件安装脚本|Files Added]
+D:\WINNT\System32\MsStkPrp.dll=这个文件用于用户控件的设计时的支持。
+
+[Package|单据控件安装脚本|Files Removed]
+d:\winnt\system32\msstkprp.dll=
+d:\winnt\system32\msprpchs.dll=
+
+[Package|单据控件安装脚本|Files In Project]
+D:\ZLHIS-EASY\费用事务\ZLBillEdit.ocx=Yes
+D:\WINNT\system32\MSVBVM60.DLL=Yes
+D:\WINNT\system32\oleaut32.dll=Yes
+D:\WINNT\system32\olepro32.dll=Yes
+D:\WINNT\system32\asycfilt.dll=Yes
+D:\WINNT\system32\stdole2.tlb=Yes
+C:\VBWin\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+D:\WINNT\system32\VB6CHS.DLL=Yes
+D:\Program Files\Common Files\System\ado\msado20.tlb=Yes
+D:\WINNT\system32\MSHFLXGD.OCX=Yes
+D:\WINNT\system32\MSSTDFMT.DLL=Yes
+D:\WINNT\system32\STDFTCHS.DLL=Yes
+D:\WINNT\system32\MSHFGCHS.DLL=Yes
+D:\WINNT\system32\MSCOMCT2.OCX=Yes
+D:\WINNT\system32\MSCC2CHS.DLL=Yes
+C:\VBWin\Wizards\PDWizard\SETUP.EXE=Yes
+C:\VBWin\Wizards\PDWizard\SETUP1.EXE=Yes
+D:\WINNT\system32\VB6STKIT.DLL=Yes
+C:\VBWin\Wizards\PDWizard\ST6UNST.EXE=Yes
+D:\WINNT\system32\MSSTKPRP.DLL=No
+D:\WINNT\system32\MSPRPCHS.DLL=No
+
+[Package|单据控件安装脚本|Configure Registry Files]
+Applicable=No
+
+[Package|单据控件安装脚本|Configure Remote Servers]
+Applicable=No
+
+[Package|单据控件安装脚本|Install Locations]
+D:\ZLHIS-EASY\费用事务\ZLBillEdit.ocx=$(WinSysPath)
+D:\WINNT\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+D:\WINNT\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINNT\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINNT\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINNT\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\VBWin\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINNT\system32\VB6CHS.DLL=$(WinSysPath)
+D:\Program Files\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+D:\WINNT\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINNT\system32\MSSTDFMT.DLL=$(WinSysPath)
+D:\WINNT\system32\STDFTCHS.DLL=$(WinSysPath)
+D:\WINNT\system32\MSHFGCHS.DLL=$(WinSysPath)
+D:\WINNT\system32\MSCOMCT2.OCX=$(WinSysPath)
+D:\WINNT\system32\MSCC2CHS.DLL=$(WinSysPath)
+C:\VBWin\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\VBWin\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINNT\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\VBWin\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|单据控件安装脚本|Configure Shared Files]
+Applicable=No
+
+[Package|单据控件安装脚本|Distribution]
+Type=single
+Size=
+Title=ZlBillEdit
+
+[Package|单据控件安装脚本|IconGroups]
+Group0=$(Programs)
+PrivateGroup0=True
+Parent0=
+
+[Package|单据控件安装脚本|$(Programs)]
+Icon1=ZLBillEdit.ocx
+Title1=ZlBillEdit
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|单据控件安装脚本|Package]
+PackageFolder=c:\TEMP\临时文件夹\单据控件安装包
+ProjectFolder=E:\ZLBillEdit
+ServerSideCab=
+File1=c:\TEMP\临时文件夹\单据控件安装包\setup.exe
+File2=c:\TEMP\临时文件夹\单据控件安装包\Setup.Lst
+File3=c:\TEMP\临时文件夹\单据控件安装包\ZLBillEdit.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

@@ -1,0 +1,2002 @@
+VERSION 5.00
+Object = "{BEEECC20-4D5F-4F8B-BFDC-5D9B6FBDE09D}#1.0#0"; "vsflex8.ocx"
+Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "MSHFLXGD.OCX"
+Object = "{555E8FCC-830E-45CC-AF00-A012D5AE7451}#9.60#0"; "Codejock.CommandBars.Unicode.9600.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form frmDockSymbol 
+   Appearance      =   0  'Flat
+   AutoRedraw      =   -1  'True
+   BorderStyle     =   0  'None
+   Caption         =   "输入助手"
+   ClientHeight    =   8475
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   10695
+   BeginProperty Font 
+      Name            =   "宋体"
+      Size            =   10.5
+      Charset         =   134
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   Icon            =   "frmDockSymbol.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   8475
+   ScaleWidth      =   10695
+   ShowInTaskbar   =   0   'False
+   StartUpPosition =   1  '所有者中心
+   Begin VB.PictureBox picData 
+      Align           =   2  'Align Bottom
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "宋体"
+         Size            =   9
+         Charset         =   134
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   6105
+      Left            =   0
+      ScaleHeight     =   6105
+      ScaleWidth      =   10695
+      TabIndex        =   4
+      Top             =   2370
+      Width           =   10695
+      Begin VB.TextBox txtSearch 
+         BorderStyle     =   0  'None
+         Height          =   350
+         Left            =   7800
+         TabIndex        =   72
+         ToolTipText     =   "输入首拼简码或中文定位,定位成功后回车加入病历"
+         Top             =   75
+         Width           =   2400
+      End
+      Begin VB.PictureBox picYJS 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   2130
+         Left            =   120
+         ScaleHeight     =   2130
+         ScaleWidth      =   6000
+         TabIndex        =   27
+         ToolTipText     =   "双击空白区域可完成插入功能"
+         Top             =   120
+         Width           =   6000
+         Begin VB.TextBox txtYJ 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   3
+            Left            =   1560
+            TabIndex        =   31
+            Top             =   915
+            Width           =   1890
+         End
+         Begin VB.TextBox txtYJ 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   2
+            Left            =   810
+            TabIndex        =   30
+            Top             =   1125
+            Width           =   720
+         End
+         Begin VB.TextBox txtYJ 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   1
+            Left            =   810
+            TabIndex        =   29
+            Top             =   720
+            Width           =   720
+         End
+         Begin VB.TextBox txtYJ 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BackColor       =   &H00FFFFFF&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   270
+            Index           =   0
+            Left            =   45
+            TabIndex        =   28
+            Top             =   915
+            Width           =   720
+         End
+         Begin VB.Line Line1 
+            X1              =   795
+            X2              =   1530
+            Y1              =   1050
+            Y2              =   1050
+         End
+         Begin VB.Label lbl 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "初潮年龄"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Index           =   0
+            Left            =   60
+            TabIndex        =   35
+            Top             =   690
+            Width           =   720
+         End
+         Begin VB.Label lbl 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "每次行经日数"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Index           =   1
+            Left            =   675
+            TabIndex        =   34
+            Top             =   480
+            Width           =   1080
+         End
+         Begin VB.Label lbl 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "经期相隔日数"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Index           =   2
+            Left            =   675
+            TabIndex        =   33
+            Tag             =   "经期相隔日数"
+            Top             =   1455
+            Width           =   1080
+         End
+         Begin VB.Label lbl 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "闭经年龄/末次停经日期"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Index           =   3
+            Left            =   1560
+            TabIndex        =   32
+            Top             =   675
+            Width           =   1890
+         End
+      End
+      Begin VB.PictureBox picFree 
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   2130
+         Left            =   120
+         ScaleHeight     =   2130
+         ScaleWidth      =   5520
+         TabIndex        =   52
+         Top             =   120
+         Width           =   5520
+         Begin VB.ComboBox cboGroup 
+            BackColor       =   &H00FFFFFF&
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   300
+            Left            =   1050
+            Style           =   2  'Dropdown List
+            TabIndex        =   53
+            Top             =   0
+            Width           =   2475
+         End
+         Begin VSFlex8Ctl.VSFlexGrid mfgFree 
+            Height          =   3105
+            Left            =   0
+            TabIndex        =   63
+            Top             =   360
+            Width           =   4800
+            _cx             =   8467
+            _cy             =   5477
+            Appearance      =   2
+            BorderStyle     =   1
+            Enabled         =   -1  'True
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "宋体"
+               Size            =   14.25
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            MousePointer    =   0
+            BackColor       =   -2147483643
+            ForeColor       =   -2147483640
+            BackColorFixed  =   -2147483633
+            ForeColorFixed  =   -2147483630
+            BackColorSel    =   16772055
+            ForeColorSel    =   -2147483640
+            BackColorBkg    =   -2147483643
+            BackColorAlternate=   -2147483643
+            GridColor       =   -2147483636
+            GridColorFixed  =   -2147483636
+            TreeColor       =   -2147483632
+            FloodColor      =   192
+            SheetBorder     =   -2147483643
+            FocusRect       =   0
+            HighLight       =   1
+            AllowSelection  =   0   'False
+            AllowBigSelection=   -1  'True
+            AllowUserResizing=   1
+            SelectionMode   =   0
+            GridLines       =   1
+            GridLinesFixed  =   1
+            GridLineWidth   =   1
+            Rows            =   2
+            Cols            =   7
+            FixedRows       =   0
+            FixedCols       =   0
+            RowHeightMin    =   420
+            RowHeightMax    =   420
+            ColWidthMin     =   420
+            ColWidthMax     =   420
+            ExtendLastCol   =   0   'False
+            FormatString    =   ""
+            ScrollTrack     =   -1  'True
+            ScrollBars      =   3
+            ScrollTips      =   0   'False
+            MergeCells      =   0
+            MergeCompare    =   0
+            AutoResize      =   0   'False
+            AutoSizeMode    =   0
+            AutoSearch      =   0
+            AutoSearchDelay =   2
+            MultiTotals     =   -1  'True
+            SubtotalPosition=   1
+            OutlineBar      =   0
+            OutlineCol      =   0
+            Ellipsis        =   0
+            ExplorerBar     =   0
+            PicturesOver    =   0   'False
+            FillStyle       =   0
+            RightToLeft     =   0   'False
+            PictureType     =   0
+            TabBehavior     =   0
+            OwnerDraw       =   0
+            Editable        =   0
+            ShowComboButton =   1
+            WordWrap        =   0   'False
+            TextStyle       =   0
+            TextStyleFixed  =   0
+            OleDragMode     =   0
+            OleDropMode     =   0
+            DataMode        =   0
+            VirtualData     =   -1  'True
+            DataMember      =   ""
+            ComboSearch     =   3
+            AutoSizeMouse   =   -1  'True
+            FrozenRows      =   0
+            FrozenCols      =   0
+            AllowUserFreezing=   0
+            BackColorFrozen =   0
+            ForeColorFrozen =   0
+            WallPaperAlignment=   9
+            AccessibleName  =   ""
+            AccessibleDescription=   ""
+            AccessibleValue =   ""
+            AccessibleRole  =   24
+         End
+         Begin VB.Label lblGroup 
+            AutoSize        =   -1  'True
+            Caption         =   "字符子集(&K)"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   0
+            TabIndex        =   54
+            Top             =   60
+            Width           =   990
+         End
+      End
+      Begin VB.PictureBox picRY 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFFF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   2130
+         Left            =   120
+         ScaleHeight     =   2130
+         ScaleWidth      =   6000
+         TabIndex        =   5
+         Tag             =   "乳牙标注"
+         ToolTipText     =   "双击空白区域可完成插入功能"
+         Top             =   120
+         Width           =   6000
+         Begin VB.Frame fraLineRYH 
+            BackColor       =   &H00000000&
+            BorderStyle     =   0  'None
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   30
+            Left            =   240
+            TabIndex        =   7
+            Top             =   1515
+            Width           =   4065
+         End
+         Begin VB.Frame fraLineRYV 
+            BackColor       =   &H00000000&
+            BorderStyle     =   0  'None
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   1635
+            Left            =   2280
+            TabIndex        =   6
+            Top             =   225
+            Width           =   30
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid mshRY 
+            Height          =   675
+            Left            =   240
+            TabIndex        =   8
+            Top             =   1185
+            Width           =   4080
+            _ExtentX        =   7197
+            _ExtentY        =   1191
+            _Version        =   393216
+            BackColor       =   16777215
+            Cols            =   16
+            FixedRows       =   0
+            FixedCols       =   0
+            RowHeightMin    =   350
+            BackColorBkg    =   16777215
+            GridColor       =   12632256
+            AllowBigSelection=   0   'False
+            FocusRect       =   0
+            HighLight       =   0
+            ScrollBars      =   0
+            Appearance      =   0
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   16
+         End
+         Begin VB.Label lblRYLeft 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "右"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   15
+            TabIndex        =   17
+            Top             =   1440
+            Width           =   180
+         End
+         Begin VB.Label lblRYRight 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "左"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   4395
+            TabIndex        =   16
+            Top             =   1440
+            Width           =   180
+         End
+         Begin VB.Label lblRYDn 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "下颌"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   2100
+            TabIndex        =   15
+            Top             =   1905
+            Width           =   360
+         End
+         Begin VB.Label lblRYUp 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "上颌"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   2100
+            TabIndex        =   14
+            Top             =   45
+            Width           =   360
+         End
+         Begin VB.Label lblRY 
+            BackStyle       =   0  'Transparent
+            Caption         =   $"frmDockSymbol.frx":000C
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   945
+            Index           =   0
+            Left            =   2475
+            TabIndex        =   13
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblRY 
+            BackStyle       =   0  'Transparent
+            Caption         =   $"frmDockSymbol.frx":001E
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   945
+            Index           =   1
+            Left            =   2790
+            TabIndex        =   12
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblRY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "    乳尖牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   945
+            Index           =   2
+            Left            =   3135
+            TabIndex        =   11
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblRY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "第一乳磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   945
+            Index           =   3
+            Left            =   3465
+            TabIndex        =   10
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblRY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "第二乳磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   945
+            Index           =   4
+            Left            =   3810
+            TabIndex        =   9
+            Top             =   255
+            Width           =   165
+         End
+      End
+      Begin VB.PictureBox picHY 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   2130
+         Left            =   120
+         ScaleHeight     =   2130
+         ScaleWidth      =   5580
+         TabIndex        =   36
+         Tag             =   $"frmDockSymbol.frx":0032
+         ToolTipText     =   "双击空白区域可完成插入功能"
+         Top             =   120
+         Width           =   5580
+         Begin VB.Frame fraLineHYV 
+            BackColor       =   &H00000000&
+            BorderStyle     =   0  'None
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   1635
+            Left            =   2700
+            TabIndex        =   38
+            Top             =   210
+            Width           =   30
+         End
+         Begin VB.Frame fraLineHYH 
+            BackColor       =   &H00000000&
+            BorderStyle     =   0  'None
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   30
+            Left            =   15
+            TabIndex        =   37
+            Top             =   1500
+            Width           =   5505
+         End
+         Begin MSHierarchicalFlexGridLib.MSHFlexGrid mshHY 
+            Height          =   675
+            Left            =   15
+            TabIndex        =   39
+            Top             =   1170
+            Width           =   5505
+            _ExtentX        =   9710
+            _ExtentY        =   1191
+            _Version        =   393216
+            BackColor       =   16777215
+            Cols            =   16
+            FixedRows       =   0
+            FixedCols       =   0
+            RowHeightMin    =   350
+            BackColorBkg    =   16777215
+            GridColor       =   12632256
+            AllowBigSelection=   0   'False
+            FocusRect       =   0
+            HighLight       =   0
+            ScrollBars      =   0
+            Appearance      =   0
+            _NumberOfBands  =   1
+            _Band(0).Cols   =   16
+         End
+         Begin VB.Label lblHYRight 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "左"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   5280
+            TabIndex        =   41
+            Top             =   60
+            Width           =   180
+         End
+         Begin VB.Label lblHYLeft 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "右"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   15
+            TabIndex        =   40
+            Top             =   75
+            Width           =   180
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "  第三磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   7
+            Left            =   5265
+            TabIndex        =   51
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "  第二磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   6
+            Left            =   4920
+            TabIndex        =   50
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "  第一磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   5
+            Left            =   4575
+            TabIndex        =   49
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "第二前磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   4
+            Left            =   4230
+            TabIndex        =   48
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "第一前磨牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   3
+            Left            =   3885
+            TabIndex        =   47
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "      尖牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   2
+            Left            =   3555
+            TabIndex        =   46
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "    侧切牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   1
+            Left            =   3210
+            TabIndex        =   45
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHY 
+            BackStyle       =   0  'Transparent
+            Caption         =   "    中切牙"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   930
+            Index           =   0
+            Left            =   2865
+            TabIndex        =   44
+            Top             =   255
+            Width           =   165
+         End
+         Begin VB.Label lblHYUp 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "上颌"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   2520
+            TabIndex        =   43
+            Top             =   45
+            Width           =   360
+         End
+         Begin VB.Label lblHYDn 
+            AutoSize        =   -1  'True
+            BackStyle       =   0  'Transparent
+            Caption         =   "下颌"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   9
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   180
+            Left            =   2520
+            TabIndex        =   42
+            Top             =   1890
+            Width           =   360
+         End
+      End
+      Begin VB.PictureBox picSpot 
+         Appearance      =   0  'Flat
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000008&
+         Height          =   2130
+         Left            =   120
+         ScaleHeight     =   2130
+         ScaleWidth      =   6000
+         TabIndex        =   18
+         ToolTipText     =   "双击空白区域可完成插入功能"
+         Top             =   120
+         Width           =   6000
+         Begin VB.Line Line2 
+            Index           =   0
+            X1              =   960
+            X2              =   960
+            Y1              =   155
+            Y2              =   1680
+         End
+         Begin VB.Line Line2 
+            Index           =   1
+            X1              =   1764
+            X2              =   194
+            Y1              =   930
+            Y2              =   930
+         End
+         Begin VB.Line Line7 
+            Visible         =   0   'False
+            X1              =   2535
+            X2              =   3645
+            Y1              =   435
+            Y2              =   1545
+         End
+         Begin VB.Line Line8 
+            Visible         =   0   'False
+            X1              =   2520
+            X2              =   3675
+            Y1              =   1560
+            Y2              =   405
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   2
+            Left            =   480
+            TabIndex        =   26
+            Top             =   1110
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   3
+            Left            =   1155
+            TabIndex        =   25
+            Top             =   1110
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   0
+            Left            =   480
+            TabIndex        =   24
+            Top             =   435
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   1
+            Left            =   1155
+            TabIndex        =   23
+            Top             =   435
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   6
+            Left            =   2520
+            TabIndex        =   22
+            Top             =   810
+            Visible         =   0   'False
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   7
+            Left            =   3375
+            TabIndex        =   21
+            Top             =   810
+            Visible         =   0   'False
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   4
+            Left            =   2910
+            TabIndex        =   20
+            Top             =   420
+            Visible         =   0   'False
+            Width           =   330
+         End
+         Begin VB.Label lblPot 
+            Caption         =   "○"
+            BeginProperty Font 
+               Name            =   "宋体"
+               Size            =   15.75
+               Charset         =   134
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   330
+            Index           =   5
+            Left            =   2910
+            TabIndex        =   19
+            Top             =   1230
+            Visible         =   0   'False
+            Width           =   330
+         End
+      End
+      Begin MSComctlLib.ImageList imgList 
+         Left            =   3480
+         Top             =   3600
+         _ExtentX        =   1005
+         _ExtentY        =   1005
+         BackColor       =   -2147483643
+         ImageWidth      =   16
+         ImageHeight     =   16
+         MaskColor       =   12632256
+         _Version        =   393216
+         BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+            NumListImages   =   4
+            BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":003F
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":05D9
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":0B73
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":110D
+               Key             =   ""
+            EndProperty
+         EndProperty
+      End
+      Begin VSFlex8Ctl.VSFlexGrid vsList 
+         Height          =   735
+         Left            =   120
+         TabIndex        =   75
+         Top             =   2400
+         Width           =   6015
+         _cx             =   10610
+         _cy             =   1296
+         Appearance      =   2
+         BorderStyle     =   1
+         Enabled         =   -1  'True
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MousePointer    =   0
+         BackColor       =   -2147483643
+         ForeColor       =   -2147483640
+         BackColorFixed  =   -2147483633
+         ForeColorFixed  =   -2147483630
+         BackColorSel    =   16772055
+         ForeColorSel    =   -2147483640
+         BackColorBkg    =   -2147483643
+         BackColorAlternate=   -2147483643
+         GridColor       =   -2147483636
+         GridColorFixed  =   -2147483636
+         TreeColor       =   -2147483632
+         FloodColor      =   192
+         SheetBorder     =   -2147483643
+         FocusRect       =   0
+         HighLight       =   1
+         AllowSelection  =   0   'False
+         AllowBigSelection=   -1  'True
+         AllowUserResizing=   1
+         SelectionMode   =   0
+         GridLines       =   1
+         GridLinesFixed  =   1
+         GridLineWidth   =   1
+         Rows            =   2
+         Cols            =   8
+         FixedRows       =   1
+         FixedCols       =   0
+         RowHeightMin    =   0
+         RowHeightMax    =   0
+         ColWidthMin     =   0
+         ColWidthMax     =   0
+         ExtendLastCol   =   -1  'True
+         FormatString    =   ""
+         ScrollTrack     =   -1  'True
+         ScrollBars      =   3
+         ScrollTips      =   0   'False
+         MergeCells      =   0
+         MergeCompare    =   0
+         AutoResize      =   0   'False
+         AutoSizeMode    =   0
+         AutoSearch      =   0
+         AutoSearchDelay =   2
+         MultiTotals     =   -1  'True
+         SubtotalPosition=   1
+         OutlineBar      =   0
+         OutlineCol      =   0
+         Ellipsis        =   0
+         ExplorerBar     =   3
+         PicturesOver    =   0   'False
+         FillStyle       =   0
+         RightToLeft     =   0   'False
+         PictureType     =   0
+         TabBehavior     =   0
+         OwnerDraw       =   0
+         Editable        =   0
+         ShowComboButton =   1
+         WordWrap        =   0   'False
+         TextStyle       =   0
+         TextStyleFixed  =   0
+         OleDragMode     =   0
+         OleDropMode     =   0
+         DataMode        =   0
+         VirtualData     =   -1  'True
+         DataMember      =   ""
+         ComboSearch     =   3
+         AutoSizeMouse   =   -1  'True
+         FrozenRows      =   0
+         FrozenCols      =   0
+         AllowUserFreezing=   0
+         BackColorFrozen =   0
+         ForeColorFrozen =   0
+         WallPaperAlignment=   9
+         AccessibleName  =   ""
+         AccessibleDescription=   ""
+         AccessibleValue =   ""
+         AccessibleRole  =   24
+      End
+      Begin MSComctlLib.ImageList img16 
+         Left            =   0
+         Top             =   0
+         _ExtentX        =   1005
+         _ExtentY        =   1005
+         BackColor       =   -2147483643
+         ImageWidth      =   16
+         ImageHeight     =   16
+         MaskColor       =   12632256
+         _Version        =   393216
+         BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+            NumListImages   =   3
+            BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":19E7
+               Key             =   "Selected"
+            EndProperty
+            BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":1F81
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "frmDockSymbol.frx":251B
+               Key             =   "签名"
+            EndProperty
+         EndProperty
+      End
+      Begin XtremeCommandBars.CommandBars CommandBars 
+         Left            =   1680
+         Top             =   4320
+         _Version        =   589884
+         _ExtentX        =   635
+         _ExtentY        =   635
+         _StockProps     =   0
+      End
+      Begin VB.Shape shpSearch 
+         BorderColor     =   &H00E09060&
+         Height          =   270
+         Left            =   7620
+         Top             =   480
+         Visible         =   0   'False
+         Width           =   765
+      End
+      Begin VB.Label lblSearch 
+         Caption         =   "过滤"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   6990
+         TabIndex        =   73
+         Top             =   153
+         Width           =   600
+      End
+   End
+   Begin VB.PictureBox picPre 
+      Align           =   1  'Align Top
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "宋体"
+         Size            =   9
+         Charset         =   134
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   0
+      ScaleHeight     =   735
+      ScaleWidth      =   10695
+      TabIndex        =   1
+      Top             =   1650
+      Width           =   10695
+      Begin VB.CheckBox chktime 
+         Caption         =   "日期"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Left            =   4515
+         TabIndex        =   92
+         Top             =   60
+         Value           =   1  'Checked
+         Width           =   735
+      End
+      Begin VB.CheckBox chkLanguage 
+         Caption         =   "英"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Index           =   1
+         Left            =   3675
+         TabIndex        =   91
+         Top             =   435
+         Value           =   1  'Checked
+         Width           =   435
+      End
+      Begin VB.CheckBox chkLanguage 
+         Caption         =   "中"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Index           =   0
+         Left            =   3150
+         TabIndex        =   90
+         Top             =   435
+         Width           =   435
+      End
+      Begin VB.CheckBox chkCY 
+         Caption         =   "婴"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Index           =   1
+         Left            =   4740
+         TabIndex        =   89
+         Top             =   435
+         Value           =   1  'Checked
+         Width           =   450
+      End
+      Begin VB.CheckBox chkCY 
+         Caption         =   "母"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   210
+         Index           =   0
+         Left            =   4215
+         TabIndex        =   88
+         Top             =   435
+         Value           =   1  'Checked
+         Width           =   450
+      End
+      Begin VB.CheckBox chkRem 
+         Caption         =   "提醒"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   60
+         TabIndex        =   87
+         Top             =   465
+         Value           =   1  'Checked
+         Width           =   660
+      End
+      Begin VB.CheckBox chkref 
+         Caption         =   "参考"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   720
+         TabIndex        =   86
+         Top             =   465
+         Width           =   660
+      End
+      Begin VB.PictureBox picPhase 
+         BorderStyle     =   0  'None
+         Height          =   330
+         Left            =   5280
+         ScaleHeight     =   330
+         ScaleWidth      =   3570
+         TabIndex        =   81
+         Top             =   360
+         Width           =   3570
+         Begin VB.OptionButton optPhase 
+            Caption         =   "本周"
+            Height          =   210
+            Index           =   0
+            Left            =   0
+            TabIndex        =   85
+            Top             =   60
+            Value           =   -1  'True
+            Width           =   720
+         End
+         Begin VB.OptionButton optPhase 
+            Caption         =   "上周"
+            Height          =   210
+            Index           =   1
+            Left            =   850
+            TabIndex        =   84
+            Top             =   60
+            Width           =   720
+         End
+         Begin VB.OptionButton optPhase 
+            Caption         =   "本月"
+            Height          =   210
+            Index           =   2
+            Left            =   1700
+            TabIndex        =   83
+            Top             =   60
+            Width           =   720
+         End
+         Begin VB.OptionButton optPhase 
+            Caption         =   "更早"
+            Height          =   210
+            Index           =   3
+            Left            =   2550
+            TabIndex        =   82
+            Top             =   60
+            Width           =   720
+         End
+      End
+      Begin VB.ComboBox cboTimes 
+         Height          =   330
+         ItemData        =   "frmDockSymbol.frx":286D
+         Left            =   5280
+         List            =   "frmDockSymbol.frx":2888
+         Style           =   2  'Dropdown List
+         TabIndex        =   80
+         Top             =   15
+         Width           =   3270
+      End
+      Begin VB.OptionButton optFormat 
+         Caption         =   "自由"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Index           =   1
+         Left            =   3825
+         TabIndex        =   79
+         Top             =   45
+         Value           =   -1  'True
+         Width           =   660
+      End
+      Begin VB.OptionButton optFormat 
+         Caption         =   "格式"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Index           =   0
+         Left            =   3135
+         TabIndex        =   78
+         Top             =   45
+         Width           =   660
+      End
+      Begin VB.Frame fraSplit 
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   30
+         Left            =   45
+         TabIndex        =   64
+         Top             =   690
+         Width           =   3405
+      End
+      Begin VB.PictureBox picFormat 
+         Appearance      =   0  'Flat
+         AutoRedraw      =   -1  'True
+         BackColor       =   &H80000005&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   465
+         Left            =   2265
+         ScaleHeight     =   31
+         ScaleMode       =   3  'Pixel
+         ScaleWidth      =   54
+         TabIndex        =   3
+         Top             =   150
+         Visible         =   0   'False
+         Width           =   810
+      End
+      Begin VB.CommandButton cmdInsert 
+         Caption         =   "插入"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   350
+         Left            =   60
+         TabIndex        =   2
+         Top             =   90
+         Width           =   1200
+      End
+   End
+   Begin VB.PictureBox picTitle 
+      Align           =   1  'Align Top
+      BorderStyle     =   0  'None
+      BeginProperty Font 
+         Name            =   "宋体"
+         Size            =   9
+         Charset         =   134
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   1650
+      Left            =   0
+      ScaleHeight     =   1650
+      ScaleWidth      =   10695
+      TabIndex        =   0
+      Top             =   0
+      Width           =   10695
+      Begin VB.Frame fraType 
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   45
+         Index           =   3
+         Left            =   0
+         TabIndex        =   77
+         Top             =   1575
+         Width           =   4935
+      End
+      Begin VB.Frame fraType 
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   45
+         Index           =   2
+         Left            =   0
+         TabIndex        =   65
+         Top             =   1182
+         Width           =   4935
+      End
+      Begin VB.Frame fraType 
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   45
+         Index           =   1
+         Left            =   0
+         TabIndex        =   62
+         Top             =   396
+         Width           =   4935
+      End
+      Begin VB.Frame fraType 
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   45
+         Index           =   0
+         Left            =   0
+         TabIndex        =   61
+         Top             =   789
+         Width           =   4935
+      End
+      Begin VB.Label lblType 
+         Caption         =   "检验结果"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   12
+         Left            =   120
+         TabIndex        =   76
+         Top             =   1275
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "范文导入"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   8
+         Left            =   120
+         TabIndex        =   74
+         Top             =   870
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "胎心位置"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   11
+         Left            =   2625
+         TabIndex        =   71
+         ToolTipText     =   "以下项目来源于需要进行过敏试验的诊疗项目"
+         Top             =   870
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "月经史"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   13
+         Left            =   2640
+         TabIndex        =   70
+         Top             =   1320
+         Width           =   750
+      End
+      Begin VB.Shape shpBorder 
+         BorderColor     =   &H00E09060&
+         Height          =   270
+         Left            =   4530
+         Top             =   120
+         Visible         =   0   'False
+         Width           =   765
+      End
+      Begin VB.Label lblType 
+         Caption         =   "数学符号"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   0
+         Left            =   120
+         TabIndex        =   69
+         Top             =   90
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "特殊符号"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   1
+         Left            =   960
+         TabIndex        =   68
+         Top             =   90
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "自由选择"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   2
+         Left            =   1800
+         TabIndex        =   67
+         Top             =   90
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "恒牙标注"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   3
+         Left            =   2610
+         TabIndex        =   66
+         Top             =   90
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "数字序号"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   4
+         Left            =   120
+         TabIndex        =   60
+         Top             =   492
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "过敏药物"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   10
+         Left            =   1800
+         TabIndex        =   59
+         Top             =   870
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "乳牙标注"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   7
+         Left            =   2610
+         TabIndex        =   58
+         Top             =   495
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "标点符号"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   6
+         Left            =   1800
+         TabIndex        =   57
+         Top             =   495
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "单位符号"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   5
+         Left            =   960
+         TabIndex        =   56
+         Top             =   495
+         Width           =   780
+      End
+      Begin VB.Label lblType 
+         Caption         =   "医学单位"
+         BeginProperty Font 
+            Name            =   "宋体"
+            Size            =   9
+            Charset         =   134
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Index           =   9
+         Left            =   960
+         TabIndex        =   55
+         Top             =   870
+         Width           =   780
+      End
+   End
+End

@@ -1,0 +1,4 @@
+行 123: 控件 imgSort 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 210: 控件 tabClass 的类 MSComctlLib.TabStrip 不是一个已加载的控件类。
+行 257: 控件 img16 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 295: 控件 tvw_s 的类 MSComctlLib.TreeView 不是一个已加载的控件类。

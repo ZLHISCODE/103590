@@ -1,0 +1,12 @@
+clsFtp = 0, 0, 0, 0, C
+cUnzip = 50, 50, 1225, 505, C
+frmLisPic2Ftp = 125, 125, 1300, 580, Z, 200, 200, 1375, 655, C
+frmLisGraph = 0, 0, 0, 0, C, 175, 175, 1350, 630, C
+frmLisChartPic = 0, 0, 0, 0, C, 150, 150, 1325, 605, C
+mdlUnzip = 125, 125, 1300, 580, 
+mdlLisDraw = 0, 0, 1175, 455, 
+mdlPublic = 100, 100, 1275, 555, 
+clsBase = 175, 175, 1350, 630, 
+frmUserLogin = 200, 200, 1375, 655, , 175, 175, 1350, 630, C
+frmServerSelect = 0, 0, 0, 0, C, 0, 0, 1175, 455, C
+frmLisChart = 75, 75, 1250, 530, , 125, 125, 1300, 580, C

@@ -1,0 +1,7 @@
+clsDrugPurchase = 97, 33, 1110, 543, 
+mdlDrugPurchase = 150, 100, 1163, 759, 
+frmPurchasePlan = 164, 68, 1177, 727, , 44, 10, 1027, 648, C
+frmDeliveryInvoice = 84, 41, 1097, 717, Z, 7, 44, 813, 753, C
+frmPublic = 255, 196, 1268, 706, , 803, 200, 1190, 710, C
+frmMessage = 50, 50, 728, 554, , 150, 150, 1191, 654, C
+frmOutsideLinkSet = 66, 140, 1079, 650, , 1, 293, 479, 617, C

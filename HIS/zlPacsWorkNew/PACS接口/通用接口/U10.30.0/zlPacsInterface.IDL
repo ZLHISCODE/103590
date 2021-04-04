@@ -1,0 +1,301 @@
+// Generated .IDL file (by the OLE/COM Object Viewer)
+// 
+// typelib filename: zlPacsInterface.dll
+
+[
+  uuid(B7181D53-8762-4588-BD00-FF95043D2A3E),
+  version(1.0)
+]
+library zlPacsInterface
+{
+    // TLib :     // TLib : Microsoft ActiveX Data Objects 2.6 Library : {00000206-0000-0010-8000-00AA006D2EA4}
+    importlib("msado26.tlb");
+    // TLib : OLE Automation : {00020430-0000-0000-C000-000000000046}
+    importlib("stdole2.tlb");
+
+    // Forward declare all types defined in this typelib
+    interface _clsPacsInterface;
+
+    [
+      odl,
+      uuid(384A122A-F1EA-4E4B-AAEC-6379A28A3E57),
+      version(1.0),
+      hidden,
+      dual,
+      nonextensible,
+      oleautomation
+    ]
+    interface _clsPacsInterface : IDispatch {
+        [id(0x60030001)]
+        HRESULT GetErrShowType([out, retval] TErrorShowType* );
+        [id(0x60030002)]
+        HRESULT GetSplitChar([out, retval] BSTR* );
+        [id(0x60030003)]
+        HRESULT GetSysNo([out, retval] long* );
+        [id(0x60030004)]
+        HRESULT GetSysOwner([out, retval] BSTR* );
+        [id(0x68030000), propget]
+        HRESULT Tables([out, retval] TCusTable* );
+        [id(0x60030005)]
+        HRESULT GetNullValue([out, retval] BSTR* );
+        [id(0x60030006)]
+        HRESULT InitInterface(
+                        [in] BSTR strServerName, 
+                        [in] BSTR strUserName, 
+                        [in] BSTR strUserPwd, 
+                        [in] long SysNo, 
+                        [in] BSTR SysOwner, 
+                        [in] BSTR NullValue, 
+                        [in] BSTR SplitChar, 
+                        [in] TErrorShowType errType, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030008)]
+        HRESULT GetLastError([out, retval] BSTR* );
+        [id(0x60030009)]
+        HRESULT BeginTrans([out, retval] VARIANT_BOOL* );
+        [id(0x6003000a)]
+        HRESULT CommitTrans([out, retval] VARIANT_BOOL* );
+        [id(0x6003000b)]
+        HRESULT RollbackTrans([out, retval] VARIANT_BOOL* );
+        [id(0x6003000c)]
+        HRESULT ExecutePacsProcedure(
+                        [in] BSTR strProcedureName, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003000d)]
+        HRESULT GetPacsCursor(
+                        [in] BSTR strProcedureName, 
+                        [in, optional] BSTR strFilterValue, 
+                        [in, out, optional, defaultvalue(0)] VARIANT_BOOL* blnIsNoParamerer, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003000e)]
+        HRESULT GetAdoData(
+                        [in] BSTR strProcedureName, 
+                        [in] BSTR strFilterValue, 
+                        [in, out, optional, defaultvalue(0)] VARIANT_BOOL* blnIsNoParamerer, 
+                        [out, retval] _Recordset** );
+        [id(0x6003000f)]
+        HRESULT GetRecordValueByColumnName(
+                        [in, out] SAFEARRAY(BSTR)* strDatas, 
+                        [in, out] SAFEARRAY(BSTR)* strColumns, 
+                        [in] long lngRecordIndex, 
+                        [in] BSTR strCurColumn, 
+                        [out, retval] BSTR* );
+        [id(0x60030010)]
+        HRESULT GetRecordValueByColumnIndex(
+                        [in, out] SAFEARRAY(BSTR)* strDatas, 
+                        [in] long lngRecordIndex, 
+                        [in] long lngColumnIndex, 
+                        [out, retval] BSTR* );
+        [id(0x60030011)]
+        HRESULT GetCurValueByColumnName(
+                        [in] long lngRecordIndex, 
+                        [in] BSTR strCurColumn, 
+                        [out, retval] BSTR* );
+        [id(0x60030012)]
+        HRESULT GetCurRecordCount([out, retval] long* );
+        [id(0x60030013)]
+        HRESULT GetCurColumnCount([out, retval] long* );
+        [id(0x60030014)]
+        HRESULT GetCurColumnIndex(
+                        [in] BSTR strCurColumn, 
+                        [out, retval] long* );
+        [id(0x60030015)]
+        HRESULT GetCurValueByColumnIndex(
+                        [in] long lngRecordIndex, 
+                        [in] long lngColumnIndex, 
+                        [out, retval] BSTR* );
+        [id(0x60030016)]
+        HRESULT GetCurRecordData(
+                        [in] long lngRecordIndex, 
+                        [out, retval] BSTR* );
+        [id(0x60030017)]
+        HRESULT GetRecordData(
+                        [in, out] SAFEARRAY(BSTR)* strDatas, 
+                        [in] long lngRecordIndex, 
+                        [out, retval] BSTR* );
+        [id(0x60030018)]
+        HRESULT GetRecordCount(
+                        [in, out] SAFEARRAY(BSTR)* strDatas, 
+                        [out, retval] long* );
+        [id(0x60030019)]
+        HRESULT GetColumnCount(
+                        [in, out] SAFEARRAY(BSTR)* strColumns, 
+                        [out, retval] long* );
+        [id(0x6003001a)]
+        HRESULT GetColumnIndex(
+                        [in, out] SAFEARRAY(BSTR)* strColumns, 
+                        [in] BSTR strCurColumn, 
+                        [out, retval] short* );
+        [id(0x6003001b)]
+        HRESULT GetColumnName(
+                        [in, out] SAFEARRAY(BSTR)* strColumns, 
+                        [in] short columnIndex, 
+                        [out, retval] BSTR* );
+        [id(0x6003001c)]
+        HRESULT GetCurColumnName(
+                        [in] short columnIndex, 
+                        [out, retval] BSTR* );
+        [id(0x6003001d)]
+        HRESULT GetDeptItems(
+                        [in, optional] BSTR strFilter, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003001e)]
+        HRESULT GetChargeTypes(
+                        [in, optional] BSTR strFilter, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003001f)]
+        HRESULT GetPacsItems(
+                        [in, optional] BSTR strFilter, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030020)]
+        HRESULT GetAdviceItems(
+                        [in] long lngAdviceKey, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030021)]
+        HRESULT GetAdviceFees(
+                        [in] long lngAdviceKey, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030022)]
+        HRESULT GetPatientInfo(
+                        [in] BSTR strQueryKey, 
+                        [in] TPatientWhereType lngWhereType, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030023)]
+        HRESULT GetRequestInfo(
+                        [in] BSTR strQueryKey, 
+                        [in] TRequestWhereType lngWhereType, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030024)]
+        HRESULT GetRequestInfo1(
+                        [in] BSTR strStartDate, 
+                        [in] BSTR strEndDate, 
+                        [in] BSTR strStudyType, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030025)]
+        HRESULT GetRequestExecuteStatus(
+                        [in] long lngAdviceKey, 
+                        [out, retval] long* );
+        [id(0x60030026)]
+        HRESULT GetRequestAdviceStatus(
+                        [in] long lngAdviceKey, 
+                        [out, retval] long* );
+        [id(0x60030027)]
+        HRESULT GetRequestExeProcedureStatus(
+                        [in] long lngAdviceKey, 
+                        [out, retval] long* );
+        [id(0x60030028)]
+        HRESULT CancelRequest(
+                        [in] long lngAdviceKey, 
+                        [in, optional] long lngExecOne, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030029)]
+        HRESULT RecevieRequest(
+                        [in] long lngAdviceKey, 
+                        [in, optional] BSTR strExeRoom, 
+                        [in, optional] long lngStudyNo, 
+                        [in, optional] BSTR strDevice, 
+                        [in, optional] long lngHeight, 
+                        [in, optional] long lngWeight, 
+                        [in, optional] BSTR strStudyDoc, 
+                        [in, optional] DATE StrExeDate, 
+                        [in, optional] BSTR strExeDes, 
+                        [in, optional] long lngExecOne, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003002a)]
+        HRESULT ModifyRequest(
+                        [in] long lngAdviceKey, 
+                        [in, optional] BSTR strExeRoom, 
+                        [in, optional] long lngStudyNo, 
+                        [in, optional] BSTR strDevice, 
+                        [in, optional] long lngHeight, 
+                        [in, optional] long lngWeight, 
+                        [in, optional] BSTR strStudyDoc, 
+                        [in, optional] DATE StrExeDate, 
+                        [in, optional] BSTR strExeDes, 
+                        [in, optional] long lngExecOne, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003002b)]
+        HRESULT DeleteReport(
+                        [in] long lngAdviceKey, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003002c)]
+        HRESULT DeleteElectrocardioReport(
+                        [in] long lngAdviceKey, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003002d)]
+        HRESULT SendReport(
+                        [in] long lngAdviceKey, 
+                        [in] BSTR strReportView, 
+                        [in] BSTR strReportAdvice, 
+                        [in] BSTR strReportDoctor, 
+                        [in, optional] BSTR strAuditingDoctor, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x6003002e)]
+        HRESULT SendElectrocardioReport(
+                        [in] long lngAdviceKey, 
+                        [in] BSTR strReportTitle, 
+                        [in] BSTR strReportImgFiles, 
+                        [in] BSTR strReportResult, 
+                        [in] BSTR strReportAdvice, 
+                        [in] BSTR strReportDoctor, 
+                        [in, optional] BSTR strAuditingDoctor, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030031)]
+        HRESULT SendReportImages(
+                        [in] long lngAdviceKey, 
+                        [in] BSTR strImgFiles, 
+                        [out, retval] VARIANT_BOOL* );
+        [id(0x60030032)]
+        HRESULT SendReportAffix(
+                        [in] long lngAdviceKey, 
+                        [in] BSTR strAffixFiles, 
+                        [out, retval] VARIANT_BOOL* );
+    };
+
+    [
+      uuid(93088094-403D-49BB-BD0A-AEF54812CAFA),
+      version(1.0)
+    ]
+    coclass clsPacsInterface {
+        [default] interface _clsPacsInterface;
+    };
+
+    typedef [uuid(70348283-EC94-4CB2-9A36-FF3FADB8DFE2), version(1.0)]
+    enum {
+        estNoDisplay = 1,
+        estShowMsg = 2
+    } TErrorShowType;
+
+    typedef [uuid(6FA3DAE6-C576-4350-8AE3-47A2D486C99A), version(1.0)]
+    enum {
+        pwtPatientId = 1,
+        pwtInHospital = 2,
+        pwtOutPatient = 3,
+        pwtSickCard = 4,
+        pwtIdCard = 5,
+        pwtHealthNum = 6,
+        pwtPatientName = 7
+    } TPatientWhereType;
+
+    typedef [uuid(E86CA6D6-9628-469D-A7A6-517D02BA970D), version(1.0)]
+    enum {
+        rwtPatientId = 1,
+        rwtInHospital = 2,
+        rwtOutPatient = 3,
+        rwtSickCard = 4,
+        rwtIdCard = 5,
+        rwtHealthNum = 6,
+        rwtPatientName = 7,
+        rwtAdviceId = 8
+    } TRequestWhereType;
+
+    typedef [uuid(DDD94FF5-FC2A-4722-8A17-766CA29B5771), version(1.0)]
+    struct tagTCusTable {
+        [helpstring("strDatas")        
+]
+        SAFEARRAY(BSTR) strDatas;
+        [helpstring("strColumns")        
+]
+        SAFEARRAY(BSTR) strColumns;
+    } TCusTable;
+};

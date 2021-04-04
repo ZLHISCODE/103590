@@ -1,0 +1,136 @@
+
+--发送电子申请单的相关触发器和表
+
+--临时表
+
+create table ZLPACS接口KODAK
+(
+  ID           NUMBER(18) not null,
+  操作类型     NUMBER(1),
+  病人类别     NUMBER(1),
+  医嘱ID       NUMBER(18) not null,
+  标识号       NUMBER(18),
+  病人ID       NUMBER(18),
+  姓名         VARCHAR2(20),
+  英文名       VARCHAR2(64),
+  性别         VARCHAR2(4),
+  出生日期     VARCHAR2(16),
+  身份证号     VARCHAR2(18),
+  家庭电话     VARCHAR2(20),
+  家庭地址     VARCHAR2(50),
+  病区         VARCHAR2(20),
+  床号         VARCHAR2(10),
+  影像类别     VARCHAR2(10),
+  检查项目代码 VARCHAR2(60),
+  检查项目描述 VARCHAR2(60),
+  开嘱医生     VARCHAR2(20),
+  开嘱科室     VARCHAR2(20),
+  病史         VARCHAR2(1024),
+  临床诊断     VARCHAR2(1024),
+  注意事项     VARCHAR2(1024),
+  备注         VARCHAR2(256)
+);
+
+comment on column ZLPACS接口KODAK.操作类型
+  is '1-插入;2-修改';
+alter table ZLPACS接口KODAK
+  add constraint ZLPACS接口KODAK_PK primary key (ID)
+  using index ;
+  
+  
+create table ZLPACS接口KODAK_ERR
+(
+  ID       NUMBER not null,
+  错误号   NUMBER,
+  错误描述 VARCHAR2(100),
+  错误时间 DATE
+);
+alter table ZLPACS接口KODAK_ERR
+  add constraint ZLPACS接口KODAK_ERR_PK primary key (ID)
+  using index ;
+
+  
+  
+ --触发器，在 影像检查记录 表中建立
+ 
+create or replace trigger ZLPACS_影像检查记录_INSERT
+  after insert on 影像检查记录
+  for each row
+Declare
+      V_PatientType number;
+      V_PatientNumber number;
+      V_PatientID Number;
+      V_PatientName varchar2(20);
+      V_PatientSex  Varchar2(4);
+      V_PatientBirthDay Varchar2(16);
+      V_PatientIDNumber varchar2(18);
+      V_PatientPhone varchar2(20);
+      V_PatientAddress Varchar2(50);
+      V_Ward Varchar2(20);
+      V_BedNo Varchar2(10);
+      V_BordyPart Varchar2(60);
+      V_ApplyDoctor Varchar2(20);
+      V_ApplyDept Varchar2(20);
+      V_ClinicDiag Varchar2(1024);
+      V_ID Number;
+      V_Temp Varchar2(100);
+			
+			v_Error Varchar2(255);
+	    Err_Custom 	 Exception;
+	
+     Cursor c_ClinicDiag Is
+	   				Select 项目,排列,nvl(内容,'NA') As 内容 From 病人医嘱附件 Where 医嘱ID =:NEW.医嘱Id Order By 排列;
+     r_ClinicDiag c_ClinicDiag%Rowtype;
+begin
+		 If :New.影像类别 <>'CT' Then
+     		Return;
+  	 End If;
+		 
+		 
+      --查找申请单信息
+      Select decode(a.病人来源,1,2,2,1,3,2,4,2) As 病人类别 ,decode(a.病人来源,1,c.门诊号,2,c.住院号,3,c.门诊号,4,c.门诊号) As 标识号,
+			 a.病人ID ,c.姓名,Decode(c.性别,'男','1','女','2','未知','4') As 性别代码, To_Char(c.出生日期, 'yyyyMMdd') as 出生日期,
+			 c.身份证号 ,c.家庭电话,c.家庭地址, e.名称 As 当前病区,c.当前床号,a.标本部位,a.开嘱医生,d.名称 As 申请部门 
+			 into V_PatientType,V_PatientNumber,V_PatientID,V_PatientName,V_PatientSex,V_PatientBirthDay,
+			 V_PatientIDNumber,V_PatientPhone,V_PatientAddress,V_Ward,V_BedNo,V_BordyPart,V_ApplyDoctor,V_ApplyDept
+			 From 病人医嘱记录 a ,病人信息 c ,部门表 d ,部门表 e
+			 Where a.Id=:NEW.医嘱ID And a.病人id =c.病人ID And a.开嘱科室ID = d.Id(+) And c.当前病区ID =e.Id(+);
+			 
+      --查找病史和临床诊断,需要一个游标来循环
+			
+        Open c_ClinicDiag;
+      	Fetch c_ClinicDiag Into r_ClinicDiag;
+      	If c_ClinicDiag%Rowcount =0 Then
+      		Close c_ClinicDiag;
+      		V_ClinicDiag:='';
+				Else
+  				While c_ClinicDiag%Found Loop
+  					
+  						V_Temp:=r_ClinicDiag.项目;
+          		if r_ClinicDiag.内容 <> 'NA' then
+          			V_ClinicDiag:=  V_ClinicDiag ||r_ClinicDiag.项目 ||':'||r_ClinicDiag.内容|| '    ';
+          		end if;
+  					
+        		Fetch c_ClinicDiag Into r_ClinicDiag;
+        	End Loop;
+        	Close c_ClinicDiag;
+        End If;
+       
+      --插入临时PACS接口表
+      select NVL(Max(id),0) into V_ID from ZLPACS接口KODAK;
+
+      V_ID := V_ID +1;
+      insert into ZLPACS接口KODAK(ID,操作类型,病人类别,医嘱ID,标识号,病人ID,姓名,英文名,性别,出生日期,
+  	   			 身份证号,家庭电话,家庭地址,病区,床号,影像类别,检查项目代码,检查项目描述,开嘱医生,开嘱科室,病史,
+			 			 临床诊断,注意事项,备注)
+             values(V_ID,1,V_PatientType,:NEW.医嘱ID,V_PatientNumber,V_PatientID,V_PatientName,:NEW.英文名,
+             V_PatientSex,V_PatientBirthDay,V_PatientIDNumber,V_PatientPhone,V_PatientAddress,V_Ward,V_BedNo,
+             :NEW.影像类别,null,V_BordyPart,V_ApplyDoctor,V_ApplyDept,null,V_ClinicDiag,null,null);
+Exception
+			 WHEN Err_Custom THEN
+    				Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+       when others then
+            Raise_Application_Error(-20101, '[ZLSOFT]' || Sqlcode || SQLERRM || '[ZLSOFT]');
+end ZLPACS_影像检查记录_INSERT;
+/
+

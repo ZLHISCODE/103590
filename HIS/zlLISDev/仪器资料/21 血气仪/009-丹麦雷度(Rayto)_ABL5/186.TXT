@@ -1,0 +1,124 @@
+Pc40RADIOMETER ABL5
+
+Wnt report                 #183
+-----------------------------------
+Time                   10:07
+Date                   17.12.09
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R                  150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.41 
+ pCO2                    4.0 kPa
+ pO2                    14.5 kPa
+-----------------------------------
+ HCO3-                    19 mmol/L
+ sO2                      98 %
+ tCO2                     19 mmol/L
+ ABE                      -4 mmol/L
+ SBC                      21 mmol/L
+ SBE                      -5 mmol/L
+
+-----------------------------------
+Analyzer #                  
+Pc40RRADIOMETER ABL5
+
+WPatient report                 #184
+-----------------------------------
+Time                   10:26
+Date                   17.12.09
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R           150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.37 
+ pCO2                    7.4 kPa
+ pO2                    11.9 kPa
+-----------------------------------
+ HCO3-                    31 mmol/L
+ sO2                      96 %
+ tCO2                     33 mmol/L
+ ABE                       4 mmol/L
+ SBC                      28 mmol/L
+ SBE                       6 mmol/L
+
+-----------------------------------
+Analyzer #                  
+Pc40RTER ABL5
+
+Wient report                 #185
+-----------------------------------
+Time                   10:30
+Date                   17.12.09
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40RtHb                      150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.46 
+ pCO2                    4.2 kPa
+ pO2                    12.5 kPa
+-----------------------------------
+ HCO3-                    23 mmol/L
+ sO2                      97 %
+ tCO2                     24 mmol/L
+ ABE                       0 mmol/L
+ SBC                      25 mmol/L
+ SBE                      -1 mmol/L
+
+-----------------------------------
+Analyzer #                  
+Pc40R
+WPatient report                 #186
+-----------------------------------
+Time                   10:33
+Date                   17.12.09
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R        150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.02 
+ pCO2                   13.8 kPa
+ pO2                    17.3 kPa
+-----------------------------------
+ HCO3-                    25 mmol/L
+ sO2                      97 %
+ tCO2                     28 mmol/L
+ ABE                     -10 mmol/L
+ SBC                      17 mmol/L
+ SBE                      -5 mmol/L
+
+-----------------------------------
+Analyzer #                  
+Pc40RER ABL5
+
+Wtient report                 #186
+-----------------------------------
+Time                   10:33
+Date                   17.12.09
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R           150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.02 
+ pCO2                   13.8 kPa
+ pO2                    17.3 kPa
+-----------------------------------
+ HCO3-                    25 mmol/L
+ sO2                      97 %
+ tCO2                     28 mmol/L
+ ABE                     -10 mmol/L
+ SBC                      17 mmol/L
+ SBE                      -5 mmol/L
+
+-----------------------------------
+Analyzer #                  

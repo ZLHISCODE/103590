@@ -1,0 +1,16 @@
+mdlFunctions = 26, 26, 831, 506, 
+cRTFCell = 52, 52, 857, 532, 
+cRTFCells = 0, 0, 0, 0, C
+cRTFDocument = 78, 78, 883, 558, 
+cRTFNode = 104, 104, 909, 584, 
+cRTFNodes = 130, 130, 935, 610, 
+cRTFParagraph = 182, 182, 987, 662, 
+cRTFParagraphs = 156, 156, 961, 636, 
+cRTFPicture = 0, 0, 0, 0, C
+cRTFPictures = 0, 0, 0, 0, C
+cRTFRow = 208, 208, 1013, 688, 
+cRTFRows = 0, 0, 0, 0, C
+cRTFTable = 0, 0, 0, 0, C
+cRTFTables = 0, 0, 0, 0, C
+cRTFText = 0, 0, 0, 0, C
+cRTFTexts = 0, 0, 805, 480, Z

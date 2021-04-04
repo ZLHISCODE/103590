@@ -1,0 +1,71 @@
+
+ Date:2007-07-30 16:38
+ No. 013
+ UBG +-  3.3   umol/L
+ BIL  -        umol/L
+ KET  -        mmol/L
+ BLD  -      cells/uL
+ PRO  -           g/L
+ NIT  -              
+ LEU  -      cells/uL
+ GLU  -        mmol/L
+ SG    1.010         
+ pH      7.5         
+ VC      0.6   mmol/L
+
+ Date:2007-07-30 16:39
+ No. 014
+ UBG +-  3.3   umol/L
+ BIL  -        umol/L
+ KET  -        mmol/L
+*BLD +-   10 cells/uL
+ PRO  -           g/L
+ NIT  -              
+*LEU +-   15 cells/uL
+ GLU  -        mmol/L
+ SG    1.010         
+ pH      7.0         
+ VC      0.6   mmol/L
+
+ Date:2007-07-30 16:40
+ No. 015
+ UBG +-  3.3   umol/L
+ BIL  -        umol/L
+ KET  -        mmol/L
+*BLD +-   10 cells/uL
+ PRO  -           g/L
+ NIT  -              
+ LEU  -      cells/uL
+ GLU  -        mmol/L
+ SG    1.010         
+ pH      7.0         
+ VC      0.6   mmol/L
+
+ Date:2007-07-30 16:42
+ No. 016
+ UBG +-  3.3   umol/L
+ BIL  -        umol/L
+ KET  -        mmol/L
+*BLD +-   10 cells/uL
+ PRO  -           g/L
+ NIT  -              
+*LEU +-   15 cells/uL
+ GLU  -        mmol/L
+ SG    1.010         
+ pH      7.0         
+ VC      0.6   mmol/L
+
+ Date:2007-07-30 16:42
+ No. 017
+ UBG +-  3.3   umol/L
+ BIL  -        umol/L
+ KET  -        mmol/L
+*BLD +-   10 cells/uL
+ PRO  -           g/L
+ NIT  -              
+ LEU  -      cells/uL
+ GLU  -        mmol/L
+ SG    1.010         
+ pH      7.0         
+ VC      0.6   mmol/L
+

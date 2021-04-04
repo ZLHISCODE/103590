@@ -1,0 +1,139 @@
+
+     AVL Compact 2
+       BLOOD GAS
+  ChaoYang DiEr YiYuan
+    ACID BASE REPORT
+
+
+Pat.Name: 
+Age:            
+Pat.no.:               
+Sample: SYRINGE
+
+
+Su,17-Jul-07 11:15
+
+No.:        138
+Baro        723.4 mmHg
+
+#tHb A       15.0 g/dl
+#Temp  37.0       C
+
+pH    7.363
+PCO2   52.8       mmHg
+PO2   106.3       mmHg
+ BE           2.8 mmol/l
+ BEecf        4.0 mmol/l
+ BB          50.8 mmol/l
+ HCO3        29.4 mmol/l
+ cH+           43 nmol/l
+ st.HCO3     26.3 mmol/l
+ st.pH      7.442
+ TCO2        31.0 mmol/l
+ O2sat       97.8 %
+ O2cont      20.7 Vol%
+ AaDO2        0.0 mmHg
+#RQ 0.84    #FIO2 0.21
+
+Op.ID.: 
+
+#Input values
+
+
+
+
+
+
+
+     AVL Compact 2
+       BLOOD GAS
+  ChaoYang DiEr YiYuan
+    ACID BASE REPORT
+
+
+Pat.Name: 
+Age:            
+Pat.no.:               
+Sample: SYRINGE
+
+
+Su,17-Jul-07 10:23
+
+No.:        137
+Baro        722.8 mmHg
+
+#tHb A       15.0 g/dl
+#Temp  37.0       C
+
+pH    7.462
+PCO2   26.4       mmHg
+PO2    78.5       mmHg
+ BE        -  3.5 mmol/l
+ BEecf     -  5.3 mmol/l
+ BB          44.4 mmol/l
+ HCO3        18.4 mmol/l
+ cH+           34 nmol/l
+ st.HCO3     21.4 mmol/l
+ st.pH      7.353
+ TCO2        19.3 mmol/l
+ O2sat       96.1 %
+ O2cont      20.3 Vol%
+ AaDO2       32.9 mmHg
+#RQ 0.84    #FIO2 0.21
+
+Op.ID.: 
+
+#Input values
+
+
+
+
+
+
+
+     AVL Compact 2
+       BLOOD GAS
+  ChaoYang DiEr YiYuan
+    ACID BASE REPORT
+
+
+Pat.Name: 
+Age:            
+Pat.no.:               
+Sample: SYRINGE
+
+
+Su,17-Jul-07 10:15
+
+No.:        136
+Baro        722.6 mmHg
+
+#tHb A       10.7 g/dl
+#Temp  37.0  36.5 C
+
+pH    7.417 7.424
+PCO2   37.9  37.1 mmHg
+PO2    69.9  67.6 mmHg
+ BE        -  0.4 mmol/l
+ BEecf     -  0.5 mmol/l
+ BB          45.8 mmol/l
+ HCO3        23.9 mmol/l
+ cH+           38 nmol/l
+ st.HCO3     23.9 mmol/l
+ st.pH      7.402
+ TCO2        25.1 mmol/l
+ O2sat       94.0 %
+ O2cont      14.2 Vol%
+ AaDO2 ****  31.7 mmHg
+#RQ 0.84    #FIO2 0.21
+
+Op.ID.: 
+
+#Input values
+
+
+
+
+
+
+

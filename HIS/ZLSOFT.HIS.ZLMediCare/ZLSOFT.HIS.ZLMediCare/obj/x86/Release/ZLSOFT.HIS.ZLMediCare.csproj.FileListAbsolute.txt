@@ -1,0 +1,4 @@
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\bin\x86\Release\ZLSOFT.HIS.ZLMediCare.dll
+D:\C#项目\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\obj\x86\Release\ZLSOFT.HIS.ZLMediCare.dll
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\bin\x86\Release\ZLSOFT.HIS.ZLMediCare.dll
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare\obj\x86\Release\ZLSOFT.HIS.ZLMediCare.dll

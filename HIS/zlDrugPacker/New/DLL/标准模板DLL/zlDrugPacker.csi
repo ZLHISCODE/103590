@@ -1,0 +1,25 @@
+[ÀúÊ·]
+1=#P0#=mb	#P1#=BuildDrugStock	#P2#=zlDrugPacker/mdlProcessData/BuildDrugStock	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608111028	#P7#=0	#P8#=44	.
+2=#P0#=mb	#P1#=BuildReceipAdviceInf	#P2#=zlDrugPacker/mdlProcessData/BuildReceipAdviceInf	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608110853	#P7#=0	#P8#=106	.
+3=#P0#=mb	#P1#=BuildReceipList	#P2#=zlDrugPacker/mdlProcessData/BuildReceipList	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608110724	#P7#=0	#P8#=32	.
+4=#P0#=mb	#P1#=GetTitleContent	#P2#=zlDrugPacker/mdlProcessData/GetTitleContent	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608110042	#P7#=0	#P8#=0	.
+5=#P0#=mb	#P1#=BuildReceipDetail	#P2#=zlDrugPacker/mdlProcessData/BuildReceipDetail	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608110449	#P7#=0	#P8#=163	.
+6=#P0#=mb	#P1#=BuildDrugInfo	#P2#=zlDrugPacker/mdlProcessData/BuildDrugInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105552	#P7#=0	#P8#=6	.
+7=#P0#=mb	#P1#=ProcDrugInfo	#P2#=zlDrugPacker/mdlProcessData/ProcDrugInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105402	#P7#=0	#P8#=15	.
+8=#P0#=mb	#P1#=DrugStock	#P2#=zlDrugPacker/mdlDrugPacker/DrugStock	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105122	#P7#=0	#P8#=8	.
+9=#P0#=mb	#P1#=DrugInfo	#P2#=zlDrugPacker/mdlDrugPacker/DrugInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608104842	#P7#=0	#P8#=21	.
+10=#P0#=mb	#P1#=Status	#P2#=zlDrugPacker/clsDevice/Status [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608103752	#P7#=0	#P8#=-1	.
+11=#P0#=mb	#P1#=ID	#P2#=zlDrugPacker/clsDevice/ID [Let]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608103746	#P7#=0	#P8#=49	.
+12=#P0#=mb	#P1#=Dispensing	#P2#=zlDrugPacker/mdlDrugPacker/Dispensing	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105201	#P7#=0	#P8#=23	.
+13=#P0#=mb	#P1#=GetDeviceParam	#P2#=zlDrugPacker/frmDeviceSet/GetDeviceParam	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608102339	#P7#=0	#P8#=11	.
+14=#P0#=mb	#P1#=GetDeviceParam	#P2#=zlDrugPacker/mdlDefine/GetDeviceParam	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608102238	#P7#=0	#P8#=0	.
+15=#P0#=mb	#P1#=InitCommon	#P2#=zlDrugPacker/clsDrugPacker/InitCommon	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608104142	#P7#=0	#P8#=15	.
+16=#P0#=mb	#P1#=GetJudge_IsNeedUpload	#P2#=zlDrugPacker/mdlDefine/GetJudge_IsNeedUpload	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20130608102036	#P7#=0	#P8#=0	.
+17=#P0#=mb	#P1#=GetDeviceInfo	#P2#=zlDrugPacker/mdlDefine/GetDeviceInfo	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608102054	#P7#=0	#P8#=0	.
+18=#P0#=mb	#P1#=Dispense	#P2#=zlDrugPacker/mdlDrugPacker/Dispense	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105153	#P7#=0	#P8#=10	.
+19=#P0#=mb	#P1#=User	#P2#=zlDrugPacker/clsDevice/User [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608100944	#P7#=0	#P8#=-1	.
+20=#P0#=mb	#P1#=DrugForm	#P2#=zlDrugPacker/clsDevice/DrugForm [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608100925	#P7#=0	#P8#=2	.
+21=#P0#=mb	#P1#=LinkType	#P2#=zlDrugPacker/clsDevice/LinkType [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608100913	#P7#=0	#P8#=-1	.
+22=#P0#=mb	#P1#=HisUpload	#P2#=zlDrugPacker/clsDrugPacker/HisUpload	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608105344	#P7#=0	#P8#=83	.
+23=#P0#=mb	#P1#=SetInterface	#P2#=zlDrugPacker/clsDrugPacker/SetInterface	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130608103810	#P7#=0	#P8#=6	.
+24=#P0#=mb	#P1#=Message	#P2#=zlDrugPacker/clsDrugPacker/Message [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20130608100733	#P7#=0	#P8#=1	.

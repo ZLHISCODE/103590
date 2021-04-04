@@ -1,0 +1,18 @@
+[History]
+1=#P0#=mb	#P1#=MultiRoomsDisplay	#P2#=zl9LCDShow/frmLCDShow/MultiRoomsDisplay	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20181011125609	#P7#=0	#P8#=69	.
+2=#P0#=mb	#P1#=timerLCD_Timer	#P2#=zl9LCDShow/frmLCDShow/timerLCD_Timer	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20181011125553	#P7#=0	#P8#=10	.
+3=#P0#=mb	#P1#=timerLCD_Timer	#P2#=zl9LCDShow/frmDrugShow/timerLCD_Timer	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20181011125515	#P7#=0	#P8#=2	.
+4=#P0#=mb	#P1#=InitData	#P2#=zl9LCDShow/frmDrugShow/InitData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20181017082915	#P7#=0	#P8#=99	.
+5=#P0#=mb	#P1#=TimerCall_Timer	#P2#=zl9LCDShow/frmDrugShow/TimerCall_Timer	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20181011124511	#P7#=0	#P8#=1	.
+6=#P0#=mb	#P1#=SaveDebug	#P2#=zl9LCDShow/mdlLCDShowPublic/SaveDebug	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20181011115917	#P7#=0	#P8#=-2	.
+7=#P0#=mb	#P1#=loadCalling	#P2#=zl9LCDShow/frmDrugShow/loadCalling	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20181011115542	#P7#=0	#P8#=18	.
+8=#P0#=mb	#P1#=loadTimeout	#P2#=zl9LCDShow/frmDrugShow/loadTimeout	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20181008104116	#P7#=0	#P8#=22	.
+9=#P0#=mb	#P1#=ShowTimeout	#P2#=zl9LCDShow/frmDrugShow/ShowTimeout	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180929171720	#P7#=0	#P8#=70	.
+10=#P0#=mb	#P1#=loadData	#P2#=zl9LCDShow/frmDrugShow/loadData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180929171618	#P7#=0	#P8#=43	.
+11=#P0#=mb	#P1#=timerPage_Timer	#P2#=zl9LCDShow/frmDrugShow/timerPage_Timer	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20180929171506	#P7#=0	#P8#=42	.
+12=#P0#=mb	#P1#=ShowSend	#P2#=zl9LCDShow/frmDrugShow/ShowSend	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180929141717	#P7#=0	#P8#=23	.
+13=#P0#=mb	#P1#=ShowPra	#P2#=zl9LCDShow/frmDrugShow/ShowPra	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180928172942	#P7#=0	#P8#=2	.
+14=#P0#=mb	#P1#=cmdOK_Click	#P2#=zl9LCDShow/frmDrugSetup/cmdOK_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20180928171640	#P7#=0	#P8#=30	.
+15=#P0#=mb	#P1#=SetFont	#P2#=zl9LCDShow/frmDrugShow/SetFont	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180928171334	#P7#=0	#P8#=20	.
+16=#P0#=mb	#P1#=Form_Load	#P2#=zl9LCDShow/frmDrugSetup/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20180928170549	#P7#=0	#P8#=27	.
+17=#P0#=mb	#P1#=LoadPara	#P2#=zl9LCDShow/frmDrugShow/LoadPara	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20180928164956	#P7#=0	#P8#=74	.

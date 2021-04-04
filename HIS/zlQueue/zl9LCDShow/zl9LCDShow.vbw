@@ -1,0 +1,4 @@
+clsLCDShow = 132, 132, 1083, 536, 
+frmLCDShow = 0, 0, 661, 404, , 198, 198, 859, 602, C
+frmLCDSetup = 44, 44, 705, 448, , 22, 22, 683, 426, C
+mdlLCDShowPublic = 44, 44, 766, 448, 

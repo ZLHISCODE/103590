@@ -1,0 +1,4 @@
+mdlPlugIn = 150, 150, 878, 731, 
+frmDockEx = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+clsPlugIn = 125, 125, 857, 732, Z
+clsBloodPlugIn = 0, 0, 0, 0, C

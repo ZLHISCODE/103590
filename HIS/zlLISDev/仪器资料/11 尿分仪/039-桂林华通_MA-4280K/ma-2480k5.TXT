@@ -1,0 +1,13 @@
+?     NO.05     
+GLU -     0mmo/L
+URO +-  3.4umo/L
+BIL -     0umo/L
+KET -     0 mg/L
+SG  >=1.030     
+BLD -     0 mg/L
+PH      5.0     
+PRO +- 0.15  g/L
+NIT -           
+LEU -     0eu/uL
+VC      0.6mmo/L
+

@@ -1,0 +1,11 @@
+frmHL7Main = 88, 116, 715, 385, Z, 22, 29, 649, 299, C
+mdlMain = 44, 58, 671, 327, 
+frmSplash = 0, 0, 0, 0, C, 66, 87, 645, 446, C
+frmUserLogin = 0, 0, 627, 269, , 22, 29, 649, 298, C
+mdlPublic = 66, 87, 693, 356, 
+FrmChangePass = 110, 145, 715, 455, , 22, 29, 633, 367, C
+clsTaskIcon = 0, 0, 707, 282, 
+frmShowLog = 44, 58, 624, 351, , 22, 29, 602, 322, C
+mdlHL7Parse = 66, 87, 624, 424, 
+frmParaSetup = 22, 29, 601, 388, , 44, 58, 623, 417, C
+mdlHL7MsgDef = 44, 58, 699, 429, 

@@ -1,0 +1,12 @@
+clsDevice = 25, 25, 1006, 365, C
+mdlDrugPacker = 0, 0, 981, 342, C
+frmDrugInfo = 100, 100, 1056, 482, C, 125, 125, 1081, 507, C
+mdlProcessData = 150, 150, 1131, 492, C
+clsDrugPacker = 75, 75, 1056, 415, C
+mdlDefine = 0, 0, 954, 397, Z
+frmDeviceSet = 150, 150, 837, 655, C, 50, 50, 1098, 555, C
+frmDeviceBase = 250, 250, 1067, 755, C, 75, 75, 952, 580, C
+frmDeviceParam = 175, 175, 862, 680, C, 125, 125, 812, 630, C
+frmDeviceReg_del = 75, 75, 701, 580, C, 250, 250, 1272, 755, C
+frmDeviceState = 250, 250, 914, 755, C, 25, 25, 1047, 530, C
+frmDrugStock = 25, 25, 954, 434, C, 200, 200, 1129, 609, C

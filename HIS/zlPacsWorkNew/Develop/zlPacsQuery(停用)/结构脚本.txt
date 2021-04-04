@@ -1,0 +1,58 @@
+--查询方案
+
+Alter Table  影像查询方案 Add 是否常用 Number(1);
+Alter Table  影像查询方案 Add 所属模块 Number(18);
+Alter Table  影像查询方案 Add 方案内容 Clob;
+Alter Table  影像查询方案 Add 版本 Number(5);
+
+Create Index 影像查询方案_IX_所属模块 On 影像查询方案(所属模块) Tablespace zl9Indexhis;
+
+--查询关联
+Create Table 影像查询关联(
+       Id Number(18),
+       用户ID Number(18),
+       查询方案ID Number(18),       
+       是否默认 Number(1),
+       是否常用 Number(1)，
+       所属站点 varchar2(64)
+)TABLESPACE zl9BaseItem;   
+
+Create Sequence 影像查询关联_ID Start With 1;
+
+Alter Table 影像查询关联 Add Constraint 影像查询关联_PK Primary Key (ID) Using Index Tablespace zl9Indexhis;
+Alter Table 影像查询关联 Add Constraint 影像查询关联_FK_查询方案ID Foreign Key (查询方案ID) References 影像查询方案(id) On Delete Cascade;
+Alter Table 影像查询关联 Add Constraint 影像查询关联_FK_用户ID Foreign Key (用户ID) References 人员表(ID) On Delete Cascade;
+
+Create Index 影像查询关联_IX_用户ID On 影像查询关联(用户ID) Tablespace zl9Indexhis;
+Create Index 影像查询关联_IX_查询方案ID On 影像查询关联(查询方案ID) Tablespace zl9Indexhis;
+
+--查询特性
+Create Table 影像查询特性(
+       Id Number(18),
+       用户ID Number(18),
+       查询方案ID Number(18),
+       条件配置 Varchar2(4000),
+       过滤配置 Varchar2(4000),
+       列表配置 Varchar2(4000)
+)TABLESPACE zl9BaseItem;   
+
+Create Sequence 影像查询特性_ID Start With 1;
+
+Alter Table 影像查询特性 Add Constraint 影像查询特性_PK Primary Key (ID) Using Index Tablespace zl9Indexhis;
+Alter Table 影像查询特性 Add Constraint 影像查询特性_FK_查询方案ID Foreign Key (查询方案ID) References 影像查询方案(id) On Delete Cascade;
+Alter Table 影像查询特性 Add Constraint 影像查询特性_FK_用户ID Foreign Key (用户ID) References 人员表(ID) On Delete Cascade;
+
+Create Index 影像查询特性_IX_用户ID On 影像查询特性(用户ID) Tablespace zl9Indexhis;
+Create Index 影像查询特性_IX_查询方案ID On 影像查询特性(查询方案ID) Tablespace zl9Indexhis;
+
+--查询资源
+Create Table 影像查询资源(
+       Id Number(18),
+       资源名称 Varchar2(64),
+       资源类型 Number(1),
+       图标 Blob
+)TABLESPACE zl9BaseItem;  
+
+Create Sequence 影像查询资源_ID Start With 1;
+Alter Table 影像查询资源 Add Constraint 影像查询资源_PK Primary Key (ID) Using Index Tablespace zl9Indexhis;
+Alter Table 影像查询资源 Add Constraint 影像查询资源_UQ_资源名称 Unique (资源名称) Using Index Tablespace zl9Indexcis;

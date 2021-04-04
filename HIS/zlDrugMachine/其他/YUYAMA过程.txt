@@ -1,0 +1,118 @@
+﻿--优雅玛（YUYAMA）
+
+/*
+--数据表的“主键、索引、表空间”等对象，请自行创建（注意性能）！Create Table 药品设备接口_Yym(
+  PrescriptionNo Varchar2(20), 
+  Seqno Number(6), 
+  Group_no Number(2), 
+  MachineNo Number(2),
+  Procflg Number(2), 
+  PatientId Varchar2(10), 
+  PatientName Varchar2(40),
+  EnglishName varchar2(40),
+  Birthday date,
+  Sex varchar2(1),
+  Ioflg Varchar2(1),
+  Wardcd Varchar2(20), 
+  WardName Varchar2(40), 
+  RoomNo Varchar2(8),
+  BedNo varchar2(8),
+  Doctorcd varchar2(8),
+  DoctorName varchar2(40),
+  PrescriptionDate Date, 
+  TakeDate Date,
+  TakeTime varchar2(10),
+  LastTime varchar2(10),
+  Presc_Class Number(1),
+  Drugcd Varchar2(16), 
+  DrugName Varchar2(40), 
+  DrugShape varchar2(1),
+  PrescriptionDose number(12,4),
+  PrescriptionUnit varchar2(8),
+  DispensedDose number(12,4),
+  DispensedTotalDose number(12,4),
+  DispensedUnit Varchar2(8), 
+  Amount_per_package number(12,4),
+  Firm_id varchar2(20),  
+  Dispense_Days Number(3),
+  Freq_desc_code varchar2(5),
+  Freq_Desc Varchar2(40), 
+  Freq_counter varchar2(5),
+  Freq_desc_Detail_code varchar2(120),
+  Freq_Desc_Detail Varchar2(240), 
+  Explanation_code varchar2(2),
+  Explanation varchar2(32),
+  Administration_name varchar2(20),
+  DoctorComment varchar2(60),
+  BagOrderby number(1),
+  MakeRecTime Date,
+  UpDateRecTime date,
+  Filler varchar2(60),
+  Order_No number(18),
+  Order_Sub_No number(18)
+);
+*/
+
+
+CREATE OR REPLACE Procedure Zl_药品设备接口_Yym_Ins(
+  --处方号
+  PrescriptionNo_In In 药品设备接口_Yym.PrescriptionNo%Type,
+  --序号
+  Seqno_In In 药品设备接口_Yym.Seqno%Type,
+  --小组编号
+  Group_No_In In 药品设备接口_Yym.Group_No%Type,
+  --机器编号（0：所有；1-n：指定机器编号包药）
+  MachineNo_In In 药品设备接口_Yym.MachineNo%Type,
+  --处理状态（0：未处理；1：正常；2：异常；3：取消处理；-1：处理中））
+  Procflg_In In 药品设备接口_Yym.Procflg%Type,
+  --病人ID
+  PatientId_In In 药品设备接口_Yym.PatientId%Type,
+  --病人姓名
+  PatientName_In In 药品设备接口_Yym.PatientName%Type,
+  --门诊与住院区分（1：门诊；2：住院长嘱；3：住院临嘱）
+  Ioflg_In In 药品设备接口_Yym.Ioflg%Type,
+  --门诊（科室编码）；住院（病区编码）
+  Wardcd_In In 药品设备接口_Yym.Wardcd%Type,
+  --门诊（科室名称）；住院（病区名称）
+  WardName_In In 药品设备接口_Yym.WardName%Type,
+  --输入处方日期
+  PrescriptionDate_In In 药品设备接口_Yym.PrescriptionDate%Type,
+  --紧急类别（0：不紧急；1-9：紧急，由缓到急）
+  Presc_Class_In In 药品设备接口_Yym.Presc_Class%Type,
+  --药品编码
+  Drugcd_In In 药品设备接口_Yym.Drugcd%Type,
+  --药品名称
+  DrugName_In In 药品设备接口_Yym.DrugName%Type,
+  --摆药单位（剂型单位）
+  DispensedUnit_In In 药品设备接口_Yym.DispensedUnit%Type,
+  --天数或次数
+  Dispense_Days_In In 药品设备接口_Yym.Dispense_Days%Type,
+  --用法
+  Freq_Desc_In In 药品设备接口_Yym.Freq_Desc%Type,
+  --服用时间
+  Freq_Desc_Detail_In In 药品设备接口_Yym.Freq_Desc_Detail%Type,
+  --HIS的发药时间
+  MakeRecTime_In In 药品设备接口_Yym.MakeRecTime%Type)
+Is
+  v_Error Varchar2(255);
+  Err_Custom Exception;
+Begin
+
+  Insert Into 药品设备接口_Yym
+    (PrescriptionNo, Seqno, Group_no, MachineNo, Procflg,
+     PatientId, PatientName, Ioflg, Wardcd, WardName,
+     PrescriptionDate, Presc_Class, Drugcd, DrugName, DispensedUnit,
+     Dispense_Days, Freq_Desc, Freq_Desc_Detail, MakeRecTime)
+  Values
+    (PrescriptionNo_In, Seqno_In, Group_no_In, MachineNo_In, Procflg_In,
+     PatientId_In, PatientName_In, Ioflg_In, Wardcd_In, WardName_In,
+     PrescriptionDate_In, Presc_Class_In, Drugcd_In, DrugName_In, DispensedUnit_In,
+     Dispense_Days_In, Freq_Desc_In, Freq_Desc_Detail_In, MakeRecTime_In);
+
+Exception
+  When Err_Custom Then
+    Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+  When Others Then
+    zl_ErrorCenter(SQLCode, SQLErrM);
+End Zl_药品设备接口_Yym_Ins;
+/

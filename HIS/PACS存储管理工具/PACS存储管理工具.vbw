@@ -1,0 +1,13 @@
+frmMain = 0, 0, 812, 694, , 154, 203, 739, 633, C
+frmFilter = 22, 29, 607, 459, , 132, 174, 662, 601, C
+mdlFTP = 66, 87, 596, 513, C
+mdlMain = 88, 116, 618, 542, 
+clsFTP = 154, 203, 684, 629, Z
+frmSplash = 0, 0, 0, 0, C, 22, 29, 552, 455, C
+frmUserLogin = 50, 50, 885, 418, , 44, 58, 574, 484, C
+FrmChangePass = 0, 0, 0, 0, C, 22, 29, 607, 460, C
+frmManualArchive = 154, 154, 1044, 504, , 682, 2, 1212, 428, C
+frmAutoArchive = 0, 0, 895, 479, C, 44, 58, 629, 489, C
+clsBakDevice = 132, 174, 662, 600, C
+frmCollate = 0, 0, 504, 426, , 66, 87, 651, 517, C
+clsTaskIcon = 0, 0, 0, 0, C

@@ -1,0 +1,9 @@
+mdlPubDefine = 100, 100, 877, 604, 
+frmEdit = 200, 200, 968, 704, , 175, 175, 1072, 679, C
+clsBase = 75, 75, 823, 579, 
+mdlShiftBase = 0, 0, 929, 504, 
+frmShiftEdit = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmShiftMange = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmReview = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmParameter = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDoctorShift = 50, 50, 717, 554, Z, 25, 25, 661, 529, C

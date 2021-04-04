@@ -1,0 +1,6 @@
+行 157: 控件 IDKind 的类 zlIDKind.IDKindNew 不是一个已加载的控件类。
+行 183: 控件 dtpBegin 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 208: 控件 dtpEnd 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 648: 控件 stbThis 的类 MSComctlLib.StatusBar 不是一个已加载的控件类。
+行 707: 控件 imlPaneIcons 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 729: 控件 dkpMan 的类 XtremeDockingPane.DockingPane 不是一个已加载的控件类。

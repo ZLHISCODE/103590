@@ -1,0 +1,47 @@
+ -----增加一个用户scpacs给对方使用,以zlhis用户登录dba创建,用户名和密码均为scpacs
+create user SCPACS
+  identified by SCPACS
+  default tablespace SYSTEM
+  temporary tablespace SYSTEM
+  profile DEFAULT;
+-- Grant/Revoke object privileges 
+grant connect to SCPACS;
+grant resource to SCPACS;
+
+---授权ZLPACS_检查预约信息视图select权限给scpacs用户
+   
+grant select on ZLPACS_检查预约信息 to SCPACS;
+
+-- Create the new synonym 
+create public synonym ZLPACS_检查预约信息
+  for ZLHIS.ZLPACS_检查预约信息;
+
+---授权zlhis所有表select权限给scpacs用户,这个需要在sql中执行后才能使用
+ select 'create synonym'||' '||'scpacs.'||TABLE_NAME||' '||'for zlhis.'||TABLE_NAME||';' 
+  from all_tables
+ where owner='ZLHIS'
+
+-----授权号码控制表update权限给scpacs用户
+grant update on  号码控制表 to scpacs;
+
+---授权zl_住院记帐记录_delete过程execute权限给scpacs用户
+ grant execute on ZLPACS_住院记帐记录_INSERT to scpacs;
+-- Create the new synonym 
+create public synonym ZLPACS_住院记帐记录_INSERT
+  for ZLHIS.ZLPACS_住院记帐记录_INSERT;
+---授权zl_住院记帐记录_delete过程execute权限给scpacs用户
+ grant execute on zl_住院记帐记录_delete to scpacs;
+----Create the new synonym 
+create public synonym zl_住院记帐记录_delete
+  for zlhis.zl_住院记帐记录_delete;
+
+
+create user SCPACS
+  identified by SCPACS
+  default tablespace SYSTEM
+  temporary tablespace SYSTEM
+  profile DEFAULT;
+-- Grant/Revoke object privileges 
+grant connect to SCPACS;
+grant select on ZLPACS_检查预约信息 to SCPACS;
+

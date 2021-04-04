@@ -1,0 +1,4 @@
+LIBRARY zlNoticeLib
+EXPORTS	OCI_ConnCreate
+EXPORTS	OCI_Register
+EXPORTS	OCI_UnRigister

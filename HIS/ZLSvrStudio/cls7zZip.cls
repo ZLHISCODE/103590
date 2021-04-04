@@ -1,0 +1,149 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+  Persistable = 0  'NotPersistable
+  DataBindingBehavior = 0  'vbNone
+  DataSourceBehavior  = 0  'vbNone
+  MTSTransactionMode  = 0  'NotAnMTSObject
+END
+Attribute VB_Name = "cls7zZip"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Option Explicit
+Private mclsZip     As Object       'ZL7z的压缩类
+Private mclsUnZip   As Object       'ZL7z的解压类
+Private mblnZL7z    As Boolean      '是否能正常使用Zl7z
+Private mstr7zExe   As String       '7z.exe的路径
+
+Public Function Init7zZip(Optional ByVal str7zPath As String) As Boolean
+'功能：进行7z相关功能的初始化
+    On Error Resume Next
+    Set mclsZip = CreateObject("zl7z.Zip")
+    If err.Number <> 0 Then
+       err.Clear
+    End If
+    Set mclsUnZip = CreateObject("zl7z.UnZip")
+    If err.Number <> 0 Then
+       err.Clear
+    End If
+    mblnZL7z = Not (mclsZip Is Nothing Or mclsUnZip Is Nothing)
+    If str7zPath = "" Or Not gobjFSO.FileExists(mstr7zExe) Then
+        mstr7zExe = Get7zExePath
+    Else
+        mstr7zExe = str7zPath
+    End If
+    Init7zZip = mstr7zExe <> "" Or mblnZL7z
+End Function
+
+Public Function ZipFile(ByVal strFile As String, ByVal strZipName As String, Optional ByVal intRate As Integer = 5, Optional ByRef strErr As String) As Boolean
+'功能：进行压缩
+'参数：
+'       strZipName=保存的文件路径与名称
+'       strFile=原始文件
+'       intRate=压缩等级，压缩使用。
+    strErr = ""
+    If mblnZL7z Then
+        Call mclsZip.ZipSingle(strFile, gobjFSO.GetFileName(strFile), strZipName, intRate)
+        ZipFile = True
+    Else
+        ZipFile = DeCompression(strZipName, strFile, intRate, True, strErr)
+    End If
+    ZipFile = ZipFile And strErr = "" And gobjFSO.FileExists(strZipName)
+End Function
+
+Public Function UnZipFile(ByVal strZipName As String, ByVal strFile As String, Optional ByVal blnDeleteZipFile As Boolean = True, Optional ByRef strErr As String) As Boolean
+'功能：进行压缩
+'参数：
+'       strZipName=压缩文件名
+'       strFile=解压后的名称
+    If mblnZL7z Then
+        mclsUnZip.Open strZipName
+        mclsUnZip.unzip gobjFSO.GetParentFolderName(strFile)
+        UnZipFile = True
+    Else
+        UnZipFile = DeCompression(strFile, strZipName, , , strErr)
+    End If
+    If blnDeleteZipFile Then
+        On Error Resume Next
+        If FileSystem.GetAttr(strZipName) <> vbNormal Then
+             Call FileSystem.SetAttr(strZipName, vbNormal)
+        End If
+        '删除原始文件
+        Call gobjFSO.DeleteFile(strZipName, True)
+        If err.Number <> 0 Then err.Clear
+    End If
+    UnZipFile = UnZipFile And strErr = "" And gobjFSO.FileExists(strFile)
+End Function
+
+'===========================================================================
+'                2、私有方法
+'===========================================================================
+Private Function DeCompression(ByVal strDesFile As String, ByVal strSourceFile As String, Optional ByVal intRate As Integer, Optional ByVal blnCompression As Boolean, Optional ByRef strErr As String) As Boolean
+'功能：进行压缩解压(当前仅支持单文件）
+'参数：
+'       strDesFile=保存的文件路径与名称
+'       strSourceFile=原始文件
+'       intRate=压缩等级，压缩使用。
+'                   压缩等级 压缩算法 字典大小 快速字节 匹配器 过滤器 描述
+'                   0           Copy    无压缩
+'                   1           LZMA    64KB     32       HC4   BCJ   最快压缩
+'                   3           LZMA    1MB      32       HC4   BCJ   快速压缩
+'                   5           LZMA    16MB     32       BT4   BCJ   正常压缩(默认等级）
+'                   7           LZMA    32MB     64       BT4   BCJ   最大压缩
+'                   9           LZMA    64MB     64       BT4   BCJ2  极限压缩
+'       blnCompression=True-压缩，False-解压
+'返回：是否成功
+'说明：解压缩文件到本地,并删除压缩原始文件
+    Dim strCommand As String, strReturn As String
+    '获取不了7Z文件路径，则直接退出
+    If mstr7zExe = "" Then
+        strErr = "7Z.EXE解压程序不存在"
+        Exit Function
+    End If
+    If Not gobjFSO.FileExists(strSourceFile) Then
+        strErr = "源文件" & strSourceFile & "不存在"
+        Exit Function
+    End If
+    If gobjFSO.FileExists(strDesFile) Then
+        On Error Resume Next
+        '删除存在的目的文件
+        If FileSystem.GetAttr(strDesFile) <> vbNormal Then
+             Call FileSystem.SetAttr(strDesFile, vbNormal)
+        End If
+        Call gobjFSO.DeleteFile(strDesFile, True)
+        If err.Number <> 0 Then err.Clear
+    End If
+    On Error GoTo errH
+    If blnCompression Then
+        '-m 固定传输字符 x=设置等级 mt开启或关闭多线程压缩模式
+        strCommand = """" & mstr7zExe & """  a -y """ & strDesFile & """ """ & strSourceFile & """ -mx=" & intRate & " -mmt"
+    Else
+        '-o 固定传输字符
+        strCommand = """" & mstr7zExe & """  e -y """ & strSourceFile & """ -o""" & gobjFSO.GetParentFolderName(strDesFile) & """"
+    End If
+    strReturn = RunCommand(strCommand, strErr, , 5000)
+    If strErr = "" And strReturn <> "" Then strErr = strReturn
+    If gobjFSO.FileExists(strDesFile) Then
+        DeCompression = True
+    End If
+    Exit Function
+errH:
+    If strErr = "" Then strErr = err.Description
+    If 0 = 1 Then
+        Resume
+    End If
+End Function
+
+Private Function Get7zExePath() As String
+    Dim strSystem As String
+    
+    strSystem = gobjFSO.GetSpecialFolder(SystemFolder)
+    If Is64bit Then '64系统下32位程序应该放在C:\windows\SysWOW64
+        strSystem = gobjFSO.GetParentFolderName(strSystem) & "\SysWOW64"
+    End If
+    If gobjFSO.FileExists(strSystem & "\7z.exe") Then
+        Get7zExePath = strSystem & "\7z.exe"
+    End If
+End Function

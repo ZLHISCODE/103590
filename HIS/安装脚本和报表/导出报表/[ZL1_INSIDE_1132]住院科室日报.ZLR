@@ -1,0 +1,884 @@
+[HEAD]
+报表编号=ZL1_INSIDE_1132
+报表名称=住院科室日报
+报表说明=日报统计
+导出用户=ZLHIS
+导出时间=2008-04-18 18:29:15
+[ZLREPORTS]
+;
+ID=[NextVal];
+编号=[编号];
+名称=住院科室日报;
+说明=日报统计;
+密码=T}3Klufl(%@ppcO*LW;
+进纸=15;
+打印机=Star AR-3200+;
+票据=0;
+系统=;
+程序ID=;
+功能=;
+修改时间=Sysdate;
+发布时间=;
+[ZLRPTFMTS]
+;
+报表ID=[zlReports_ID.CurrVal];
+序号=1;
+说明=住院科室日报;
+图样=0;
+W=10312;
+H=14568;
+纸张=13;
+纸向=1;
+动态纸张=0;
+[ZLRPTITEMS]
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签1;
+类型=2;
+上级ID=;
+序号=0;
+参照=任意表1;
+性质=11;
+内容=病区：[病区信息.病区];
+表头=;
+X=552;
+Y=1273;
+W=1890;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签3;
+类型=2;
+上级ID=;
+序号=0;
+参照=任意表1;
+性质=21;
+内容=打印人：[操作员姓名];
+表头=;
+X=552;
+Y=4503;
+W=1800;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标题;
+类型=2;
+上级ID=;
+序号=0;
+参照=任意表1;
+性质=12;
+内容=[单位名称]住院科室日报;
+表头=;
+X=2277;
+Y=600;
+W=4650;
+H=420;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=20;
+粗体=1;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签4;
+类型=2;
+上级ID=;
+序号=0;
+参照=任意表1;
+性质=23;
+内容=打印时间：[yyyy-mm-dd hh:mm:ss];
+表头=;
+X=5862;
+Y=4500;
+W=2790;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=标签2;
+类型=2;
+上级ID=;
+序号=0;
+参照=任意表1;
+性质=13;
+内容=时间：[=开始时间]至[=结束时间];
+表头=;
+X=5952;
+Y=1273;
+W=2700;
+H=180;
+行高=0;
+对齐=0;
+自调=1;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=任意表1;
+类型=4;
+上级ID=;
+序号=0;
+参照=;
+性质=0;
+内容=;
+表头=;
+X=552;
+Y=1568;
+W=8100;
+H=2835;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=9;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=16777215;
+边框=1;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=0;
+参照=;
+性质=;
+内容=[流动信息.科室];
+表头=4^270^科室|4^255^科室;
+X=0;
+Y=0;
+W=1080;
+H=0;
+行高=255;
+对齐=0;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=;
+汇总=;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=1;
+参照=;
+性质=;
+内容=[流动信息.原人数];
+表头=4^270^原有数|4^255^原有数;
+X=0;
+Y=0;
+W=705;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=2;
+参照=;
+性质=;
+内容=[流动信息.入院数];
+表头=4^270^入院数|4^255^入院数;
+X=0;
+Y=0;
+W=675;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=3;
+参照=;
+性质=;
+内容=[流动信息.转入数];
+表头=4^270^转入数|4^255^转入数;
+X=0;
+Y=0;
+W=660;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=4;
+参照=;
+性质=;
+内容=[流动信息.转出数];
+表头=4^270^转出数|4^255^转出数;
+X=0;
+Y=0;
+W=675;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=5;
+参照=;
+性质=;
+内容=[流动信息.出院数];
+表头=4^270^出院数|4^255^总;
+X=0;
+Y=0;
+W=660;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=6;
+参照=;
+性质=;
+内容=[流动信息.死亡数];
+表头=4^270^出院数|4^255^死亡;
+X=0;
+Y=0;
+W=675;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=7;
+参照=;
+性质=;
+内容=[流动信息.现人数];
+表头=4^270^现有数|4^255^现有数;
+X=0;
+Y=0;
+W=690;
+H=0;
+行高=255;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+格式号=1;
+名称=;
+类型=6;
+上级ID=[CurrVal-X];
+序号=8;
+参照=;
+性质=;
+内容=[流动信息.床位数];
+表头=4^270^床位数|4^255^床位数;
+X=0;
+Y=0;
+W=720;
+H=0;
+行高=0;
+对齐=1;
+自调=0;
+字体=宋体;
+字号=0;
+粗体=0;
+斜体=0;
+下线=0;
+前景=0;
+背景=0;
+边框=0;
+排序=;
+格式=0;-0; ;;
+汇总=SUM;
+分栏=1;
+网格=0;
+系统=;
+[ZLRPTDATAS]
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+名称=病区信息;
+字段=病区,200;
+对象=USER.部门表;
+类型=0;
+说明=;
+[ZLRPTSQLS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=1;
+内容=Select 名称 as 病区 From 部门表 Where ID=[0];
+[ZLRPTPARS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=0;
+名称=病区ID;
+类型=1;
+缺省值=选择器定义…;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=Select ID,编码,名称,简码 From (
+Select A.ID,A.编码,A.名称,A.简码 From 部门表 A,部门性质说明 B
+Where B.部门ID = A.ID
+And (A.撤档时间=TO_DATE('3000-01-01','YYYY-MM-DD') Or A.撤档时间 is NULL)
+And B.服务对象 IN(2,3) And B.工作性质='护理'
+And A.ID IN(
+Select B.部门ID
+From 上机人员表 A,部门人员 B
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+Union
+Select C.科室ID
+From 上机人员表 A,部门人员 B,床位状况记录 C
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+And B.部门ID=C.病区ID
+)
+
+Union
+
+Select A.ID,A.编码,A.名称,A.简码 From 部门表 A,部门性质说明 B
+Where B.部门ID = A.ID
+And (A.撤档时间=TO_DATE('3000-01-01','YYYY-MM-DD') Or A.撤档时间 is NULL)
+And B.服务对象 IN(2,3) And B.工作性质='护理'
+And A.ID Not IN(
+Select B.部门ID
+From 上机人员表 A,部门人员 B
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+Union
+Select C.科室ID
+From 上机人员表 A,部门人员 B,床位状况记录 C
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+And B.部门ID=C.病区ID
+)
+And (exists (select 1 from session_roles R,zlrolegrant G where G.系统=[系统] And R.role=G.角色 and G.序号=1132 and G.功能='所有病区')
+or exists (select 1 from zlSystems where 编号=[系统] and upper(所有者)=user)
+or exists (select 1 from session_roles where role='DBA'))
+)
+Where 名称 like '[*]%' or 编码 like '[*]%' or 简码 like '[*]%'
+order by 编码;
+分类字段=;
+明细字段=ID,139,&B|编码,200,&S|名称,200,&S&D|简码,200,&S;
+对象=USER.上机人员表,USER.部门人员,USER.床位状况记录,SYS.SESSION_ROLES,ZLTOOLS.ZLROLEGRANT,ZLTOOLS.ZLSYSTEMS,USER.部门表,USER.部门性质说明|USER.部门表;
+[ZLRPTDATAS]
+;
+ID=[NextVal];
+报表ID=[zlReports_ID.CurrVal];
+名称=流动信息;
+字段=科室,202|原人数,139|入院数,139|转入数,139|转出数,139|出院数,139|死亡数,139|现人数,139|床位数,139;
+对象=USER.病人变动记录,USER.病案主页,USER.床位增减记录,USER.床位状况记录,USER.部门表;
+类型=0;
+说明=;
+[ZLRPTSQLS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=1;
+内容=Select X.科室,B.原人数,A.入院数,A.转入数,A2.转出数,A2.出院数,A2.死亡数,C.现人数,D.床位数 From ;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=2;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=3;
+内容=(Select 科室id,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=4;
+内容=Sum(Decode(开始原因, 1, 1, 0)) As 入院数, Sum(Decode(开始原因, 3, 1, 0)) As 转入数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=5;
+内容=From (Select Distinct 科室id, 开始原因,to_char(开始时间,'yyyy-mm-dd');
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=6;
+内容=From 病人变动记录;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=7;
+内容=Where 病区id=[0] And 开始时间 Between [1] And [2]);
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=8;
+内容=Group By 科室id) A,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=9;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=10;
+内容=(Select a.科室id,Sum(Decode(a.终止原因, 3, 1, 0)) As 转出数, Sum(Decode(a.终止原因, 1, 1, 0)) As 出院数,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=11;
+内容=Sum(Decode(b.出院方式,'死亡', Decode(a.终止原因, 1, 1, 0), 0)) As 死亡数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=12;
+内容=From (Select Distinct 病人id, 主页id, 科室id,终止原因,to_char(终止时间,'yyyy-mm-dd');
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=13;
+内容=From 病人变动记录;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=14;
+内容=Where 病区id =[0] And 终止时间 Between [1] And [2]) A, 病案主页 b;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=15;
+内容=Where a.病人id=b.病人id And a.主页id=b.主页id;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=16;
+内容=Group By a.科室id) A2,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=17;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=18;
+内容=(Select 科室ID,Sum(人数) as 原人数 From (;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=19;
+内容=Select A.科室ID,Sum(Decode(A.开始原因,1,1,3,1,0)) as 人数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=20;
+内容=From 病人变动记录 A;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=21;
+内容=Where A.病区ID=[0] And A.开始时间<=[1]  And A.附加床位=0;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=22;
+内容=Group by A.科室ID;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=23;
+内容=Union ALL;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=24;
+内容=Select A.科室ID,Sum(Decode(A.终止原因,1,-1,3,-1,0)) as 人数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=25;
+内容=From 病人变动记录 A;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=26;
+内容=Where A.病区ID=[0] And A.终止时间<=[1]  And A.附加床位=0;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=27;
+内容=Group by A.科室ID) Group by 科室ID;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=28;
+内容=) B,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=29;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=30;
+内容=(Select 科室ID,Sum(人数) as 现人数 From (;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=31;
+内容=Select A.科室ID,Sum(Decode(A.开始原因,1,1,3,1,0)) as 人数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=32;
+内容=From 病人变动记录 A,病案主页 B;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=33;
+内容=Where A.病人ID=B.病人ID And A.主页ID=B.主页ID   And A.附加床位=0;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=34;
+内容=And A.病区ID=[0] And A.开始时间<=[2];
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=35;
+内容=Group by A.科室ID;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=36;
+内容=Union All;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=37;
+内容=Select A.科室ID,Sum(Decode(A.终止原因,1,-1,3,-1,0)) as 人数;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=38;
+内容=From 病人变动记录 A,病案主页 B;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=39;
+内容=Where A.病人ID=B.病人ID And A.主页ID=B.主页ID  And A.附加床位=0;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=40;
+内容=And A.病区ID=[0] And A.终止时间<=[2];
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=41;
+内容=Group by A.科室ID) Group by 科室ID;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=42;
+内容=) C,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=43;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=44;
+内容=(Select 科室ID,Sum(变动) as 床位数 From 床位增减记录 Where 病区ID=[0] And 日期<=[1] Group by 科室ID) D,;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=45;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=46;
+内容=(Select Distinct A.科室ID,B.名称 as 科室,B.编码 From 床位状况记录 A,部门表 B Where A.科室ID=B.ID And A.病区ID=[0]) X;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=47;
+内容=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=48;
+内容=Where X.科室ID=A.科室ID(+) And X.科室ID=A2.科室ID(+) And X.科室ID=D.科室ID(+) And X.科室ID=B.科室ID(+) And X.科室ID=C.科室ID(+);
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=49;
+内容=Order by X.编码;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+行号=50;
+内容=;
+[ZLRPTPARS]
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=0;
+名称=病区ID;
+类型=1;
+缺省值=选择器定义…;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=Select ID,编码,名称,简码 From (
+Select A.ID,A.编码,A.名称,A.简码 From 部门表 A,部门性质说明 B
+Where B.部门ID = A.ID
+And (A.撤档时间=TO_DATE('3000-01-01','YYYY-MM-DD') Or A.撤档时间 is NULL)
+And B.服务对象 IN(2,3) And B.工作性质='护理'
+And A.ID IN(
+Select B.部门ID
+From 上机人员表 A,部门人员 B
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+Union
+Select C.科室ID
+From 上机人员表 A,部门人员 B,床位状况记录 C
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+And B.部门ID=C.病区ID
+)
+
+Union
+
+Select A.ID,A.编码,A.名称,A.简码 From 部门表 A,部门性质说明 B
+Where B.部门ID = A.ID
+And (A.撤档时间=TO_DATE('3000-01-01','YYYY-MM-DD') Or A.撤档时间 is NULL)
+And B.服务对象 IN(2,3) And B.工作性质='护理'
+And A.ID Not IN(
+Select B.部门ID
+From 上机人员表 A,部门人员 B
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+Union
+Select C.科室ID
+From 上机人员表 A,部门人员 B,床位状况记录 C
+Where A.人员ID=B.人员ID And A.用户名=USER And B.缺省=1
+And B.部门ID=C.病区ID
+)
+And (exists (select 1 from session_roles R,zlrolegrant G where G.系统=[系统] And R.role=G.角色 and G.序号=1132 and G.功能='所有病区')
+or exists (select 1 from zlSystems where 编号=[系统] and upper(所有者)=user)
+or exists (select 1 from session_roles where role='DBA'))
+)
+Where 名称 like '[*]%' or 编码 like '[*]%' or 简码 like '[*]%'
+order by 编码;
+分类字段=;
+明细字段=ID,139,&B|编码,200,&S|名称,200,&S&D|简码,200,&S;
+对象=USER.上机人员表,USER.部门人员,USER.床位状况记录,SYS.SESSION_ROLES,ZLTOOLS.ZLROLEGRANT,ZLTOOLS.ZLSYSTEMS,USER.部门表,USER.部门性质说明|USER.部门表;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=1;
+名称=开始时间;
+类型=2;
+缺省值=&当天开始时间;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=;
+分类字段=;
+明细字段=;
+对象=;
+;
+源ID=[zlRPTDatas_ID.CurrVal];
+组名=;
+序号=2;
+名称=结束时间;
+类型=2;
+缺省值=&当前日期时间;
+格式=0;
+值列表=;
+分类SQL=;
+明细SQL=;
+分类字段=;
+明细字段=;
+对象=;

@@ -1,0 +1,5 @@
+mdlPubDefine = 0, 0, 0, 0, C
+mdlPublic = 0, 0, 0, 0, C
+mdlEInvoiceAutoCreater = 52, 52, 1254, 714, Z
+frmEInvoiceManager = 0, 0, 0, 0, C, 26, 26, 1228, 688, C
+mdlLogManager = 0, 0, 0, 0, C

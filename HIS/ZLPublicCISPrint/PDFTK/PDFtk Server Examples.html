@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0048)https://www.pdflabs.com/docs/pdftk-cli-examples/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Language" content="en">
+<meta name="description" content="These examples show you how to perform common PDF tasks from the command-line using pdftk.">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" type="text/css" href="./PDFtk Server Examples_files/default.css" title="default" media="all, only screen and (max-device-width: 480px)">
+<link rel="stylesheet" type="text/css" href="./PDFtk Server Examples_files/mobile.css" title="default" media="print, aural, handheld, braille, embossed, projection, tty, tv, only screen and (max-device-width: 480px)">
+<link rel="stylesheet" type="text/css" href="./PDFtk Server Examples_files/print.css" title="default" media="print, aural, braille, embossed, tty">
+<link rel="alternate stylesheet" type="text/css" href="./PDFtk Server Examples_files/default.css" title="wide" media="screen">
+<link rel="alternate stylesheet" type="text/css" href="./PDFtk Server Examples_files/default.css" title="narrow" media="screen" disabled="">
+<link rel="alternate stylesheet" type="text/css" href="./PDFtk Server Examples_files/narrow.css" title="narrow" media="screen" disabled="">
+<link rel="alternate stylesheet" type="text/css" href="./PDFtk Server Examples_files/default.css" title="mobile" media="screen" disabled="">
+<link rel="alternate stylesheet" type="text/css" href="./PDFtk Server Examples_files/mobile.css" title="mobile" media="screen" disabled="">
+
+<script type="text/javascript" async="" src="./PDFtk Server Examples_files/ga.js"></script><script src="./PDFtk Server Examples_files/dynamicLayout.js" type="text/javascript"></script><title>PDFtk Server Examples</title><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6028337-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head><body><div id="container1"><div class="col_half" id="head1"><h1 id="heading"><a href="https://www.pdflabs.com/"><span id="heading_logo"></span>PDF Labs</a></h1></div><div class="col_half" id="head2"><!--<h3 id="subheading"></h3>--></div><div class="hr" id="head3"><hr></div><div class="col_half" id="topic"><h2>PDFtk Server Examples</h2><div class="list_hl"><p>These examples show you how to perform common PDF tasks from the command-line using pdftk.</p></div>
+<blockquote class="note"><p style="text-align: center"><big><b>Looking for a friendly Windows GUI?<br>Try our <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDFtk Free</a>!</b></big></p></blockquote>
+
+  <p>Collate scanned pages</p>
+   <blockquote><p><tt>pdftk A=even.pdf B=odd.pdf shuffle A B output collated.pdf</tt></p></blockquote>
+  <p>&nbsp;&nbsp;&nbsp;or if odd.pdf is in reverse order:</p>
+   <blockquote><p><tt>pdftk A=even.pdf B=odd.pdf shuffle A Bend-1 output collated.pdf</tt></p></blockquote>
+
+  <p>Decrypt a PDF</p>
+   <blockquote><p><tt>pdftk secured.pdf input_pw foopass output unsecured.pdf</tt></p></blockquote>
+
+  <p>Encrypt a PDF using 128-bit strength (the default), withhold all permissions (the default)</p>
+   <blockquote><p><tt>pdftk 1.pdf output 1.128.pdf owner_pw foopass</tt></p></blockquote>
+
+  <p>Same as above, except password <i>baz</i> must also be used to open output PDF</p>
+   <blockquote><p><tt>pdftk 1.pdf output 1.128.pdf owner_pw foo user_pw baz</tt></p></blockquote>
+
+  <p>Same as above, except printing is allowed (once the PDF is open)</p>
+   <blockquote><p><tt>pdftk 1.pdf output 1.128.pdf owner_pw foo user_pw baz allow printing</tt></p></blockquote>
+
+  <p>Join in1.pdf and in2.pdf into a new PDF, out1.pdf</p>
+   <blockquote><p><tt>pdftk in1.pdf in2.pdf cat output out1.pdf</tt></p></blockquote>
+  <p>&nbsp;&nbsp;&nbsp;or (using handles):</p>
+   <blockquote><p><tt>pdftk A=in1.pdf B=in2.pdf cat A B output out1.pdf</tt></p></blockquote>
+  <p>&nbsp;&nbsp;&nbsp;or (using wildcards):</p>
+   <blockquote><p><tt>pdftk *.pdf cat output combined.pdf</tt></p></blockquote>
+
+  <p>Remove page 13 from in1.pdf to create out1.pdf</p>
+   <blockquote><p><tt>pdftk in.pdf cat 1-12 14-end output out1.pdf</tt></p></blockquote>
+  <p>&nbsp;&nbsp;&nbsp;or:</p>
+   <blockquote><p><tt>pdftk A=in1.pdf cat A1-12 A14-end output out1.pdf</tt></p></blockquote>
+
+<blockquote class="note"><p>When using the Windows command-prompt, it helps to use drag-and-drop from the file manager: drag the input PDF file from the file manager onto the command-prompt, and its full pathname will appear at the prompt.</p></blockquote>
+
+  <p>Apply 40-bit encryption to output, revoking all permissions (the default). Set the owner PW to <i>foopass</i>.</p>
+   <blockquote><p><tt>pdftk 1.pdf 2.pdf cat output 3.pdf encrypt_40bit owner_pw foopass</tt></p></blockquote>
+
+  <p>Join two files, one of which requires the password <i>foopass</i>. The output is not encrypted.</p>
+   <blockquote><p><tt>pdftk A=secured.pdf 2.pdf input_pw A=foopass cat output 3.pdf</tt></p></blockquote>
+
+  <p>Uncompress PDF page streams for editing the PDF in a text editor (e.g., vim, emacs)</p>
+   <blockquote><p><tt>pdftk doc.pdf output doc.unc.pdf uncompress</tt></p></blockquote>
+
+  <p>Repair a PDF’s corrupted XREF table and stream lengths, if possible</p>
+   <blockquote><p><tt>pdftk broken.pdf output fixed.pdf</tt></p></blockquote>
+
+  <p>Burst a single PDF document into pages and dump its data to doc_data.txt</p>
+   <blockquote><p><tt>pdftk in.pdf burst</tt></p></blockquote>
+
+  <p>Burst a single PDF document into encrypted pages. Allow low-quality printing</p>
+   <blockquote><p><tt>pdftk in.pdf burst owner_pw foopass allow DegradedPrinting</tt></p></blockquote>
+
+  <p>Write a report on PDF document metadata and bookmarks to report.txt</p>
+   <blockquote><p><tt>pdftk in.pdf dump_data output report.txt</tt></p></blockquote>
+
+  <p>Rotate the first PDF page to 90 degrees clockwise</p>
+   <blockquote><p><tt>pdftk in.pdf cat 1east 2-end output out.pdf</tt></p></blockquote>
+
+  <p>Rotate an entire PDF document to 180 degrees</p>
+   <blockquote><p><tt>pdftk in.pdf cat 1-endsouth output out.pdf</tt></p></blockquote>
+<p><i>Article Author: Sid Steward</i></p><h3>Notes</h3><p>Pdftk is a command-line program, so you should use your computer terminal or command prompt when first testing these examples.</p><div class="nav_2"><h3>Related Articles</h3><ul><li><p><a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDFtk - The PDF Toolkit</a></p></li><li><p><a href="https://www.pdflabs.com/docs/pdftk-man-page/">PDFtk Server Manual</a></p></li><li><p><a href="https://www.pdflabs.com/docs/pdftk-license/">PDFtk Server License</a></p></li><li><p><a href="https://www.pdflabs.com/docs/pdftk-version-history/">PDFtk Version History</a></p></li></ul><h3>Article Tags</h3><ul><li><p><a href="https://www.pdflabs.com/t/pdftk/">pdftk</a></p></li><li><p><a href="https://www.pdflabs.com/t/cli/">cli</a></p></li></ul></div><div class="hr"><hr></div></div><div id="container2"><div class="nav_1"><div class="col_qtr"><h2>Navigation</h2><h3>Site Categories</h3><ul class="links"><li><h3><a href="https://www.pdflabs.com/tools/">Tools</a></h3><ul><li><a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">PDFtk - The PDF Toolkit</a></li><li><a href="https://www.pdflabs.com/tools/pdftk-pro/">PDFtk Pro</a></li><li><a href="https://www.pdflabs.com/tools/pdftk-server/">PDFtk Server</a></li><li><a href="https://www.pdflabs.com/tools/stamptk-the-pdf-stamp-maker/">STAMPtk - The PDF Stamp Maker</a></li><li><a href="https://www.pdflabs.com/tools/gnu-barcode-plus-pdf/">GNU Barcode Plus PDF</a></li></ul></li><li><h3><a href="https://www.pdflabs.com/docs/">Docs</a></h3><ul><li><a href="https://www.pdflabs.com/docs/pdftk-pro-guide/">Guide to PDFtk Pro</a></li><li><a href="https://www.pdflabs.com/docs/pdftk-man-page/">PDFtk Server Manual</a></li><li><a href="https://www.pdflabs.com/docs/pdftk-cli-examples/">PDFtk Server Examples</a></li><li><a href="https://www.pdflabs.com/docs/pdftk-license/">PDFtk Server License</a></li><li><a href="https://www.pdflabs.com/docs/pdftk-version-history/">PDFtk Version History</a></li><li><a href="https://www.pdflabs.com/docs/stamptk-manual/">STAMPtk Manual</a></li><li><a href="https://www.pdflabs.com/docs/install-pdftk-on-redhat-or-centos/">Install PDFtk on Red Hat or CentOS</a></li><li><a href="https://www.pdflabs.com/docs/how-to-add-headers-footers-watermarks-and-stamps-to-pdf/">How to Add Headers, Footers, Watermarks and Stamps to PDF</a></li></ul></li><li><h3><a href="https://www.pdflabs.com/blog/">Blog</a></h3><ul><li><a href="https://www.pdflabs.com/blog/how-to-collate-even-odd-scanned-pages/">How to Collate Even and Odd Scanned PDF Pages</a></li><li><a href="https://www.pdflabs.com/blog/export-and-import-pdf-bookmarks/">How to Export and Import PDF Bookmarks</a></li><li><a href="https://www.pdflabs.com/blog/enjoy-photos-on-nook-or-kindle-using-pdf-albums/">How to Create Photo Albums for Nook or Kindle</a></li></ul></li><li><h3><a href="https://www.pdflabs.com/company/">Company</a></h3><ul><li><a href="https://www.pdflabs.com/company/contact/">Contact PDF Labs</a></li><li><a href="https://www.pdflabs.com/company/testimonials/">What People Say</a></li></ul></li></ul><h3>Site Tags</h3><ul class="links"><li><p><a href="https://www.pdflabs.com/t/pdftk/">pdftk</a></p></li><li><p><a href="https://www.pdflabs.com/t/gui/">gui</a></p></li><li><p><a href="https://www.pdflabs.com/t/stamptk/">stamptk</a></p></li><li><p><a href="https://www.pdflabs.com/t/cli/">cli</a></p></li><li><p><a href="https://www.pdflabs.com/t/barcode/">barcode</a></p></li><li><p><a href="https://www.pdflabs.com/t/bookmarks/">bookmarks</a></p></li><li><p><a href="https://www.pdflabs.com/t/imagemagick/">imagemagick</a></p></li><li><p><a href="https://www.pdflabs.com/t/red%20hat/">red hat</a></p></li><li><p><a href="https://www.pdflabs.com/t/centos/">centos</a></p></li><li><p><a href="https://www.pdflabs.com/t/rpm/">rpm</a></p></li></ul><h3>Site Search</h3><form action="https://www.pdflabs.com/site-search/"><div><input type="text" name="qq" id="search_qq"></div><div><input type="submit" value="Search"></div></form><div class="hr"><hr></div></div></div><div class="col_qtr"><h2>About PDF Labs</h2><p>Our mission is to make PDF easier to&nbsp;use.</p><p>PDF Labs is operated by Sid Steward, author of <a href="http://www.amazon.com/exec/obidos/ASIN/0596006551/ref=nosim/pdftk-20"><i>PDF&nbsp;Hacks</i> (O’Reilly)</a> and the popular <a href="http://www.pdftk.com/">PDF&nbsp;Toolkit</a>.</p><p>Please contact Sid Steward by email.  Include <i>PDF&nbsp;Labs</i> in the subject to ensure prompt delivery:</p>
+<script type="text/javascript"><!--
+var e0= "si";
+var e1= "d\x2e";
+var e2= "st";
+var e3= "ew";
+var e4= "ar";
+var e5= "d\x40";
+var e6= "pd";
+var e7= "fl";
+var e8= "ab";
+var e9= "s\x2e";
+var ea= "co";
+var eb= "m";
+document.write( "\x3cp\x3e\x3ca href="+ "mai"+ "lto\x3a"+ e0+ e1+ e2+ e3+ e4+ e5+ e6+ e7+ e8+ e9+ ea+ eb+ "\x3fsubject\x3dPDF\x2520Labs"+ "\x3e"+ e0+ e1+ e2+ e3+ e4+ e5+ e6+ e7+ e8+ e9+ ea+ eb+ "\x3c/a\x3e\x3c/p\x3e");
+//-->
+</script><p><a href="mailto:sid.steward@pdflabs.com?subject=PDF%20Labs">sid.steward@pdflabs.com</a></p>
+<noscript>
+&lt;p&gt;&lt;img src="https://www.pdflabs.com/s/eee.gif" width=172 height=17 alt=""&gt;&lt;/p&gt;
+</noscript>
+<div class="hr"><hr></div><h2>About PDF Hacks</h2>
+<div><a href="http://www.amazon.com/exec/obidos/ASIN/0596006551/ref=nosim/pdftk-20"><img src="./PDFtk Server Examples_files/pdf_hacks.png" alt="PDF Hacks Cover" width="160" height="225" style="border: 0px"></a></div><p>"If you like pdftk, then you’ll appreciate the other 25 programs and scripts I created for my book, <a href="http://shop.oreilly.com/product/9780596006556.do">PDF&nbsp;Hacks</a>."&nbsp;–Sid</p><div class="hr"><hr></div><h2>About PDFtk</h2>
+<p>For ten years, power users have relied on PDFtk for server-side processing of PDF documents. Our command-line PDFtk has been — and always will be — free (as in freedom) software.</p>
+<p>Today we also offer a convenient graphical application: <a href="https://www.pdflabs.com/tools/pdftk-pro/">PDFtk&nbsp;Pro</a>.  Your purchase of PDFtk&nbsp;Pro will help fund the continued development of our GPL PDFtk.</p>
+<p>Thank you for your support!</p>
+<div class="hr"><hr></div></div></div><div class="col_half" id="foot"><p>Copyright © 2004–2014 Steward and Lee, LLC</p></div></div></body></html>

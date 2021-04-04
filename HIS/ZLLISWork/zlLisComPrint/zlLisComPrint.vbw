@@ -1,0 +1,8 @@
+clsComPrint = 25, 25, 565, 379, 
+mdlPrint = 75, 75, 611, 403, 
+mdlPubComLib = 100, 100, 636, 428, 
+mdlLogin = 125, 125, 661, 453, 
+mdlImage = 150, 150, 869, 478, 
+frmMain = 0, 0, 719, 328, , 150, 150, 869, 478, C
+clsLog = 50, 50, 769, 378, 
+mdlPubLog = 75, 75, 794, 403, 

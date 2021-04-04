@@ -1,0 +1,13 @@
+Card = 0, 0, 0, 0, C
+Cards = 0, 0, 0, 0, C
+mdlIDKind = 0, 0, 0, 0, C
+PatiInfor = 0, 0, 0, 0, C
+frmIDKindSet = 0, 0, 0, 0, C, 22, 22, 540, 465, C
+mdlPublic = 0, 0, 0, 0, C
+IDKind = 0, 0, 0, 0, C, 44, 44, 562, 487, C
+PatiIdentify = 0, 0, 0, 0, C, 66, 66, 584, 509, C
+IDKindNew = 25, 25, 1289, 686, C, 88, 88, 606, 531, C
+ObjXML = 0, 0, 0, 0, C
+TextEx = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+CommandEx = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdlApiDefine = 0, 0, 0, 0, C

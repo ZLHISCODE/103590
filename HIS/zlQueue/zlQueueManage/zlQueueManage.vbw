@@ -1,0 +1,8 @@
+clsQueueManage = 176, 176, 957, 661, C
+frmQueueStation = 110, 110, 957, 485, C, 44, 44, 825, 529, C
+mdlPubDefine = 0, 0, 0, 0, C
+mdlQueue = 0, 0, 0, 0, C
+frmSetup = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmUpdateInfo = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmFind = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmPriorityCause = 0, 0, 0, 0, C, 0, 0, 0, 0, C

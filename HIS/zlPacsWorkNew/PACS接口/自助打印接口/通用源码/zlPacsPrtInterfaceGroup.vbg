@@ -1,0 +1,3 @@
+VBGROUP 5.0
+Project=zlPacsPrtInterface.vbp
+StartupProject=VbDebug\zlPacsInterfaceTest.vbp

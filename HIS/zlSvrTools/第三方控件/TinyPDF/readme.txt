@@ -1,0 +1,3 @@
+1.运行install.cmd进行TinyPDF虚拟打印机安装
+2.运行uninstall.cmd进行TinyPDF虚拟打印机卸载
+3.注意，TinyPDF只能在32位Windows系统中使用，不支持64位Windows操作系统

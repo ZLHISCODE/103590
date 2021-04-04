@@ -1,0 +1,8 @@
+1、文件产生方式：从0-99,一直到99，达到AFP.A99后，覆盖以前AFP.A01,顺序进行增加,其中是以项目AFP为例,每一次做后产生文件为AFP.A01,第二次产生文件为AFP.A02,第三次为AFP.A03
+2、 SEQ为仪器编号,PAT为标本号,CONC为结果
+3、日期取文件名产生日期
+4、开展项目为： AFP,CEA,CA125,CA199,CA153,CA50,TPSA,T3,T4,TSH,HBSAG,HBEAG,HBCAB,HBSAB,HBEAB,B-HCG
+5、如FT3.W06---是系统自动生成的，不用管
+   如FT3.X38---是系统自动生成的，不用管
+6、联系人：13984920315 秦工
+芬兰Perlin Elmer Life Sciences公司产的AutoDELFIA-1235全自动时间分辨荧光免疫分析仪

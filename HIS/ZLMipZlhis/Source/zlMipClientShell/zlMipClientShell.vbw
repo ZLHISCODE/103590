@@ -1,0 +1,13 @@
+mdlAPI = 25, 25, 609, 530, C
+mdlDefine = 100, 100, 961, 605, C
+frmMipClientRunlog = 50, 50, 766, 555, Z, 200, 200, 916, 705, C
+frmMipClientShell = 175, 175, 778, 680, , 150, 150, 753, 655, C
+frmMipComAlert = 25, 25, 704, 530, , 125, 125, 1017, 630, C
+frmMipComOption = 150, 150, 734, 655, C, 225, 225, 794, 730, C
+frmMipComView = 200, 200, 1057, 705, , 250, 250, 819, 755, C
+frmMipResource = 0, 0, 0, 0, C, 225, 225, 1048, 730, C
+mdlMipClientShell = 225, 225, 1117, 730, 
+clsMipClientShell = 25, 25, 785, 530, 
+clsMipReceiptData = 0, 0, 0, 0, C
+clsMipRunLog = 0, 0, 0, 0, C
+clsMipSystemData = 0, 0, 0, 0, C

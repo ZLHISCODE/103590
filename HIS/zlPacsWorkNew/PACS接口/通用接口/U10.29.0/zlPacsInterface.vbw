@@ -1,0 +1,5 @@
+clsPacsInterface = 25, 25, 754, 427, Z
+mdlPacsInterface = 100, 100, 827, 511, C
+mdlComLib = 50, 50, 1004, 556, 
+frmErrAsk = 0, 0, 0, 0, C, 125, 125, 852, 536, C
+frmErrNote = 0, 0, 0, 0, C, 150, 150, 877, 561, C

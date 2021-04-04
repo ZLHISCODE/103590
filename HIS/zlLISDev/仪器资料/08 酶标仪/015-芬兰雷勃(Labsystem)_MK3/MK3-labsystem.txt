@@ -1,0 +1,68 @@
+Labsystems Wellscan Mk3 酶标仪联机接口参数
+
+接口参数：
+　　仪器和计算机相互传输数据采用的是 RS-232 C 接口，本仪器的接口为 25 针 D 型接口。 
+
+接口针脚信号：
+　　位置　　信号
+　　　2　　　TxD/RxD　传送数据/接收数据
+　　　3　　　RxD/TxD　接收数据/传送数据
+　　　6　　　DSR　　　数据设置准备
+　　　7　　　GND　　　信号地
+　　　20　　 DTR　　　数据设置准备好
+　　针脚 2 和 3 的具体功能可以通过调整仪器后部的微动开关来设置具体是传送数据还是接收数据。 
+
+技术参数：
+　　波特率：接口的波特率可以通过仪器后部的微动开关设置，可选择的波特率有：150, 300, 600, 1200, 2400, 4800, 9600(默认设置), 19200等。
+　　起始位：1 位
+　　数据位：8 位
+　　停止位：1 位
+　　校验：　无 
+
+控制方式：
+1、可以通过选择模式 6 或计算机向仪器发送 R 命令来让计算机控制仪器。
+2、可以通过按 STOP 键或计算机向仪器发送 Q 命令来结束计算机的控制。
+3、计算机控制命令： 
+
+表 计算机控制命令表
+    控制字符     说明 
+R 启动计算机控制 
+F1...8 选择滤光片 
+FMnn...n 为每一列选一个滤光片(n 为滤光片编号，可选 1-8) 
+E0 选择连续进板方式 
+E1 选择逐步进板方式 
+C 输入当前的程序模式号码 
+Cn 程序模式的选择(n=1-4)
+注意：选择了新的程序模式后，仪器进行自检，
+必须输入一个新的 R 命令才能再进入计算机控制。 
+A 空气空白 
+B 列试剂空白 
+P 整板测量，结果以板格式通过接口输出 
+PM 整板测量，每列使用各自的滤光片，结果以板格式通过接品输出 
+Pn 整板测量 n 次(n=1-99)，结果以板格式通过接口输出 
+Mn 从起始列开始测量至 n 列(n=1-12) 
+Sn 确定相对起始列(n=1-12) 
+I 设置起始列为I，这样，绝对起始列为 1 
+O 弹出微孔板 
+X1 设定最大振荡速度(默认值) 
+X2 设定振荡速度为最高值的66% 
+X3 设定振荡的速度为最高值的33% 
+Znn 以指定时间振荡微孔板，nn为振动时间(以秒为单位，00-60) 
+T 返回仪器的日期时间 
+N 返回仪器的系列号 
+V 返回仪器的软件版本号 
+Q 计算机停止控制，回到键盘操作  
+
+
+说明：
+　　每个命令都必须以<LF>(ASCII=0C)结束，仪器忽略命令前的空格。
+　　对于 P 和 PM 命令，返回的是板格式数据，为如下格式：
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+ Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data  Data <CR><LF>
+　　在这里，<CR>(ASCII=0D)，Data 共有 6 个字符，第一个字符可是空格或负号，后面五个是数字或小数点，其数据为每一孔的吸光度值。

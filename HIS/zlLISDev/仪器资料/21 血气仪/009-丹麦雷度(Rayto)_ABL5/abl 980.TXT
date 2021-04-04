@@ -1,0 +1,26 @@
+Pc40RADIOMETER ABL5
+
+Wt report                 #980
+-----------------------------------
+Time                    8:56
+Date                   23.03.07
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R
+tHb                      150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.46 
+ pCO2                    5.3 kPa
+ pO2                    11.5 kPa
+-----------------------------------
+ HCO3-                    28 mmol/L
+ sO2                      97 %
+ tCO2                     29 mmol/L
+ ABE                       4 mmol/L
+ SBC                      28 mmol/L
+ SBE                       4 mmol/L
+
+-----------------------------------
+Analyzer #                  

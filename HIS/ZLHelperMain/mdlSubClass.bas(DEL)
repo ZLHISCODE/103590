@@ -1,0 +1,199 @@
+Attribute VB_Name = "mdlSubClass"
+Option Explicit
+'==================================================================================================
+'编写           lshuo
+'日期           2019/1/22
+'模块           mdlSubClassM
+'说明
+'==================================================================================================
+Private Declare Function GetProp Lib "user32" Alias "GetPropA" (ByVal hwnd As Long, ByVal lpString As String) As Long
+Private Declare Function SetProp Lib "user32" Alias "SetPropA" (ByVal hwnd As Long, ByVal lpString As String, ByVal hData As Long) As Long
+Private Declare Function RemoveProp Lib "user32" Alias "RemovePropA" (ByVal hwnd As Long, ByVal lpString As String) As Long
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (pDest As Any, pSource As Any, ByVal ByteLen As Long)
+Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+Private Declare Function CallWindowProc Lib "user32" Alias "CallWindowProcA" (ByVal lpPrevWndFunc As Long, ByVal hwnd As Long, ByVal Msg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+Private Declare Function DefWindowProc Lib "user32" Alias "DefWindowProcA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+Private Declare Sub SetLastError Lib "kernel32" (ByVal dwErrCode As Long)
+Private Declare Function GetLastError Lib "kernel32" () As Long
+
+Public Const WM_HSCROLL = &H114
+Public Const WM_VSCROLL = &H115
+Private Const GWL_WNDPROC As Long = (-4)
+Public Const WM_CREATE As Long = &H1
+Public Const WM_DESTROY As Long = &H2
+Public Const WM_ACTIVATEAPP = &H1C
+Public Const WM_COPYDATA As Long = &H4A
+'进程间传递内存空间，可以传字符串
+Public Type COPYDATASTRUCT
+    dwData As Long
+    cbData As Long
+    lpData As Long
+End Type
+'--------------------------------------------------------------------------------------------------
+'方法           CreateSubClass
+'功能           创建子类化使用者
+'返回值         Boolean
+'入参列表:
+'参数名         类型                    说明
+'objProxy       clsSubClass             子类化使用者
+'-------------------------------------------------------------------------------------------------
+Public Function CreateSubClass(objProxy As clsSubClass) As Boolean
+    Dim lngOrigProc     As Long
+    Dim lngIndex        As Long
+    Dim lngCount        As Long
+    ' 在真正调用子类化方法之前，确保它没有任何拼写错误。此时，我们没有子类化，所以它不会崩溃。
+
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.mdlSubClass.CreateSubClass", objProxy)
+'    GenericSubCProc 0, 0, 0, 0
+    '只子类化一次
+    If GetProp(objProxy.hwnd, "OrigWindowProc") = 0 Then
+        SetLastError 0&
+        lngOrigProc = SetWindowLong(objProxy.hwnd, GWL_WNDPROC, AddressOf GenericSubCProc)
+        If GetLastError = 0 Then
+            SetProp objProxy.hwnd, "OrigWindowProc", lngOrigProc
+            CreateSubClass = True
+        End If
+    Else
+        '子类化次数与子类化索引，实现多次子类化
+        lngIndex = GetProp(objProxy.hwnd, "MaxSCIndex")
+        lngCount = GetProp(objProxy.hwnd, "SCCount") '子类化次数
+        CreateSubClass = True
+    End If
+    If CreateSubClass Then
+        objProxy.SCIndex = lngIndex + 1
+        SetProp objProxy.hwnd, "ObjProxy" & (lngIndex + 1), ObjPtr(objProxy)
+        SetProp objProxy.hwnd, "MaxSCIndex", lngIndex + 1
+        SetProp objProxy.hwnd, "SCCount", lngCount + 1
+    End If
+    Call PopMethod("ZLHelperMain.mdlSubClass.CreateSubClass", CreateSubClass)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.mdlSubClass.CreateSubClass") = 1 Then
+        Resume
+    End If
+End Function
+
+'--------------------------------------------------------------------------------------------------
+'方法           RemoveSubClass
+'功能           取消子类化使用者
+'返回值         Boolean
+'入参列表:
+'参数名         类型                    说明
+'objProxy       clsSubClass             子类化使用者
+'-------------------------------------------------------------------------------------------------
+Public Function RemoveSubClass(objProxy As clsSubClass) As Boolean
+    Dim lngOrigProc     As Long
+    Dim lngIndex        As Long
+    Dim lngCount        As Long
+    Dim i               As Long
+ 
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.mdlSubClass.RemoveSubClass", objProxy)
+    lngOrigProc = GetProp(objProxy.hwnd, "OrigWindowProc")
+    '取消子类化
+    If lngOrigProc <> 0 Then
+        lngCount = GetProp(objProxy.hwnd, "SCCount") '子类化次数
+        lngIndex = GetProp(objProxy.hwnd, "MaxSCIndex")
+        '当子类化数目小于2，则彻底取消子类化，否则仅做标记
+        If lngCount < 2 Then
+            SetWindowLong objProxy.hwnd, GWL_WNDPROC, lngOrigProc
+            RemoveProp objProxy.hwnd, "OrigWindowProc"
+            RemoveProp objProxy.hwnd, "MaxSCIndex"
+            RemoveProp objProxy.hwnd, "SCCount"
+            For i = 1 To lngIndex
+                RemoveProp objProxy.hwnd, "ObjProxy" & i
+            Next
+        Else
+            RemoveProp objProxy.hwnd, "ObjProxy" & objProxy.SCIndex
+            SetProp objProxy.hwnd, "SCCount", lngCount - 1
+        End If
+    End If
+    RemoveSubClass = True
+    Call PopMethod("ZLHelperMain.mdlSubClass.RemoveSubClass", RemoveSubClass)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.mdlSubClass.RemoveSubClass") = 1 Then
+        Resume
+    End If
+End Function
+
+'--------------------------------------------------------------------------------------------------
+'方法           GenericSubCProc
+'功能           子类化使用者
+'返回值         Long                    '消息返回值
+'入参列表:
+'参数名         类型                    说明
+'hwnd           Long                    窗口句柄
+'uMsg           Long                    消息ID
+'wParam         Long                    消息参数
+'lParam         Long                    消息参数指针
+'-------------------------------------------------------------------------------------------------
+Private Function GenericSubCProc(ByVal hwnd As Long, ByVal uMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+    Dim lngOrigProc     As Long
+    Dim lngProxyPtr     As Long
+    Dim objProxy        As Object
+    Dim lngRet          As Long
+    Dim lngIndex        As Long
+    Dim lngCount        As Long
+    Dim lngThread       As Long
+    Dim i               As Long
+    
+
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.mdlSubClass.GenericSubCProc", hwnd, uMsg, wParam, lParam)
+    ' 只在调试使用
+'    If hwnd = 0 And uMsg = 0 And wParam = 0 And lParam = 0 Then
+'        Exit Function
+'    End If
+    '获取原始的窗口程序
+    lngOrigProc = GetProp(hwnd, "OrigWindowProc")
+    lngCount = GetProp(hwnd, "SCCount") '子类化次数
+    lngIndex = GetProp(hwnd, "MaxSCIndex")
+    If uMsg = WM_DESTROY And lngOrigProc <> 0 Then
+        '取消子类化
+        SetWindowLong hwnd, GWL_WNDPROC, lngOrigProc
+        '取消各个子类化使用者
+        For i = 1 To lngIndex
+            lngProxyPtr = GetProp(hwnd, "ObjProxy" & i)
+            If lngProxyPtr <> 0 Then
+                '创建弱引用，不增减引用计数，但是必须使用后清零
+                CopyMemory objProxy, lngProxyPtr, 4&
+                Call objProxy.UnRelatedControl(True)
+                CopyMemory objProxy, 0&, 4&
+                lngProxyPtr = 0
+                RemoveProp hwnd, "ObjProxy" & i
+            End If
+        Next
+        RemoveProp hwnd, "OrigWindowProc"
+        RemoveProp hwnd, "MaxSCIndex"
+        RemoveProp hwnd, "SCCount"
+        '调用缺省窗口函数
+        GenericSubCProc = CallWindowProc(lngOrigProc, hwnd, uMsg, wParam, lParam)
+    ElseIf lngOrigProc <> 0 Then
+        '分别通知各个子类化使用者
+        For i = 1 To lngIndex
+            lngProxyPtr = GetProp(hwnd, "ObjProxy" & i)
+            If lngProxyPtr <> 0 Then
+                CopyMemory objProxy, lngProxyPtr, 4&
+                objProxy.SCMessage uMsg, wParam, lParam, lngRet
+                CopyMemory objProxy, 0&, 4&
+            End If
+        Next
+        If lngRet = 0 Then
+            '调用缺省窗口函数
+            GenericSubCProc = CallWindowProc(lngOrigProc, hwnd, uMsg, wParam, lParam)
+        End If
+    Else
+        GenericSubCProc = DefWindowProc(hwnd, uMsg, wParam, lParam)
+    End If
+    Call PopMethod("ZLHelperMain.mdlSubClass.GenericSubCProc", GenericSubCProc)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.mdlSubClass.GenericSubCProc") = 1 Then
+        Resume
+    End If
+    If lngProxyPtr <> 0 Then
+        CopyMemory objProxy, 0&, 4&
+    End If
+End Function

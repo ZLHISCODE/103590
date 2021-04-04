@@ -1,0 +1,1 @@
+zlMipClientShell.exe /regserver

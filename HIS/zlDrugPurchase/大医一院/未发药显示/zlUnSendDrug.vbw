@@ -1,0 +1,8 @@
+frmUnSendDrug = 20, 57, 961, 577, , 144, 9, 1010, 456, C
+frmUserLogin = 66, 87, 932, 639, , 44, 58, 910, 505, C
+mdlUnSendDrug = 73, 23, 939, 470, 
+frmSetWindow = 128, 32, 994, 562, , 32, 316, 392, 627, C
+frmInterface = 213, -2, 1079, 638, , 3, 140, 869, 627, C
+mMonitors = 0, 0, 0, 0, C
+cMonitor = 0, 0, 0, 0, C
+cMonitors = 0, 0, 0, 0, C

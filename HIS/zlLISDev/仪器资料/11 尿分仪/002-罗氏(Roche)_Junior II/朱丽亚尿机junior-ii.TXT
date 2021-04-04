@@ -1,0 +1,15 @@
+
+              Seq.no. 12
+07.03.20           10:54
+  SG :       1.015      
+  PH :           6      
+  LEU:         neg      
+  NIT:         neg      
+  PRO:         neg      
+  GLU:        norm      
+  KET:         neg      
+  UBG:        norm      
+  BIL:         neg      
+* ERY:       10/ul     +
+    Color: yellow       
+

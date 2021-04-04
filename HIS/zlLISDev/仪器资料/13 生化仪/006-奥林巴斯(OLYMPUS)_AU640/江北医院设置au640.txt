@@ -1,0 +1,67 @@
+1.system菜单下的 code 改为128 条码长度设置为12
+2.system--requistion format
+   requisition format
+   选择:sample id (20)
+        sex 不选择
+        age 不选择
+   patient information
+    六项全部不选择.
+3.online --protocol 先
+  upper protocol
+    两个设置:continue
+  lower protocol
+  不影响实际工作江北设置:
+  character length 7
+  parity bit eve
+  stop bit 2
+
+  communication control
+
+  bit/sec 9600
+  class:class a
+  retry:3
+  bcc check :不选
+  
+  text format
+  rack no:4
+  data format:6
+  zero suppress :yes
+  
+data format
+   start code:02h 02h
+   end   code:03h 03h
+   text length:1024
+   unit no:不选择
+   etb control: 不选
+time out
+  t1:40
+  t2:30
+  T3:30
+  T4:40
+  T5:40
+  T6:20
+  T7:40
+  原单击时间设置为上述参数/2 
+  现在设置的参数是在原有时间上面*2测试通过.
+
+set up
+  test requisition information receive
+  routine normal:real time 
+  ......这里设置哪些类型的需要走实时,实时的条码方式,不用条码的可以不用设置成
+  real time
+
+  results transfcr
+  这里和上面想对应:报告传输方式.
+
+  备注:在test requisition infomation receive 
+       如果设置了实时:
+  报告这里也要设置,否认,控制软件不让手工传输数据.
+  江北刚开始上面设置的real time
+  这里设置batch.结果做完标本后:结果没有传输给lis
+  同时技师在状态查询中看到,标本状态是outputing
+  同时控制机没有发送:BE和DE两个结束字符
+
+
+
+开始进样时控制机发送:..rb.. 和..db..
+一个标本结束后会发生:..be.. 和..de..

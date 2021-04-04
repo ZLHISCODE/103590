@@ -1,0 +1,19 @@
+Pc40R          
+Patient ID             
+Type                  Not specified
+Temp                    37.0 R[CPc40R                   150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.29 
+ pCO2                    5.7 kPa
+ pO2                     8.7 kPa
+-----------------------------------
+ HCO3-                    20 mmol/L
+ sO2                      90 %
+ tCO2                     21 mmol/L
+ ABE                      -6 mmol/L
+ SBC                      19 mmol/L
+ SBE                      -6 mmol/L
+
+-----------------------------------
+Analyzer #                  

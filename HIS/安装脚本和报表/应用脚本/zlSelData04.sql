@@ -1,0 +1,2626 @@
+----中医疾病编码、中医病征编码
+DELETE 疾病编码目录 WHERE 类别='B';
+DELETE 疾病编码分类 WHERE 类别='B';
+
+---中医疾病分类       ID=统计码+1000
+Insert Into 疾病编码分类 (ID,上级ID,序号,名称,简码,类别,是否病人)
+select 1001,-NULL,1,'疾病编码','JBBM','B',1 From dual Union All
+select 1002,1001,2,'内科病','NKB','B',1 From dual Union All
+select 1003,1002,3,'肺系病类','FXBL','B',1 From dual Union All
+select 1004,1002,4,'心系病类','XXBL','B',1 From dual Union All
+select 1005,1002,5,'脾系病类','PXBL','B',1 From dual Union All
+select 1006,1002,6,'肝系病类','GXBL','B',1 From dual Union All
+select 1007,1002,7,'肾系病类','SXBL','B',1 From dual Union All
+select 1008,1002,8,'外感热病类','WGRBL','B',1 From dual Union All
+select 1009,1002,9,'虫类病','CLB','B',1 From dual Union All
+select 1010,1002,10,'内科瘤病类','NKLBL','B',1 From dual Union All
+select 1011,1002,11,'内科癌病类','NKABL','B',1 From dual Union All
+select 1012,1002,12,'内科其他病类','NKQTBL','B',1 From dual Union All
+select 1013,1001,13,'外科病','WKB','B',1 From dual Union All
+select 1014,1013,14,'疮疡病类','CYBL','B',1 From dual Union All
+select 1015,1013,15,'乳房病类','RFBL','B',1 From dual Union All
+select 1016,1013,16,'男性前阴病','NXQYB','B',1 From dual Union All
+select 1017,1013,17,'皮肤病类','PFBL','B',1 From dual Union All
+select 1018,1013,18,'肛肠病类','GCBL','B',1 From dual Union All
+select 1019,1013,19,'外科瘤病类','WKLBL','B',1 From dual Union All
+select 1020,1013,20,'外科癌病类','WKABL','B',1 From dual Union All
+select 1021,1013,21,'外科其他病类','WKQTBL','B',1 From dual Union All
+select 1022,1001,22,'妇科病','FKB','B',1 From dual Union All
+select 1023,1022,23,'月经病类','YJBL','B',1 From dual Union All
+select 1024,1022,24,'带下病类','DXBL','B',1 From dual Union All
+select 1025,1022,25,'妊娠病类','RSBL','B',1 From dual Union All
+select 1026,1022,26,'产后病类','CHBL','B',1 From dual Union All
+select 1027,1022,27,'妇科瘤病类','FKLBL','B',1 From dual Union All
+select 1028,1022,28,'妇科癌病类','FKABL','B',1 From dual Union All
+select 1029,1022,29,'妇科其他病类','FKQTBL','B',1 From dual Union All
+select 1030,1001,30,'儿科病','EKB','B',1 From dual Union All
+select 1031,1030,31,'新生儿病类','XSEBL','B',1 From dual Union All
+select 1032,1030,32,'儿科时行病类','EKSXBL','B',1 From dual Union All
+select 1033,1030,33,'儿科杂病类','EKZBL','B',1 From dual Union All
+select 1034,1030,34,'儿科虫病类','EKCBL','B',1 From dual Union All
+select 1035,1030,35,'儿科瘤病类','EKLBL','B',1 From dual Union All
+select 1036,1030,36,'儿科癌病类','EKABL','B',1 From dual Union All
+select 1037,1001,37,'眼科病','YKB','B',1 From dual Union All
+select 1038,1037,38,'胞睑病类','BJBL','B',1 From dual Union All
+select 1039,1037,39,'眦病类','ZBL','B',1 From dual Union All
+select 1040,1037,40,'白睛病类','BJBL','B',1 From dual Union All
+select 1041,1037,41,'黑睛病类','HJBL','B',1 From dual Union All
+select 1042,1037,42,'瞳神病类','TSBL','B',1 From dual Union All
+select 1043,1037,43,'外伤眼病类','WSYBL','B',1 From dual Union All
+select 1044,1037,44,'眼科瘤病类','YKLBL','B',1 From dual Union All
+select 1045,1037,45,'眼科癌病类','YKABL','B',1 From dual Union All
+select 1046,1037,46,'眼科其他病','YKQTB','B',1 From dual Union All
+select 1047,1001,47,'耳鼻喉科病','EBHKB','B',1 From dual Union All
+select 1048,1046,48,'耳病类','EBL','B',1 From dual Union All
+select 1049,1046,49,'鼻病类','BBL','B',1 From dual Union All
+select 1050,1046,50,'咽喉病类','YHBL','B',1 From dual Union All
+select 1051,1046,51,'口齿病类','KCBL','B',1 From dual Union All
+select 1052,1046,52,'耳鼻喉瘤病类','EBHLBL','B',1 From dual Union All
+select 1053,1046,53,'耳鼻喉癌病类','EBHABL','B',1 From dual Union All
+select 1054,1001,54,'骨伤科病','GSKB','B',1 From dual Union All
+select 1055,1054,55,'骨折病类','GZBL','B',1 From dual Union All
+select 1056,1054,56,'脱位病类','WWBL','B',1 From dual Union All
+select 1057,1054,57,'伤筋病类','SJBL','B',1 From dual Union All
+select 1058,1054,58,'损伤内证病类','SSNZBL','B',1 From dual Union All
+select 1059,1054,59,'创伤病类','CSBL','B',1 From dual Union All
+select 1060,1054,60,'骨伤科瘤病类','GSKLBL','B',1 From dual;
+---中医病征分类       ID=统计码+1100
+Insert Into 疾病编码分类 (ID,上级ID,序号,名称,简码,类别,是否病人)
+select 1101,-NULL,1,'病证编码','BZBM','Z',1 From dual Union All
+select 1102,1101,2,'病因证候类','BYZHL','Z',1 From dual Union All
+select 1103,1102,3,'风证类','FZL','Z',1 From dual Union All
+select 1104,1103,4,'风、毒证类','FADZL','Z',1 From dual Union All
+select 1105,1103,5,'风寒证类','FHZL','Z',1 From dual Union All
+select 1106,1103,6,'风、湿证类','FASZL','Z',1 From dual Union All
+select 1107,1103,7,'风、脾证类','FAPZL','Z',1 From dual Union All
+select 1108,1103,8,'风、热证类','FARZL','Z',1 From dual Union All
+select 1109,1103,9,'风、痰证类','FATZL','Z',1 From dual Union All
+select 1110,1103,10,'风、火证类','FAHZL','Z',1 From dual Union All
+select 1111,1103,11,'风、血证类','FAXZL','Z',1 From dual Union All
+select 1112,1103,12,'风、燥证类','FAZZL','Z',1 From dual Union All
+select 1113,1102,13,'寒证类','HZL','Z',1 From dual Union All
+select 1114,1113,14,'寒、阳证类','HAYZL','Z',1 From dual Union All
+select 1115,1113,15,'寒、肺证类','HAFZL','Z',1 From dual Union All
+select 1116,1113,16,'寒、湿证类','HASZL','Z',1 From dual Union All
+select 1117,1113,17,'寒、经络证类','HAJLZL','Z',1 From dual Union All
+select 1118,1113,18,'寒、脾证类','HAPZL','Z',1 From dual Union All
+select 1119,1113,19,'寒、气证类','HAQZL','Z',1 From dual Union All
+select 1120,1113,20,'寒热证类','HRZL','Z',1 From dual Union All
+select 1121,1113,21,'寒、痰证类','HATZL','Z',1 From dual Union All
+select 1122,1113,22,'寒、血证类','HAXZL','Z',1 From dual Union All
+select 1123,1113,23,'寒、心证类','HAXZL','Z',1 From dual Union All
+select 1124,1102,24,'暑证类','SZL','Z',1 From dual Union All
+select 1125,1124,25,'暑、肺证类','SAFZL','Z',1 From dual Union All
+select 1126,1124,26,'暑、湿证类','SASZL','Z',1 From dual Union All
+select 1127,1124,27,'暑、津液证类','SAJYZL','Z',1 From dual Union All
+select 1128,1124,28,'暑、热证类','SARZL','Z',1 From dual Union All
+select 1129,1124,29,'暑、心证类','SAXZL','Z',1 From dual Union All
+select 1130,1124,30,'暑、血证类','SAXZL','Z',1 From dual Union All
+select 1131,1124,31,'暑、营分证类','SAYFZL','Z',1 From dual Union All
+select 1132,1124,32,'暑、阳明证类','SAYMZL','Z',1 From dual Union All
+select 1133,1102,33,'湿证类','SZL','Z',1 From dual Union All
+select 1134,1133,34,'湿、毒证类','SADZL','Z',1 From dual Union All
+select 1135,1133,35,'湿肺证类','SFZL','Z',1 From dual Union All
+select 1136,1133,36,'湿、经络证类','SAJLZL','Z',1 From dual Union All
+select 1137,1133,37,'湿、脾证类','SAPZL','Z',1 From dual Union All
+select 1138,1133,38,'湿、热证类','SARZL','Z',1 From dual Union All
+select 1139,1133,39,'湿、痰证类','SATZL','Z',1 From dual Union All
+select 1140,1133,40,'湿、火证类','SAHZL','Z',1 From dual Union All
+select 1141,1133,41,'湿、卫分证类','SAWFZL','Z',1 From dual Union All
+select 1142,1102,42,'燥证类','ZZL','Z',1 From dual Union All
+select 1143,1142,43,'燥、肺证类','ZAFZL','Z',1 From dual Union All
+select 1144,1142,44,'燥、气证类','ZAQZL','Z',1 From dual Union All
+select 1145,1142,45,'燥、热证类','ZARZL','Z',1 From dual Union All
+select 1146,1142,46,'燥、阴证类','ZAYZL','Z',1 From dual Union All
+select 1147,1102,47,'火证类','HZL','Z',1 From dual Union All
+select 1148,1148,48,'火、毒证类','HADZL','Z',1 From dual Union All
+select 1149,1148,49,'火、经络证类','HAJLZL','Z',1 From dual Union All
+select 1150,1148,50,'火、热证类','HARZL','Z',1 From dual Union All
+select 1151,1148,51,'火、阴证类','HAYZL','Z',1 From dual Union All
+select 1152,1102,52,'热证类','RZL','Z',1 From dual Union All
+select 1153,1152,53,'热、毒证类','RADZL','Z',1 From dual Union All
+select 1154,1152,54,'热、肺证类','RAFZL','Z',1 From dual Union All
+select 1155,1152,55,'热肝证类','RGZL','Z',1 From dual Union All
+select 1156,1152,56,'热、经络证类','RAJLZL','Z',1 From dual Union All
+select 1157,1152,57,'热、津液证类','RAJYZL','Z',1 From dual Union All
+select 1158,1152,58,'热、厥阴证类','RAJYZL','Z',1 From dual Union All
+select 1159,1152,59,'热、气分证类','RAQFZL','Z',1 From dual Union All
+select 1160,1152,60,'热、肾证类','RASZL','Z',1 From dual Union All
+select 1161,1152,61,'热、少阳证类','RASYZL','Z',1 From dual Union All
+select 1162,1152,62,'热、心证类','RAXZL','Z',1 From dual Union All
+select 1163,1152,63,'热、血证类','RAXZL','Z',1 From dual Union All
+select 1164,1152,64,'热、血分证类','RAXFZL','Z',1 From dual Union All
+select 1165,1152,65,'热、阴证类','RAYZL','Z',1 From dual Union All
+select 1166,1152,66,'热、营分证类','RAYFZL','Z',1 From dual Union All
+select 1167,1102,67,'毒证类','DZL','Z',1 From dual Union All
+select 1168,1167,68,'毒、肺证类','DAFZL','Z',1 From dual Union All
+select 1169,1167,69,'毒、气分证类','DAQFZL','Z',1 From dual Union All
+select 1170,1167,70,'毒、心证类','DAXZL','Z',1 From dual Union All
+select 1171,1167,71,'毒、血分证类','DAXFZL','Z',1 From dual Union All
+select 1172,1167,72,'毒、阴证类','DAYZL','Z',1 From dual Union All
+select 1173,1167,73,'毒、营分证类','DAYFZL','Z',1 From dual Union All
+select 1174,1102,74,'邪证类','XZL','Z',1 From dual Union All
+select 1175,1174,75,'邪肺证类','XFZL','Z',1 From dual Union All
+select 1176,1174,76,'邪、肝证类','XAGZL','Z',1 From dual Union All
+select 1177,1174,77,'邪、经络证类','XAJLZL','Z',1 From dual Union All
+select 1178,1174,78,'邪、厥阴证类','XAJYZL','Z',1 From dual Union All
+select 1179,1174,79,'邪脾证类','XPZL','Z',1 From dual Union All
+select 1180,1174,80,'邪、气分证类','XAQFZL','Z',1 From dual Union All
+select 1181,1174,81,'邪、少阳证类','XASYZL','Z',1 From dual Union All
+select 1182,1174,82,'邪、火证类','XAHZL','Z',1 From dual Union All
+select 1183,1174,83,'邪、卫分证类','XAWFZL','Z',1 From dual Union All
+select 1184,1174,84,'邪、心证类','XAXZL','Z',1 From dual Union All
+select 1185,1174,85,'邪、血分证类','XAXFZL','Z',1 From dual Union All
+select 1186,1174,86,'邪、阴证类','XAYZL','Z',1 From dual Union All
+select 1187,1174,87,'邪、营分证类','XAYFZL','Z',1 From dual Union All
+select 1188,1102,88,'情志证类','QZZL','Z',1 From dual Union All
+select 1189,1188,89,'情志、脾证类','QZAPZL','Z',1 From dual Union All
+select 1190,1188,90,'情志、气证类','QZAQZL','Z',1 From dual Union All
+select 1191,1188,91,'情志、肾证类','QZASZL','Z',1 From dual Union All
+select 1192,1102,92,'饮食证类','YSZL','Z',1 From dual Union All
+select 1193,1192,93,'饮食、脾证类','YSAPZL','Z',1 From dual Union All
+select 1194,1192,94,'饮食、痰证类','YSATZL','Z',1 From dual Union All
+select 1195,1102,95,'外伤证类','WSZL','Z',1 From dual Union All
+select 1196,1195,96,'外伤、经络证类','WSAJLZL','Z',1 From dual Union All
+select 1197,1195,97,'外伤、血证类','WSAXZL','Z',1 From dual Union All
+select 1198,1102,98,'虫证类','CZL','Z',1 From dual Union All
+select 1199,1198,99,'虫、毒证类','CADZL','Z',1 From dual Union All
+select 1200,1198,100,'虫、肺证类','CAFZL','Z',1 From dual Union All
+select 1201,1198,101,'虫、脾证类','CAPZL','Z',1 From dual Union All
+select 1202,1198,102,'虫、湿证类','CASZL','Z',1 From dual Union All
+select 1203,1198,103,'虫、痰证类','CATZL','Z',1 From dual Union All
+select 1204,1101,104,'阴阳气血津液痰证候类','YYQXJYTZHL','Z',1 From dual Union All
+select 1205,1204,105,'阴证类','YZL','Z',1 From dual Union All
+select 1206,1205,106,'阴、阳证类','YAYZL','Z',1 From dual Union All
+select 1207,1205,107,'阴毒证类','YDZL','Z',1 From dual Union All
+select 1208,1205,108,'阴、肺证类','YAFZL','Z',1 From dual Union All
+select 1209,1205,109,'阴肝证类','YGZL','Z',1 From dual Union All
+select 1210,1205,110,'阴、寒证类','YAHZL','Z',1 From dual Union All
+select 1211,1205,111,'阴、湿证类','YASZL','Z',1 From dual Union All
+select 1212,1205,112,'阴、脾证类','YAPZL','Z',1 From dual Union All
+select 1213,1205,113,'阴、气证类','YAQZL','Z',1 From dual Union All
+select 1214,1205,114,'阴、热证类','YARZL','Z',1 From dual Union All
+select 1215,1205,115,'阴、暑证类','YASZL','Z',1 From dual Union All
+select 1216,1205,116,'阴、肾证类','YASZL','Z',1 From dual Union All
+select 1217,1205,117,'阴、痰证类','YATZL','Z',1 From dual Union All
+select 1218,1205,118,'阴、火证类','YAHZL','Z',1 From dual Union All
+select 1219,1205,119,'阴、邪证类','YAXZL','Z',1 From dual Union All
+select 1220,1205,120,'阴、血证类','YAXZL','Z',1 From dual Union All
+select 1221,1205,121,'阴、燥证类','YAZZL','Z',1 From dual Union All
+select 1222,1204,122,'阳证类','YZL','Z',1 From dual Union All
+select 1223,1222,123,'阳、毒证类','YADZL','Z',1 From dual Union All
+select 1224,1222,124,'阳、寒证类','YAHZL','Z',1 From dual Union All
+select 1225,1222,125,'阳、暑证类','YASZL','Z',1 From dual Union All
+select 1226,1222,126,'阳、痰证类','YATZL','Z',1 From dual Union All
+select 1227,1222,127,'阳、血证类','YAXZL','Z',1 From dual Union All
+select 1228,1204,128,'气证类','QZL','Z',1 From dual Union All
+select 1229,1228,129,'气、阳证类','QAYZL','Z',1 From dual Union All
+select 1230,1228,130,'气、毒证类','QADZL','Z',1 From dual Union All
+select 1231,1228,131,'气、寒证类','QAHZL','Z',1 From dual Union All
+select 1232,1228,132,'气、湿证类','QASZL','Z',1 From dual Union All
+select 1233,1228,133,'气、经络证类','QAJLZL','Z',1 From dual Union All
+select 1234,1228,134,'气、热证类','QARZL','Z',1 From dual Union All
+select 1235,1228,135,'气、痰证类','QATZL','Z',1 From dual Union All
+select 1236,1228,136,'气、火证类','QAHZL','Z',1 From dual Union All
+select 1237,1228,137,'气血证类','QXZL','Z',1 From dual Union All
+select 1238,1228,138,'气、阴证类','QAYZL','Z',1 From dual Union All
+select 1239,1204,139,'血证类','XZL','Z',1 From dual Union All
+select 1240,1239,140,'血、阳证类','XAYZL','Z',1 From dual Union All
+select 1241,1239,141,'血、肺证类','XAFZL','Z',1 From dual Union All
+select 1242,1239,142,'血、肝证类','XAGZL','Z',1 From dual Union All
+select 1243,1239,143,'血、寒证类','XAHZL','Z',1 From dual Union All
+select 1244,1239,144,'血、经络证类','XAJLZL','Z',1 From dual Union All
+select 1245,1239,145,'血、津液证类','XAJYZL','Z',1 From dual Union All
+select 1246,1239,146,'血、气证类','XAQZL','Z',1 From dual Union All
+select 1247,1239,147,'血、热证类','XARZL','Z',1 From dual Union All
+select 1248,1239,148,'血、痰证类','XATZL','Z',1 From dual Union All
+select 1249,1239,149,'血、火证类','XAHZL','Z',1 From dual Union All
+select 1250,1239,150,'血、心证类','XAXZL','Z',1 From dual Union All
+select 1251,1239,151,'血、阴证类','XAYZL','Z',1 From dual Union All
+select 1252,1239,152,'血、燥证类','XAZZL','Z',1 From dual Union All
+select 1253,1204,153,'津液证类','JYZL','Z',1 From dual Union All
+select 1254,1253,154,'津液、肺证类','JYAFZL','Z',1 From dual Union All
+select 1255,1253,155,'津液、热证类','JYARZL','Z',1 From dual Union All
+select 1256,1253,156,'津液、气证类','JYAQZL','Z',1 From dual Union All
+select 1257,1253,157,'津液、燥证类','JYAZZL','Z',1 From dual Union All
+select 1258,1204,158,'痰证类','TZL','Z',1 From dual Union All
+select 1259,1258,159,'痰、毒证类','TADZL','Z',1 From dual Union All
+select 1260,1258,160,'痰、肺证类','TAFZL','Z',1 From dual Union All
+select 1261,1258,161,'痰、湿证类','TASZL','Z',1 From dual Union All
+select 1262,1258,162,'痰、脾证类','TAPZL','Z',1 From dual Union All
+select 1263,1258,163,'痰、气证类','TAQZL','Z',1 From dual Union All
+select 1264,1258,164,'痰、热证类','TARZL','Z',1 From dual Union All
+select 1265,1258,165,'痰、火证类','TAHZL','Z',1 From dual Union All
+select 1266,1258,166,'痰、血证类','TAXZL','Z',1 From dual Union All
+select 1267,1258,167,'痰、饮食证类','TAYSZL','Z',1 From dual Union All
+select 1268,1101,168,'脏腑经络证候类','ZFJLZHL','Z',1 From dual Union All
+select 1269,1268,169,'心证类','XZL','Z',1 From dual Union All
+select 1270,1269,170,'心、阳证类','XAYZL','Z',1 From dual Union All
+select 1271,1269,171,'心、肺证类','XAFZL','Z',1 From dual Union All
+select 1272,1269,172,'心、肝证类','XAGZL','Z',1 From dual Union All
+select 1273,1269,173,'心、经络证类','XAJLZL','Z',1 From dual Union All
+select 1274,1269,174,'心、脾证类','XAPZL','Z',1 From dual Union All
+select 1275,1269,175,'心、气证类','XAQZL','Z',1 From dual Union All
+select 1276,1269,176,'心、肾证类','XASZL','Z',1 From dual Union All
+select 1277,1269,177,'心、火证类','XAHZL','Z',1 From dual Union All
+select 1278,1269,178,'心、血证类','XAXZL','Z',1 From dual Union All
+select 1279,1269,179,'心、阴证类','XAYZL','Z',1 From dual Union All
+select 1280,1268,180,'肺证类','FZL','Z',1 From dual Union All
+select 1281,1280,181,'肺、肝证类','FAGZL','Z',1 From dual Union All
+select 1282,1280,182,'肺、寒证明类','FAHZML','Z',1 From dual Union All
+select 1283,1280,183,'肺、湿证类','FASZL','Z',1 From dual Union All
+select 1284,1280,184,'肺、经络证类','FAJLZL','Z',1 From dual Union All
+select 1285,1280,185,'肺、脾证类','FAPZL','Z',1 From dual Union All
+select 1286,1280,186,'肺、气证类','FAQZLAFQKX','Z',1 From dual Union All
+select 1287,1280,187,'肺、热证类','FARZL','Z',1 From dual Union All
+select 1288,1280,188,'肺、肾证类','FASZL','Z',1 From dual Union All
+select 1289,1280,189,'肺、邪证类','FAXZL','Z',1 From dual Union All
+select 1290,1280,190,'肺、阴证类','FAYZL','Z',1 From dual Union All
+select 1291,1280,191,'肺、燥证类','FAZZL','Z',1 From dual Union All
+select 1292,1268,192,'脾证类','PZL','Z',1 From dual Union All
+select 1293,1292,193,'脾、阳证类','PAYZL','Z',1 From dual Union All
+select 1294,1292,194,'脾、肺证类','PAFZL','Z',1 From dual Union All
+select 1295,1292,195,'脾、肝证类','PAGZL','Z',1 From dual Union All
+select 1296,1292,196,'脾、寒证类','PAHZL','Z',1 From dual Union All
+select 1297,1292,197,'脾、湿证类','PASZL','Z',1 From dual Union All
+select 1298,1292,198,'脾、经络证类','PAJLZL','Z',1 From dual Union All
+select 1299,1292,199,'脾、气证类','PAQZL','Z',1 From dual Union All
+select 1300,1292,200,'脾、热证类','PARZL','Z',1 From dual Union All
+select 1301,1292,201,'脾、肾证类','PASZL','Z',1 From dual Union All
+select 1302,1292,202,'脾、痰证类','PATZL','Z',1 From dual Union All
+select 1303,1292,203,'脾、火证类','PAHZL','Z',1 From dual Union All
+select 1304,1292,204,'脾、血证类','PAXZL','Z',1 From dual Union All
+select 1305,1292,205,'脾、阴证类','PAYZL','Z',1 From dual Union All
+select 1306,1292,206,'脾、燥证类','PAZZL','Z',1 From dual Union All
+select 1307,1268,207,'肝证类','GZL','Z',1 From dual Union All
+select 1308,1307,208,'肝、阳证类','GAYZL','Z',1 From dual Union All
+select 1309,1307,209,'肝、风证类','GAFZL','Z',1 From dual Union All
+select 1310,1307,210,'法、湿证类','FASZL','Z',1 From dual Union All
+select 1311,1307,211,'肝、经络证类','GAJLZL','Z',1 From dual Union All
+select 1312,1307,212,'肝、脾证类','GAPZL','Z',1 From dual Union All
+select 1313,1307,213,'肝、气证类','GAQZL','Z',1 From dual Union All
+select 1314,1307,214,'肝、热证类','GARZL','Z',1 From dual Union All
+select 1315,1307,215,'肝、肾证类','GASZL','Z',1 From dual Union All
+select 1316,1307,216,'肝、痰证类','GATZL','Z',1 From dual Union All
+select 1317,1307,217,'肝、火证类','GAHZL','Z',1 From dual Union All
+select 1318,1307,218,'肝、血证类','GAXZL','Z',1 From dual Union All
+select 1319,1307,219,'肝、阴证类','GAYZL','Z',1 From dual Union All
+select 1320,1268,220,'肾证类','SZL','Z',1 From dual Union All
+select 1321,1320,221,'肾、阳证类','SAYZL','Z',1 From dual Union All
+select 1322,1320,222,'肾、肝证类','SAGZL','Z',1 From dual Union All
+select 1323,1320,223,'肾、寒证类','SAHZL','Z',1 From dual Union All
+select 1324,1320,224,'肾、湿证类','SASZL','Z',1 From dual Union All
+select 1325,1320,225,'肾、气证类','SAQZL','Z',1 From dual Union All
+select 1326,1320,226,'肾、热证类','SARZL','Z',1 From dual Union All
+select 1327,1320,227,'肾、痰证类','SATZL','Z',1 From dual Union All
+select 1328,1320,228,'肾、火证类','SAHZL','Z',1 From dual Union All
+select 1329,1320,229,'肾、阴证类','SAYZL','Z',1 From dual Union All
+select 1330,1268,230,'经络证类','JLZL','Z',1 From dual Union All
+select 1331,1330,231,'经络、血证类','JLAXZL','Z',1 From dual Union All
+select 1332,1101,232,'六经证候类','LJZHL','Z',1 From dual Union All
+select 1333,1332,233,'太阳证类','TYZL','Z',1 From dual Union All
+select 1334,1333,234,'太阳、寒证类','TYAHZL','Z',1 From dual Union All
+select 1335,1333,235,'太阳、热证类','TYARZL','Z',1 From dual Union All
+select 1336,1333,236,'太阳、痰证类','TYATZL','Z',1 From dual Union All
+select 1337,1333,237,'太阳、火证类','TYAHZL','Z',1 From dual Union All
+select 1338,1333,238,'太阳、血证类','TYAXZL','Z',1 From dual Union All
+select 1339,1333,239,'太阳、阴证类','TYAYZL','Z',1 From dual Union All
+select 1340,1332,240,'阳明证类','YMZL','Z',1 From dual Union All
+select 1341,1340,241,'阳明、热证类','YMARZL','Z',1 From dual Union All
+select 1342,1340,242,'阳明、血证类','YMAXZL','Z',1 From dual Union All
+select 1343,1340,243,'阳明、燥证类','YMAZZL','Z',1 From dual Union All
+select 1344,1332,244,'少阳证类','SYZL','Z',1 From dual Union All
+select 1345,1332,245,'太阴证类','TYZL','Z',1 From dual Union All
+select 1346,1332,246,'少阴证类','SYZL','Z',1 From dual Union All
+select 1347,1346,247,'少阴、寒证类','SYAHZL','Z',1 From dual Union All
+select 1348,1346,248,'少阴、津液证类','SYAJYZL','Z',1 From dual Union All
+select 1349,1346,249,'少阴、热证类','SYARZL','Z',1 From dual Union All
+select 1350,1332,250,'厥阴证类','JYZL','Z',1 From dual Union All
+select 1351,1350,251,'厥阴、热证类','JYARZL','Z',1 From dual Union All
+select 1352,1101,252,'卫气营血证候类','WQYXZHL','Z',1 From dual Union All
+select 1353,1352,253,'卫分证类','WFZL','Z',1 From dual Union All
+select 1354,1353,254,'卫分、气分证类','WFAQFZL','Z',1 From dual Union All
+select 1355,1353,255,'卫分、营分证类','WFAYFZL','Z',1 From dual Union All
+select 1356,1352,256,'气分证类','QFZL','Z',1 From dual Union All
+select 1357,1356,257,'气分、湿证类','QFASZL','Z',1 From dual Union All
+select 1358,1356,258,'气分、血分证类','QFAXFZL','Z',1 From dual Union All
+select 1359,1356,259,'气分、营分证类','QFAYFZL','Z',1 From dual Union All
+select 1360,1352,260,'营分证类','YFZL','Z',1 From dual Union All
+select 1361,1352,261,'血分证类','XFZL','Z',1 From dual Union All
+select 1362,1101,262,'其它证候类','QTZHL','Z',1 From dual Union All
+select 1363,1362,263,'其他证类','QTZL','Z',1 From dual Union All
+select 1364,1362,264,'期类','QL','Z',1 From dual Union All
+select 1365,1362,265,'型类','XL','Z',1 From dual;
+
+-----中医疾病目录
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40001,'BEA000','','儿科癌病','EKAB','',1,'B',1036 FROM dual UNION all
+    select 40002,'BEC000','','儿科虫病（小儿蛔虫病）','EKCBXEHCB','',1,'B',1034 FROM dual UNION all
+    select 40003,'BEC000','','儿科虫病（小儿绦虫病）','EKCBXETCB','',2,'B',1034 FROM dual UNION all
+    select 40004,'BEC000','','儿科虫病（小儿钩虫病）','EKCBXEGCB','',3,'B',1034 FROM dual UNION all
+    select 40005,'BEC000','','儿科虫病（小儿蛲虫病）','EKCBXENCB','',4,'B',1034 FROM dual UNION all
+    select 40006,'BEC000','','儿科虫病（小儿囊虫病）','EKCBXENCB','',5,'B',1034 FROM dual UNION all
+    select 40007,'BEC000','','儿科虫病（小儿丝虫病）','EKCBXESCB','',6,'B',1034 FROM dual UNION all
+    select 40008,'BEC000','','儿科虫病（小儿血吸虫病）','EKCBXEXXCB','',7,'B',1034 FROM dual UNION all
+    select 40009,'BEC000','','儿科虫病（小儿姜片虫病）','EKCBXEJPCB','',8,'B',1034 FROM dual UNION all
+    select 40010,'BEL000','','儿科瘤病','EKLB','',1,'B',1035 FROM dual UNION all
+    select 40011,'BES000','','儿科时行病（麻疹病）','EKSXBMZB','',1,'B',1032 FROM dual UNION all
+    select 40012,'BES000','','儿科时行病（水痘病）','EKSXBSDB','',2,'B',1032 FROM dual UNION all
+    select 40013,'BES000','','儿科时行病（白喉病）','EKSXBBHB','',3,'B',1032 FROM dual UNION all
+    select 40014,'BES010','','小儿感冒病','XEGMB','',1,'B',1032 FROM dual UNION all
+    select 40015,'BES020','','奶麻病','NMB','',1,'B',1032 FROM dual UNION all
+    select 40016,'BES030','','风痧病','FSB','',1,'B',1032 FROM dual UNION all
+    select 40017,'BES040','','丹痧病','DSB','',1,'B',1032 FROM dual UNION all
+    select 40018,'BES050','','痄腮病','ZSB','',1,'B',1032 FROM dual UNION all
+    select 40019,'BES060','','顿咳病','DKB','',1,'B',1032 FROM dual UNION all
+    select 40020,'BES070','','软脚瘟病','RJWB','',1,'B',1032 FROM dual UNION all
+    select 40021,'BES080','','小儿疫毒痢病','XEYDLB','',1,'B',1032 FROM dual UNION all
+    select 40022,'BES090','','疰夏病','ZXB','',1,'B',1032 FROM dual UNION all
+    select 40023,'BES100','','夏季热病','XJRB','',1,'B',1032 FROM dual UNION all
+    select 40024,'BEX010','','胎黄病','THB','',1,'B',1031 FROM dual UNION all
+    select 40025,'BEX020','','赤游丹病','CYDB','',1,'B',1031 FROM dual UNION all
+    select 40026,'BEX030','','脐风病','QFB','',1,'B',1031 FROM dual UNION all
+    select 40027,'BEX040','','济湿病','JSB','',1,'B',1031 FROM dual UNION all
+    select 40028,'BEX050','','脐血病','QXB','',1,'B',1031 FROM dual UNION all
+    select 40029,'BEX060','','脐突病','QTB','',1,'B',1031 FROM dual UNION all
+    select 40030,'BEZ010','','小儿咳嗽病','XEKSB','',1,'B',1033 FROM dual UNION all
+    select 40031,'BEZ020','','肺炎喘嗽病','FYCSB','',1,'B',1033 FROM dual UNION all
+    select 40032,'BEZ030','','哮喘病','XCB','',1,'B',1033 FROM dual UNION all
+    select 40033,'BEZ040','','鹅口疮病','EKCB','',1,'B',1033 FROM dual UNION all
+    select 40034,'BEZ050','','小儿口疮病','XEKCB','',1,'B',1033 FROM dual UNION all
+    select 40035,'BEZ060','','小儿乳蛾病','XEREB','',1,'B',1033 FROM dual UNION all
+    select 40036,'BEZ070','','厌食病','YSB','',1,'B',1033 FROM dual UNION all
+    select 40037,'BEZ080','','积滞病','JZB','',1,'B',1033 FROM dual UNION all
+    select 40038,'BEZ090','','疳病','GB','',1,'B',1033 FROM dual UNION all
+    select 40039,'BEZ100','','小儿呕吐病','XEOTB','',1,'B',1033 FROM dual UNION all
+    select 40040,'BEZ110','','小儿腹痛病','XEFTB','',1,'B',1033 FROM dual UNION all
+    select 40041,'BEZ120','','小儿泄泻病','XEXXB','',1,'B',1033 FROM dual UNION all
+    select 40042,'BEZ130','','小儿脱肛病','XEWGB','',1,'B',1033 FROM dual UNION all
+    select 40043,'BEZ140','','小儿痫病','XEXB','',1,'B',1033 FROM dual UNION all
+    select 40044,'BEZ150','','惊风病','JFB','',1,'B',1033 FROM dual UNION all
+    select 40045,'BEZ151','','急惊风病','JJFB','',1,'B',1033 FROM dual UNION all
+    select 40046,'BEZ152','','慢惊风病','MJFB','',1,'B',1033 FROM dual UNION all
+    select 40047,'BEZ160','','五迟、五软病','WCAWRB','',1,'B',1033 FROM dual UNION all
+    select 40048,'BEZ161','','佝偻病','GLB','',1,'B',1033 FROM dual UNION all
+    select 40049,'BEZ170','','小儿痿病','XEWB','',1,'B',1033 FROM dual UNION all
+    select 40050,'BEZ180','','五硬病','WYB','',1,'B',1033 FROM dual UNION all
+    select 40051,'BEZ190','','解颅病','JLB','',1,'B',1033 FROM dual UNION all
+    select 40052,'BEZ200','','尿频病','NPB','',1,'B',1033 FROM dual UNION all
+    select 40053,'BEZ210','','小儿遗尿病','XEYNB','',1,'B',1033 FROM dual UNION all
+    select 40054,'BEZ220','','小儿水肿病','XESZB','',1,'B',1033 FROM dual UNION all
+    select 40055,'BEZ230','','夜啼病','YTB','',1,'B',1033 FROM dual UNION all
+    select 40056,'BEZ240','','小儿紫癜病','XEZDB','',1,'B',1033 FROM dual UNION all
+    select 40057,'BEZ250','','小儿汗病','XEHB','',1,'B',1033 FROM dual UNION all
+    select 40058,'BFA000','','妇科癌病','FKAB','',1,'B',1028 FROM dual UNION all
+    select 40059,'BFC010','','产后血晕病','CHXYB','',1,'B',1026 FROM dual UNION all
+    select 40060,'BFC011','','产后血崩病','CHXBB','',1,'B',1026 FROM dual UNION all
+    select 40061,'BFC020','','产后痉病','CHJB','',1,'B',1026 FROM dual UNION all
+    select 40062,'BFC030','','产后腹痛病','CHFTB','',1,'B',1026 FROM dual UNION all
+    select 40063,'BFC040','','产后恶露不绝病','CHELBJB','',1,'B',1026 FROM dual UNION all
+    select 40064,'BFC050','','产后恶露不下病','CHELBXB','',1,'B',1026 FROM dual UNION all
+    select 40065,'BFC060','','产后大便难病','CHDBNB','',1,'B',1026 FROM dual UNION all
+    select 40066,'BFC070','','产后遗粪病','CHYFB','',1,'B',1026 FROM dual UNION all
+    select 40067,'BFC080','','产后发热病','CHFRB','',1,'B',1026 FROM dual UNION all
+    select 40068,'BFC081','','产后感染发热病','CHGQFRB','',1,'B',1026 FROM dual UNION all
+    select 40069,'BFC090','','产后汗病','CHHB','',1,'B',1026 FROM dual UNION all
+    select 40070,'BFC091','','产后自汗、盗汗病','CHZHADHB','',1,'B',1026 FROM dual UNION all
+    select 40071,'BFC100','','产后身痛病','CHSTB','',1,'B',1026 FROM dual UNION all
+    select 40072,'BFC110','','产后缺乳病','CHQRB','',1,'B',1026 FROM dual UNION all
+    select 40073,'BFC120','','产后乳汁自出病','CHRZZCB','',1,'B',1026 FROM dual UNION all
+    select 40074,'BFC130','','产后小便不通病','CHXBBTB','',1,'B',1026 FROM dual UNION all
+    select 40075,'BFC140','','产后小便频数病','CHXBPSB','',1,'B',1026 FROM dual UNION all
+    select 40076,'BFC150','','产后小便淋沥病','CHXBLLB','',1,'B',1026 FROM dual UNION all
+    select 40077,'BFC160','','产后尿血病','CHNXB','',1,'B',1026 FROM dual UNION all
+    select 40078,'BFC170','','产后遗尿病','CHYNB','',1,'B',1026 FROM dual UNION all
+    select 40079,'BFC180','','交肠病','JCB','',1,'B',1026 FROM dual UNION all
+    select 40080,'BFD010','','带下病','DXB','',1,'B',1024 FROM dual UNION all
+    select 40081,'BFL000','','妇科瘤病','FKLB','',1,'B',1027 FROM dual UNION all
+    select 40082,'BFR010','','妊娠恶阻病','RSEZB','',1,'B',1025 FROM dual UNION all
+    select 40083,'BFR020','','妊娠腹痛病','RSFTB','',1,'B',1025 FROM dual UNION all
+    select 40084,'BFR030','','胎漏病','TLB','',1,'B',1025 FROM dual UNION all
+    select 40085,'BFR040','','胎动不安病','TDBAB','',1,'B',1025 FROM dual UNION all
+    select 40086,'BFR050','','滑胎病','HTB','',1,'B',1025 FROM dual UNION all
+    select 40087,'BFR051','','堕胎病','DTB','',1,'B',1025 FROM dual UNION all
+    select 40088,'BFR052','','小产病','XCB','',1,'B',1025 FROM dual UNION all
+    select 40089,'BFR060','','胎萎不长病','TWBCB','',1,'B',1025 FROM dual UNION all
+    select 40090,'BFR070','','胎死不下病','TSBXB','',1,'B',1025 FROM dual UNION all
+    select 40091,'BFR080','','子烦病','ZFB','',1,'B',1025 FROM dual UNION all
+    select 40092,'BFR090','','子肿病','ZZB','',1,'B',1025 FROM dual UNION all
+    select 40093,'BFR100','','子满病','ZMB','',1,'B',1025 FROM dual UNION all
+    select 40094,'BFR110','','子晕病','ZYB','',1,'B',1025 FROM dual UNION all
+    select 40095,'BFR120','','子痫病','ZXB','',1,'B',1025 FROM dual UNION all
+    select 40096,'BFR130','','子悬病','ZXB','',1,'B',1025 FROM dual UNION all
+    select 40097,'BFR140','','子病','ZB','',1,'B',1025 FROM dual UNION all
+    select 40098,'BFR150','','子嗽病','ZSB','',1,'B',1025 FROM dual UNION all
+    select 40099,'BFR160','','子淋病','ZLB','',1,'B',1025 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40100,'BFR170','','转胞病','ZBB','',1,'B',1025 FROM dual UNION all
+    select 40101,'BFR180','','难产病','NCB','',1,'B',1025 FROM dual UNION all
+    select 40102,'BFR190','','胞衣不下病','BYBXB','',1,'B',1025 FROM dual UNION all
+    select 40103,'BFR200','','孕痈病','YYB','',1,'B',1025 FROM dual UNION all
+    select 40104,'BFY010','','月经先期病','YJXQB','',1,'B',1023 FROM dual UNION all
+    select 40105,'BFY020','','月经后期病','YJHQB','',1,'B',1023 FROM dual UNION all
+    select 40106,'BFY030','','月经先后无定期病','YJXHWDQB','',1,'B',1023 FROM dual UNION all
+    select 40107,'BFY040','','月经过多病','YJGDB','',1,'B',1023 FROM dual UNION all
+    select 40108,'BFY050','','月经过少病','YJGSB','',1,'B',1023 FROM dual UNION all
+    select 40109,'BFY060','','经期延长病','JQYCB','',1,'B',1023 FROM dual UNION all
+    select 40110,'BFY090','','闭经病','BJB','',1,'B',1023 FROM dual UNION all
+    select 40111,'BFY100','','崩漏病','BLB','',1,'B',1023 FROM dual UNION all
+    select 40112,'BFY110','','经行乳房胀痛病','JXRFZTB','',1,'B',1023 FROM dual UNION all
+    select 40113,'BFY120','','经行发热病','JXFRB','',1,'B',1023 FROM dual UNION all
+    select 40114,'BFY130','','经行头痛病','JXTTB','',1,'B',1023 FROM dual UNION all
+    select 40115,'BFY140','','经行眩晕病','JXXYB','',1,'B',1023 FROM dual UNION all
+    select 40116,'BFY150','','经行身痛病','JXSTB','',1,'B',1023 FROM dual UNION all
+    select 40117,'BFY160','','经行口糜病','JXKMB','',1,'B',1023 FROM dual UNION all
+    select 40118,'BFY170','','经行风疹块病','JXFZKB','',1,'B',1023 FROM dual UNION all
+    select 40119,'BFY180','','经行吐衄病','JXTNB','',1,'B',1023 FROM dual UNION all
+    select 40120,'BFY190','','经行泄泻病','JXXXB','',1,'B',1023 FROM dual UNION all
+    select 40121,'BFY200','','经行浮肿病','JXFZB','',1,'B',1023 FROM dual UNION all
+    select 40122,'BFY210','','经行情志异常病','JXQZYCB','',1,'B',1023 FROM dual UNION all
+    select 40123,'BFY220','','绝经前后诸病','JJQHZB','',1,'B',1023 FROM dual UNION all
+    select 40124,'BFZ010','','瘕病','JB','',1,'B',1029 FROM dual UNION all
+    select 40125,'BFZ020','','阴挺病','YTB','',1,'B',1029 FROM dual UNION all
+    select 40126,'BFZ030','','脏躁病','ZZB','',1,'B',1029 FROM dual UNION all
+    select 40127,'BFZ040','','不孕病','BYB','',1,'B',1029 FROM dual UNION all
+    select 40128,'BFZ050','','阴痒病','YYB','',1,'B',1029 FROM dual UNION all
+    select 40129,'BFZ060','','阴疮病','YCB','',1,'B',1029 FROM dual UNION all
+    select 40130,'BFZ070','','阴吹病','YCB','',1,'B',1029 FROM dual UNION all
+    select 40131,'BFZ080','','热入血室病','RRXSB','',1,'B',1029 FROM dual UNION all
+    select 40132,'BGC000','','创伤病','CSB','',1,'B',1059 FROM dual UNION all
+    select 40133,'BGG000','','骨折病','GZB','',1,'B',1055 FROM dual UNION all
+    select 40134,'BGL000','','骨伤科瘤病','GSKLB','',1,'B',1060 FROM dual UNION all
+    select 40135,'BGS000','','伤筋病','SJB','',1,'B',1057 FROM dual UNION all
+    select 40136,'BGS010','','落枕病','LZB','',1,'B',1057 FROM dual UNION all
+    select 40137,'BGS020','','漏肩风病','LJFB','',1,'B',1057 FROM dual UNION all
+    select 40138,'BGT000','','脱位病','WWB','',1,'B',1056 FROM dual UNION all
+    select 40139,'BGU010','','头部内伤病','TBNSB','',1,'B',1058 FROM dual UNION all
+    select 40140,'BGU020','','胸部内伤病','XBNSB','',1,'B',1058 FROM dual UNION all
+    select 40141,'BGU030','','腹部内伤病','FBNSB','',1,'B',1058 FROM dual UNION all
+    select 40142,'BGU040','','损伤出血病','SSCXB','',1,'B',1058 FROM dual UNION all
+    select 40143,'BGU050','','损伤疼痛病','SSTTB','',1,'B',1058 FROM dual UNION all
+    select 40144,'BGU060','','伤后发热病','SHFRB','',1,'B',1058 FROM dual UNION all
+    select 40145,'BGU070','','损伤昏厥病','SSHJB','',1,'B',1058 FROM dual UNION all
+    select 40146,'BGU080','','伤后癃闭病','SHLBB','',1,'B',1058 FROM dual UNION all
+    select 40147,'BGU090','','损伤痿软麻木病','SSWRMMB','',1,'B',1058 FROM dual UNION all
+    select 40148,'BGU100','','损伤眩晕病','SSXYB','',1,'B',1058 FROM dual UNION all
+    select 40149,'BGU110','','损伤喘咳病','SSCKB','',1,'B',1058 FROM dual UNION all
+    select 40150,'BNC000','','虫病（蛔虫病）','CBHCB','',1,'B',1009 FROM dual UNION all
+    select 40151,'BNC000','','虫病（囊虫病）','CBNCB','',2,'B',1009 FROM dual UNION all
+    select 40152,'BNC000','','虫病（钩虫病）','CBGCB','',3,'B',1009 FROM dual UNION all
+    select 40153,'BNC000','','虫病（蛲虫病）','CBNCB','',4,'B',1009 FROM dual UNION all
+    select 40154,'BNC000','','虫病（姜片虫病）','CBJPCB','',5,'B',1009 FROM dual UNION all
+    select 40155,'BNC000','','虫病（丝虫病）','CBSCB','',6,'B',1009 FROM dual UNION all
+    select 40156,'BNC000','','虫病（血吸虫病）','CBXXCB','',7,'B',1009 FROM dual UNION all
+    select 40157,'BNC000','','虫病（绦虫病）','CBTCB','',8,'B',1009 FROM dual UNION all
+    select 40158,'BNF010','','咳嗽病','KSB','',1,'B',1003 FROM dual UNION all
+    select 40159,'BNF011','','外感咳嗽病','WGKSB','',1,'B',1003 FROM dual UNION all
+    select 40160,'BNF012','','内伤咳嗽病','NSKSB','',1,'B',1003 FROM dual UNION all
+    select 40161,'BNF020','','肺痿病','FWB','',1,'B',1003 FROM dual UNION all
+    select 40162,'BNF030','','肺痈病','FYB','',1,'B',1003 FROM dual UNION all
+    select 40163,'BNF040','','哮病','XB','',1,'B',1003 FROM dual UNION all
+    select 40164,'BNF050','','喘病','CB','',1,'B',1003 FROM dual UNION all
+    select 40165,'BNF051','','暴喘病','BCB','',1,'B',1003 FROM dual UNION all
+    select 40166,'BNF060','','肺胀病','FZB','',1,'B',1003 FROM dual UNION all
+    select 40167,'BNF070','','肺痨病','FLB','',1,'B',1003 FROM dual UNION all
+    select 40168,'BNF080','','咯血病','LXB','',1,'B',1003 FROM dual UNION all
+    select 40169,'BNF090','','鼻衄病','BNB','',1,'B',1003 FROM dual UNION all
+    select 40170,'BNF100','','失音病','SYB','',1,'B',1003 FROM dual UNION all
+    select 40171,'BNF110','','肺衰病','FSB','',1,'B',1003 FROM dual UNION all
+    select 40172,'BNG010','','胁痛病','XTB','',1,'B',1006 FROM dual UNION all
+    select 40173,'BNG020','','黄疸病','HDB','',1,'B',1006 FROM dual UNION all
+    select 40174,'BNG021','','阴黄病','YHB','',1,'B',1006 FROM dual UNION all
+    select 40175,'BNG022','','阳黄病','YHB','',1,'B',1006 FROM dual UNION all
+    select 40176,'BNG023','','急黄病','JHB','',1,'B',1006 FROM dual UNION all
+    select 40177,'BNG030','','萎黄病','WHB','',1,'B',1006 FROM dual UNION all
+    select 40178,'BNG040','','积聚病','JJB','',1,'B',1006 FROM dual UNION all
+    select 40179,'BNG041','','积病','JB','',1,'B',1006 FROM dual UNION all
+    select 40180,'BNG042','','聚病','JB','',1,'B',1006 FROM dual UNION all
+    select 40181,'BNG050','','臌胀病','GZB','',1,'B',1006 FROM dual UNION all
+    select 40182,'BNG051','','水臌病','SGB','',1,'B',1006 FROM dual UNION all
+    select 40183,'BNG052','','气臌病','QGB','',1,'B',1006 FROM dual UNION all
+    select 40184,'BNG053','','血臌病','XGB','',1,'B',1006 FROM dual UNION all
+    select 40185,'BNG054','','虫臌病','CGB','',1,'B',1006 FROM dual UNION all
+    select 40186,'BNG060','','头痛病','TTB','',1,'B',1006 FROM dual UNION all
+    select 40187,'BNG061','','头风病','TFB','',1,'B',1006 FROM dual UNION all
+    select 40188,'BNG070','','眩晕病','XYB','',1,'B',1006 FROM dual UNION all
+    select 40189,'BNG080','','中风病','ZFB','',1,'B',1006 FROM dual UNION all
+    select 40190,'BNG090','','痉病','JB','',1,'B',1006 FROM dual UNION all
+    select 40191,'BNG100','','厥病','JB','',1,'B',1006 FROM dual UNION all
+    select 40192,'BNG101','','气厥病','QJB','',1,'B',1006 FROM dual UNION all
+    select 40193,'BNG102','','血厥病','XJB','',1,'B',1006 FROM dual UNION all
+    select 40194,'BNG103','','痰厥病','TJB','',1,'B',1006 FROM dual UNION all
+    select 40195,'BNG104','','食厥病','SJB','',1,'B',1006 FROM dual UNION all
+    select 40196,'BNG105','','寒厥病','HJB','',1,'B',1006 FROM dual UNION all
+    select 40197,'BNG106','','热厥病','RJB','',1,'B',1006 FROM dual UNION all
+    select 40198,'BNG110','','郁病','YB','',1,'B',1006 FROM dual UNION all
+    select 40199,'BNG120','','瘿病','YB','',1,'B',1006 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40200,'BNG121','','气瘿病','QYB','',1,'B',1006 FROM dual UNION all
+    select 40201,'BNG122','','肉瘿病','RYB','',1,'B',1006 FROM dual UNION all
+    select 40202,'BNG123','','瘿痈病','YYB','',1,'B',1006 FROM dual UNION all
+    select 40203,'BNG130','','胆胀病','DZB','',1,'B',1006 FROM dual UNION all
+    select 40204,'BNL000','','内科瘤病','NKLB','',1,'B',1010 FROM dual UNION all
+    select 40205,'BNL000','','内科癌病','NKAB','',2,'B',1010 FROM dual UNION all
+    select 40206,'BNP000','','脾系病（便秘病）','PXBBMB','',1,'B',1005 FROM dual UNION all
+    select 40207,'BNP010','','胃脘痛病				','WWTB','',1,'B',1005 FROM dual UNION all
+    select 40208,'BNP020','','胃痞病','WPB','',1,'B',1005 FROM dual UNION all
+    select 40209,'BNP030','','叶酸病','YSB','',1,'B',1005 FROM dual UNION all
+    select 40210,'BNP040','','反胃病','FWB','',1,'B',1005 FROM dual UNION all
+    select 40211,'BNP050','','呕吐病','OTB','',1,'B',1005 FROM dual UNION all
+    select 40212,'BNP051','','暴吐病','BTB','',1,'B',1005 FROM dual UNION all
+    select 40213,'BNP060','','呃逆病','ENB','',1,'B',1005 FROM dual UNION all
+    select 40214,'BNP070','','嘈杂病','CZB','',1,'B',1005 FROM dual UNION all
+    select 40215,'BNP080','','噎膈病','YGB','',1,'B',1005 FROM dual UNION all
+    select 40216,'BNP090','','腹胀病','FZB','',1,'B',1005 FROM dual UNION all
+    select 40217,'BNP091','','卒腹痛病','ZFTB','',1,'B',1005 FROM dual UNION all
+    select 40218,'BNP100','','腹胀满病','FZMB','',1,'B',1005 FROM dual UNION all
+    select 40219,'BNP110','','泄泻病','XXB','',1,'B',1005 FROM dual UNION all
+    select 40220,'BNP111','','暴泻病','BXB','',1,'B',1005 FROM dual UNION all
+    select 40221,'BNP120','','吐血病','TXB','',1,'B',1005 FROM dual UNION all
+    select 40222,'BNP130','','便血病','BXB','',1,'B',1005 FROM dual UNION all
+    select 40223,'BNP140','','齿衄病','CNB','',1,'B',1005 FROM dual UNION all
+    select 40224,'BNP150','','紫癜病','ZDB','',1,'B',1005 FROM dual UNION all
+    select 40225,'BNP160','','痰饮病','TYB','',1,'B',1005 FROM dual UNION all
+    select 40226,'BNP170','','悬饮病','XYB','',1,'B',1005 FROM dual UNION all
+    select 40227,'BNP180','','溢饮病','YYB','',1,'B',1005 FROM dual UNION all
+    select 40228,'BNP190','','支饮病','ZYB','',1,'B',1005 FROM dual UNION all
+    select 40229,'BNS010','','水肿病','SZB','',1,'B',1007 FROM dual UNION all
+    select 40230,'BNS011','','阳水病','YSB','',1,'B',1007 FROM dual UNION all
+    select 40231,'BNS012','','阴水病','YSB','',1,'B',1007 FROM dual UNION all
+    select 40232,'BNS020','','热淋病','RLB','',1,'B',1007 FROM dual UNION all
+    select 40233,'BNS030','','石淋病','SLB','',1,'B',1007 FROM dual UNION all
+    select 40234,'BNS040','','气淋病','QLB','',1,'B',1007 FROM dual UNION all
+    select 40235,'BNS050','','血淋病','XLB','',1,'B',1007 FROM dual UNION all
+    select 40236,'BNS060','','膏淋病','GLB','',1,'B',1007 FROM dual UNION all
+    select 40237,'BNS070','','劳淋病','LLB','',1,'B',1007 FROM dual UNION all
+    select 40238,'BNS080','','乳糜尿病','RMNB','',1,'B',1007 FROM dual UNION all
+    select 40239,'BNS090','','尿浊病','NZB','',1,'B',1007 FROM dual UNION all
+    select 40240,'BNS100','','尿血病','NXB','',1,'B',1007 FROM dual UNION all
+    select 40241,'BNS110','','遗尿病','YNB','',1,'B',1007 FROM dual UNION all
+    select 40242,'BNS120','','癃闭病','LBB','',1,'B',1007 FROM dual UNION all
+    select 40243,'BNS130','','关格病','GGB','',1,'B',1007 FROM dual UNION all
+    select 40244,'BNS140','','肾衰病','SSB','',1,'B',1007 FROM dual UNION all
+    select 40245,'BNS150','','腰痛病','YTB','',1,'B',1007 FROM dual UNION all
+    select 40246,'BNS160','','遗精病','YJB','',1,'B',1007 FROM dual UNION all
+    select 40247,'BNS161','','梦遗病','MYB','',1,'B',1007 FROM dual UNION all
+    select 40248,'BNS162','','滑精病','HJB','',1,'B',1007 FROM dual UNION all
+    select 40249,'BNS170','','早泄病','ZXB','',1,'B',1007 FROM dual UNION all
+    select 40250,'BNS180','','阳萎病','YWB','',1,'B',1007 FROM dual UNION all
+    select 40251,'BNS190','','耳鸣、耳聋病','EMAELB','',1,'B',1007 FROM dual UNION all
+    select 40252,'BNS191','','耳鸣病','EMB','',1,'B',1007 FROM dual UNION all
+    select 40253,'BNS192','','耳聋病','ELB','',1,'B',1007 FROM dual UNION all
+    select 40254,'BNV000','','内科其他病（脚气病）','NKQTBJQB','',1,'B',1012 FROM dual UNION all
+    select 40255,'BNV010','','内伤发热病','NSFRB','',1,'B',1012 FROM dual UNION all
+    select 40256,'BNV020','','虚劳病','XLB','',1,'B',1012 FROM dual UNION all
+    select 40257,'BNV030','','痿病','WB','',1,'B',1012 FROM dual UNION all
+    select 40258,'BNV040','','汗病','HB','',1,'B',1012 FROM dual UNION all
+    select 40259,'BNV041','','自汗病','ZHB','',1,'B',1012 FROM dual UNION all
+    select 40260,'BNV042','','盗汗病','DHB','',1,'B',1012 FROM dual UNION all
+    select 40261,'BNV050','','痛风病','TFB','',1,'B',1012 FROM dual UNION all
+    select 40262,'BNV060','','消渴病','XKB','',1,'B',1012 FROM dual UNION all
+    select 40263,'BNV070','','风湿痹病','FSBB','',1,'B',1012 FROM dual UNION all
+    select 40264,'BNV080','','痹病','BB','',1,'B',1012 FROM dual UNION all
+    select 40265,'BNV090','','骨痹病','GBB','',1,'B',1012 FROM dual UNION all
+    select 40266,'BNV100','','肌痹病','JBB','',1,'B',1012 FROM dual UNION all
+    select 40267,'BNV110','','面痛病','MTB','',1,'B',1012 FROM dual UNION all
+    select 40268,'BNV120','','面瘫病','MTB','',1,'B',1012 FROM dual UNION all
+    select 40269,'BNV130','','颤病','CB','',1,'B',1012 FROM dual UNION all
+    select 40270,'BNV140','','急风病','JFB','',1,'B',1012 FROM dual UNION all
+    select 40271,'BNV150','','厥脱病','JWB','',1,'B',1012 FROM dual UNION all
+    select 40272,'BNV160','','脱病','WB','',1,'B',1012 FROM dual UNION all
+    select 40273,'BNV170','','闭病','BB','',1,'B',1012 FROM dual UNION all
+    select 40274,'BNV180','','肥胖病','FPB','',1,'B',1012 FROM dual UNION all
+    select 40275,'BNV190','','中毒病','ZDB','',1,'B',1012 FROM dual UNION all
+    select 40276,'BNW000','','外感热病（痢疾病）','WGRBLJB','',1,'B',1008 FROM dual UNION all
+    select 40277,'BNW000','','外感热病（疟疾病)','WGRBNJB','',2,'B',1008 FROM dual UNION all
+    select 40278,'BNW000','','外感热病（霍乱病）','WGRBHLB','',3,'B',1008 FROM dual UNION all
+    select 40279,'BNW010','','感冒病','GMB','',1,'B',1008 FROM dual UNION all
+    select 40280,'BNW011','','时行感冒病','SXGMB','',1,'B',1008 FROM dual UNION all
+    select 40281,'BNW020','','外感高热病','WGGRB','',1,'B',1008 FROM dual UNION all
+    select 40282,'BNW030','','风温病','FWB','',1,'B',1008 FROM dual UNION all
+    select 40283,'BNW031','','风温肺热病','FWFRB','',1,'B',1008 FROM dual UNION all
+    select 40284,'BNW040','','春温病','CWB','',1,'B',1008 FROM dual UNION all
+    select 40285,'BNW050','','暑温病','SWB','',1,'B',1008 FROM dual UNION all
+    select 40286,'BNW060','','冒暑病','MSB','',1,'B',1008 FROM dual UNION all
+    select 40287,'BNW070','','暑秽病','SHB','',1,'B',1008 FROM dual UNION all
+    select 40288,'BNW080','','中暑病','ZSB','',1,'B',1008 FROM dual UNION all
+    select 40289,'BNW090','','湿温病','SWB','',1,'B',1008 FROM dual UNION all
+    select 40290,'BNW091','','湿阻病','SZB','',1,'B',1008 FROM dual UNION all
+    select 40291,'BNW100','','伏暑病','FSB','',1,'B',1008 FROM dual UNION all
+    select 40292,'BNW110','','秋燥病','QZB','',1,'B',1008 FROM dual UNION all
+    select 40293,'BNW111','','温燥病','WZB','',1,'B',1008 FROM dual UNION all
+    select 40294,'BNW112','','凉燥病','LZB','',1,'B',1008 FROM dual UNION all
+    select 40295,'BNW120','','大头瘟病','DTWB','',1,'B',1008 FROM dual UNION all
+    select 40296,'BNW130','','烂喉痧病','LHSB','',1,'B',1008 FROM dual UNION all
+    select 40297,'BNW140','','疫毒痢病','YDLB','',1,'B',1008 FROM dual UNION all
+    select 40298,'BNW150','','太阳病','TYB','',1,'B',1008 FROM dual UNION all
+    select 40299,'BNW160','','少阳病','SYB','',1,'B',1008 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40300,'BNW170','','阳明病','YMB','',1,'B',1008 FROM dual UNION all
+    select 40301,'BNW180','','太阴病','TYB','',1,'B',1008 FROM dual UNION all
+    select 40302,'BNW190','','少阴病','SYB','',1,'B',1008 FROM dual UNION all
+    select 40303,'BNW200','','厥阴病','JYB','',1,'B',1008 FROM dual UNION all
+    select 40304,'BNX010','','心悸病','XJB','',1,'B',1004 FROM dual UNION all
+    select 40305,'BNX011','','惊悸病','JJB','',1,'B',1004 FROM dual UNION all
+    select 40306,'BNX012','','怔忡病','ZCB','',1,'B',1004 FROM dual UNION all
+    select 40307,'BNX020','','胸痹心痛病','XBXTB','',1,'B',1004 FROM dual UNION all
+    select 40308,'BNX021','','卒心痛病','ZXTB','',1,'B',1004 FROM dual UNION all
+    select 40309,'BNX030','','心衰病','XSB','',1,'B',1004 FROM dual UNION all
+    select 40310,'BNX040','','不寐病','BMB','',1,'B',1004 FROM dual UNION all
+    select 40311,'BNX050','','多寐病','DMB','',1,'B',1004 FROM dual UNION all
+    select 40312,'BNX060','','健忘病','JWB','',1,'B',1004 FROM dual UNION all
+    select 40313,'BNX070','','癫狂病','DKB','',1,'B',1004 FROM dual UNION all
+    select 40314,'BNX071','','癫病','DB','',1,'B',1004 FROM dual UNION all
+    select 40315,'BNX072','','狂病','KB','',1,'B',1004 FROM dual UNION all
+    select 40316,'BNX080','','痫病','XB','',1,'B',1004 FROM dual UNION all
+    select 40317,'BNX090','','昏迷病','HMB','',1,'B',1004 FROM dual UNION all
+    select 40318,'BNX091','','神昏病','SHB','',1,'B',1004 FROM dual UNION all
+    select 40319,'BNX100','','痴呆病','CDB','',1,'B',1004 FROM dual UNION all
+    select 40320,'BNX110','','抽搐病','CCB','',1,'B',1004 FROM dual UNION all
+    select 40321,'BNX120','','薄厥病','BJB','',1,'B',1004 FROM dual UNION all
+    select 40322,'BNX130','','卒死病','ZSB','',1,'B',1004 FROM dual UNION all
+    select 40323,'BRA000','','耳鼻喉癌病（舌癌病）','EBHABSAB','',1,'B',1053 FROM dual UNION all
+    select 40324,'BRA010','','咽喉菌病','YHJB','',1,'B',1053 FROM dual UNION all
+    select 40325,'BRA011','','咽菌病','YJB','',1,'B',1053 FROM dual UNION all
+    select 40326,'BRA012','','喉菌病','HJB','',1,'B',1053 FROM dual UNION all
+    select 40327,'BRB010','','鼻疔病','BDB','',1,'B',1049 FROM dual UNION all
+    select 40328,'BRB020','','鼻疳病','BGB','',1,'B',1049 FROM dual UNION all
+    select 40329,'BRB030','','鼻塞病','BSB','',1,'B',1049 FROM dual UNION all
+    select 40330,'BRB031','','伤风鼻塞病','SFBSB','',1,'B',1049 FROM dual UNION all
+    select 40331,'BRB032','','鼻窒病','BZB','',1,'B',1049 FROM dual UNION all
+    select 40332,'BRB040','','鼻槁病','BGB','',1,'B',1049 FROM dual UNION all
+    select 40333,'BRB050','','鼻鼽病','BQB','',1,'B',1049 FROM dual UNION all
+    select 40334,'BRB060','','鼻渊病','BYB','',1,'B',1049 FROM dual UNION all
+    select 40335,'BRB070','','鼻息肉病','BXRB','',1,'B',1049 FROM dual UNION all
+    select 40336,'BRB080','','鼻损伤病','BSSB','',1,'B',1049 FROM dual UNION all
+    select 40337,'BRB090','','异物入鼻病','YWRBB','',1,'B',1049 FROM dual UNION all
+    select 40338,'BRE010','','耳疖病','EJB','',1,'B',1048 FROM dual UNION all
+    select 40339,'BRE020','','耳疮病','ECB','',1,'B',1048 FROM dual UNION all
+    select 40340,'BRE030','','耳壳流痰病','EKLTB','',1,'B',1048 FROM dual UNION all
+    select 40341,'BRE040','','断耳疮病','DECB','',1,'B',1048 FROM dual UNION all
+    select 40342,'BRE050','','耳胀、耳闭病','EZAEBB','',1,'B',1048 FROM dual UNION all
+    select 40343,'BRE051','','耳胀病','EZB','',1,'B',1048 FROM dual UNION all
+    select 40344,'BRE052','','耳闭病','EBB','',1,'B',1048 FROM dual UNION all
+    select 40345,'BRE060','','脓耳病','NEB','',1,'B',1048 FROM dual UNION all
+    select 40346,'BRE070','','暴聋病','BLB','',1,'B',1048 FROM dual UNION all
+    select 40347,'BRE080','','久聋病','JLB','',1,'B',1048 FROM dual UNION all
+    select 40348,'BRE090','','耳眩晕病','EXYB','',1,'B',1048 FROM dual UNION all
+    select 40349,'BRE100','','异物入耳病','YWREB','',1,'B',1048 FROM dual UNION all
+    select 40350,'BRE110','','耵耳病','DEB','',1,'B',1048 FROM dual UNION all
+    select 40351,'BRE120','','聋哑病','LYB','',1,'B',1048 FROM dual UNION all
+    select 40352,'BRE130','','耳根毒病','EGDB','',1,'B',1048 FROM dual UNION all
+    select 40353,'BRE140','','脓耳口眼斜病','NEKYXB','',1,'B',1048 FROM dual UNION all
+    select 40354,'BRE150','','黄耳伤寒病','HESHB','',1,'B',1048 FROM dual UNION all
+    select 40355,'BRK000','','口齿病（龋齿病）','KCBQCB','',1,'B',1051 FROM dual UNION all
+    select 40356,'BRK010','','牙痛病','YTB','',1,'B',1051 FROM dual UNION all
+    select 40357,'BRK020','','牙痈病','YYB','',1,'B',1051 FROM dual UNION all
+    select 40358,'BRK030','','牙痈病','YYB','',1,'B',1051 FROM dual UNION all
+    select 40359,'BRK040','','牙宣病','YXB','',1,'B',1051 FROM dual UNION all
+    select 40360,'BRK050','','飞扬喉病','FYHB','',1,'B',1051 FROM dual UNION all
+    select 40361,'BRK060','','口疮病','KCB','',1,'B',1051 FROM dual UNION all
+    select 40362,'BRK070','','口糜病','KMB','',1,'B',1051 FROM dual UNION all
+    select 40363,'BRK080','','唇风病','CFB','',1,'B',1051 FROM dual UNION all
+    select 40364,'BRK090','','骨槽风病','GCFB','',1,'B',1051 FROM dual UNION all
+    select 40365,'BRL010','','口舌痰包者','KSTBZ','',1,'B',1052 FROM dual UNION all
+    select 40366,'BRL020','','喉瘤病','HLB','',1,'B',1052 FROM dual UNION all
+    select 40367,'BRL030','','耳蕈病','EXB','',1,'B',1052 FROM dual UNION all
+    select 40368,'BRY010','','乳蛾病','REB','',1,'B',1050 FROM dual UNION all
+    select 40369,'BRY011','','急乳蛾病','JREB','',1,'B',1050 FROM dual UNION all
+    select 40370,'BRY012','','慢乳蛾病','MREB','',1,'B',1050 FROM dual UNION all
+    select 40371,'BRY020','','喉痹病','HBB','',1,'B',1050 FROM dual UNION all
+    select 40372,'BRY021','','急喉痹病','JHBB','',1,'B',1050 FROM dual UNION all
+    select 40373,'BRY021','','慢喉痹病','MHBB','',2,'B',1050 FROM dual UNION all
+    select 40374,'BRY030','','喉痈病','HYB','',1,'B',1050 FROM dual UNION all
+    select 40375,'BRY031','','喉关痈病','HGYB','',1,'B',1050 FROM dual UNION all
+    select 40376,'BRY032','','里喉痈病','LHYB','',1,'B',1050 FROM dual UNION all
+    select 40377,'BRY033','','颌下痈病','HXYB','',1,'B',1050 FROM dual UNION all
+    select 40378,'BRY034','','上颚痈病','SEYB','',1,'B',1050 FROM dual UNION all
+    select 40379,'BRY040','','喉癣病','HXB','',1,'B',1050 FROM dual UNION all
+    select 40380,'BRY050','','喉病','HB','',1,'B',1050 FROM dual UNION all
+    select 40381,'BRY051','','急喉病','JHB','',1,'B',1050 FROM dual UNION all
+    select 40382,'BRY052','','慢喉病','MHB','',1,'B',1050 FROM dual UNION all
+    select 40383,'BRY060','','急喉风病','JHFB','',1,'B',1050 FROM dual UNION all
+    select 40384,'BRY070','','梅核气病','MHQB','',1,'B',1050 FROM dual UNION all
+    select 40385,'BRY080','','异物梗喉病','YWGHB','',1,'B',1050 FROM dual UNION all
+    select 40386,'BWA010','','石瘿病','SYB','',1,'B',1020 FROM dual UNION all
+    select 40387,'BWA020','','茧唇口','JCK','',1,'B',1020 FROM dual UNION all
+    select 40388,'BWA030','','失荣病','SRB','',1,'B',1020 FROM dual UNION all
+    select 40389,'BWA040','','乳癌病','RAB','',1,'B',1020 FROM dual UNION all
+    select 40390,'BWA050','','肾癌翻花病','SAFHB','',1,'B',1020 FROM dual UNION all
+    select 40391,'BWA060','','锁肛痔病','SGZB','',1,'B',1020 FROM dual UNION all
+    select 40392,'BWC010','','疖病','JB','',1,'B',1014 FROM dual UNION all
+    select 40393,'BWC011','','暑疖病','SJB','',1,'B',1014 FROM dual UNION all
+    select 40394,'BWC012','','石疖病','SJB','',1,'B',1014 FROM dual UNION all
+    select 40395,'BWC013','','软疖病','RJB','',1,'B',1014 FROM dual UNION all
+    select 40396,'BWC014','','蝼蛄疖病','LGJB','',1,'B',1014 FROM dual UNION all
+    select 40397,'BWC020','','颜面疔疮病','YMDCB','',1,'B',1014 FROM dual UNION all
+    select 40398,'BWC030','','手足疔疮病','SZDCB','',1,'B',1014 FROM dual UNION all
+    select 40399,'BWC031','','蛇眼疔病','SYDB','',1,'B',1014 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40400,'BWC032','','蛇头疔病','STDB','',1,'B',1014 FROM dual UNION all
+    select 40401,'BWC033','','蛇腹疔病','SFDB','',1,'B',1014 FROM dual UNION all
+    select 40402,'BWC034','','托盘疔病','WPDB','',1,'B',1014 FROM dual UNION all
+    select 40403,'BWC035','','足底疔病','ZDDB','',1,'B',1014 FROM dual UNION all
+    select 40404,'BWC040','','红丝疔病','HSDB','',1,'B',1014 FROM dual UNION all
+    select 40405,'BWC050','','烂疔病','LDB','',1,'B',1014 FROM dual UNION all
+    select 40406,'BWC060','','疫疔病','YDB','',1,'B',1014 FROM dual UNION all
+    select 40407,'BWC070','','肘痈病','ZYB','',1,'B',1014 FROM dual UNION all
+    select 40408,'BWC071','','肘痈病','ZYB','',1,'B',1014 FROM dual UNION all
+    select 40409,'BWC072','','脐痈病','QYB','',1,'B',1014 FROM dual UNION all
+    select 40410,'BWC073','','窝痈病','WYB','',1,'B',1014 FROM dual UNION all
+    select 40411,'BWC080','','丹毒病','DDB','',1,'B',1014 FROM dual UNION all
+    select 40412,'BWC090','','发病','FB','',1,'B',1014 FROM dual UNION all
+    select 40413,'BWC091','','锁喉痈病','SHYB','',1,'B',1014 FROM dual UNION all
+    select 40414,'BWC092','','臀痈病','TYB','',1,'B',1014 FROM dual UNION all
+    select 40415,'BWC093','','腓发病','FFB','',1,'B',1014 FROM dual UNION all
+    select 40416,'BWC094','','手发背病','SFBB','',1,'B',1014 FROM dual UNION all
+    select 40417,'BWC095','','足发背病','ZFBB','',1,'B',1014 FROM dual UNION all
+    select 40418,'BWC100','','有头疽病','YTJB','',1,'B',1014 FROM dual UNION all
+    select 40419,'BWC101','','脑疽病','NJB','',1,'B',1014 FROM dual UNION all
+    select 40420,'BWC102','','发背疽病','FBJB','',1,'B',1014 FROM dual UNION all
+    select 40421,'BWC103','','膻中疽病','SZJB','',1,'B',1014 FROM dual UNION all
+    select 40422,'BWC104','','少腹疽病','SFJB','',1,'B',1014 FROM dual UNION all
+    select 40423,'BWC110','','发颐病','FYB','',1,'B',1014 FROM dual UNION all
+    select 40424,'BWC120','','流注病','LZB','',1,'B',1014 FROM dual UNION all
+    select 40425,'BWC130','','无头疽病','WTJB','',1,'B',1014 FROM dual UNION all
+    select 40426,'BWC131','','附骨疽病','FGJB','',1,'B',1014 FROM dual UNION all
+    select 40427,'BWC132','','环跳疽病','HTJB','',1,'B',1014 FROM dual UNION all
+    select 40428,'BWC133','','腓疽病','FJB','',1,'B',1014 FROM dual UNION all
+    select 40429,'BWC140','','走黄病','ZHB','',1,'B',1014 FROM dual UNION all
+    select 40430,'BWC150','','内陷病','NXB','',1,'B',1014 FROM dual UNION all
+    select 40431,'BWC160','','瘰疬病','LLB','',1,'B',1014 FROM dual UNION all
+    select 40432,'BWC170','','流痰病','LTB','',1,'B',1014 FROM dual UNION all
+    select 40433,'BWC180','','臁疮病','LCB','',1,'B',1014 FROM dual UNION all
+    select 40434,'BWC190','','褥疮病','RCB','',1,'B',1014 FROM dual UNION all
+    select 40435,'BWC200','','脱疽病','WJB','',1,'B',1014 FROM dual UNION all
+    select 40436,'BWC210','','青蛇毒病','QSDB','',1,'B',1014 FROM dual UNION all
+    select 40437,'BWC220','','股肿病','GZB','',1,'B',1014 FROM dual UNION all
+    select 40438,'BWC230','','痰毒病','TDB','',1,'B',1014 FROM dual UNION all
+    select 40439,'BWC231','','颈痈病','JYB','',1,'B',1014 FROM dual UNION all
+    select 40440,'BWC232','','腋痈病','YYB','',1,'B',1014 FROM dual UNION all
+    select 40441,'BWC233','','胯腹痈病','KFYB','',1,'B',1014 FROM dual UNION all
+    select 40442,'BWG000','','肛肠病（痔病）','GCBZB','',1,'B',1018 FROM dual UNION all
+    select 40443,'BWG000','','肛肠病（内痔病）','GCBNZB','',2,'B',1018 FROM dual UNION all
+    select 40444,'BWG000','','肛肠病（外痔病）','GCBWZB','',3,'B',1018 FROM dual UNION all
+    select 40445,'BWG000','','肛肠病（混合痔病）','GCBHHZB','',4,'B',1018 FROM dual UNION all
+    select 40446,'BWG010','','悬珠痔病','XZZB','',1,'B',1018 FROM dual UNION all
+    select 40447,'BWG020','','息肉痔病','XRZB','',1,'B',1018 FROM dual UNION all
+    select 40448,'BWG030','','肛裂病','GLB','',1,'B',1018 FROM dual UNION all
+    select 40449,'BWG040','','肛痈病','GYB','',1,'B',1018 FROM dual UNION all
+    select 40450,'BWG050','','江漏病','JLB','',1,'B',1018 FROM dual UNION all
+    select 40451,'BWG060','','脱肛病','WGB','',1,'B',1018 FROM dual UNION all
+    select 40452,'BWG070','','肛门湿疡病','GMSYB','',1,'B',1018 FROM dual UNION all
+    select 40453,'BWL010','','气瘤病','QLB','',1,'B',1019 FROM dual UNION all
+    select 40454,'BWL020','','血瘤病','XLB','',1,'B',1019 FROM dual UNION all
+    select 40455,'BWL030','','肉瘤病','RLB','',1,'B',1019 FROM dual UNION all
+    select 40456,'BWL040','','筋瘤病','JLB','',1,'B',1019 FROM dual UNION all
+    select 40457,'BWL050','','骨瘤病','GLB','',1,'B',1019 FROM dual UNION all
+    select 40458,'BWL060','','脂瘤病','ZLB','',1,'B',1019 FROM dual UNION all
+    select 40459,'BWN010','','子痈病','ZYB','',1,'B',1016 FROM dual UNION all
+    select 40460,'BWN020','','子痰病','ZTB','',1,'B',1016 FROM dual UNION all
+    select 40461,'BWN030','','囊痈病','NYB','',1,'B',1016 FROM dual UNION all
+    select 40462,'BWN040','','脱囊病','WNB','',1,'B',1016 FROM dual UNION all
+    select 40463,'BWN050','','阴茎痰核病','YJTHB','',1,'B',1016 FROM dual UNION all
+    select 40464,'BWN060','','血精病','XJB','',1,'B',1016 FROM dual UNION all
+    select 40465,'BWN070','','精浊病','JZB','',1,'B',1016 FROM dual UNION all
+    select 40466,'BWN080','','精癃病','JLB','',1,'B',1016 FROM dual UNION all
+    select 40467,'BWP000','','皮肤病（麻风病）','PFBMFB','',1,'B',1017 FROM dual UNION all
+    select 40468,'BWP000','','皮肤病（梅毒病）','PFBMDB','',2,'B',1017 FROM dual UNION all
+    select 40469,'BWP000','','皮肤病（淋病）','PFBLB','',3,'B',1017 FROM dual UNION all
+    select 40470,'BWP000','','皮肤病（疥疮病）','PFBJCB','',4,'B',1017 FROM dual UNION all
+    select 40471,'BWP000','','皮肤病（鸡眼病）','PFBJYB','',5,'B',1017 FROM dual UNION all
+    select 40472,'BWP000','','皮肤病（胼胝病）','PFBPZB','',6,'B',1017 FROM dual UNION all
+    select 40473,'BWP010','','热疮病','RCB','',1,'B',1017 FROM dual UNION all
+    select 40474,'BWP020','','蛇串疮病','SCCB','',1,'B',1017 FROM dual UNION all
+    select 40475,'BWP030','','疣病','YB','',1,'B',1017 FROM dual UNION all
+    select 40476,'BWP031','','扁瘊病','BHB','',1,'B',1017 FROM dual UNION all
+    select 40477,'BWP032','','疣目病','YMB','',1,'B',1017 FROM dual UNION all
+    select 40478,'BWP033','','鼠乳病','SRB','',1,'B',1017 FROM dual UNION all
+    select 40479,'BWP040','','黄水疮病','HSCB','',1,'B',1017 FROM dual UNION all
+    select 40480,'BWP050','','登豆疮病','DDCB','',1,'B',1017 FROM dual UNION all
+    select 40481,'BWP060','','癣病','XB','',1,'B',1017 FROM dual UNION all
+    select 40482,'BWP061','','白秃疮病','BTCB','',1,'B',1017 FROM dual UNION all
+    select 40483,'BWP062','','肥疮病','FCB','',1,'B',1017 FROM dual UNION all
+    select 40484,'BWP063','','鹅掌风病','EZFB','',1,'B',1017 FROM dual UNION all
+    select 40485,'BWP064','','脚湿气病','JSQB','',1,'B',1017 FROM dual UNION all
+    select 40486,'BWP065','','灰指（趾）甲病','HZZJB','',1,'B',1017 FROM dual UNION all
+    select 40487,'BWP066','','圆癣病','YXB','',1,'B',1017 FROM dual UNION all
+    select 40488,'BWP067','','紫白癜风病','ZBDFB','',1,'B',1017 FROM dual UNION all
+    select 40489,'BWP070','','湿疮病','SCB','',1,'B',1017 FROM dual UNION all
+    select 40490,'BWP071','','奶癣病','NXB','',1,'B',1017 FROM dual UNION all
+    select 40491,'BWP072','','旋耳疮病','XECB','',1,'B',1017 FROM dual UNION all
+    select 40492,'BWP073','','窝疮病','WCB','',1,'B',1017 FROM dual UNION all
+    select 40493,'BWP074','','脐疮病','QCB','',1,'B',1017 FROM dual UNION all
+    select 40494,'BWP075','','乳头风病','RTFB','',1,'B',1017 FROM dual UNION all
+    select 40495,'BWP076','','肾囊风病','SNFB','',1,'B',1017 FROM dual UNION all
+    select 40496,'BWP077','','四弯风病','SWFB','',1,'B',1017 FROM dual UNION all
+    select 40497,'BWP080','','火赤疮病','HCCB','',1,'B',1017 FROM dual UNION all
+    select 40498,'BWP090','','顽湿聚结病','WSJJB','',1,'B',1017 FROM dual UNION all
+    select 40499,'BWP100','','药毒病','YDB','',1,'B',1017 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40500,'BWP110','','瘾疹病','YZB','',1,'B',1017 FROM dual UNION all
+    select 40501,'BWP120','','土风疮病','TFCB','',1,'B',1017 FROM dual UNION all
+    select 40502,'BWP130','','摄领疮病','SLCB','',1,'B',1017 FROM dual UNION all
+    select 40503,'BWP140','','风瘙风病','FSFB','',1,'B',1017 FROM dual UNION all
+    select 40504,'BWP150','','风热疮病','FRCB','',1,'B',1017 FROM dual UNION all
+    select 40505,'BWP160','','紫癜风病','ZDFB','',1,'B',1017 FROM dual UNION all
+    select 40506,'BWP170','','白病','BB','',1,'B',1017 FROM dual UNION all
+    select 40507,'BWP180','','天疱疮病','TPCB','',1,'B',1017 FROM dual UNION all
+    select 40508,'BWP190','','面游风病','MYFB','',1,'B',1017 FROM dual UNION all
+    select 40509,'BWP200','','粉刺病','FCB','',1,'B',1017 FROM dual UNION all
+    select 40510,'BWP210','','酒齄鼻病','JZBB','',1,'B',1017 FROM dual UNION all
+    select 40511,'BWP220','','油风病','YFB','',1,'B',1017 FROM dual UNION all
+    select 40512,'BWP230','','猫眼疮病','MYCB','',1,'B',1017 FROM dual UNION all
+    select 40513,'BWP240','','瓜藤缠病','GTCB','',1,'B',1017 FROM dual UNION all
+    select 40514,'BWP250','','红蝴蝶疮病','HHDCB','',1,'B',1017 FROM dual UNION all
+    select 40515,'BWP260','','皮痹病','PBB','',1,'B',1017 FROM dual UNION all
+    select 40516,'BWP270','','狐惑病','HHB','',1,'B',1017 FROM dual UNION all
+    select 40517,'BWP280','','流皮漏病','LPLB','',1,'B',1017 FROM dual UNION all
+    select 40518,'BWP290','','白驳风病','BBFB','',1,'B',1017 FROM dual UNION all
+    select 40519,'BWP300','','黧足肿病','LZZB','',1,'B',1017 FROM dual UNION all
+    select 40520,'BWP310','','蟹足肿病','XZZB','',1,'B',1017 FROM dual UNION all
+    select 40521,'BWR010','','乳头破碎病','RTPSB','',1,'B',1015 FROM dual UNION all
+    select 40522,'BWR020','','乳痈病','RYB','',1,'B',1015 FROM dual UNION all
+    select 40523,'BWR030','','乳发病','RFB','',1,'B',1015 FROM dual UNION all
+    select 40524,'BWR040','','乳痨病','RLB','',1,'B',1015 FROM dual UNION all
+    select 40525,'BWR050','','乳癖病','RPB','',1,'B',1015 FROM dual UNION all
+    select 40526,'BWR060','','乳疬病','RLB','',1,'B',1015 FROM dual UNION all
+    select 40527,'BWR070','','乳漏病','RLB','',1,'B',1015 FROM dual UNION all
+    select 40528,'BWR080','','乳衄病','RNB','',1,'B',1015 FROM dual UNION all
+    select 40529,'BWR090','','乳核病','RHB','',1,'B',1015 FROM dual UNION all
+    select 40530,'BWR100','','乳疽病','RJB','',1,'B',1015 FROM dual UNION all
+    select 40531,'BWR110','','粉刺性乳痈病','FCXRYB','',1,'B',1015 FROM dual UNION all
+    select 40532,'BWV000','','外科其他病（水火烫伤病）','WKQTBSHTSB','',1,'B',1021 FROM dual UNION all
+    select 40533,'BWV000','','外科其他病（破伤风病）','WKQTBPSFB','',2,'B',1021 FROM dual UNION all
+    select 40534,'BWV000','','外科其他病（毒中咬伤病）','WKQTBDZYSB','',3,'B',1021 FROM dual UNION all
+    select 40535,'BWV000','','外科其他病（冻疮病）','WKQTBDCB','',4,'B',1021 FROM dual UNION all
+    select 40536,'BWV000','','外科其他病（毒蛇咬伤病）','WKQTBDSYSB','',5,'B',1021 FROM dual UNION all
+    select 40537,'BWV000','','外科其他病（蜂螫伤病）','WKQTBFSSB','',6,'B',1021 FROM dual UNION all
+    select 40538,'BWV000','','外科其他病（狗咬伤病）','WKQTBGYSB','',7,'B',1021 FROM dual UNION all
+    select 40539,'BWV000','','外科其他病（蝎螫伤病）','WKQTBXSSB','',8,'B',1021 FROM dual UNION all
+    select 40540,'BWV000','','外科其他病（蜈蚣螫伤病）','WKQTBWGSSB','',9,'B',1021 FROM dual UNION all
+    select 40541,'BWV010','','疝气病','SQB','',1,'B',1021 FROM dual UNION all
+    select 40542,'BWV011','','水疝病','SSB','',1,'B',1021 FROM dual UNION all
+    select 40543,'BWV012','','狐疝病','HSB','',1,'B',1021 FROM dual UNION all
+    select 40544,'BWV020','','肠痈病','CYB','',1,'B',1021 FROM dual UNION all
+    select 40545,'BYA000','','眼科癌病','YKAB','',1,'B',1045 FROM dual UNION all
+    select 40546,'BYB010','','针眼病','ZYB','',1,'B',1038 FROM dual UNION all
+    select 40547,'BYB020','','胞生痰核病','BSTHB','',1,'B',1038 FROM dual UNION all
+    select 40548,'BYB030','','椒疮病','JCB','',1,'B',1038 FROM dual UNION all
+    select 40549,'BYB031','','沙眼病','SYB','',1,'B',1038 FROM dual UNION all
+    select 40550,'BYB040','','粟疮病','SCB','',1,'B',1038 FROM dual UNION all
+    select 40551,'BYB050','','睑弦赤烂病','JXCLB','',1,'B',1038 FROM dual UNION all
+    select 40552,'BYB060','','风赤疮痍病','FCCYB','',1,'B',1038 FROM dual UNION all
+    select 40553,'BYB070','','胞肿如桃病','BZRTB','',1,'B',1038 FROM dual UNION all
+    select 40554,'BYB080','','胞虚如球病','BXRQB','',1,'B',1038 FROM dual UNION all
+    select 40555,'BYB090','','上胞下垂病','SBXCB','',1,'B',1038 FROM dual UNION all
+    select 40556,'BYB100','','胞轮振跳病','BLZTB','',1,'B',1038 FROM dual UNION all
+    select 40557,'BYB110','','目病','MB','',1,'B',1038 FROM dual UNION all
+    select 40558,'BYB120','','睑内结石病','JNJSB','',1,'B',1038 FROM dual UNION all
+    select 40559,'BYB130','','眼丹病','YDB','',1,'B',1038 FROM dual UNION all
+    select 40560,'BYB140','','胞睑外翻病','BJWFB','',1,'B',1038 FROM dual UNION all
+    select 40561,'BYB150','','胞肉粘轮病','BRZLB','',1,'B',1038 FROM dual UNION all
+    select 40562,'BYB160','','倒睫卷毛病','DJJMB','',1,'B',1038 FROM dual UNION all
+    select 40563,'BYH010','','聚星障病','JXZB','',1,'B',1041 FROM dual UNION all
+    select 40564,'BYH020','','花翳白陷病','HYBXB','',1,'B',1041 FROM dual UNION all
+    select 40565,'BYH030','','凝脂翳病','NZYB','',1,'B',1041 FROM dual UNION all
+    select 40566,'BYH040','','黄液上冲病','HYSCB','',1,'B',1041 FROM dual UNION all
+    select 40567,'BYH050','','蟹睛病','XJB','',1,'B',1041 FROM dual UNION all
+    select 40568,'BYH060','','混睛障病','HJZB','',1,'B',1041 FROM dual UNION all
+    select 40569,'BYH070','','风轮赤豆病','FLCDB','',1,'B',1041 FROM dual UNION all
+    select 40570,'BYH080','','白膜侵睛病','BMQJB','',1,'B',1041 FROM dual UNION all
+    select 40571,'BYH090','','赤膜下垂病','CMXCB','',1,'B',1041 FROM dual UNION all
+    select 40572,'BYH100','','血翳包睛病','XYBJB','',1,'B',1041 FROM dual UNION all
+    select 40573,'BYH110','','宿翳病','SYB','',1,'B',1041 FROM dual UNION all
+    select 40574,'BYL000','','眼科瘤病','YKLB','',1,'B',1044 FROM dual UNION all
+    select 40575,'BYM010','','暴风客热病','BFKRB','',1,'B',1040 FROM dual UNION all
+    select 40576,'BYM020','','天行赤眼病','TXCYB','',1,'B',1040 FROM dual UNION all
+    select 40577,'BYM030','','天行赤眼暴翳病','TXCYBYB','',1,'B',1040 FROM dual UNION all
+    select 40578,'BYM040','','金疳病','JGB','',1,'B',1040 FROM dual UNION all
+    select 40579,'BYM050','','火疳病','HGB','',1,'B',1040 FROM dual UNION all
+    select 40580,'BYM060','','白睛青蓝病','BJQLB','',1,'B',1040 FROM dual UNION all
+    select 40581,'BYM070','','白涩病','BSB','',1,'B',1040 FROM dual UNION all
+    select 40582,'BYM080','','白睛溢血病','BJYXB','',1,'B',1040 FROM dual UNION all
+    select 40583,'BYM090','','时复病','SFB','',1,'B',1040 FROM dual UNION all
+    select 40584,'BYT010','','瞳神紧小病','TSJXB','',1,'B',1042 FROM dual UNION all
+    select 40585,'BYT011','','瞳神干缺病','TSGQB','',1,'B',1042 FROM dual UNION all
+    select 40586,'BYT020','','绿风内障病','LFNZB','',1,'B',1042 FROM dual UNION all
+    select 40587,'BYT030','','青风内障病','QFNZB','',1,'B',1042 FROM dual UNION all
+    select 40588,'BYT040','','圆翳内障病','YYNZB','',1,'B',1042 FROM dual UNION all
+    select 40589,'BYT050','','胎患内障病','THNZB','',1,'B',1042 FROM dual UNION all
+    select 40590,'BYT060','','云雾移睛病','YWYJB','',1,'B',1042 FROM dual UNION all
+    select 40591,'BYT070','','暴盲病','BMB','',1,'B',1042 FROM dual UNION all
+    select 40592,'BYT080','','视瞻昏渺病','SZHMB','',1,'B',1042 FROM dual UNION all
+    select 40593,'BYT090','','青盲病','QMB','',1,'B',1042 FROM dual UNION all
+    select 40594,'BYT100','','高风雀目病','GFQMB','',1,'B',1042 FROM dual UNION all
+    select 40595,'BYT110','','视直如曲病','SZRQB','',1,'B',1042 FROM dual UNION all
+    select 40596,'BYT120','','血灌瞳神病','XGTSB','',1,'B',1042 FROM dual UNION all
+    select 40597,'BYV000','','眼科其他病（近视病）','YKQTBJSB','',1,'B',1046 FROM dual UNION all
+    select 40598,'BYV000','','眼科其他病（老视病）','YKQTBLSB','',2,'B',1046 FROM dual UNION all
+    select 40599,'BYV000','','眼科其他病（远视病）','YKQTBYSB','',3,'B',1046 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 40600,'BYV010','','疳积上目病','GJSMB','',1,'B',1046 FROM dual UNION all
+    select 40601,'BYV020','','目偏视病','MPSB','',1,'B',1046 FROM dual UNION all
+    select 40602,'BYV030','','辘轳转关病','LLZGB','',1,'B',1046 FROM dual UNION all
+    select 40603,'BYV040','','眉棱骨痛病','MLGTB','',1,'B',1046 FROM dual UNION all
+    select 40604,'BYV050','','鹘眼凝睛病','GYNJB','',1,'B',1046 FROM dual UNION all
+    select 40605,'BYV060','','突起睛高病','TQJGB','',1,'B',1046 FROM dual UNION all
+    select 40606,'BYV070','','神水将枯病','SSJKB','',1,'B',1046 FROM dual UNION all
+    select 40607,'BYV080','','目痒病','MYB','',1,'B',1046 FROM dual UNION all
+    select 40608,'BYW000','','外伤眼病（电光伤目病）','WSYBDGSMB','',1,'B',1043 FROM dual UNION all
+    select 40609,'BYW000','','外伤眼病（热烫伤目病）','WSYBRTSMB','',2,'B',1043 FROM dual UNION all
+    select 40610,'BYW000','','外伤眼病（酸碱伤目病）','WSYBSJSMB','',3,'B',1043 FROM dual UNION all
+    select 40611,'BYW010','','异物入目病','YWRMB','',1,'B',1043 FROM dual UNION all
+    select 40612,'BYW020','','振胞瘀痛病','ZBYTB','',1,'B',1043 FROM dual UNION all
+    select 40613,'BYW030','','物损真睛病','WSZJB','',1,'B',1043 FROM dual UNION all
+    select 40614,'BYW040','','惊震内障病','JZNZB','',1,'B',1043 FROM dual UNION all
+    select 40615,'BYW050','','撞击伤目病','ZJSMB','',1,'B',1043 FROM dual UNION all
+    select 40616,'BYZ010','','冷泪病','LLB','',1,'B',1039 FROM dual UNION all
+    select 40617,'BYZ011','','无时冷泪病','WSLLB','',1,'B',1039 FROM dual UNION all
+    select 40618,'BYZ012','','迎风冷泪病','YFLLB','',1,'B',1039 FROM dual UNION all
+    select 40619,'BYZ020','','漏睛病','LJB','',1,'B',1039 FROM dual UNION all
+    select 40620,'BYZ030','','漏睛疮病','LJCB','',1,'B',1039 FROM dual UNION all
+    select 40621,'BYZ040','','赤脉传睛病','CMCJB','',1,'B',1039 FROM dual UNION all
+    select 40622,'BYZ050','','胬肉攀睛病','NRPJB','',1,'B',1039 FROM dual;
+
+    ----中医病征目录
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41001,'ZBC010','','虫积证','CJZ','',1,'Z',1198 FROM dual UNION all
+    select 41002,'ZBC011','','虫结证','CJZ','',1,'Z',1198 FROM dual UNION all
+    select 41003,'ZBC020','','虫积化疳证','CJHGZ','',1,'Z',1198 FROM dual UNION all
+    select 41004,'ZBC030','','虫寄皮下证','CJPXZ','',1,'Z',1198 FROM dual UNION all
+    select 41005,'ZBC040','','虫侵于脑证','CQYNZ','',1,'Z',1198 FROM dual UNION all
+    select 41006,'ZBC041','','囊虫侵脑证','NCQNZ','',1,'Z',1198 FROM dual UNION all
+    select 41007,'ZBC050','','虫扰魄门证','CQPMZ','',1,'Z',1198 FROM dual UNION all
+    select 41008,'ZBC060','','蛔虫上扰证','HCSQZ','',1,'Z',1198 FROM dual UNION all
+    select 41009,'ZBC070','','蛔厥证','HJZ','',1,'Z',1198 FROM dual UNION all
+    select 41010,'ZBCD10','','虫毒结聚证','CDJJZ','',1,'Z',1199 FROM dual UNION all
+    select 41011,'ZBCD20','','虫毒结肤证','CDJFZ','',1,'Z',1199 FROM dual UNION all
+    select 41012,'ZBCD30','','蛊毒侵肺证','GDQFZ','',1,'Z',1199 FROM dual UNION all
+    select 41013,'ZBCF10','','虫邪犯肺证','CXFFZ','',1,'Z',1200 FROM dual UNION all
+    select 41014,'ZBCF20','','虫扰于肠证','CQYCZ','',1,'Z',1200 FROM dual UNION all
+    select 41015,'ZBCF30','','虫积肠道证','CJCDZ','',1,'Z',1200 FROM dual UNION all
+    select 41016,'ZBCM10','','虫湿壅络证','CSYLZ','',1,'Z',1202 FROM dual UNION all
+    select 41017,'ZBCP10','','虫积伤脾证','CJSPZ','',1,'Z',1201 FROM dual UNION all
+    select 41018,'ZBCT10','','虫痰互结证','CTHJZ','',1,'Z',1203 FROM dual UNION all
+    select 41019,'ZBD010','','毒腐肌骨证','DFJGZ','',1,'Z',1167 FROM dual UNION all
+    select 41020,'ZBD020','','毒滞肌肤证','DZJFZ','',1,'Z',1167 FROM dual UNION all
+    select 41021,'ZBD030','','毒盛酿脓证','DSNNZ','',1,'Z',1167 FROM dual UNION all
+    select 41022,'ZBD040','','毒盛肉腐证','DSRFZ','',1,'Z',1167 FROM dual UNION all
+    select 41023,'ZBD050','','毒蕴溃烂证','DYKLZ','',1,'Z',1167 FROM dual UNION all
+    select 41024,'ZBD051','','蕴毒腐溃证','YDFKZ','',1,'Z',1167 FROM dual UNION all
+    select 41025,'ZBD060','','脓毒侵袭证','NDQXZ','',1,'Z',1167 FROM dual UNION all
+    select 41026,'ZBD070','','脓毒蚀骨证','NDSGZ','',1,'Z',1167 FROM dual UNION all
+    select 41027,'ZBD080','','脓毒犯脏证','NDFZZ','',1,'Z',1167 FROM dual UNION all
+    select 41028,'ZBD090','','瘟毒下注证','WDXZZ','',1,'Z',1167 FROM dual UNION all
+    select 41029,'ZBD100','','温毒袭表证','WDXBZ','',1,'Z',1167 FROM dual UNION all
+    select 41030,'ZBD110','','温毒在表证','WDZBZ','',1,'Z',1167 FROM dual UNION all
+    select 41031,'ZBD120','','蛇毒内攻证','SDNGZ','',1,'Z',1167 FROM dual UNION all
+    select 41032,'ZBD130','','蛇毒上攻证','SDSGZ','',1,'Z',1167 FROM dual UNION all
+    select 41033,'ZBD140','','痧毒上攻证','SDSGZ','',1,'Z',1167 FROM dual UNION all
+    select 41034,'ZBD150','','疫毒攻窜证','YDGCZ','',1,'Z',1167 FROM dual UNION all
+    select 41035,'ZBD160','','疫毒攻喉证','YDGHZ','',1,'Z',1167 FROM dual UNION all
+    select 41036,'ZBD170','','疫毒内闭证','YDNBZ','',1,'Z',1167 FROM dual UNION all
+    select 41037,'ZBD180','','疫毒侵袭证','YDQXZ','',1,'Z',1167 FROM dual UNION all
+    select 41038,'ZBD190','','疫毒薰蒸证','YDXZZ','',1,'Z',1167 FROM dual UNION all
+    select 41039,'ZBD200','','余毒攻窜证','YDGCZ','',1,'Z',1167 FROM dual UNION all
+    select 41040,'ZBD210','','余毒凝滞证','YDNZZ','',1,'Z',1167 FROM dual UNION all
+    select 41041,'ZBD220','','余毒未清证','YDWQZ','',1,'Z',1167 FROM dual UNION all
+    select 41042,'ZBD221','','余毒未清、卫气虚弱证','YDWQAWQXRZ','',1,'Z',1167 FROM dual UNION all
+    select 41043,'ZBD230','','正虚毒炽证','ZXDCZ','',1,'Z',1167 FROM dual UNION all
+    select 41044,'ZBD240','','正虚毒结证','ZXDJZ','',1,'Z',1167 FROM dual UNION all
+    select 41045,'ZBD250','','正虚毒恋证','ZXDLZ','',1,'Z',1167 FROM dual UNION all
+    select 41046,'ZBD251','','体虚毒恋证','TXDLZ','',1,'Z',1167 FROM dual UNION all
+    select 41047,'ZBD260','','先天遗毒证','XTYDZ','',1,'Z',1167 FROM dual UNION all
+    select 41048,'ZBD270','','毒邪蕴结证','DXYJZ','',1,'Z',1167 FROM dual UNION all
+    select 41049,'ZBD280','','毒邪流窜证','DXLCZ','',1,'Z',1167 FROM dual UNION all
+    select 41050,'ZBD290','','毒邪内闭证','DXNBZ','',1,'Z',1167 FROM dual UNION all
+    select 41051,'ZBD300','','毒邪内攻证','DXNGZ','',1,'Z',1167 FROM dual UNION all
+    select 41052,'ZBD310','','邪毒在表证','XDZBZ','',1,'Z',1167 FROM dual UNION all
+    select 41053,'ZBD320','','邪毒内扰证','XDNQZ','',1,'Z',1167 FROM dual UNION all
+    select 41054,'ZBD330','','邪毒内陷证','XDNXZ','',1,'Z',1167 FROM dual UNION all
+    select 41055,'ZBD331','','邪毒内陷心肝证','XDNXXGZ','',1,'Z',1167 FROM dual UNION all
+    select 41056,'ZBD340','','邪毒久留证','XDJLZ','',1,'Z',1167 FROM dual UNION all
+    select 41057,'ZBD341','','邪毒久留、气滞血瘀证','XDJLAQZXYZ','',1,'Z',1167 FROM dual UNION all
+    select 41058,'ZBD350','','邪毒滞留、气血瘀阻证','XDZLAQXYZZ','',1,'Z',1167 FROM dual UNION all
+    select 41059,'ZBD360','','邪毒入营证','XDRYZ','',1,'Z',1167 FROM dual UNION all
+    select 41060,'ZBD370','','邪毒壅塞证','XDYSZ','',1,'Z',1167 FROM dual UNION all
+    select 41061,'ZBD380','','邪毒引睾窜腹证','XDYGCFZ','',1,'Z',1167 FROM dual UNION all
+    select 41062,'ZBD390','','邪毒传里、肺胃热盛证','XDCLAFWRSZ','',1,'Z',1167 FROM dual UNION all
+    select 41063,'ZBDF10','','毒侵肺卫证','DQFWZ','',1,'Z',1168 FROM dual UNION all
+    select 41064,'ZBDV10','','毒入气营证','DRQYZ','',1,'Z',1169 FROM dual UNION all
+    select 41065,'ZBDV11','','毒在气营证','DZQYZ','',1,'Z',1169 FROM dual UNION all
+    select 41066,'ZBDV20','','毒燔气营证','DFQYZ','',1,'Z',1169 FROM dual UNION all
+    select 41067,'ZBDV30','','毒壅气分证','DYQFZ','',1,'Z',1169 FROM dual UNION all
+    select 41068,'ZBDV40','','毒燔气血证','DFQXZ','',1,'Z',1169 FROM dual UNION all
+    select 41069,'ZBDX10','','毒陷心肝证','DXXGZ','',1,'Z',1170 FROM dual UNION all
+    select 41070,'ZBDXA0','','毒入血分证','DRXFZ','',1,'Z',1170 FROM dual UNION all
+    select 41071,'ZBDY10','','余毒伤阴证','YDSYZ','',1,'Z',1172 FROM dual UNION all
+    select 41072,'ZBDYA0','','毒入营血证','DRYXZ','',1,'Z',1172 FROM dual UNION all
+    select 41073,'ZBF000','','风邪证','FXZ','',1,'Z',1103 FROM dual UNION all
+    select 41074,'ZBF001','','风邪偏盛证','FXPSZ','',1,'Z',1103 FROM dual UNION all
+    select 41075,'ZBF010','','风邪袭表证','FXXBZ','',1,'Z',1103 FROM dual UNION all
+    select 41076,'ZBF011','','风邪外袭证','FXWXZ','',1,'Z',1103 FROM dual UNION all
+    select 41077,'ZBF012','','风邪外袭、经气痞塞证','FXWXAJQPSZ','',1,'Z',1103 FROM dual UNION all
+    select 41078,'ZBF013','','风邪侵袭证','FXQXZ','',1,'Z',1103 FROM dual UNION all
+    select 41079,'ZBF020','','风邪袭络证','FXXLZ','',1,'Z',1103 FROM dual UNION all
+    select 41080,'ZBF030','','风邪阻络证','FXZLZ','',1,'Z',1103 FROM dual UNION all
+    select 41081,'ZBF031','','卫外失固、风邪中络证','WWSGAFXZLZ','',1,'Z',1103 FROM dual UNION all
+    select 41082,'ZBF040','','风邪犯肺证','FXFFZ','',1,'Z',1103 FROM dual UNION all
+    select 41083,'ZBF050','','风邪犯耳证','FXFEZ','',1,'Z',1103 FROM dual UNION all
+    select 41084,'ZBF060','','风邪热毒证','FXRDZ','',1,'Z',1103 FROM dual UNION all
+    select 41085,'ZBFD00','','风毒证','FDZ','',1,'Z',1104 FROM dual UNION all
+    select 41086,'ZBFD10','','风毒入里证','FDRLZ','',1,'Z',1104 FROM dual UNION all
+    select 41087,'ZBFD20','','风毒在表证','FDZBZ','',1,'Z',1104 FROM dual UNION all
+    select 41088,'ZBFH00','','风寒证','FHZ','',1,'Z',1105 FROM dual UNION all
+    select 41089,'ZBFH10','','风寒袭表证','FHXBZ','',1,'Z',1105 FROM dual UNION all
+    select 41090,'ZBFH11','','风寒外袭证','FHWXZ','',1,'Z',1105 FROM dual UNION all
+    select 41091,'ZBFH20','','风寒束表证','FHSBZ','',1,'Z',1105 FROM dual UNION all
+    select 41092,'ZBFH30','','风寒化热证','FHHRZ','',1,'Z',1105 FROM dual UNION all
+    select 41093,'ZBFH40','','风寒闭肺证','FHBFZ','',1,'Z',1105 FROM dual UNION all
+    select 41094,'ZBFH41','','风寒束肺证','FHSFZ','',1,'Z',1105 FROM dual UNION all
+    select 41095,'ZBFH50','','风寒犯肺证','FHFFZ','',1,'Z',1105 FROM dual UNION all
+    select 41096,'ZBFH51','','风寒袭肺证','FHXFZ','',1,'Z',1105 FROM dual UNION all
+    select 41097,'ZBFH60','','风寒犯目证','FHFMZ','',1,'Z',1105 FROM dual UNION all
+    select 41098,'ZBFH70','','风寒阻络证','FHZLZ','',1,'Z',1105 FROM dual UNION all
+    select 41099,'ZBFH80','','风寒痹阻证','FHBZZ','',1,'Z',1105 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41100,'ZBFH90','','风寒湿阻证','FHSZZ','',1,'Z',1105 FROM dual UNION all
+    select 41101,'ZBFH91','','风寒湿痹证','FHSBZ','',1,'Z',1105 FROM dual UNION all
+    select 41102,'ZBFH92','','风寒湿邪证','FHSXZ','',1,'Z',1105 FROM dual UNION all
+    select 41103,'ZBFM00','','风湿证','FSZ','',1,'Z',1106 FROM dual UNION all
+    select 41104,'ZBFM10','','风湿滞表证','FSZBZ','',1,'Z',1106 FROM dual UNION all
+    select 41105,'ZBFM20','','风湿化火证','FSHHZ','',1,'Z',1106 FROM dual UNION all
+    select 41106,'ZBFM21','','风湿化热证','FSHRZ','',1,'Z',1106 FROM dual UNION all
+    select 41107,'ZBFM30','','风湿郁热证','FSYRZ','',1,'Z',1106 FROM dual UNION all
+    select 41108,'ZBFM40','','风湿蕴结证','FSYJZ','',1,'Z',1106 FROM dual UNION all
+    select 41109,'ZBFM50','','风湿蕴肤证','FSYFZ','',1,'Z',1106 FROM dual UNION all
+    select 41110,'ZBFM60','','风湿毒聚证','FSDJZ','',1,'Z',1106 FROM dual UNION all
+    select 41111,'ZBFM70','','风湿凌目证','FSLMZ','',1,'Z',1106 FROM dual UNION all
+    select 41112,'ZBFM80','','风湿热证','FSRZ','',1,'Z',1106 FROM dual UNION all
+    select 41113,'ZBFM81','','风湿热盛证','FSRSZ','',1,'Z',1106 FROM dual UNION all
+    select 41114,'ZBFM90','','风湿热郁证','FSRYZ','',1,'Z',1106 FROM dual UNION all
+    select 41115,'ZBFMA0','','风湿热邪攻目证','FSRXGMZ','',1,'Z',1106 FROM dual UNION all
+    select 41116,'ZBFP10','','风盛脾虚证','FSPXZ','',1,'Z',1107 FROM dual UNION all
+    select 41117,'ZBFR00','','风热证','FRZ','',1,'Z',1108 FROM dual UNION all
+    select 41118,'ZBFR01','','风热偏盛证','FRPSZ','',1,'Z',1108 FROM dual UNION all
+    select 41119,'ZBFR02','','风重于热证','FZYRZ','',1,'Z',1108 FROM dual UNION all
+    select 41120,'ZBFR03','','热重于风证','RZYFZ','',1,'Z',1108 FROM dual UNION all
+    select 41121,'ZBFR04','','风热俱盛证','FRJSZ','',1,'Z',1108 FROM dual UNION all
+    select 41122,'ZBFR10','','风热壅盛证','FRYSZ','',1,'Z',1108 FROM dual UNION all
+    select 41123,'ZBFR20','','风热袭表证','FRXBZ','',1,'Z',1108 FROM dual UNION all
+    select 41124,'ZBFR21','','风热外袭证','FRWXZ','',1,'Z',1108 FROM dual UNION all
+    select 41125,'ZBFR22','','风热外袭、肺经有热证','FRWXAFJYRZ','',1,'Z',1108 FROM dual UNION all
+    select 41126,'ZBFR23','','风热外侵证','FRWQZ','',1,'Z',1108 FROM dual UNION all
+    select 41127,'ZBFR24','','风热外犯证','FRWFZ','',1,'Z',1108 FROM dual UNION all
+    select 41128,'ZBFR30','','风热在表证','FRZBZ','',1,'Z',1108 FROM dual UNION all
+    select 41129,'ZBFR40','','风热化火证','FRHHZ','',1,'Z',1108 FROM dual UNION all
+    select 41130,'ZBFR50','','风热犯肺证','FRFFZ','',1,'Z',1108 FROM dual UNION all
+    select 41131,'ZBFR60','','风热闭肺证','FRBFZ','',1,'Z',1108 FROM dual UNION all
+    select 41132,'ZBFR61','','风热闭肺、心气虚衰证','FRBFAXQXSZ','',1,'Z',1108 FROM dual UNION all
+    select 41133,'ZBFR70','','风热客睑证','FRKJZ','',1,'Z',1108 FROM dual UNION all
+    select 41134,'ZBFR80','','风热上犯证','FRSFZ','',1,'Z',1108 FROM dual UNION all
+    select 41135,'ZBFR81','','风热上扰证','FRSQZ','',1,'Z',1108 FROM dual UNION all
+    select 41136,'ZBFR82','','风热上攻证','FRSGZ','',1,'Z',1108 FROM dual UNION all
+    select 41137,'ZBFR90','','风热伤络证','FRSLZ','',1,'Z',1108 FROM dual UNION all
+    select 41138,'ZBFRA0','','风热阻络证','FRZLZ','',1,'Z',1108 FROM dual UNION all
+    select 41139,'ZBFRB0','','风热壅目证','FRYMZ','',1,'Z',1108 FROM dual UNION all
+    select 41140,'ZBFRC0','','风热蕴肤证','FRYFZ','',1,'Z',1108 FROM dual UNION all
+    select 41141,'ZBFRD0','','风热蕴肌证','FRYJZ','',1,'Z',1108 FROM dual UNION all
+    select 41142,'ZBFRE0','','风热血热证','FRXRZ','',1,'Z',1108 FROM dual UNION all
+    select 41143,'ZBFRFO','','风热血燥证','FRXZZ','',1,'Z',1108 FROM dual UNION all
+    select 41144,'ZBFRG0','','风热痰毒证','FRTDZ','',1,'Z',1108 FROM dual UNION all
+    select 41145,'ZBFRH0','','风热痰凝证','FRTNZ','',1,'Z',1108 FROM dual UNION all
+    select 41146,'ZBFRJO','','风热疫毒证','FRYDZ','',1,'Z',1108 FROM dual UNION all
+    select 41147,'ZBFRK0','','风热邪毒证','FRXDZ','',1,'Z',1108 FROM dual UNION all
+    select 41148,'ZBFRK1','','风热邪毒外侵证','FRXDWQZ','',1,'Z',1108 FROM dual UNION all
+    select 41149,'ZBFRL0','','风热湿毒壅盛证','FRSDYSZ','',1,'Z',1108 FROM dual UNION all
+    select 41150,'ZBFRM0','','风热毒蕴证','FRDYZ','',1,'Z',1108 FROM dual UNION all
+    select 41151,'ZBFRN0','','风热湿邪浸渍证','FRSXJZZ','',1,'Z',1108 FROM dual UNION all
+    select 41152,'ZBFRO0','','风热停留证','FRTLZ','',1,'Z',1108 FROM dual UNION all
+    select 41153,'ZBFT00','','风痰证','FTZ','',1,'Z',1109 FROM dual UNION all
+    select 41154,'ZBFT10','','风痰闭阻证','FTBZZ','',1,'Z',1109 FROM dual UNION all
+    select 41155,'ZBFT11','','风痰闭窍证','FTBQZ','',1,'Z',1109 FROM dual UNION all
+    select 41156,'ZBFT20','','风痰入络证','FTRLZ','',1,'Z',1109 FROM dual UNION all
+    select 41157,'ZBFT30','','风痰阻络证','FTZLZ','',1,'Z',1109 FROM dual UNION all
+    select 41158,'ZBFT40','','风痰上扰证','FTSQZ','',1,'Z',1109 FROM dual UNION all
+    select 41159,'ZBFT41','','风痰上攻证','FTSGZ','',1,'Z',1109 FROM dual UNION all
+    select 41160,'ZBFT50','','风痰瘀血证','FTYXZ','',1,'Z',1109 FROM dual UNION all
+    select 41161,'ZBFT51','','风痰瘀血、痹阻脉络证','FTYXABZMLZ','',1,'Z',1109 FROM dual UNION all
+    select 41162,'ZBFT60','','风动痰阻证','FDTZZ','',1,'Z',1109 FROM dual UNION all
+    select 41163,'ZBFT61','','风动痰阻、浊邪上犯证','FDTZAZXSFZ','',1,'Z',1109 FROM dual UNION all
+    select 41164,'ZBFT70','','风水泛滥证','FSFLZ','',1,'Z',1109 FROM dual UNION all
+    select 41165,'ZBFT80','','风水相搏证','FSXBZ','',1,'Z',1109 FROM dual UNION all
+    select 41166,'ZBFU00','','风火证','FHZ','',1,'Z',1110 FROM dual UNION all
+    select 41167,'ZBFU10','','风火蔽窍证','FHBQZ','',1,'Z',1110 FROM dual UNION all
+    select 41168,'ZBFU20','','风火上炎证','FHSYZ','',1,'Z',1110 FROM dual UNION all
+    select 41169,'ZBFU21','','风火上炎、痰热闭窍证','FHSYATRBQZ','',1,'Z',1110 FROM dual UNION all
+    select 41170,'ZBFU22','','风火上扰证','FHSQZ','',1,'Z',1110 FROM dual UNION all
+    select 41171,'ZBFU23','','风火上扰清窍证','FHSQQQZ','',1,'Z',1110 FROM dual UNION all
+    select 41172,'ZBFU24','','风火上攻证','FHSGZ','',1,'Z',1110 FROM dual UNION all
+    select 41173,'ZBFU25','','风火攻目证','FHGMZ','',1,'Z',1110 FROM dual UNION all
+    select 41174,'ZBFU30','','风火内动证','FHNDZ','',1,'Z',1110 FROM dual UNION all
+    select 41175,'ZBFU40','','风火毒证','FHDZ','',1,'Z',1110 FROM dual UNION all
+    select 41176,'ZBFU50','','风炎热毒证','FYRDZ','',1,'Z',1110 FROM dual UNION all
+    select 41177,'ZBFU51','','风火热毒炽盛证','FHRDCSZ','',1,'Z',1110 FROM dual UNION all
+    select 41178,'ZBFX10','','风盛血燥证','FSXZZ','',1,'Z',1111 FROM dual UNION all
+    select 41179,'ZBFX20','','风瘀证','FYZ','',1,'Z',1111 FROM dual UNION all
+    select 41180,'ZBFZ00','','风燥证','FZZ','',1,'Z',1112 FROM dual UNION all
+    select 41181,'ZBFZ10','','风燥伤肺证','FZSFZ','',1,'Z',1112 FROM dual UNION all
+    select 41182,'ZBH000','','寒证','HZ','',1,'Z',1113 FROM dual UNION all
+    select 41183,'ZBH001','','寒邪偏盛证','HXPSZ','',1,'Z',1113 FROM dual UNION all
+    select 41184,'ZBH010','','虚寒证','XHZ','',1,'Z',1113 FROM dual UNION all
+    select 41185,'ZBH020','','腹部中寒证','FBZHZ','',1,'Z',1113 FROM dual UNION all
+    select 41186,'ZBH030','','寒实证','HSZ','',1,'Z',1113 FROM dual UNION all
+    select 41187,'ZBH031','','寒实阻遏证','HSZEZ','',1,'Z',1113 FROM dual UNION all
+    select 41188,'ZBH040','','寒凝证','HNZ','',1,'Z',1113 FROM dual UNION all
+    select 41189,'ZBH050','','寒凝胞中证','HNBZZ','',1,'Z',1113 FROM dual UNION all
+    select 41190,'ZBH051','','寒凝胞中、寒湿凝滞证','HNBZAHSNZZ','',1,'Z',1113 FROM dual UNION all
+    select 41191,'ZBH052','','寒凝胞中、阳虚内寒证','HNBZAYXNHZ','',1,'Z',1113 FROM dual UNION all
+    select 41192,'ZBH060','','寒痛证','HTZ','',1,'Z',1113 FROM dual UNION all
+    select 41193,'ZBH070','','寒邪凝固证','HXNGZ','',1,'Z',1113 FROM dual UNION all
+    select 41194,'ZBH080','','寒邪外感证','HXWGZ','',1,'Z',1113 FROM dual UNION all
+    select 41195,'ZBH090','','寒邪内阻证','HXNZZ','',1,'Z',1113 FROM dual UNION all
+    select 41196,'ZBH100','','寒邪内积证','HXNJZ','',1,'Z',1113 FROM dual UNION all
+    select 41197,'ZBH110','','寒邪直中证','HXZZZ','',1,'Z',1113 FROM dual UNION all
+    select 41198,'ZBHA10','','寒凝阳衰证','HNYSZ','',1,'Z',1114 FROM dual UNION all
+    select 41199,'ZBHF10','','大寒犯肺证','DHFFZ','',1,'Z',1115 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41200,'ZBHF20','','大寒肺热证','DHFRZ','',1,'Z',1115 FROM dual UNION all
+    select 41201,'ZBHF30','','寒滞肠胃证','HZCWZ','',1,'Z',1115 FROM dual UNION all
+    select 41202,'ZBHJ10','','寒滞经络证','HZJLZ','',1,'Z',1117 FROM dual UNION all
+    select 41203,'ZBHM00','','寒湿证','HSZ','',1,'Z',1116 FROM dual UNION all
+    select 41204,'ZBHM10','','寒湿凝滞证','HSNZZ','',1,'Z',1116 FROM dual UNION all
+    select 41205,'ZBHM11','','寒湿凝聚证','HSNJZ','',1,'Z',1116 FROM dual UNION all
+    select 41206,'ZBHM20','','寒湿阻滞证','HSZZZ','',1,'Z',1116 FROM dual UNION all
+    select 41207,'ZBHM30','','寒湿瘀滞证','HSYZZ','',1,'Z',1116 FROM dual UNION all
+    select 41208,'ZBHM40','','寒湿瘀郁证','HSYYZ','',1,'Z',1116 FROM dual UNION all
+    select 41209,'ZBHM50','','寒湿蕴肤证','HSYFZ','',1,'Z',1116 FROM dual UNION all
+    select 41210,'ZBHM60','','寒湿困脾证','HSKPZ','',1,'Z',1116 FROM dual UNION all
+    select 41211,'ZBHM70','','寒湿入络证','HSRLZ','',1,'Z',1116 FROM dual UNION all
+    select 41212,'ZBHM80','','寒湿阻络证','HSZLZ','',1,'Z',1116 FROM dual UNION all
+    select 41213,'ZBHP10','','寒邪犯胃证','HXFWZ','',1,'Z',1118 FROM dual UNION all
+    select 41214,'ZBHP11','','寒邪客胃证','HXKWZ','',1,'Z',1118 FROM dual UNION all
+    select 41215,'ZBHR10','','寒热错杂证','HRCZZ','',1,'Z',1120 FROM dual UNION all
+    select 41216,'ZBHR20','','表寒里热证','BHLRZ','',1,'Z',1120 FROM dual UNION all
+    select 41217,'ZBHR21','','外寒内热证','WHNRZ','',1,'Z',1120 FROM dual UNION all
+    select 41218,'ZBHT10','','寒饮停肺证','HYTFZ','',1,'Z',1121 FROM dual UNION all
+    select 41219,'ZBHT20','','寒饮伏肺证','HYFFZ','',1,'Z',1121 FROM dual UNION all
+    select 41220,'ZBHT30','','寒饮射肺证','HYSFZ','',1,'Z',1121 FROM dual UNION all
+    select 41221,'ZBHT40','','寒水上泛证','HSSFZ','',1,'Z',1121 FROM dual UNION all
+    select 41222,'ZBHT50','','表寒里饮证','BHLYZ','',1,'Z',1121 FROM dual UNION all
+    select 41223,'ZBHV10','','寒凝气滞证','HNQZZ','',1,'Z',1119 FROM dual UNION all
+    select 41224,'ZBHV20','','寒凝气聚证','HNQJZ','',1,'Z',1119 FROM dual UNION all
+    select 41225,'ZBHX10','','寒凝血瘀证','HNXYZ','',1,'Z',1122 FROM dual UNION all
+    select 41226,'ZBHX20','','寒凝血涩证','HNXSZ','',1,'Z',1122 FROM dual UNION all
+    select 41227,'ZBHX30','','寒凝瘀结证','HNYJZ','',1,'Z',1122 FROM dual UNION all
+    select 41228,'ZBHXA0','','寒凝心脉证','HNXMZ','',1,'Z',1122 FROM dual UNION all
+    select 41229,'ZBM000','','湿证','SZ','',1,'Z',1133 FROM dual UNION all
+    select 41230,'ZBM001','','湿邪偏盛证','SXPSZ','',1,'Z',1133 FROM dual UNION all
+    select 41231,'ZBM010','','湿困中焦证','SKZJZ','',1,'Z',1133 FROM dual UNION all
+    select 41232,'ZBM020','','湿郁三焦证','SYSJZ','',1,'Z',1133 FROM dual UNION all
+    select 41233,'ZBM030','','湿邪外感证','SXWGZ','',1,'Z',1133 FROM dual UNION all
+    select 41234,'ZBM040','','湿邪蕴积证','SXYJZ','',1,'Z',1133 FROM dual UNION all
+    select 41235,'ZBM050','','湿邪浸渍证','SXJZZ','',1,'Z',1133 FROM dual UNION all
+    select 41236,'ZBMD00','','湿毒证','SDZ','',1,'Z',1134 FROM dual UNION all
+    select 41237,'ZBMD10','','湿毒浸淫证','SDJYZ','',1,'Z',1134 FROM dual UNION all
+    select 41238,'ZBMD20','','湿毒蕴结证','SDYJZ','',1,'Z',1134 FROM dual UNION all
+    select 41239,'ZBMD30','','湿毒蕴肤证','SDYFZ','',1,'Z',1134 FROM dual UNION all
+    select 41240,'ZBMD40','','湿毒中阻证','SDZZZ','',1,'Z',1134 FROM dual UNION all
+    select 41241,'ZBMF10','','湿阻肠道证','SZCDZ','',1,'Z',1135 FROM dual UNION all
+    select 41242,'ZBMF11','','湿阻肠道、传导失司证','SZCDACDSSZ','',1,'Z',1135 FROM dual UNION all
+    select 41243,'ZBMJ10','','湿阻筋络证','SZJLZ','',1,'Z',1136 FROM dual UNION all
+    select 41244,'ZBMJ20','','湿邪阻络证','SXZLZ','',1,'Z',1136 FROM dual UNION all
+    select 41245,'ZBMP10','','湿困脾胃证','SKPWZ','',1,'Z',1137 FROM dual UNION all
+    select 41246,'ZBMP11','','湿邪困脾证','SXKPZ','',1,'Z',1137 FROM dual UNION all
+    select 41247,'ZBMP12','','湿阻脾胃证','SZPWZ','',1,'Z',1137 FROM dual UNION all
+    select 41248,'ZBMR00','','湿热证','SRZ','',1,'Z',1138 FROM dual UNION all
+    select 41249,'ZBMR01','','湿热并重证','SRBZZ','',1,'Z',1138 FROM dual UNION all
+    select 41250,'ZBMR02','','湿重于热证','SZYRZ','',1,'Z',1138 FROM dual UNION all
+    select 41251,'ZBMR03','','热重于湿证','RZYSZ','',1,'Z',1138 FROM dual UNION all
+    select 41252,'ZBMR10','','湿热内侵证','SRNQZ','',1,'Z',1138 FROM dual UNION all
+    select 41253,'ZBMR20','','湿热内蕴证','SRNYZ','',1,'Z',1138 FROM dual UNION all
+    select 41254,'ZBMR30','','湿热化燥证','SRHZZ','',1,'Z',1138 FROM dual UNION all
+    select 41255,'ZBMR40','','湿热化火证','SRHHZ','',1,'Z',1138 FROM dual UNION all
+    select 41256,'ZBMR50','','湿热冲心证','SRCXZ','',1,'Z',1138 FROM dual UNION all
+    select 41257,'ZBMR60','','湿热蒙心证','SRMXZ','',1,'Z',1138 FROM dual UNION all
+    select 41258,'ZBMR70','','湿热动血证','SRDXZ','',1,'Z',1138 FROM dual UNION all
+    select 41259,'ZBMR80','','湿热酿痰证','SRNTZ','',1,'Z',1138 FROM dual UNION all
+    select 41260,'ZBMR81','','温热酿痰、蒙蔽心包证','WRNTAMBXBZ','',1,'Z',1138 FROM dual UNION all
+    select 41261,'ZBMR90','','温热浸淫证','WRJYZ','',1,'Z',1138 FROM dual UNION all
+    select 41262,'ZBMR91','','湿热浸淫、气血不运证','SRJYAQXBYZ','',1,'Z',1138 FROM dual UNION all
+    select 41263,'ZBMRA0','','湿热伤胃证','SRSWZ','',1,'Z',1138 FROM dual UNION all
+    select 41264,'ZBMRB0','','湿热伤阴证','SRSYZ','',1,'Z',1138 FROM dual UNION all
+    select 41265,'ZBMRC0','','湿热上蒸证','SRSZZ','',1,'Z',1138 FROM dual UNION all
+    select 41266,'ZBMRD0','','湿热下注证','SRXZZ','',1,'Z',1138 FROM dual UNION all
+    select 41267,'ZBMRD1','','湿热下注、膀胱滞涩证','SRXZABGZSZ','',1,'Z',1138 FROM dual UNION all
+    select 41268,'ZBMRD2','','温热下注、扰动精室证','WRXZAQDJSZ','',1,'Z',1138 FROM dual UNION all
+    select 41269,'ZBMRD3','','湿热下注、肝胆湿热证','SRXZAGDSRZ','',1,'Z',1138 FROM dual UNION all
+    select 41270,'ZBMRE0','','湿热蕴结证','SRYJZ','',1,'Z',1138 FROM dual UNION all
+    select 41271,'ZBMRE1','','湿热蕴阻证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41272,'ZBMRF0','','湿热蕴蒸证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41273,'ZBMRF1','','湿热薰蒸证','SRXZZ','',1,'Z',1138 FROM dual UNION all
+    select 41274,'ZBMRG0','','湿热蕴毒证','SRYDZ','',1,'Z',1138 FROM dual UNION all
+    select 41275,'ZBMRHO','','湿热蕴伏证','SRYFZ','',1,'Z',1138 FROM dual UNION all
+    select 41276,'ZBMRJ0','','湿热壅盛证','SRYSZ','',1,'Z',1138 FROM dual UNION all
+    select 41277,'ZBMRK0','','湿热壅结证','SRYJZ','',1,'Z',1138 FROM dual UNION all
+    select 41278,'ZBMRK1','','湿热壅滞证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41279,'ZBMRK2','','湿热壅阻证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41280,'ZBMRL0','','湿热瘀阻证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41281,'ZBMRL1','','湿热瘀滞证','SRYZZ','',1,'Z',1138 FROM dual UNION all
+    select 41282,'ZBMRL2','','湿热血瘀证','SRXYZ','',1,'Z',1138 FROM dual UNION all
+    select 41283,'ZBMRM0','','湿热荮肠证','SRZCZ','',1,'Z',1138 FROM dual UNION all
+    select 41284,'ZBMRN0','','湿热中阻证','SRZZZ','',1,'Z',1138 FROM dual UNION all
+    select 41285,'ZBMRO0','','湿热阻络证','SRZLZ','',1,'Z',1138 FROM dual UNION all
+    select 41286,'ZBMRP0','','湿热火毒蕴结证','SRHDYJZ','',1,'Z',1138 FROM dual UNION all
+    select 41287,'ZBMRP1','','湿热火毒蕴盛证','SRHDYSZ','',1,'Z',1138 FROM dual UNION all
+    select 41288,'ZBMRR0','','湿热疫毒证','SRYDZ','',1,'Z',1138 FROM dual UNION all
+    select 41289,'ZBMRS0','','中焦湿热证','ZJSRZ','',1,'Z',1138 FROM dual UNION all
+    select 41290,'ZBMRT0','','下焦湿热证','XJSRZ','',1,'Z',1138 FROM dual UNION all
+    select 41291,'ZBMRU0','','湿郁化热证','SYHRZ','',1,'Z',1138 FROM dual UNION all
+    select 41292,'ZBMRV0','','湿热毒盛证','SRDSZ','',1,'Z',1138 FROM dual UNION all
+    select 41293,'ZBMRV1','','湿热毒聚证','SRDJZ','',1,'Z',1138 FROM dual UNION all
+    select 41294,'ZBMRV2','','湿热毒蕴证','SRDYZ','',1,'Z',1138 FROM dual UNION all
+    select 41295,'ZBMRV3','','湿热毒结证','SRDJZ','',1,'Z',1138 FROM dual UNION all
+    select 41296,'ZBMRWO','','湿邪热毒证','SXRDZ','',1,'Z',1138 FROM dual UNION all
+    select 41297,'ZBMT10','','湿浊内蕴证','SZNYZ','',1,'Z',1139 FROM dual UNION all
+    select 41298,'ZBMT20','','湿浊壅滞证','SZYZZ','',1,'Z',1139 FROM dual UNION all
+    select 41299,'ZBMT30','','湿浊阻滞证','SZZZZ','',1,'Z',1139 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41300,'ZBMT40','','湿浊冲心证','SZCXZ','',1,'Z',1139 FROM dual UNION all
+    select 41301,'ZBMT50','','湿浊蒙上证','SZMSZ','',1,'Z',1139 FROM dual UNION all
+    select 41302,'ZBMT51','','湿浊蒙上、泌别失职证','SZMSAMBSZZ','',1,'Z',1139 FROM dual UNION all
+    select 41303,'ZBMT60','','湿浊上泛证','SZSFZ','',1,'Z',1139 FROM dual UNION all
+    select 41304,'ZBMT61','','湿浊上泛、脾虚湿困证','SZSFAPXSKZ','',1,'Z',1139 FROM dual UNION all
+    select 41305,'ZBMT62','','湿浊上泛、湿热蕴蒸证','SZSFASRYZZ','',1,'Z',1139 FROM dual UNION all
+    select 41306,'ZBMT70','','湿浊下注证','SZXZZ','',1,'Z',1139 FROM dual UNION all
+    select 41307,'ZBMT80','','湿浊中阻证','SZZZZ','',1,'Z',1139 FROM dual UNION all
+    select 41308,'ZBMT90','','湿浊内闭证','SZNBZ','',1,'Z',1139 FROM dual UNION all
+    select 41309,'ZBMT91','','湿浊壅闭证','SZYBZ','',1,'Z',1139 FROM dual UNION all
+    select 41310,'ZBMU10','','湿火炽盛证','SHCSZ','',1,'Z',1140 FROM dual UNION all
+    select 41311,'ZBMU20','','湿郁化火证','SYHHZ','',1,'Z',1140 FROM dual UNION all
+    select 41312,'ZBMW10','','湿郁卫气证','SYWQZ','',1,'Z',1141 FROM dual UNION all
+    select 41313,'ZBR000','','热证','RZ','',1,'Z',1152 FROM dual UNION all
+    select 41314,'ZBR001','','热邪偏盛证','RXPSZ','',1,'Z',1152 FROM dual UNION all
+    select 41315,'ZBR010','','热盛酿脓证','RSNNZ','',1,'Z',1152 FROM dual UNION all
+    select 41316,'ZBR020','','热盛肉腐证','RSRFZ','',1,'Z',1152 FROM dual UNION all
+    select 41317,'ZBR030','','热炽腑实证','RCFSZ','',1,'Z',1152 FROM dual UNION all
+    select 41318,'ZBR040','','腑实热结证','FSRJZ','',1,'Z',1152 FROM dual UNION all
+    select 41319,'ZBR050','','热入胞宫证','RRBGZ','',1,'Z',1152 FROM dual UNION all
+    select 41320,'ZBR051','','热入胞宫、气血两燔证','RRBGAQXLFZ','',1,'Z',1152 FROM dual UNION all
+    select 41321,'ZBR060','','疹出热退证','ZCRTZ','',1,'Z',1152 FROM dual UNION all
+    select 41322,'ZBR070','','热郁胸膈证','RYXGZ','',1,'Z',1152 FROM dual UNION all
+    select 41323,'ZBR080','','热郁成痈证','RYCYZ','',1,'Z',1152 FROM dual UNION all
+    select 41324,'ZBR090','','热灼胸膈证','RZXGZ','',1,'Z',1152 FROM dual UNION all
+    select 41325,'ZBR100','','里热炽盛证','LRCSZ','',1,'Z',1152 FROM dual UNION all
+    select 41326,'ZBR110','','余热未清证','YRWQZ','',1,'Z',1152 FROM dual UNION all
+    select 41327,'ZBR120','','余热未尽证','YRWJZ','',1,'Z',1152 FROM dual UNION all
+    select 41328,'ZBR121','','余热未尽、肺胃阴伤证','YRWJAFWYSZ','',1,'Z',1152 FROM dual UNION all
+    select 41329,'ZBR130','','下焦热盛证','XJRSZ','',1,'Z',1152 FROM dual UNION all
+    select 41330,'ZBR140','','热泪证','RLZ','',1,'Z',1152 FROM dual UNION all
+    select 41331,'ZBR150','','实热证','SRZ','',1,'Z',1152 FROM dual UNION all
+    select 41332,'ZBR160','','虚热证','XRZ','',1,'Z',1152 FROM dual UNION all
+    select 41333,'ZBR170','','热闭证','RBZ','',1,'Z',1152 FROM dual UNION all
+    select 41334,'ZBR171','','阳热内闭证','YRNBZ','',1,'Z',1152 FROM dual UNION all
+    select 41335,'ZBR180','','热盛动风证','RSDFZ','',1,'Z',1152 FROM dual UNION all
+    select 41336,'ZBR181','','热极生风证','RJSFZ','',1,'Z',1152 FROM dual UNION all
+    select 41337,'ZBR190','','热邪内郁证','RXNYZ','',1,'Z',1152 FROM dual UNION all
+    select 41338,'ZBR200','','热结血室证','RJXSZ','',1,'Z',1152 FROM dual UNION all
+    select 41339,'ZBR210','','邪热炽盛证','XRCSZ','',1,'Z',1152 FROM dual UNION all
+    select 41340,'ZBR220','','邪热留恋证','XRLLZ','',1,'Z',1152 FROM dual UNION all
+    select 41341,'ZBR230','','邪热郁蒸证','XRYZZ','',1,'Z',1152 FROM dual UNION all
+    select 41342,'ZBR240','','邪热壅结证','XRYJZ','',1,'Z',1152 FROM dual UNION all
+    select 41343,'ZBR250','','邪热内扰证','XRNQZ','',1,'Z',1152 FROM dual UNION all
+    select 41344,'ZBR251','','邪热内陷证','XRNXZ','',1,'Z',1152 FROM dual UNION all
+    select 41345,'ZBR252','','邪热内闭证','XRNBZ','',1,'Z',1152 FROM dual UNION all
+    select 41346,'ZBR260','','邪热传里证','XRCLZ','',1,'Z',1152 FROM dual UNION all
+    select 41347,'ZBR261','','邪热传里、肺胃热盛证','XRCLAFWRSZ','',1,'Z',1152 FROM dual UNION all
+    select 41348,'ZBR270','','邪热未清证','XRWQZ','',1,'Z',1152 FROM dual UNION all
+    select 41349,'ZBR271','','邪热未清、阴液亏损证','XRWQAYYKSZ','',1,'Z',1152 FROM dual UNION all
+    select 41350,'ZBR280','','邪郁化热证','XYHRZ','',1,'Z',1152 FROM dual UNION all
+    select 41351,'ZBRD00','','热毒证','RDZ','',1,'Z',1153 FROM dual UNION all
+    select 41352,'ZBRD01','','邪毒热证','XDRZ','',1,'Z',1153 FROM dual UNION all
+    select 41353,'ZBRD10','','热毒炽盛证','RDCSZ','',1,'Z',1153 FROM dual UNION all
+    select 41354,'ZBRD11','','热毒炽盛、邪入营血证','RDCSAXRYXZ','',1,'Z',1153 FROM dual UNION all
+    select 41355,'ZBRD12','','热毒炽盛、热传心包证','RDCSARCXBZ','',1,'Z',1153 FROM dual UNION all
+    select 41356,'ZBRD20','','热毒壅盛证','RDYSZ','',1,'Z',1153 FROM dual UNION all
+    select 41357,'ZBRD30','','热毒壅结证','RDYJZ','',1,'Z',1153 FROM dual UNION all
+    select 41358,'ZBRD31','','热毒壅滞证','RDYZZ','',1,'Z',1153 FROM dual UNION all
+    select 41359,'ZBRD40','','热毒蕴结证','RDYJZ','',1,'Z',1153 FROM dual UNION all
+    select 41360,'ZBRD50','','热毒蕴肤证','RDYFZ','',1,'Z',1153 FROM dual UNION all
+    select 41361,'ZBRD60','','热毒凝结证','RDNJZ','',1,'Z',1153 FROM dual UNION all
+    select 41362,'ZBRD70','','热毒内蕴证','RDNYZ','',1,'Z',1153 FROM dual UNION all
+    select 41363,'ZBRD80','','热毒内陷证','RDNXZ','',1,'Z',1153 FROM dual UNION all
+    select 41364,'ZBRD81','','热毒陷营证','RDXYZ','',1,'Z',1153 FROM dual UNION all
+    select 41365,'ZBRD90','','热毒内攻证','RDNGZ','',1,'Z',1153 FROM dual UNION all
+    select 41366,'ZBRD91','','热毒传心证','RDCXZ','',1,'Z',1153 FROM dual UNION all
+    select 41367,'ZBRD92','','热毒传肝证','RDCGZ','',1,'Z',1153 FROM dual UNION all
+    select 41368,'ZBRD93','','热毒传脾证','RDCPZ','',1,'Z',1153 FROM dual UNION all
+    select 41369,'ZBRD94','','热毒传肺证','RDCFZ','',1,'Z',1153 FROM dual UNION all
+    select 41370,'ZBRD95','','热毒传肾证','RDCSZ','',1,'Z',1153 FROM dual UNION all
+    select 41371,'ZBRDA0','','热毒入络证','RDRLZ','',1,'Z',1153 FROM dual UNION all
+    select 41372,'ZBRDB0','','热毒入营证','RDRYZ','',1,'Z',1153 FROM dual UNION all
+    select 41373,'ZBRDC0','','热毒上攻证','RDSGZ','',1,'Z',1153 FROM dual UNION all
+    select 41374,'ZBRDC1','','热毒攻喉证','RDGHZ','',1,'Z',1153 FROM dual UNION all
+    select 41375,'ZBRDD0','','热毒闭肺证','RDBFZ','',1,'Z',1153 FROM dual UNION all
+    select 41376,'ZBRDE0','','热毒冲心证','RDCXZ','',1,'Z',1153 FROM dual UNION all
+    select 41377,'ZBRDF0','','热毒酿脓证','RDNNZ','',1,'Z',1153 FROM dual UNION all
+    select 41378,'ZBRDG0','','热毒伤阴证','RDSYZ','',1,'Z',1153 FROM dual UNION all
+    select 41379,'ZBRDG1','','热毒伤津证','RDSJZ','',1,'Z',1153 FROM dual UNION all
+    select 41380,'ZBRDH0','','热毒火盛证','RDHSZ','',1,'Z',1153 FROM dual UNION all
+    select 41381,'ZBRDM0','','胎毒蕴热证','TDYRZ','',1,'Z',1153 FROM dual UNION all
+    select 41382,'ZBRF10','','热伤肺津证','RSFJZ','',1,'Z',1154 FROM dual UNION all
+    select 41383,'ZBRF20','','热伤肺络证','RSFLZ','',1,'Z',1154 FROM dual UNION all
+    select 41384,'ZBRF30','','热客肺经证','RKFJZ','',1,'Z',1154 FROM dual UNION all
+    select 41385,'ZBRF40','','热犯肺胃证','RFFWZ','',1,'Z',1154 FROM dual UNION all
+    select 41386,'ZBRF50','','热壅肺窍证','RYFQZ','',1,'Z',1154 FROM dual UNION all
+    select 41387,'ZBRF60','','热入肺卫证','RRFWZ','',1,'Z',1154 FROM dual UNION all
+    select 41388,'ZBRF61','','热在肺卫证','RZFWZ','',1,'Z',1154 FROM dual UNION all
+    select 41389,'ZBRF70','','热蕴大肠证','RYDCZ','',1,'Z',1154 FROM dual UNION all
+    select 41390,'ZBRF80','','热结肠燥证','RJCZZ','',1,'Z',1154 FROM dual UNION all
+    select 41391,'ZBRF90','','热邪犯肺证','RXFFZ','',1,'Z',1154 FROM dual UNION all
+    select 41392,'ZBRFA0','','热邪壅肺证','RXYFZ','',1,'Z',1154 FROM dual UNION all
+    select 41393,'ZBRG10','','热郁胆腑证','RYDFZ','',1,'Z',1155 FROM dual UNION all
+    select 41394,'ZBRJ10','','热盛伤络证','RSSLZ','',1,'Z',1156 FROM dual UNION all
+    select 41395,'ZBRJ20','','热蕴络瘀证','RYLYZ','',1,'Z',1156 FROM dual UNION all
+    select 41396,'ZBRJ30','','疫热伤络证','YRSLZ','',1,'Z',1156 FROM dual UNION all
+    select 41397,'ZBRJA0','','热盛津枯证','RSJKZ','',1,'Z',1156 FROM dual UNION all
+    select 41398,'ZBRJB0','','热盛伤津证','RSSJZ','',1,'Z',1156 FROM dual UNION all
+    select 41399,'ZBRJL0','','热陷厥阴证','RXJYZ','',1,'Z',1156 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41400,'ZBRS10','','热伤肾阴证','RSSYZ','',1,'Z',1160 FROM dual UNION all
+    select 41401,'ZBRS20','','热迫膀胱证','RPBGZ','',1,'Z',1160 FROM dual UNION all
+    select 41402,'ZBRSA0','','热伏少阳证','RFSYZ','',1,'Z',1160 FROM dual UNION all
+    select 41403,'ZBRSB0','','热郁少阳证','RYSYZ','',1,'Z',1160 FROM dual UNION all
+    select 41404,'ZBRV10','','热入气分证','RRQFZ','',1,'Z',1159 FROM dual UNION all
+    select 41405,'ZBRV11','','热在气分证','RZQFZ','',1,'Z',1159 FROM dual UNION all
+    select 41406,'ZBRX10','','热陷心包证','RXXBZ','',1,'Z',1162 FROM dual UNION all
+    select 41407,'ZBRX20','','热闭心包证','RBXBZ','',1,'Z',1162 FROM dual UNION all
+    select 41408,'ZBRX21','','热闭心包、血络瘀滞证','RBXBAXLYZZ','',1,'Z',1162 FROM dual UNION all
+    select 41409,'ZBRX30','','热入心包证','RRXBZ','',1,'Z',1162 FROM dual UNION all
+    select 41410,'ZBRX31','','热入心包、阳明腑实证','RRXBAYMFSZ','',1,'Z',1162 FROM dual UNION all
+    select 41411,'ZBRX40','','热在心营证','RZXYZ','',1,'Z',1162 FROM dual UNION all
+    select 41412,'ZBRX41','','热在心营、下移小肠证','RZXYAXYXCZ','',1,'Z',1162 FROM dual UNION all
+    select 41413,'ZBRXA0','','热盛血瘀证','RSXYZ','',1,'Z',1162 FROM dual UNION all
+    select 41414,'ZBRXB0','','热盛动血证','RSDXZ','',1,'Z',1162 FROM dual UNION all
+    select 41415,'ZBRXC0','','热盛迫血证','RSPXZ','',1,'Z',1162 FROM dual UNION all
+    select 41416,'ZBRXD0','','热结血瘀证','RJXYZ','',1,'Z',1162 FROM dual UNION all
+    select 41417,'ZBRXE0','','热与血结证','RYXJZ','',1,'Z',1162 FROM dual UNION all
+    select 41418,'ZBRXF0','','热入血结证','RRXJZ','',1,'Z',1162 FROM dual UNION all
+    select 41419,'ZBRXL0','','热入血分证','RRXFZ','',1,'Z',1162 FROM dual UNION all
+    select 41420,'ZBRXL1','','热在血分证','RZXFZ','',1,'Z',1162 FROM dual UNION all
+    select 41421,'ZBRY10','','热盛伤阴证','RSSYZ','',1,'Z',1165 FROM dual UNION all
+    select 41422,'ZBRY11','','高热伤阴证','GRSYZ','',1,'Z',1165 FROM dual UNION all
+    select 41423,'ZBRY20','','热退阴伤证','RTYSZ','',1,'Z',1165 FROM dual UNION all
+    select 41424,'ZBRY30','','热留阴他证','RLYTZ','',1,'Z',1165 FROM dual UNION all
+    select 41425,'ZBRY40','','热灼真阴证','RZZYZ','',1,'Z',1165 FROM dual UNION all
+    select 41426,'ZBRYA0','','热入营血证','RRYXZ','',1,'Z',1165 FROM dual UNION all
+    select 41427,'ZBRYA1','','热在营血证','RZYXZ','',1,'Z',1165 FROM dual UNION all
+    select 41428,'ZBRYB0','','热灼营阴证','RZYYZ','',1,'Z',1165 FROM dual UNION all
+    select 41429,'ZBS000','','暑证','SZ','',1,'Z',1124 FROM dual UNION all
+    select 41430,'ZBS010','','暑厥证','SJZ','',1,'Z',1124 FROM dual UNION all
+    select 41431,'ZBSF10','','暑伤肺胃证','SSFWZ','',1,'Z',1125 FROM dual UNION all
+    select 41432,'ZBSF20','','暑伤肺络证','SSFLZ','',1,'Z',1125 FROM dual UNION all
+    select 41433,'ZBSF30','','暑犯肺卫证','SFFWZ','',1,'Z',1125 FROM dual UNION all
+    select 41434,'ZBSJ10','','暑伤津气证','SSJQZ','',1,'Z',1127 FROM dual UNION all
+    select 41435,'ZBSM00','','暑湿类','SSL','',1,'Z',1126 FROM dual UNION all
+    select 41436,'ZBSM10','','暑湿袭表证','SSXBZ','',1,'Z',1126 FROM dual UNION all
+    select 41437,'ZBSM20','','暑湿在表证','SSZBZ','',1,'Z',1126 FROM dual UNION all
+    select 41438,'ZBSM30','','暑湿内蕴证','SSNYZ','',1,'Z',1126 FROM dual UNION all
+    select 41439,'ZBSM31','','暑湿内蕴、寒邪束表证','SSNYAHXSBZ','',1,'Z',1126 FROM dual UNION all
+    select 41440,'ZBSM40','','暑湿热蕴证','SSRYZ','',1,'Z',1126 FROM dual UNION all
+    select 41441,'ZBSM50','','暑湿蕴结证','SSYJZ','',1,'Z',1126 FROM dual UNION all
+    select 41442,'ZBSM60','','暑湿交阻证','SSJZZ','',1,'Z',1126 FROM dual UNION all
+    select 41443,'ZBSM70','','暑温困脾证','SWKPZ','',1,'Z',1126 FROM dual UNION all
+    select 41444,'ZBSM71','','暑湿伤脾证','SSSPZ','',1,'Z',1126 FROM dual UNION all
+    select 41445,'ZBSM80','','暑湿困阻中焦证','SSKZZJZ','',1,'Z',1126 FROM dual UNION all
+    select 41446,'ZBSM90','','暑湿困伤心脾证','SSKSXPZ','',1,'Z',1126 FROM dual UNION all
+    select 41447,'ZBSMA0','','暑湿弥漫三焦证','SSMMSJZ','',1,'Z',1126 FROM dual UNION all
+    select 41448,'ZBSR00','','暑热证','SRZ','',1,'Z',1128 FROM dual UNION all
+    select 41449,'ZBSR10','','暑热炽盛证','SRCSZ','',1,'Z',1128 FROM dual UNION all
+    select 41450,'ZBSR20','','暑热动风证','SRDFZ','',1,'Z',1128 FROM dual UNION all
+    select 41451,'ZBSR21','','暑动肝风证','SDGFZ','',1,'Z',1128 FROM dual UNION all
+    select 41452,'ZBSR22','','暑风证','SFZ','',1,'Z',1128 FROM dual UNION all
+    select 41453,'ZBSR30','','暑热内郁证','SRNYZ','',1,'Z',1128 FROM dual UNION all
+    select 41454,'ZBSR40','','暑热蒙心证','SRMXZ','',1,'Z',1128 FROM dual UNION all
+    select 41455,'ZBSR50','','暑热扰心证','SRQXZ','',1,'Z',1128 FROM dual UNION all
+    select 41456,'ZBSR60','','暑热浸淫证','SRJYZ','',1,'Z',1128 FROM dual UNION all
+    select 41457,'ZBSX10','','暑入心营证','SRXYZ','',1,'Z',1129 FROM dual UNION all
+    select 41458,'ZBSX20','','暑入心肾证','SRXSZ','',1,'Z',1129 FROM dual UNION all
+    select 41459,'ZBSX21','','暑伤心肾证','SSXSZ','',1,'Z',1129 FROM dual UNION all
+    select 41460,'ZBSXA0','','暑伤血络证','SSXLZ','',1,'Z',1129 FROM dual UNION all
+    select 41461,'ZBSXB0','','暑入血分证','SRXFZ','',1,'Z',1129 FROM dual UNION all
+    select 41462,'ZBSY10','','暑入营血证','SRYXZ','',1,'Z',1131 FROM dual UNION all
+    select 41463,'ZBSYA0','','暑入阳明证','SRYMZ','',1,'Z',1131 FROM dual UNION all
+    select 41464,'ZBU010','','火邪郁结证','HXYJZ','',1,'Z',1147 FROM dual UNION all
+    select 41465,'ZBUD00','','火毒证','HDZ','',1,'Z',1148 FROM dual UNION all
+    select 41466,'ZBUD10','','火毒炽盛证','HDCSZ','',1,'Z',1148 FROM dual UNION all
+    select 41467,'ZBUD11','','火毒炽盛、热入营血证','HDCSARRYXZ','',1,'Z',1148 FROM dual UNION all
+    select 41468,'ZBUD12','','火毒炽盛、气血凝结证','HDCSAQXNJZ','',1,'Z',1148 FROM dual UNION all
+    select 41469,'ZBUD20','','火毒壅盛证','HDYSZ','',1,'Z',1148 FROM dual UNION all
+    select 41470,'ZBUD30','','火毒蕴结证','HDYJZ','',1,'Z',1148 FROM dual UNION all
+    select 41471,'ZBUD31','','火毒困结证','HDKJZ','',1,'Z',1148 FROM dual UNION all
+    select 41472,'ZBUD32','','火毒郁结证','HDYJZ','',1,'Z',1148 FROM dual UNION all
+    select 41473,'ZBUD33','','火毒凝结证','HDNJZ','',1,'Z',1148 FROM dual UNION all
+    select 41474,'ZBUD40','','火毒内陷证','HDNXZ','',1,'Z',1148 FROM dual UNION all
+    select 41475,'ZBUD50','','火毒内攻证','HDNGZ','',1,'Z',1148 FROM dual UNION all
+    select 41476,'ZBUD51','','火毒传心证','HDCXZ','',1,'Z',1148 FROM dual UNION all
+    select 41477,'ZBUD52','','火毒传肝证','HDCGZ','',1,'Z',1148 FROM dual UNION all
+    select 41478,'ZBUD53','','火毒传脾证','HDCPZ','',1,'Z',1148 FROM dual UNION all
+    select 41479,'ZBUD54','','火毒传肺证','HDCFZ','',1,'Z',1148 FROM dual UNION all
+    select 41480,'ZBUD55','','火毒传肾证','HDCSZ','',1,'Z',1148 FROM dual UNION all
+    select 41481,'ZBUD60','','火毒入络证','HDRLZ','',1,'Z',1148 FROM dual UNION all
+    select 41482,'ZBUD61','','火毒窜络证','HDCLZ','',1,'Z',1148 FROM dual UNION all
+    select 41483,'ZBUD70','','火毒入营证','HDRYZ','',1,'Z',1148 FROM dual UNION all
+    select 41484,'ZBUD80','','火毒迫血证','HDPXZ','',1,'Z',1148 FROM dual UNION all
+    select 41485,'ZBUD90','','火毒上攻证','HDSGZ','',1,'Z',1148 FROM dual UNION all
+    select 41486,'ZBUD91','','火毒攻目证','HDGMZ','',1,'Z',1148 FROM dual UNION all
+    select 41487,'ZBUDA0','','火毒伤阴证','HDSYZ','',1,'Z',1148 FROM dual UNION all
+    select 41488,'ZBUDA1','','火毒伤津证','HDSJZ','',1,'Z',1148 FROM dual UNION all
+    select 41489,'ZBUDB0','','火毒外泄证','HDWXZ','',1,'Z',1148 FROM dual UNION all
+    select 41490,'ZBUDC0','','胎火蕴毒证','THYDZ','',1,'Z',1148 FROM dual UNION all
+    select 41491,'ZBUJ10','','虚火灼络证','XHZLZ','',1,'Z',1149 FROM dual UNION all
+    select 41492,'ZBUR10','','火热炽盛证','HRCSZ','',1,'Z',1150 FROM dual UNION all
+    select 41493,'ZBUR20','','火热伤阴证','HRSYZ','',1,'Z',1150 FROM dual UNION all
+    select 41494,'ZBUR21','','火热伤津证','HRSJZ','',1,'Z',1150 FROM dual UNION all
+    select 41495,'ZBUR30','','火热扰心证','HRQXZ','',1,'Z',1150 FROM dual UNION all
+    select 41496,'ZBUR40','','火热邪毒壅盛证','HRXDYSZ','',1,'Z',1150 FROM dual UNION all
+    select 41497,'ZBUY10','','火盛伤阴证','HSSYZ','',1,'Z',1151 FROM dual UNION all
+    select 41498,'ZBUY20','','郁火伤阴证','YHSYZ','',1,'Z',1151 FROM dual UNION all
+    select 41499,'ZBV010','','情志郁结证','QZYJZ','',1,'Z',1188 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41500,'ZBV011','','情志抑郁证','QZYYZ','',1,'Z',1188 FROM dual UNION all
+    select 41501,'ZBV020','','情志内伤证','QZNSZ','',1,'Z',1188 FROM dual UNION all
+    select 41502,'ZBV030','','情志失调证','QZSDZ','',1,'Z',1188 FROM dual UNION all
+    select 41503,'ZBV040','','忧郁伤神证','YYSSZ','',1,'Z',1188 FROM dual UNION all
+    select 41504,'ZBV050','','惊恐证','JKZ','',1,'Z',1188 FROM dual UNION all
+    select 41505,'ZBV060','','惊恐伤神证','JKSSZ','',1,'Z',1188 FROM dual UNION all
+    select 41506,'ZBV070','','惊恐惊厥证','JKJJZ','',1,'Z',1188 FROM dual UNION all
+    select 41507,'ZBV080','','惊恐痉厥证','JKJJZ','',1,'Z',1188 FROM dual UNION all
+    select 41508,'ZBV090','','暴受惊恐证','BSJKZ','',1,'Z',1188 FROM dual UNION all
+    select 41509,'ZBV100','','惊恐惊风证','JKJFZ','',1,'Z',1188 FROM dual UNION all
+    select 41510,'ZBVP10','','思虑伤脾证','SLSPZ','',1,'Z',1189 FROM dual UNION all
+    select 41511,'ZBVS10','','惊恐伤肾证','JKSSZ','',1,'Z',1191 FROM dual UNION all
+    select 41512,'ZBVS11','','恐惧伤肾证','KJSSZ','',1,'Z',1191 FROM dual UNION all
+    select 41513,'ZBVV10','','惊恐气逆证','JKQNZ','',1,'Z',1190 FROM dual UNION all
+    select 41514,'ZBW000','','外伤证','WSZ','',1,'Z',1195 FROM dual UNION all
+    select 41515,'ZBW010','','跌仆伤胎证','DPSTZ','',1,'Z',1195 FROM dual UNION all
+    select 41516,'ZBW020','','皮肉破损证','PRPSZ','',1,'Z',1195 FROM dual UNION all
+    select 41517,'ZBW030','','眼珠破损证','YZPSZ','',1,'Z',1195 FROM dual UNION all
+    select 41518,'ZBW031','','眼珠破损、风邪乘袭证','YZPSAFXCXZ','',1,'Z',1195 FROM dual UNION all
+    select 41519,'ZBWJ10','','外伤损络证','WSSLZ','',1,'Z',1196 FROM dual UNION all
+    select 41520,'ZBWJ20','','外伤目络证','WSMLZ','',1,'Z',1196 FROM dual UNION all
+    select 41521,'ZBWX10','','外伤血瘀证','WSXYZ','',1,'Z',1197 FROM dual UNION all
+    select 41522,'ZBWX11','','外伤瘀滞证','WSYZZ','',1,'Z',1197 FROM dual UNION all
+    select 41523,'ZBWX20','','鼻伤衄血证','BSNXZ','',1,'Z',1197 FROM dual UNION all
+    select 41524,'ZBX010','','邪犯脏腑证','XFZFZ','',1,'Z',1174 FROM dual UNION all
+    select 41525,'ZBX020','','邪陷正脱证','XXZWZ','',1,'Z',1174 FROM dual UNION all
+    select 41526,'ZBX030','','邪阻膜原证','XZMYZ','',1,'Z',1174 FROM dual UNION all
+    select 41527,'ZBX031','','邪伏膜原证','XFMYZ','',1,'Z',1174 FROM dual UNION all
+    select 41528,'ZBX040','','外邪侵入证','WXQRZ','',1,'Z',1174 FROM dual UNION all
+    select 41529,'ZBX041','','外邪侵入、热毒炽盛证','WXQRARDCSZ','',1,'Z',1174 FROM dual UNION all
+    select 41530,'ZBX050','','温邪内陷证','WXNXZ','',1,'Z',1174 FROM dual UNION all
+    select 41531,'ZBX060','','余邪未尽证','YXWJZ','',1,'Z',1174 FROM dual UNION all
+    select 41532,'ZBX061','','余邪未尽、痰瘀滞络证','YXWJATYZLZ','',1,'Z',1174 FROM dual UNION all
+    select 41533,'ZBX070','','余邪留恋证','YXLLZ','',1,'Z',1174 FROM dual UNION all
+    select 41534,'ZBX071','','余邪留恋、气阴两伤证','YXLLAQYLSZ','',1,'Z',1174 FROM dual UNION all
+    select 41535,'ZBX080','','余邪扰目证','YXQMZ','',1,'Z',1174 FROM dual UNION all
+    select 41536,'ZBX090','','正盛邪实证','ZSXSZ','',1,'Z',1174 FROM dual UNION all
+    select 41537,'ZBX100','','正虚邪恋证','ZXXLZ','',1,'Z',1174 FROM dual UNION all
+    select 41538,'ZBX101','','正虚邪恋、肺脾气虚证','ZXXLAFPQXZ','',1,'Z',1174 FROM dual UNION all
+    select 41539,'ZBX102','','正虚邪恋、内风扰动证','ZXXLANFQDZ','',1,'Z',1174 FROM dual UNION all
+    select 41540,'ZBX103','','正虚邪恋、痰蒙清窍证','ZXXLATMQQZ','',1,'Z',1174 FROM dual UNION all
+    select 41541,'ZBX104','','正虚邪恋、阴虚肺热证','ZXXLAYXFRZ','',1,'Z',1174 FROM dual UNION all
+    select 41542,'ZBX105','','正虚邪恋、余热未清证','ZXXLAYRWQZ','',1,'Z',1174 FROM dual UNION all
+    select 41543,'ZBX110','','正虚邪留证','ZXXLZ','',1,'Z',1174 FROM dual UNION all
+    select 41544,'ZBX120','','正虚邪实证','ZXXSZ','',1,'Z',1174 FROM dual UNION all
+    select 41545,'ZBX130','','正虚邪衰证','ZXXSZ','',1,'Z',1174 FROM dual UNION all
+    select 41546,'ZBX140','','邪气阻闭证','XQZBZ','',1,'Z',1174 FROM dual UNION all
+    select 41547,'ZBXF10','','邪入肺卫证','XRFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41548,'ZBXF11','','邪在肺卫证','XZFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41549,'ZBXF20','','邪郁肺卫证','XYFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41550,'ZBXF30','','邪侵肺卫证','XQFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41551,'ZBXF31','','邪袭肺卫证','XXFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41552,'ZBXF40','','邪犯肺胃证','XFFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41553,'ZBXF50','','邪郁肺胃证','XYFWZ','',1,'Z',1175 FROM dual UNION all
+    select 41554,'ZBXF60','','邪犯胸肺证','XFXFZ','',1,'Z',1175 FROM dual UNION all
+    select 41555,'ZBXF70','','邪结肠腑证','XJCFZ','',1,'Z',1175 FROM dual UNION all
+    select 41556,'ZBXG10','','邪犯肝脾证','XFGPZ','',1,'Z',1176 FROM dual UNION all
+    select 41557,'ZBXG20','','邪窜肝经证','XCGJZ','',1,'Z',1176 FROM dual UNION all
+    select 41558,'ZBXJ10','','邪注经络证','XZJLZ','',1,'Z',1177 FROM dual UNION all
+    select 41559,'ZBXJ20','','邪壅经络证','XYJLZ','',1,'Z',1177 FROM dual UNION all
+    select 41560,'ZBXJ30','','邪窜经络证','XCJLZ','',1,'Z',1177 FROM dual UNION all
+    select 41561,'ZBXJA0','','邪犯厥阴证','XFJYZ','',1,'Z',1177 FROM dual UNION all
+    select 41562,'ZBXP10','','外邪犯胃证','WXFWZ','',1,'Z',1179 FROM dual UNION all
+    select 41563,'ZBXS10','','邪郁少阳证','XYSYZ','',1,'Z',1181 FROM dual UNION all
+    select 41564,'ZBXS20','','邪入少阳证','XRSYZ','',1,'Z',1181 FROM dual UNION all
+    select 41565,'ZBXS21','','邪在少阳证','XZSYZ','',1,'Z',1181 FROM dual UNION all
+    select 41566,'ZBXU10','','邪郁化火证','XYHHZ','',1,'Z',1182 FROM dual UNION all
+    select 41567,'ZBXV10','','邪入气营证','XRQYZ','',1,'Z',1180 FROM dual UNION all
+    select 41568,'ZBXV11','','邪在气营证','XZQYZ','',1,'Z',1180 FROM dual UNION all
+    select 41569,'ZBXV12','','邪入气营、热毒内陷证','XRQYARDNXZ','',1,'Z',1180 FROM dual UNION all
+    select 41570,'ZBXV13','','邪入气营、热毒内蕴证','XRQYARDNYZ','',1,'Z',1180 FROM dual UNION all
+    select 41571,'ZBXV20','','邪入气分证','XRQFZ','',1,'Z',1180 FROM dual UNION all
+    select 41572,'ZBXV21','','邪在气他证','XZQTZ','',1,'Z',1180 FROM dual UNION all
+    select 41573,'ZBXW10','','邪入卫气证','XRWQZ','',1,'Z',1183 FROM dual UNION all
+    select 41574,'ZBXW11','','邪在卫气证','XZWQZ','',1,'Z',1183 FROM dual UNION all
+    select 41575,'ZBXW20','','邪遏卫气证','XEWQZ','',1,'Z',1183 FROM dual UNION all
+    select 41576,'ZBXW30','','邪郁卫气证','XYWQZ','',1,'Z',1183 FROM dual UNION all
+    select 41577,'ZBXX10','','邪犯心肝证','XFXGZ','',1,'Z',1184 FROM dual UNION all
+    select 41578,'ZBXX20','','邪陷心肝证','XXXGZ','',1,'Z',1184 FROM dual UNION all
+    select 41579,'ZBXX21','','邪陷心肝、血热动风证','XXXGAXRDFZ','',1,'Z',1184 FROM dual UNION all
+    select 41580,'ZBXX30','','邪陷心包证','XXXBZ','',1,'Z',1184 FROM dual UNION all
+    select 41581,'ZBXXA0','','邪入血分证','XRXFZ','',1,'Z',1184 FROM dual UNION all
+    select 41582,'ZBXXA1','','邪在血分证','XZXFZ','',1,'Z',1184 FROM dual UNION all
+    select 41583,'ZBXY10','','邪恋阴伤证','XLYSZ','',1,'Z',1186 FROM dual UNION all
+    select 41584,'ZBXY20','','邪留阴分证','XLYFZ','',1,'Z',1186 FROM dual UNION all
+    select 41585,'ZBXYA0','','邪入营血证','XRYXZ','',1,'Z',1186 FROM dual UNION all
+    select 41586,'ZBXYA1','','邪在营血证','XZYXZ','',1,'Z',1186 FROM dual UNION all
+    select 41587,'ZBXYB0','','邪入营分证','XRYFZ','',1,'Z',1186 FROM dual UNION all
+    select 41588,'ZBXYB1','','邪在营分证','XZYFZ','',1,'Z',1186 FROM dual UNION all
+    select 41589,'ZBY010','','食滞证','SZZ','',1,'Z',1192 FROM dual UNION all
+    select 41590,'ZBY011','','饮食积滞证','YSJZZ','',1,'Z',1192 FROM dual UNION all
+    select 41591,'ZBY020','','饮食停滞证','YSTZZ','',1,'Z',1192 FROM dual UNION all
+    select 41592,'ZBY030','','伤食证','SSZ','',1,'Z',1192 FROM dual UNION all
+    select 41593,'ZBY040','','伤食痛证','SSTZ','',1,'Z',1192 FROM dual UNION all
+    select 41594,'ZBY050','','伤乳证','SRZ','',1,'Z',1192 FROM dual UNION all
+    select 41595,'ZBY060','','乳食积滞证','RSJZZ','',1,'Z',1192 FROM dual UNION all
+    select 41596,'ZBY061','','乳食内积证','RSNJZ','',1,'Z',1192 FROM dual UNION all
+    select 41597,'ZBY062','','乳食壅积证','RSYJZ','',1,'Z',1192 FROM dual UNION all
+    select 41598,'ZBYP10','','宿食伤脾证','SSSPZ','',1,'Z',1193 FROM dual UNION all
+    select 41599,'ZBYP20','','食滞胃肠证','SZWCZ','',1,'Z',1193 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41600,'ZBYP30','','乳食伤胃证','RSSWZ','',1,'Z',1193 FROM dual UNION all
+    select 41601,'ZBYP40','','积滞伤胃证','JZSWZ','',1,'Z',1193 FROM dual UNION all
+    select 41602,'ZBYT10','','食滞痰阻证','SZTZZ','',1,'Z',1194 FROM dual UNION all
+    select 41603,'ZBYT20','','食浊阻滞证','SZZZZ','',1,'Z',1194 FROM dual UNION all
+    select 41604,'ZBZ010','','燥证类','ZZL','',1,'Z',1142 FROM dual UNION all
+    select 41605,'ZBZ020','','燥干清窍证','ZGQQZ','',1,'Z',1142 FROM dual UNION all
+    select 41606,'ZBZF10','','凉燥袭肺证','LZXFZ','',1,'Z',1143 FROM dual UNION all
+    select 41607,'ZBZF20','','燥邪伤肺证','ZXSFZ','',1,'Z',1143 FROM dual UNION all
+    select 41608,'ZBZR10','','燥热外犯证','ZRWFZ','',1,'Z',1145 FROM dual UNION all
+    select 41609,'ZBZR20','','燥热伤津证','ZRSJZ','',1,'Z',1145 FROM dual UNION all
+    select 41610,'ZBZR30','','燥热伤肺证','ZRSFZ','',1,'Z',1145 FROM dual UNION all
+    select 41611,'ZBZV10','','燥气化火证','ZQHHZ','',1,'Z',1144 FROM dual UNION all
+    select 41612,'ZBZY10','','燥伤真阴证','ZSZYZ','',1,'Z',1146 FROM dual UNION all
+    select 41613,'ZBZY20','','燥邪伤阴证','ZXSYZ','',1,'Z',1146 FROM dual UNION all
+    select 41614,'ZLA000','','太阴证','TYZ','',1,'Z',1345 FROM dual UNION all
+    select 41615,'ZLA010','','太阴兼表证','TYJBZ','',1,'Z',1345 FROM dual UNION all
+    select 41616,'ZLA020','','太阴腹痛证','TYFTZ','',1,'Z',1345 FROM dual UNION all
+    select 41617,'ZLH000','','少阴证','SYZ','',1,'Z',1346 FROM dual UNION all
+    select 41618,'ZLH010','','少阴咽痛证','SYYTZ','',1,'Z',1346 FROM dual UNION all
+    select 41619,'ZLHH10','','少阴寒化证','SYHHZ','',1,'Z',1347 FROM dual UNION all
+    select 41620,'ZLHJ10','','少阴伤津动血证','SYSJDXZ','',1,'Z',1348 FROM dual UNION all
+    select 41621,'ZLHR10','','少阴热证','SYRZ','',1,'Z',1349 FROM dual UNION all
+    select 41622,'ZLHR20','','少阴热移膀胱证','SYRYBGZ','',1,'Z',1349 FROM dual UNION all
+    select 41623,'ZLHR30','','少阴热化证','SYRHZ','',1,'Z',1349 FROM dual UNION all
+    select 41624,'ZLJ000','','厥阴证','JYZ','',1,'Z',1350 FROM dual UNION all
+    select 41625,'ZLJ010','','厥阴厥证','JYJZ','',1,'Z',1350 FROM dual UNION all
+    select 41626,'ZLJ020','','内陷厥阴证','NXJYZ','',1,'Z',1350 FROM dual UNION all
+    select 41627,'ZLJ030','','厥阴呕哕证','JYOHZ','',1,'Z',1350 FROM dual UNION all
+    select 41628,'ZLJ040','','厥阴下利证','JYXLZ','',1,'Z',1350 FROM dual UNION all
+    select 41629,'ZLJR10','','厥阴上热下寒证','JYSRXHZ','',1,'Z',1351 FROM dual UNION all
+    select 41630,'ZLS000','','少阳证','SYZ','',1,'Z',1344 FROM dual UNION all
+    select 41631,'ZLT000','','太阳证','TYZ','',1,'Z',1333 FROM dual UNION all
+    select 41632,'ZLT010','','太阳中风表虚证','TYZFBXZ','',1,'Z',1333 FROM dual UNION all
+    select 41633,'ZLT020','','太阳伤寒表实证','TYSHBSZ','',1,'Z',1333 FROM dual UNION all
+    select 41634,'ZLT030','','太阳表郁轻证','TYBYQZ','',1,'Z',1333 FROM dual UNION all
+    select 41635,'ZLT040','','太阳结胸证','TYJXZ','',1,'Z',1333 FROM dual UNION all
+    select 41636,'ZLT050','','太阳脏结证','TYZJZ','',1,'Z',1333 FROM dual UNION all
+    select 41637,'ZLT060','','太阳痞证','TYPZ','',1,'Z',1333 FROM dual UNION all
+    select 41638,'ZLT070','','太阳下焦滑脱痞证','TYXJHWPZ','',1,'Z',1333 FROM dual UNION all
+    select 41639,'ZLTH00','','太阳寒证','TYHZ','',1,'Z',1334 FROM dual UNION all
+    select 41640,'ZLTH10','','太阳虚寒证','TYXHZ','',1,'Z',1334 FROM dual UNION all
+    select 41641,'ZLTH11','','太阳虚寒——心阳虚证','TYXHAAXYXZ','',1,'Z',1334 FROM dual UNION all
+    select 41642,'ZLTH12','','太阳虚寒——阳虚兼水气证','TYXHAAYXJS','',1,'Z',1334 FROM dual UNION all
+    select 41643,'ZLTH13','','太阳虚寒——脾虚证','TYXHAAPXZ','',1,'Z',1334 FROM dual UNION all
+    select 41644,'ZLTH14','','太阳虚寒——肾阳虚证','TYXHAASYXZ','',1,'Z',1334 FROM dual UNION all
+    select 41645,'ZLTH20','','太阳寒实结胸证','TYHSJXZ','',1,'Z',1334 FROM dual UNION all
+    select 41646,'ZLTH30','','太阳寒热错杂痞证','TYHRCZPZ','',1,'Z',1334 FROM dual UNION all
+    select 41647,'ZLTR10','','太阳热证','TYRZ','',1,'Z',1335 FROM dual UNION all
+    select 41648,'ZLTR20','','太阳热实结胸证','TYRSJXZ','',1,'Z',1335 FROM dual UNION all
+    select 41649,'ZLTR30','','太阳热痞证','TYRPZ','',1,'Z',1335 FROM dual UNION all
+    select 41650,'ZLTR40','','太阳上热下寒证','TYSRXHZ','',1,'Z',1335 FROM dual UNION all
+    select 41651,'ZLTT10','','太阳痰气痞证','TYTQPZ','',1,'Z',1336 FROM dual UNION all
+    select 41652,'ZLTT20','','太阳蓄水证','TYXSZ','',1,'Z',1336 FROM dual UNION all
+    select 41653,'ZLTT30','','太阳水痞证','TYSPZ','',1,'Z',1336 FROM dual UNION all
+    select 41654,'ZLTU10','','太阳火逆证','TYHNZ','',1,'Z',1337 FROM dual UNION all
+    select 41655,'ZLTX10','','太阳蓄血证','TYXXZ','',1,'Z',1338 FROM dual UNION all
+    select 41656,'ZLTY10','','太阳阴阳两虚证','TYYYLXZ','',1,'Z',1339 FROM dual UNION all
+    select 41657,'ZLY000','','阳明证','YMZ','',1,'Z',1340 FROM dual UNION all
+    select 41658,'ZLY010','','阳明实证','YMSZ','',1,'Z',1340 FROM dual UNION all
+    select 41659,'ZLY020','','阳明发黄证','YMFHZ','',1,'Z',1340 FROM dual UNION all
+    select 41660,'ZLY030','','阳明腑实证','YMFSZ','',1,'Z',1340 FROM dual UNION all
+    select 41661,'ZLY031','','阳明腑实、小肠热盛证','YMFSAXCRSZ','',1,'Z',1340 FROM dual UNION all
+    select 41662,'ZLYR10','','阳明热证','YMRZ','',1,'Z',1341 FROM dual UNION all
+    select 41663,'ZLYR20','','阳明热盛证','YMRSZ','',1,'Z',1341 FROM dual UNION all
+    select 41664,'ZLYR30','','阳明热结证','YMRJZ','',1,'Z',1341 FROM dual UNION all
+    select 41665,'ZLYR31','','阳明热结、气液两虚证','YMRJAQYLXZ','',1,'Z',1341 FROM dual UNION all
+    select 41666,'ZLYR32','','阳明热结、阴液亏损证','YMRJAYYKSZ','',1,'Z',1341 FROM dual UNION all
+    select 41667,'ZLYX10','','阳明血热证','YMXRZ','',1,'Z',1342 FROM dual UNION all
+    select 41668,'ZLYZ10','','阳明燥结证','YMZJZ','',1,'Z',1343 FROM dual UNION all
+    select 41669,'ZVM010','','一期','YQ','',1,'Z',1364 FROM dual UNION all
+    select 41670,'ZVM020','','二期','EQ','',1,'Z',1364 FROM dual UNION all
+    select 41671,'ZVM030','','三期','SQ','',1,'Z',1364 FROM dual UNION all
+    select 41672,'ZVM040','','初期','CQ','',1,'Z',1364 FROM dual UNION all
+    select 41673,'ZVM050','','中期','ZQ','',1,'Z',1364 FROM dual UNION all
+    select 41674,'ZVM060','','后期','HQ','',1,'Z',1364 FROM dual UNION all
+    select 41675,'ZVM070','','晚期','WQ','',1,'Z',1364 FROM dual UNION all
+    select 41676,'ZVM080','','见形期','JXQ','',1,'Z',1364 FROM dual UNION all
+    select 41677,'ZVM090','','出疹期','CZQ','',1,'Z',1364 FROM dual UNION all
+    select 41678,'ZVM100','','收没期','SMQ','',1,'Z',1364 FROM dual UNION all
+    select 41679,'ZVM110','','收口期','SKQ','',1,'Z',1364 FROM dual UNION all
+    select 41680,'ZVM120','','成痈期','CYQ','',1,'Z',1364 FROM dual UNION all
+    select 41681,'ZVM130','','酿脓期','NNQ','',1,'Z',1364 FROM dual UNION all
+    select 41682,'ZVM140','','成脓期','CNQ','',1,'Z',1364 FROM dual UNION all
+    select 41683,'ZVM150','','溃脓期','KNQ','',1,'Z',1364 FROM dual UNION all
+    select 41684,'ZVM160','','溃后期','KHQ','',1,'Z',1364 FROM dual UNION all
+    select 41685,'ZVM170','','恢复期','HFQ','',1,'Z',1364 FROM dual UNION all
+    select 41686,'ZVM180','','初咳期','CKQ','',1,'Z',1364 FROM dual UNION all
+    select 41687,'ZVM190','','痉咳期','JKQ','',1,'Z',1364 FROM dual UNION all
+    select 41688,'ZVM200','','疹前期','ZQQ','',1,'Z',1364 FROM dual UNION all
+    select 41689,'ZVM210','','疹回期','ZHQ','',1,'Z',1364 FROM dual UNION all
+    select 41690,'ZVM220','','未破损期','WPSQ','',1,'Z',1364 FROM dual UNION all
+    select 41691,'ZVM230','','已破损期','YPSQ','',1,'Z',1364 FROM dual UNION all
+    select 41692,'ZVM240','','发热期','FRQ','',1,'Z',1364 FROM dual UNION all
+    select 41693,'ZVM250','','膨胀期','PZQ','',1,'Z',1364 FROM dual UNION all
+    select 41694,'ZVM260','','成熟期','CSQ','',1,'Z',1364 FROM dual UNION all
+    select 41695,'ZVM270','','过熟期','GSQ','',1,'Z',1364 FROM dual UNION all
+    select 41696,'ZVM280','','初发期','CFQ','',1,'Z',1364 FROM dual UNION all
+    select 41697,'ZVM290','','进行期','JXQ','',1,'Z',1364 FROM dual UNION all
+    select 41698,'ZVM300','','退行期','TXQ','',1,'Z',1364 FROM dual UNION all
+    select 41699,'ZVM310','','昏溃期','HKQ','',1,'Z',1364 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41700,'ZVM320','','清醒期','QXQ','',1,'Z',1364 FROM dual UNION all
+    select 41701,'ZVM330','','发作期','FZQ','',1,'Z',1364 FROM dual UNION all
+    select 41702,'ZVM340','','缓解期','HJQ','',1,'Z',1364 FROM dual UNION all
+    select 41703,'ZVV000','','其他证','QTZ','',1,'Z',1363 FROM dual UNION all
+    select 41704,'ZVV010','','禀赋不足证','BFBZZ','',1,'Z',1363 FROM dual UNION all
+    select 41705,'ZVV011','','先天不足证','XTBZZ','',1,'Z',1363 FROM dual UNION all
+    select 41706,'ZVV020','','干陷证','GXZ','',1,'Z',1363 FROM dual UNION all
+    select 41707,'ZVV030','','干疳证','GGZ','',1,'Z',1363 FROM dual UNION all
+    select 41708,'ZVV040','','疳积证','GJZ','',1,'Z',1363 FROM dual UNION all
+    select 41709,'ZVV050','','疳气证','GQZ','',1,'Z',1363 FROM dual UNION all
+    select 41710,'ZVV060','','疳肿胀证','GZZZ','',1,'Z',1363 FROM dual UNION all
+    select 41711,'ZVV070','','筋断筋伤证','JDJSZ','',1,'Z',1363 FROM dual UNION all
+    select 41712,'ZVV080','','筋骨不用证','JGBYZ','',1,'Z',1363 FROM dual UNION all
+    select 41713,'ZVV090','','筋脉失养证','JMSYZ','',1,'Z',1363 FROM dual UNION all
+    select 41714,'ZVV100','','腐筋损骨证','FJSGZ','',1,'Z',1363 FROM dual UNION all
+    select 41715,'ZVV110','','劳伤筋脉证','LSJMZ','',1,'Z',1363 FROM dual UNION all
+    select 41716,'ZVV120','','鼻梁内陷、血脉损伤证','BLNXAXMSSZ','',1,'Z',1363 FROM dual UNION all
+    select 41717,'ZVV130','','感伤健眼证','GSJYZ','',1,'Z',1363 FROM dual UNION all
+    select 41718,'ZVV140','','脑髓失养证','NSSYZ','',1,'Z',1363 FROM dual UNION all
+    select 41719,'ZVV150','','脑窍被蒙证','NQBMZ','',1,'Z',1363 FROM dual UNION all
+    select 41720,'ZVV160','','神明失职证','SMSZZ','',1,'Z',1363 FROM dual UNION all
+    select 41721,'ZVV170','','乳房部漏证','RFBLZ','',1,'Z',1363 FROM dual UNION all
+    select 41722,'ZVV180','','乳晕部漏证','RYBLZ','',1,'Z',1363 FROM dual UNION all
+    select 41723,'ZVV190','','髓海不足证','SHBZZ','',1,'Z',1363 FROM dual UNION all
+    select 41724,'ZVV200','','元神外脱证','YSWWZ','',1,'Z',1363 FROM dual UNION all
+    select 41725,'ZVV210','','内闭外脱证','NBWWZ','',1,'Z',1363 FROM dual UNION all
+    select 41726,'ZVV220','','内陷外脱证','NXWWZ','',1,'Z',1363 FROM dual UNION all
+    select 41727,'ZVV230','','上盛下虚证','SSXXZ','',1,'Z',1363 FROM dual UNION all
+    select 41728,'ZVV240','','下焦虚冷证','XJXLZ','',1,'Z',1363 FROM dual UNION all
+    select 41729,'ZVV250','','脏腑虚冷证','ZFXLZ','',1,'Z',1363 FROM dual UNION all
+    select 41730,'ZVV260','','虚实夹杂证','XSJZZ','',1,'Z',1363 FROM dual UNION all
+    select 41731,'ZVV270','','三焦壅塞证','SJYSZ','',1,'Z',1363 FROM dual UNION all
+    select 41732,'ZVV280','','脱证','WZ','',1,'Z',1363 FROM dual UNION all
+    select 41733,'ZVV290','','营卫不和证','YWBHZ','',1,'Z',1363 FROM dual UNION all
+    select 41734,'ZVX010','','脱屑型','WXX','',1,'Z',1365 FROM dual UNION all
+    select 41735,'ZVX020','','鼻赘型','BZX','',1,'Z',1365 FROM dual UNION all
+    select 41736,'ZVX030','','糜烂型','MLX','',1,'Z',1365 FROM dual UNION all
+    select 41737,'ZVX040','','包块型','BKX','',1,'Z',1365 FROM dual UNION all
+    select 41738,'ZVX050','','丘疹型','QZX','',1,'Z',1365 FROM dual UNION all
+    select 41739,'ZVX060','','红斑型','HBX','',1,'Z',1365 FROM dual UNION all
+    select 41740,'ZVX070','','界线型','JXX','',1,'Z',1365 FROM dual UNION all
+    select 41741,'ZVX080','','瘤型','LX','',1,'Z',1365 FROM dual UNION all
+    select 41742,'ZWV000','','气分证','QFZ','',1,'Z',1356 FROM dual UNION all
+    select 41743,'ZWVM10','','气分湿热证','QFSRZ','',1,'Z',1357 FROM dual UNION all
+    select 41744,'ZWVX10','','气血两燔证','QXLFZ','',1,'Z',1358 FROM dual UNION all
+    select 41745,'ZWVY10','','气营两燔证','QYLFZ','',1,'Z',1359 FROM dual UNION all
+    select 41746,'ZWW010','','卫分证','WFZ','',1,'Z',1353 FROM dual UNION all
+    select 41747,'ZWWV10','','卫气同病证','WQTBZ','',1,'Z',1354 FROM dual UNION all
+    select 41748,'ZWWV11','','卫气同病、痰热蕴肺证','WQTBATRYFZ','',1,'Z',1354 FROM dual UNION all
+    select 41749,'ZWWY10','','卫营同病证','WYTBZ','',1,'Z',1355 FROM dual UNION all
+    select 41750,'ZWX000','','血分证','XFZ','',1,'Z',1361 FROM dual UNION all
+    select 41751,'ZWY000','','营分证','YFZ','',1,'Z',1360 FROM dual UNION all
+    select 41752,'ZYA010','','元阳外脱证','YYWWZ','',1,'Z',1222 FROM dual UNION all
+    select 41753,'ZYA020','','阳虚失养证','YXSYZ','',1,'Z',1222 FROM dual UNION all
+    select 41754,'ZYA030','','阳虚欲脱证','YXYWZ','',1,'Z',1222 FROM dual UNION all
+    select 41755,'ZYA040','','清阳不升证','QYBSZ','',1,'Z',1222 FROM dual UNION all
+    select 41756,'ZYA050','','虚阳上浮证','XYSFZ','',1,'Z',1222 FROM dual UNION all
+    select 41757,'ZYA060','','阳闭证','YBZ','',1,'Z',1222 FROM dual UNION all
+    select 41758,'ZYA070','','伤阳证','SYZ','',1,'Z',1222 FROM dual UNION all
+    select 41759,'ZYA080','','亡阳证','WYZ','',1,'Z',1222 FROM dual UNION all
+    select 41760,'ZYA090','','阳气亏虚证','YQKXZ','',1,'Z',1222 FROM dual UNION all
+    select 41761,'ZYA100','','阳气虚衰证','YQXSZ','',1,'Z',1222 FROM dual UNION all
+    select 41762,'ZYA110','','阳气欲脱证','YQYWZ','',1,'Z',1222 FROM dual UNION all
+    select 41763,'ZYA120','','阳气暴脱证','YQBWZ','',1,'Z',1222 FROM dual UNION all
+    select 41764,'ZYAD10','','阳毒外发证','YDWFZ','',1,'Z',1223 FROM dual UNION all
+    select 41765,'ZYAH10','','阳虚内寒证','YXNHZ','',1,'Z',1224 FROM dual UNION all
+    select 41766,'ZYAH20','','阳虚寒凝证','YXHNZ','',1,'Z',1224 FROM dual UNION all
+    select 41767,'ZYAH30','','阳虚寒盛证','YXHSZ','',1,'Z',1224 FROM dual UNION all
+    select 41768,'ZYAH40','','阳虚寒湿阻络证','YXHSZLZ','',1,'Z',1224 FROM dual UNION all
+    select 41769,'ZYAH50','','阳虚寒痰证','YXHTZ','',1,'Z',1224 FROM dual UNION all
+    select 41770,'ZYAS00','','阳暑证','YSZ','',1,'Z',1225 FROM dual UNION all
+    select 41771,'ZYAT10','','阳虚痰凝证','YXTNZ','',1,'Z',1226 FROM dual UNION all
+    select 41772,'ZYAT20','','阳虚水泛证','YXSFZ','',1,'Z',1226 FROM dual UNION all
+    select 41773,'ZYAX10','','阳虚血瘀证','YXXYZ','',1,'Z',1227 FROM dual UNION all
+    select 41774,'ZYJ010','','津液干枯证','JYGKZ','',1,'Z',1253 FROM dual UNION all
+    select 41775,'ZYJ020','','津液亏证','JYKZ','',1,'Z',1253 FROM dual UNION all
+    select 41776,'ZYJ021','','津液亏损证','JYKSZ','',1,'Z',1253 FROM dual UNION all
+    select 41777,'ZYJ030','','阴液不足证','YYBZZ','',1,'Z',1253 FROM dual UNION all
+    select 41778,'ZYJ031','','阴液不足、火毒炽盛证','YYBZAHDCSZ','',1,'Z',1253 FROM dual UNION all
+    select 41779,'ZYJ032','','阴津不足证','YJBZZ','',1,'Z',1253 FROM dual UNION all
+    select 41780,'ZYJ040','','阴液亏虚证','YYKXZ','',1,'Z',1253 FROM dual UNION all
+    select 41781,'ZYJ050','','阴液乏竭证','YYFJZ','',1,'Z',1253 FROM dual UNION all
+    select 41782,'ZYJ060','','阴虚津亏证','YXJKZ','',1,'Z',1253 FROM dual UNION all
+    select 41783,'ZYJF10','','津伤肠燥证','JSCZZ','',1,'Z',1254 FROM dual UNION all
+    select 41784,'ZYJF20','','津枯肠结证','JKCJZ','',1,'Z',1254 FROM dual UNION all
+    select 41785,'ZYJR10','','津亏热结证','JKRJZ','',1,'Z',1255 FROM dual UNION all
+    select 41786,'ZYJV10','','津气欲脱证','JQYWZ','',1,'Z',1256 FROM dual UNION all
+    select 41787,'ZYJZ10','','津伤化燥证','JSHZZ','',1,'Z',1257 FROM dual UNION all
+    select 41788,'ZYT010','','痰饮内停证','TYNTZ','',1,'Z',1258 FROM dual UNION all
+    select 41789,'ZYT011','','痰饮内阻证','TYNZZ','',1,'Z',1258 FROM dual UNION all
+    select 41790,'ZYT020','','痰饮内盛证','TYNSZ','',1,'Z',1258 FROM dual UNION all
+    select 41791,'ZYT030','','痰饮上逆证','TYSNZ','',1,'Z',1258 FROM dual UNION all
+    select 41792,'ZYT040','','痰饮留腹证','TYLFZ','',1,'Z',1258 FROM dual UNION all
+    select 41793,'ZYT050','','痰饮留膈证','TYLGZ','',1,'Z',1258 FROM dual UNION all
+    select 41794,'ZYT060','','饮停胸胁证','YTXXZ','',1,'Z',1258 FROM dual UNION all
+    select 41795,'ZYT070','','饮溢四肢证','YYSZZ','',1,'Z',1258 FROM dual UNION all
+    select 41796,'ZYT080','','饮阻胸膈证','YZXGZ','',1,'Z',1258 FROM dual UNION all
+    select 41797,'ZYT090','','水饮内停证','SYNTZ','',1,'Z',1258 FROM dual UNION all
+    select 41798,'ZYT091','','水饮内扰证','SYNQZ','',1,'Z',1258 FROM dual UNION all
+    select 41799,'ZYT100','','浊痰上逆证','ZTSNZ','',1,'Z',1258 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41800,'ZYT110','','痰闭证','TBZ','',1,'Z',1258 FROM dual UNION all
+    select 41801,'ZYT120','','浊闭证','ZBZ','',1,'Z',1258 FROM dual UNION all
+    select 41802,'ZYT130','','痰核留结证','THLJZ','',1,'Z',1258 FROM dual UNION all
+    select 41803,'ZYT140','','痰蒙清窍证','TMQQZ','',1,'Z',1258 FROM dual UNION all
+    select 41804,'ZYT141','','痰浊上蒙证','TZSMZ','',1,'Z',1258 FROM dual UNION all
+    select 41805,'ZYT142','','痰浊蒙窍证','TZMQZ','',1,'Z',1258 FROM dual UNION all
+    select 41806,'ZYT143','','痰蒙神窍证','TMSQZ','',1,'Z',1258 FROM dual UNION all
+    select 41807,'ZYT144','','痰壅神窍证','TYSQZ','',1,'Z',1258 FROM dual UNION all
+    select 41808,'ZYT150','','痰浊证','TZZ','',1,'Z',1258 FROM dual UNION all
+    select 41809,'ZYT160','','痰浊闭塞证','TZBSZ','',1,'Z',1258 FROM dual UNION all
+    select 41810,'ZYT161','','痰浊壅塞证','TZYSZ','',1,'Z',1258 FROM dual UNION all
+    select 41811,'ZYT162','','痰浊阴滞证','TZYZZ','',1,'Z',1258 FROM dual UNION all
+    select 41812,'ZYT163','','痰浊闭阻证','TZBZZ','',1,'Z',1258 FROM dual UNION all
+    select 41813,'ZYT170','','痰浊结聚证','TZJJZ','',1,'Z',1258 FROM dual UNION all
+    select 41814,'ZYT171','','痰浊积聚证','TZJJZ','',1,'Z',1258 FROM dual UNION all
+    select 41815,'ZYT172','','痰浊凝聚证','TZNJZ','',1,'Z',1258 FROM dual UNION all
+    select 41816,'ZYT180','','痰浊内阻证','TZNZZ','',1,'Z',1258 FROM dual UNION all
+    select 41817,'ZYT181','','痰浊内蕴证','TZNYZ','',1,'Z',1258 FROM dual UNION all
+    select 41818,'ZYT190','','痰浊上扰证','TZSQZ','',1,'Z',1258 FROM dual UNION all
+    select 41819,'ZYT200','','痰浊中阻证','TZZZZ','',1,'Z',1258 FROM dual UNION all
+    select 41820,'ZYT210','','痰涎壅盛证','TXYSZ','',1,'Z',1258 FROM dual UNION all
+    select 41821,'ZYT220','','浊邪上犯证','ZXSFZ','',1,'Z',1258 FROM dual UNION all
+    select 41822,'ZYT230','','饮邪上犯证','YXSFZ','',1,'Z',1258 FROM dual UNION all
+    select 41823,'ZYTD10','','痰结毒滞证','TJDZZ','',1,'Z',1259 FROM dual UNION all
+    select 41824,'ZYTD20','','水毒内闭证','SDNBZ','',1,'Z',1259 FROM dual UNION all
+    select 41825,'ZYTD30','','水毒内郁证','SDNYZ','',1,'Z',1259 FROM dual UNION all
+    select 41826,'ZYTD40','','水毒上扰证','SDSQZ','',1,'Z',1259 FROM dual UNION all
+    select 41827,'ZYTD50','','水毒凌心犯肺证','SDLXFFZ','',1,'Z',1259 FROM dual UNION all
+    select 41828,'ZYTF10','','痰浊阻肺证','TZZFZ','',1,'Z',1260 FROM dual UNION all
+    select 41829,'ZYTF20','','痰浊壅肺证','TZYFZ','',1,'Z',1260 FROM dual UNION all
+    select 41830,'ZYTF30','','痰浊蕴肺证','TZYFZ','',1,'Z',1260 FROM dual UNION all
+    select 41831,'ZYTF40','','水饮留肠证','SYLCZ','',1,'Z',1260 FROM dual UNION all
+    select 41832,'ZYTM00','','痰湿证','TSZ','',1,'Z',1261 FROM dual UNION all
+    select 41833,'ZYTM10','','痰湿痹阻证','TSBZZ','',1,'Z',1261 FROM dual UNION all
+    select 41834,'ZYTM20','','痰湿蒙蔽证','TSMBZ','',1,'Z',1261 FROM dual UNION all
+    select 41835,'ZYTM21','','痰湿蒙窍证','TSMQZ','',1,'Z',1261 FROM dual UNION all
+    select 41836,'ZYTM22','','痰湿蒙蔽心神证','TSMBXSZ','',1,'Z',1261 FROM dual UNION all
+    select 41837,'ZYTM23','','痰湿蒙塞清窍证','TSMSQQZ','',1,'Z',1261 FROM dual UNION all
+    select 41838,'ZYTM30','','痰湿内阻证','TSNZZ','',1,'Z',1261 FROM dual UNION all
+    select 41839,'ZYTM40','','痰湿上阻证','TSSZZ','',1,'Z',1261 FROM dual UNION all
+    select 41840,'ZYTM50','','痰湿中阻证','TSZZZ','',1,'Z',1261 FROM dual UNION all
+    select 41841,'ZYTM60','','痰湿阻滞证','TSZZZ','',1,'Z',1261 FROM dual UNION all
+    select 41842,'ZYTM61','','痰湿结滞证','TSJZZ','',1,'Z',1261 FROM dual UNION all
+    select 41843,'ZYTM70','','痰湿阻结证','TSZJZ','',1,'Z',1261 FROM dual UNION all
+    select 41844,'ZYTM71','','痰湿结聚证','TSJJZ','',1,'Z',1261 FROM dual UNION all
+    select 41845,'ZYTM72','','痰湿凝结证','TSNJZ','',1,'Z',1261 FROM dual UNION all
+    select 41846,'ZYTM80','','痰湿蕴结证','TSYJZ','',1,'Z',1261 FROM dual UNION all
+    select 41847,'ZYTM90','','痰湿蕴肺证','TSYFZ','',1,'Z',1261 FROM dual UNION all
+    select 41848,'ZYTM91','','痰湿侵肺证','TSQFZ','',1,'Z',1261 FROM dual UNION all
+    select 41849,'ZYTM92','','痰湿壅肺证','TSYFZ','',1,'Z',1261 FROM dual UNION all
+    select 41850,'ZYTMA0','','痰湿阻胞证','TSZBZ','',1,'Z',1261 FROM dual UNION all
+    select 41851,'ZYTMBO','','痰湿阻络证','TSZLZ','',1,'Z',1261 FROM dual UNION all
+    select 41852,'ZYTMC0','','痰湿瘀滞证','TSYZZ','',1,'Z',1261 FROM dual UNION all
+    select 41853,'ZYTMD0','','水湿浸渍证','SSJZZ','',1,'Z',1261 FROM dual UNION all
+    select 41854,'ZYTME0','','水湿内停证','SSNTZ','',1,'Z',1261 FROM dual UNION all
+    select 41855,'ZYTME1','','水湿内蕴证','SSNYZ','',1,'Z',1261 FROM dual UNION all
+    select 41856,'ZYTMF0','','痰湿蕴脾证','TSYPZ','',1,'Z',1261 FROM dual UNION all
+    select 41857,'ZYTP10','','痰浊阻胃证','TZZWZ','',1,'Z',1262 FROM dual UNION all
+    select 41858,'ZYTP20','','痰饮停胃证','TYTWZ','',1,'Z',1262 FROM dual UNION all
+    select 41859,'ZYTP30','','饮留胃肠证','YLWCZ','',1,'Z',1262 FROM dual UNION all
+    select 41860,'ZYTR00','','痰热证','TRZ','',1,'Z',1264 FROM dual UNION all
+    select 41861,'ZYTR10','','痰热动风证','TRDFZ','',1,'Z',1264 FROM dual UNION all
+    select 41862,'ZYTR20','','痰热腑实证','TRFSZ','',1,'Z',1264 FROM dual UNION all
+    select 41863,'ZYTR21','','痰热腑实、风痰上扰证','TRFSAFTSQZ','',1,'Z',1264 FROM dual UNION all
+    select 41864,'ZYTR30','','痰热结胸证','TRJXZ','',1,'Z',1264 FROM dual UNION all
+    select 41865,'ZYTR40','','痰热内闭证','TRNBZ','',1,'Z',1264 FROM dual UNION all
+    select 41866,'ZYTR41','','痰热内闭心窍证','TRNBXQZ','',1,'Z',1264 FROM dual UNION all
+    select 41867,'ZYTR42','','痰热闭肺证','TRBFZ','',1,'Z',1264 FROM dual UNION all
+    select 41868,'ZYTR43','','痰热闭窍证','TRBQZ','',1,'Z',1264 FROM dual UNION all
+    select 41869,'ZYTR44','','痰热内闭清窍证','TRNBQQZ','',1,'Z',1264 FROM dual UNION all
+    select 41870,'ZYTR45','','痰热蔽窍证','TRBQZ','',1,'Z',1264 FROM dual UNION all
+    select 41871,'ZYTR50','','痰热内扰证','TRNQZ','',1,'Z',1264 FROM dual UNION all
+    select 41872,'ZYTR60','','痰热上蒙证','TRSMZ','',1,'Z',1264 FROM dual UNION all
+    select 41873,'ZYTR61','','痰热上壅证','TRSYZ','',1,'Z',1264 FROM dual UNION all
+    select 41874,'ZYTR70','','痰热蕴结证','TRYJZ','',1,'Z',1264 FROM dual UNION all
+    select 41875,'ZYTR71','','痰热搏结证','TRBJZ','',1,'Z',1264 FROM dual UNION all
+    select 41876,'ZYTR72','','痰热阻结证','TRZJZ','',1,'Z',1264 FROM dual UNION all
+    select 41877,'ZYTR80','','痰热阻肺证','TRZFZ','',1,'Z',1264 FROM dual UNION all
+    select 41878,'ZYTR81','','痰热阻肺、腑有热结证','TRZFAFYRJZ','',1,'Z',1264 FROM dual UNION all
+    select 41879,'ZYTR90','','痰热壅肺证','TRYFZ','',1,'Z',1264 FROM dual UNION all
+    select 41880,'ZYTRA0','','痰热郁肺证','TRYFZ','',1,'Z',1264 FROM dual UNION all
+    select 41881,'ZYTRB0','','痰热瘀肺证','TRYFZ','',1,'Z',1264 FROM dual UNION all
+    select 41882,'ZYTRC0','','痰浊化热证','TZHRZ','',1,'Z',1264 FROM dual UNION all
+    select 41883,'ZYTU00','','痰火证','THZ','',1,'Z',1265 FROM dual UNION all
+    select 41884,'ZYTU10','','痰火动风证','THDFZ','',1,'Z',1265 FROM dual UNION all
+    select 41885,'ZYTU11','','痰火动风、上阻清窍证','THDFASZQQZ','',1,'Z',1265 FROM dual UNION all
+    select 41886,'ZYTU12','','痰火动风、上扰清窍证','THDFASQQQZ','',1,'Z',1265 FROM dual UNION all
+    select 41887,'ZYTU20','','痰火犯肺证','THFFZ','',1,'Z',1265 FROM dual UNION all
+    select 41888,'ZYTU30','','痰火积滞证','THJZZ','',1,'Z',1265 FROM dual UNION all
+    select 41889,'ZYTU40','','痰火内闭证','THNBZ','',1,'Z',1265 FROM dual UNION all
+    select 41890,'ZYTU41','','痰火闭窍证','THBQZ','',1,'Z',1265 FROM dual UNION all
+    select 41891,'ZYTU50','','痰火内蕴证','THNYZ','',1,'Z',1265 FROM dual UNION all
+    select 41892,'ZYTU60','','痰火内盛证','THNSZ','',1,'Z',1265 FROM dual UNION all
+    select 41893,'ZYTU70','','痰火扰神证','THQSZ','',1,'Z',1265 FROM dual UNION all
+    select 41894,'ZYTU71','','痰火扰神证','THQSZ','',1,'Z',1265 FROM dual UNION all
+    select 41895,'ZYTU72','','痰火扰心证','THQXZ','',1,'Z',1265 FROM dual UNION all
+    select 41896,'ZYTU80','','痰火上扰证','THSQZ','',1,'Z',1265 FROM dual UNION all
+    select 41897,'ZYTU81','','痰火升扰证','THSQZ','',1,'Z',1265 FROM dual UNION all
+    select 41898,'ZYTU90','','痰火郁结证','THYJZ','',1,'Z',1265 FROM dual UNION all
+    select 41899,'ZYTU91','','痰火壅结证','THYJZ','',1,'Z',1265 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 41900,'ZYTUA0','','痰浊化火证','TZHHZ','',1,'Z',1265 FROM dual UNION all
+    select 41901,'ZYTV10','','痰气互结证','TQHJZ','',1,'Z',1263 FROM dual UNION all
+    select 41902,'ZYTV20','','痰气交阻证','TQJZZ','',1,'Z',1263 FROM dual UNION all
+    select 41903,'ZYTV30','','痰气阻膈证','TQZGZ','',1,'Z',1263 FROM dual UNION all
+    select 41904,'ZYTV40','','痰气郁结证','TQYJZ','',1,'Z',1263 FROM dual UNION all
+    select 41905,'ZYTV41','','痰气凝结证','TQNJZ','',1,'Z',1263 FROM dual UNION all
+    select 41906,'ZYTV50','','痰气壅实证','TQYSZ','',1,'Z',1263 FROM dual UNION all
+    select 41907,'ZYTV60','','水气上凌证','SQSLZ','',1,'Z',1263 FROM dual UNION all
+    select 41908,'ZYTV61','','水气凌心证','SQLXZ','',1,'Z',1263 FROM dual UNION all
+    select 41909,'ZYTV62','','水气凌心犯肺证','SQLXFFZ','',1,'Z',1263 FROM dual UNION all
+    select 41910,'ZYTX10','','痰血瘀滞证','TXYZZ','',1,'Z',1266 FROM dual UNION all
+    select 41911,'ZYTX20','','痰瘀互结证','TYHJZ','',1,'Z',1266 FROM dual UNION all
+    select 41912,'ZYTX21','','痰瘀搏结证','TYBJZ','',1,'Z',1266 FROM dual UNION all
+    select 41913,'ZYTX22','','痰瘀痹阻证','TYBZZ','',1,'Z',1266 FROM dual UNION all
+    select 41914,'ZYTX30','','痰瘀化火证','TYHHZ','',1,'Z',1266 FROM dual UNION all
+    select 41915,'ZYTX40','','痰瘀滞络证','TYZLZ','',1,'Z',1266 FROM dual UNION all
+    select 41916,'ZYTX50','','痰结血瘀证','TJXYZ','',1,'Z',1266 FROM dual UNION all
+    select 41917,'ZYTX60','','痰浊瘀阻证','TZYZZ','',1,'Z',1266 FROM dual UNION all
+    select 41918,'ZYTY10','','痰食互结证','TSHJZ','',1,'Z',1267 FROM dual UNION all
+    select 41919,'ZYTY20','','痰食壅结证','TSYJZ','',1,'Z',1267 FROM dual UNION all
+    select 41920,'ZYV010','','气闭证','QBZ','',1,'Z',1228 FROM dual UNION all
+    select 41921,'ZYV020','','气结证','QJZ','',1,'Z',1228 FROM dual UNION all
+    select 41922,'ZYV030','','气机不利证','QJBLZ','',1,'Z',1228 FROM dual UNION all
+    select 41923,'ZYV040','','气机阻滞证','QJZZZ','',1,'Z',1228 FROM dual UNION all
+    select 41924,'ZYV041','','气机郁滞证','QJYZZ','',1,'Z',1228 FROM dual UNION all
+    select 41925,'ZYV042','','气杨壅闭证','QYYBZ','',1,'Z',1228 FROM dual UNION all
+    select 41926,'ZYV050','','气机失调节证','QJSDJZ','',1,'Z',1228 FROM dual UNION all
+    select 41927,'ZYV060','','气机逆乱证','QJNLZ','',1,'Z',1228 FROM dual UNION all
+    select 41928,'ZYV061','','气机逆乱、阻塞清窍证','QJNLAZSQQZ','',1,'Z',1228 FROM dual UNION all
+    select 41929,'ZYV070','','气化不及证','QHBJZ','',1,'Z',1228 FROM dual UNION all
+    select 41930,'ZYV071','','气化不及、膀胱空虚证','QHBJABGKXZ','',1,'Z',1228 FROM dual UNION all
+    select 41931,'ZYV080','','气滞胸膈证','QZXGZ','',1,'Z',1228 FROM dual UNION all
+    select 41932,'ZYV090','','气虚证','QXZ','',1,'Z',1228 FROM dual UNION all
+    select 41933,'ZYV100','','气虚不摄证','QXBSZ','',1,'Z',1228 FROM dual UNION all
+    select 41934,'ZYV101','','气不摄精证','QBSJZ','',1,'Z',1228 FROM dual UNION all
+    select 41935,'ZYV110','','气虚不运证','QXBYZ','',1,'Z',1228 FROM dual UNION all
+    select 41936,'ZYV120','','气虚下陷证','QXXXZ','',1,'Z',1228 FROM dual UNION all
+    select 41937,'ZYV130','','气虚欲脱证','QXYWZ','',1,'Z',1228 FROM dual UNION all
+    select 41938,'ZYV140','','气郁证','QYZ','',1,'Z',1228 FROM dual UNION all
+    select 41939,'ZYV150','','气滞证','QZZ','',1,'Z',1228 FROM dual UNION all
+    select 41940,'ZYV160','','气脱证','QWZ','',1,'Z',1228 FROM dual UNION all
+    select 41941,'ZYV170','','清气不升证','QQBSZ','',1,'Z',1228 FROM dual UNION all
+    select 41942,'ZYV180','','上气不足证','SQBZZ','',1,'Z',1228 FROM dual UNION all
+    select 41943,'ZYV190','','元气衰败证','YQSBZ','',1,'Z',1228 FROM dual UNION all
+    select 41944,'ZYV200','','元气败脱证','YQBWZ','',1,'Z',1228 FROM dual UNION all
+    select 41945,'ZYV201','','元气败脱、心神散乱证','YQBWAXSSLZ','',1,'Z',1228 FROM dual UNION all
+    select 41946,'ZYV210','','元气不足证','YQBZZ','',1,'Z',1228 FROM dual UNION all
+    select 41947,'ZYV211','','元气不足、阴血亏损证','YQBZAYXKSZ','',1,'Z',1228 FROM dual UNION all
+    select 41948,'ZYV220','','元气亏虚证','YQKXZ','',1,'Z',1228 FROM dual UNION all
+    select 41949,'ZYV230','','中气不足证','ZQBZZ','',1,'Z',1228 FROM dual UNION all
+    select 41950,'ZYV231','','中气不足、膀胱失约证','ZQBZABGSYZ','',1,'Z',1228 FROM dual UNION all
+    select 41951,'ZYV240','','中气亏虚证','ZQKXZ','',1,'Z',1228 FROM dual UNION all
+    select 41952,'ZYV250','','中气下陷证','ZQXXZ','',1,'Z',1228 FROM dual UNION all
+    select 41953,'ZYV251','','中气下陷、清阳不升证','ZQXXAQYBSZ','',1,'Z',1228 FROM dual UNION all
+    select 41954,'ZYV252','','中气下陷、膀胱失约证','ZQXXABGSYZ','',1,'Z',1228 FROM dual UNION all
+    select 41955,'ZYV260','','腑气不通证','FQBTZ','',1,'Z',1228 FROM dual UNION all
+    select 41956,'ZYV270','','痹气郁结证','BQYJZ','',1,'Z',1228 FROM dual UNION all
+    select 41957,'ZYVA10','','气虚阳微证','QXYWZ','',1,'Z',1229 FROM dual UNION all
+    select 41958,'ZYVD10','','气虚毒滞证','QXDZZ','',1,'Z',1230 FROM dual UNION all
+    select 41959,'ZYVH10','','中气虚寒证','ZQXHZ','',1,'Z',1231 FROM dual UNION all
+    select 41960,'ZYVJ10','','气虚络损证','QXLSZ','',1,'Z',1233 FROM dual UNION all
+    select 41961,'ZYVM10','','气滞湿阻证','QZSZZ','',1,'Z',1232 FROM dual UNION all
+    select 41962,'ZYVM20','','气虚湿阻证','QXSZZ','',1,'Z',1232 FROM dual UNION all
+    select 41963,'ZYVR10','','气郁化热证','QYHRZ','',1,'Z',1234 FROM dual UNION all
+    select 41964,'ZYVR20','','气滞热壅证','QZRYZ','',1,'Z',1234 FROM dual UNION all
+    select 41965,'ZYVT10','','气滞痰凝证','QZTNZ','',1,'Z',1235 FROM dual UNION all
+    select 41966,'ZYVT11','','气滞痰郁证','QZTYZ','',1,'Z',1235 FROM dual UNION all
+    select 41967,'ZYVT12','','气滞痰阻证','QZTZZ','',1,'Z',1235 FROM dual UNION all
+    select 41968,'ZYVT20','','气滞痰瘀证','QZTYZ','',1,'Z',1235 FROM dual UNION all
+    select 41969,'ZYVT30','','气滞水停证','QZSTZ','',1,'Z',1235 FROM dual UNION all
+    select 41970,'ZYVT40','','气虚水停证','QXSTZ','',1,'Z',1235 FROM dual UNION all
+    select 41971,'ZYVT50','','气虚痰结证','QXTJZ','',1,'Z',1235 FROM dual UNION all
+    select 41972,'ZYVT51','','气虚痰滞证','QXTZZ','',1,'Z',1235 FROM dual UNION all
+    select 41973,'ZYVT60','','气郁痰凝证','QYTNZ','',1,'Z',1235 FROM dual UNION all
+    select 41974,'ZYVT61','','气郁痰结证','QYTJZ','',1,'Z',1235 FROM dual UNION all
+    select 41975,'ZYVT70','','气胡痰阻证','QHTZZ','',1,'Z',1235 FROM dual UNION all
+    select 41976,'ZYVU10','','气火郁结证','QHYJZ','',1,'Z',1236 FROM dual UNION all
+    select 41977,'ZYVU20','','气郁化火证','QYHHZ','',1,'Z',1236 FROM dual UNION all
+    select 41978,'ZYVX10','','气血不足证','QXBZZ','',1,'Z',1237 FROM dual UNION all
+    select 41979,'ZYVX11','','气血不足、收摄失司证','QXBZASSSSZ','',1,'Z',1237 FROM dual UNION all
+    select 41980,'ZYVX20','','气血亏虚证','QXKXZ','',1,'Z',1237 FROM dual UNION all
+    select 41981,'ZYVX21','','气血亏虚、毒滞难化证','QXKXADZNHZ','',1,'Z',1237 FROM dual UNION all
+    select 41982,'ZYVX22','','气血亏虚、邪毒久困证','QXKXAXDJKZ','',1,'Z',1237 FROM dual UNION all
+    select 41983,'ZYVX30','','气血两虚证','QXLXZ','',1,'Z',1237 FROM dual UNION all
+    select 41984,'ZYVX31','','气血两亏证','QXLKZ','',1,'Z',1237 FROM dual UNION all
+    select 41985,'ZYVX40','','气血两脱证','QXLWZ','',1,'Z',1237 FROM dual UNION all
+    select 41986,'ZYVX50','','气血两伤证','QXLSZ','',1,'Z',1237 FROM dual UNION all
+    select 41987,'ZYVX60','','气血凝结证','QXNJZ','',1,'Z',1237 FROM dual UNION all
+    select 41988,'ZYVX61','','气血凝滞证','QXNZZ','',1,'Z',1237 FROM dual UNION all
+    select 41989,'ZYVX70','','气血失调证','QXSDZ','',1,'Z',1237 FROM dual UNION all
+    select 41990,'ZYVX80','','气血痹阻证','QXBZZ','',1,'Z',1237 FROM dual UNION all
+    select 41991,'ZYVX90','','气血衰竭证','QXSJZ','',1,'Z',1237 FROM dual UNION all
+    select 41992,'ZYVXA0','','气血瘀滞证','QXYZZ','',1,'Z',1237 FROM dual UNION all
+    select 41993,'ZYVXA1','','气血瘀积证','QXYJZ','',1,'Z',1237 FROM dual UNION all
+    select 41994,'ZYVXA2','','气血瘀阻证','QXYZZ','',1,'Z',1237 FROM dual UNION all
+    select 41995,'ZYVXB0','','气随血脱证','QSXWZ','',1,'Z',1237 FROM dual UNION all
+    select 41996,'ZYVXC0','','气不摄血证','QBSXZ','',1,'Z',1237 FROM dual UNION all
+    select 41997,'ZYVXD0','','气虚血亏证','QXXKZ','',1,'Z',1237 FROM dual UNION all
+    select 41998,'ZYVXE0','','气虚血凝证','QXXNZ','',1,'Z',1237 FROM dual UNION all
+    select 41999,'ZYVXF0','','气虚血脱证','QXXWZ','',1,'Z',1237 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42000,'ZYVXG0','','气虚血溢证','QXXYZ','',1,'Z',1237 FROM dual UNION all
+    select 42001,'ZYVXH0','','气虚血滞证','QXXZZ','',1,'Z',1237 FROM dual UNION all
+    select 42002,'ZYVXH1','','气虚血滞、络脉搏瘀阻证','QXXZALMBYZ','',1,'Z',1237 FROM dual UNION all
+    select 42003,'ZYVXH2','','气虚血滞、络脉痰阻证','QXXZALMTZZ','',1,'Z',1237 FROM dual UNION all
+    select 42004,'ZYVXJ0','','气衰血脱证','QSXWZ','',1,'Z',1237 FROM dual UNION all
+    select 42005,'ZYVXK0','','气滞血瘀证','QZXYZ','',1,'Z',1237 FROM dual UNION all
+    select 42006,'ZYVXK1','','气滞血郁证','QZXYZ','',1,'Z',1237 FROM dual UNION all
+    select 42007,'ZYVXK2','','气滞血阻证','QZXZZ','',1,'Z',1237 FROM dual UNION all
+    select 42008,'ZYVXK3','','气滞瘀阻证','QZYZZ','',1,'Z',1237 FROM dual UNION all
+    select 42009,'ZYVXK4','','气结血瘀证','QJXYZ','',1,'Z',1237 FROM dual UNION all
+    select 42010,'ZYVXM0','','气虚血瘀证','QXXYZ','',1,'Z',1237 FROM dual UNION all
+    select 42011,'ZYVXM1','','气虚瘀滞证','QXYZZ','',1,'Z',1237 FROM dual UNION all
+    select 42012,'ZYVY10','','气阴不足证','QYBZZ','',1,'Z',1238 FROM dual UNION all
+    select 42013,'ZYVY20','','气阴亏虚证','QYKXZ','',1,'Z',1238 FROM dual UNION all
+    select 42014,'ZYVY21','','气阴亏虚、湿热内蕴证','QYKXASRNYZ','',1,'Z',1238 FROM dual UNION all
+    select 42015,'ZYVY30','','气阴两虚证','QYLXZ','',1,'Z',1238 FROM dual UNION all
+    select 42016,'ZYVY40','','气阴两伤证','QYLSZ','',1,'Z',1238 FROM dual UNION all
+    select 42017,'ZYVY41','','气阴两伤、余热不尽证','QYLSAYRBJZ','',1,'Z',1238 FROM dual UNION all
+    select 42018,'ZYVY50','','气阴耗伤证','QYHSZ','',1,'Z',1238 FROM dual UNION all
+    select 42019,'ZYVY51','','气阴耗竭证','QYHJZ','',1,'Z',1238 FROM dual UNION all
+    select 42020,'ZYVY52','','气液耗伤证','QYHSZ','',1,'Z',1238 FROM dual UNION all
+    select 42021,'ZYX010','','血滞证','XZZ','',1,'Z',1239 FROM dual UNION all
+    select 42022,'ZYX020','','血枯证','XKZ','',1,'Z',1239 FROM dual UNION all
+    select 42023,'ZYX030','','血虚证','XXZ','',1,'Z',1239 FROM dual UNION all
+    select 42024,'ZYX031','','阴血不足证','YXBZZ','',1,'Z',1239 FROM dual UNION all
+    select 42025,'ZYX032','','阴血亏虚证','YXKXZ','',1,'Z',1239 FROM dual UNION all
+    select 42026,'ZYX040','','血虚失养证','XXSYZ','',1,'Z',1239 FROM dual UNION all
+    select 42027,'ZYX050','','败血入胞证','BXRBZ','',1,'Z',1239 FROM dual UNION all
+    select 42028,'ZYX060','','血败肉腐证','XBRFZ','',1,'Z',1239 FROM dual UNION all
+    select 42029,'ZYX070','','干血内结证','GXNJZ','',1,'Z',1239 FROM dual UNION all
+    select 42030,'ZYX080','','血行郁滞证','XXYZZ','',1,'Z',1239 FROM dual UNION all
+    select 42031,'ZYX090','','血结胸证','XJXZ','',1,'Z',1239 FROM dual UNION all
+    select 42032,'ZYX100','','精血亏虚证','JXKXZ','',1,'Z',1239 FROM dual UNION all
+    select 42033,'ZYX110','','下焦蓄血证','XJXXZ','',1,'Z',1239 FROM dual UNION all
+    select 42034,'ZYX111','','下焦蓄血、瘀阴膀胱证','XJXXAYYBGZ','',1,'Z',1239 FROM dual UNION all
+    select 42035,'ZYX120','','血瘀证','XYZ','',1,'Z',1239 FROM dual UNION all
+    select 42036,'ZYX130','','血瘀积结证','XYJJZ','',1,'Z',1239 FROM dual UNION all
+    select 42037,'ZYX131','','血瘀成积证','XYCJZ','',1,'Z',1239 FROM dual UNION all
+    select 42038,'ZYX140','','血瘀成痈证','XYCYZ','',1,'Z',1239 FROM dual UNION all
+    select 42039,'ZYX150','','血瘀肉腐证','XYRFZ','',1,'Z',1239 FROM dual UNION all
+    select 42040,'ZYX160','','血瘀失养证','XYSYZ','',1,'Z',1239 FROM dual UNION all
+    select 42041,'ZYX170','','瘀血证','YXZ','',1,'Z',1239 FROM dual UNION all
+    select 42042,'ZYX180','','瘀血痹闭证','YXBBZ','',1,'Z',1239 FROM dual UNION all
+    select 42043,'ZYX181','','瘀血痹阻证','YXBZZ','',1,'Z',1239 FROM dual UNION all
+    select 42044,'ZYX190','','瘀血内滞证','YXNZZ','',1,'Z',1239 FROM dual UNION all
+    select 42045,'ZYX191','','瘀血内结证','YXNJZ','',1,'Z',1239 FROM dual UNION all
+    select 42046,'ZYX192','','瘀血内停证','YXNTZ','',1,'Z',1239 FROM dual UNION all
+    select 42047,'ZYX193','','瘀血内停、清窍受阻证','YXNTAQQSZZ','',1,'Z',1239 FROM dual UNION all
+    select 42048,'ZYX194','','瘀血内阻证','YXNZZ','',1,'Z',1239 FROM dual UNION all
+    select 42049,'ZYX195','','瘀结证','YJZ','',1,'Z',1239 FROM dual UNION all
+    select 42050,'ZYX200','','瘀血阻滞证','YXZZZ','',1,'Z',1239 FROM dual UNION all
+    select 42051,'ZYX201','','瘀血凝滞证','YXNZZ','',1,'Z',1239 FROM dual UNION all
+    select 42052,'ZYX202','','瘀血停滞证','YXTZZ','',1,'Z',1239 FROM dual UNION all
+    select 42053,'ZYX203','','瘀血停着证','YXTZZ','',1,'Z',1239 FROM dual UNION all
+    select 42054,'ZYX204','','瘀血留滞证','YXLZZ','',1,'Z',1239 FROM dual UNION all
+    select 42055,'ZYX210','','淤血阻膈证','YXZGZ','',1,'Z',1239 FROM dual UNION all
+    select 42056,'ZYX220','','瘀肿疼痛证','YZTTZ','',1,'Z',1239 FROM dual UNION all
+    select 42057,'ZYX230','','瘀滞证','YZZ','',1,'Z',1239 FROM dual UNION all
+    select 42058,'ZYX240','','瘀滞胞宫证','YZBGZ','',1,'Z',1239 FROM dual UNION all
+    select 42059,'ZYX250','','瘀滞肌肤证','YZJFZ','',1,'Z',1239 FROM dual UNION all
+    select 42060,'ZYX260','','下焦瘀滞证','XJYZZ','',1,'Z',1239 FROM dual UNION all
+    select 42061,'ZYX270','','瘀积发黄证','YJFHZ','',1,'Z',1239 FROM dual UNION all
+    select 42062,'ZYX280','','瘀扰神明证','YQSMZ','',1,'Z',1239 FROM dual UNION all
+    select 42063,'ZYX290','','瘀阻清窍证','YZQQZ','',1,'Z',1239 FROM dual UNION all
+    select 42064,'ZYX291','','瘀停清窍证','YTQQZ','',1,'Z',1239 FROM dual UNION all
+    select 42065,'ZYX300','','瘀阻胸胁证','YZXXZ','',1,'Z',1239 FROM dual UNION all
+    select 42066,'ZYX301','','瘀停胸胁证','YTXXZ','',1,'Z',1239 FROM dual UNION all
+    select 42067,'ZYX320','','瘀阻中焦证','YZZJZ','',1,'Z',1239 FROM dual UNION all
+    select 42068,'ZYX330','','正虚瘀结证','ZXYJZ','',1,'Z',1239 FROM dual UNION all
+    select 42069,'ZYX340','','亡血证','WXZ','',1,'Z',1239 FROM dual UNION all
+    select 42070,'ZYX350','','瘀闭血脉证','YBXMZ','',1,'Z',1239 FROM dual UNION all
+    select 42071,'ZYX360','','血脉瘀阻证','XMYZZ','',1,'Z',1239 FROM dual UNION all
+    select 42072,'ZYX370','','血虚血瘀证','XXXYZ','',1,'Z',1239 FROM dual UNION all
+    select 42073,'ZYX380','','血不濡筋证','XBRJZ','',1,'Z',1239 FROM dual UNION all
+    select 42074,'ZYXA10','','血虚阳浮证','XXYFZ','',1,'Z',1240 FROM dual UNION all
+    select 42075,'ZYXF10','','瘀血乘肺证','YXCFZ','',1,'Z',1241 FROM dual UNION all
+    select 42076,'ZYXF20','','血虚肠燥证','XXCZZ','',1,'Z',1241 FROM dual UNION all
+    select 42077,'ZYXF30','','瘀阻肠络证','YZCLZ','',1,'Z',1241 FROM dual UNION all
+    select 42078,'ZYXG10','','血虚肝旺证','XXGWZ','',1,'Z',1242 FROM dual UNION all
+    select 42079,'ZYXG20','','血虚生风证','XXSFZ','',1,'Z',1242 FROM dual UNION all
+    select 42080,'ZYXG21','','血虚风动证','XXFDZ','',1,'Z',1242 FROM dual UNION all
+    select 42081,'ZYXG22','','血虚风扰证','XXFQZ','',1,'Z',1242 FROM dual UNION all
+    select 42082,'ZYXG30','','血虚风燥证','XXFZZ','',1,'Z',1242 FROM dual UNION all
+    select 42083,'ZYXG40','','血瘀风燥证','XYFZZ','',1,'Z',1242 FROM dual UNION all
+    select 42084,'ZYXH00','','血寒证','XHZ','',1,'Z',1243 FROM dual UNION all
+    select 42085,'ZYXH10','','血寒凝滞证','XHNZZ','',1,'Z',1243 FROM dual UNION all
+    select 42086,'ZYXH20','','血虚寒凝证','XXHNZ','',1,'Z',1243 FROM dual UNION all
+    select 42087,'ZYXJ10','','瘀阻胃络证','YZWLZ','',1,'Z',1244 FROM dual UNION all
+    select 42088,'ZYXJ20','','血虚络损证','XXLSZ','',1,'Z',1244 FROM dual UNION all
+    select 42089,'ZYXJ30','','血瘀络滞证','XYLZZ','',1,'Z',1244 FROM dual UNION all
+    select 42090,'ZYXJ31','','血瘀阻络证','XYZLZ','',1,'Z',1244 FROM dual UNION all
+    select 42091,'ZYXJ40','','瘀血阻络证','YXZLZ','',1,'Z',1244 FROM dual UNION all
+    select 42092,'ZYXJ50','','瘀血伤络证','YXSLZ','',1,'Z',1244 FROM dual UNION all
+    select 42093,'ZYXJ60','','瘀阻经络证','YZJLZ','',1,'Z',1244 FROM dual UNION all
+    select 42094,'ZYXJ61','','瘀阻脉络证','YZMLZ','',1,'Z',1244 FROM dual UNION all
+    select 42095,'ZYXJ62','','瘀阻胞脉证','YZBMZ','',1,'Z',1244 FROM dual UNION all
+    select 42096,'ZYXJ63','','瘀阻脑络证','YZNLZ','',1,'Z',1244 FROM dual UNION all
+    select 42097,'ZYXJ64','','瘀阻冲任证','YZCRZ','',1,'Z',1244 FROM dual UNION all
+    select 42098,'ZYXJ65','','瘀阻心脉证','YZXMZ','',1,'Z',1244 FROM dual UNION all
+    select 42099,'ZYXJ66','','瘀阻宗脉证','YZZMZ','',1,'Z',1244 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42100,'ZYXJA0','','血虚津亏证','XXJKZ','',1,'Z',1244 FROM dual UNION all
+    select 42101,'ZYXR00','','血热证','XRZ','',1,'Z',1247 FROM dual UNION all
+    select 42102,'ZYXR10','','血热动风证','XRDFZ','',1,'Z',1247 FROM dual UNION all
+    select 42103,'ZYXR20','','血热内扰证','XRNQZ','',1,'Z',1247 FROM dual UNION all
+    select 42104,'ZYXR21','','血热内盛证','XRNSZ','',1,'Z',1247 FROM dual UNION all
+    select 42105,'ZYXR22','','血热内陷证','XRNXZ','',1,'Z',1247 FROM dual UNION all
+    select 42106,'ZYXR30','','血热壅滞证','XRYZZ','',1,'Z',1247 FROM dual UNION all
+    select 42107,'ZYXR40','','血热妄行证','XRWXZ','',1,'Z',1247 FROM dual UNION all
+    select 42108,'ZYXR50','','血热肠燥证','XRCZZ','',1,'Z',1247 FROM dual UNION all
+    select 42109,'ZYXR60','','血热伤络证','XRSLZ','',1,'Z',1247 FROM dual UNION all
+    select 42110,'ZYXR70','','血热瘀滞证','XRYZZ','',1,'Z',1247 FROM dual UNION all
+    select 42111,'ZYXR71','','血热瘀结证','XRYJZ','',1,'Z',1247 FROM dual UNION all
+    select 42112,'ZYXR80','','瘀热证','YRZ','',1,'Z',1247 FROM dual UNION all
+    select 42113,'ZYXR90','','瘀热互结证','YRHJZ','',1,'Z',1247 FROM dual UNION all
+    select 42114,'ZYXR91','','瘀热交阻证','YRJZZ','',1,'Z',1247 FROM dual UNION all
+    select 42115,'ZYXRA0','','瘀热内郁证','YRNYZ','',1,'Z',1247 FROM dual UNION all
+    select 42116,'ZYXRB0','','瘀热入络证','YRRLZ','',1,'Z',1247 FROM dual UNION all
+    select 42117,'ZYXRC0','','瘀热阻络证','YRZLZ','',1,'Z',1247 FROM dual UNION all
+    select 42118,'ZYXRD0','','瘀热阻滞证','YRZZZ','',1,'Z',1247 FROM dual UNION all
+    select 42119,'ZYXRD1','','瘀热壅阻证','YRYZZ','',1,'Z',1247 FROM dual UNION all
+    select 42120,'ZYXRE0','','血瘀化热证','XYHRZ','',1,'Z',1247 FROM dual UNION all
+    select 42121,'ZYXRE1','','瘀血化热证','YXHRZ','',1,'Z',1247 FROM dual UNION all
+    select 42122,'ZYXRE2','','积瘀化热证','JYHRZ','',1,'Z',1247 FROM dual UNION all
+    select 42123,'ZYXRF0','','瘀滞化热证','YZHRZ','',1,'Z',1247 FROM dual UNION all
+    select 42124,'ZYXT10','','瘀浊阻塞证','YZZSZ','',1,'Z',1248 FROM dual UNION all
+    select 42125,'ZYXT20','','血瘀痰凝证','XYTNZ','',1,'Z',1248 FROM dual UNION all
+    select 42126,'ZYXT21','','血瘀痰滞证','XYTZZ','',1,'Z',1248 FROM dual UNION all
+    select 42127,'ZYXT30','','瘀痰化火证','YTHHZ','',1,'Z',1248 FROM dual UNION all
+    select 42128,'ZYXU10','','血瘀化火证','XYHHZ','',1,'Z',1249 FROM dual UNION all
+    select 42129,'ZYXU20','','瘀滞化火证','YZHHZ','',1,'Z',1249 FROM dual UNION all
+    select 42130,'ZYXV10','','瘀阻气道证','YZQDZ','',1,'Z',1246 FROM dual UNION all
+    select 42131,'ZYXV20','','瘀阻气闭证','YZQBZ','',1,'Z',1246 FROM dual UNION all
+    select 42132,'ZYXV30','','血虚气脱证','XXQWZ','',1,'Z',1246 FROM dual UNION all
+    select 42133,'ZYXV40','','血瘀气滞证','XYQZZ','',1,'Z',1246 FROM dual UNION all
+    select 42134,'ZYXV50','','血瘀气逆证','XYQNZ','',1,'Z',1246 FROM dual UNION all
+    select 42135,'ZYXV51','','血瘀气逆、阻塞清窍证','XYQNAZSQQZ','',1,'Z',1246 FROM dual UNION all
+    select 42136,'ZYXX10','','败血冲心证','BXCXZ','',1,'Z',1250 FROM dual UNION all
+    select 42137,'ZYXX20','','瘀血凌心证','YXLXZ','',1,'Z',1250 FROM dual UNION all
+    select 42138,'ZYXX30','','血不养心证','XBYXZ','',1,'Z',1250 FROM dual UNION all
+    select 42139,'ZYXY10','','血虚阴亏证','XXYKZ','',1,'Z',1251 FROM dual UNION all
+    select 42140,'ZYXZ10','','血燥生风证','XZSFZ','',1,'Z',1252 FROM dual UNION all
+    select 42141,'ZYXZ20','','血燥失养证','XZSYZ','',1,'Z',1252 FROM dual UNION all
+    select 42142,'ZYY010','','亡阴证','WYZ','',1,'Z',1205 FROM dual UNION all
+    select 42143,'ZYY020','','阴闭证','YBZ','',1,'Z',1205 FROM dual UNION all
+    select 42144,'ZYY030','','伤阴证','SYZ','',1,'Z',1205 FROM dual UNION all
+    select 42145,'ZYY040','','腑实阴伤证','FSYSZ','',1,'Z',1205 FROM dual UNION all
+    select 42146,'ZYY050','','久病伤阴证','JBSYZ','',1,'Z',1205 FROM dual UNION all
+    select 42147,'ZYY051','','久病伤阴、虚火上炎证','JBSYAXHSYZ','',1,'Z',1205 FROM dual UNION all
+    select 42148,'ZYY060','','疹后阴伤证','ZHYSZ','',1,'Z',1205 FROM dual UNION all
+    select 42149,'ZYY070','','真阴衰竭证','ZYSJZ','',1,'Z',1205 FROM dual UNION all
+    select 42150,'ZYY11','','阴寒凝滞证','YHNZZ','',1,'Z',1205 FROM dual UNION all
+    select 42151,'ZYYA10','','阴阳两虚证','YYLXZ','',1,'Z',1206 FROM dual UNION all
+    select 42152,'ZYYA20','','阴阳失调证','YYSDZ','',1,'Z',1206 FROM dual UNION all
+    select 42153,'ZYYA30','','阴阳离决证','YYLJZ','',1,'Z',1206 FROM dual UNION all
+    select 42154,'ZYYA40','','阴盛阳衰证','YSYSZ','',1,'Z',1206 FROM dual UNION all
+    select 42155,'ZYYA41','','阴盛阳虚证','YSYXZ','',1,'Z',1206 FROM dual UNION all
+    select 42156,'ZYYA50','','阴损及阳证','YSJYZ','',1,'Z',1206 FROM dual UNION all
+    select 42157,'ZYYA60','','阴损阳亏证','YSYKZ','',1,'Z',1206 FROM dual UNION all
+    select 42158,'ZYYA70','','阴竭阳脱证','YJYWZ','',1,'Z',1206 FROM dual UNION all
+    select 42159,'ZYYA80','','阴虚阳浮证','YXYFZ','',1,'Z',1206 FROM dual UNION all
+    select 42160,'ZYYA90','','阴虚阳亢证','YXYKZ','',1,'Z',1206 FROM dual UNION all
+    select 42161,'ZYYA91','','阴虚阳亢、风阳上扰证','YXYKAFYSQZ','',1,'Z',1206 FROM dual UNION all
+    select 42162,'ZYYD10','','阴毒外发证','YDWFZ','',1,'Z',1207 FROM dual UNION all
+    select 42163,'ZYYD20','','阴虚毒恋证','YXDLZ','',1,'Z',1207 FROM dual UNION all
+    select 42164,'ZYYF10','','阴虚肺热证','YXFRZ','',1,'Z',1208 FROM dual UNION all
+    select 42165,'ZYYF20','','阴虚肺燥证','YXFZZ','',1,'Z',1208 FROM dual UNION all
+    select 42166,'ZYYF30','','阴虚肠燥证','YXCZZ','',1,'Z',1208 FROM dual UNION all
+    select 42167,'ZYYG10','','阴虚肝旺证','YXGWZ','',1,'Z',1209 FROM dual UNION all
+    select 42168,'ZYYG20','','阴虚风动证','YXFDZ','',1,'Z',1209 FROM dual UNION all
+    select 42169,'ZYYH00','','阴寒证','YHZ','',1,'Z',1210 FROM dual UNION all
+    select 42170,'ZYYH10','','阴寒凝聚证','YHNJZ','',1,'Z',1210 FROM dual UNION all
+    select 42171,'ZYYH20','','阴寒内闭证','YHNBZ','',1,'Z',1210 FROM dual UNION all
+    select 42172,'ZYYH21','','阴寒内结证','YHNJZ','',1,'Z',1210 FROM dual UNION all
+    select 42173,'ZYYM10','','阴虚湿热证','YXSRZ','',1,'Z',1211 FROM dual UNION all
+    select 42174,'ZYYP10','','阴伤胃败证','YSWBZ','',1,'Z',1212 FROM dual UNION all
+    select 42175,'ZYYR10','','阴虚内热证','YXNRZ','',1,'Z',1214 FROM dual UNION all
+    select 42176,'ZYYR20','','阴虚热郁证','YXRYZ','',1,'Z',1214 FROM dual UNION all
+    select 42177,'ZYYR30','','阴虚热毒证','YXRDZ','',1,'Z',1214 FROM dual UNION all
+    select 42178,'ZYYS00','','阴暑证','YSZ','',1,'Z',1215 FROM dual UNION all
+    select 42179,'ZYYSA0','','阴虚肾亏证','YXSKZ','',1,'Z',1215 FROM dual UNION all
+    select 42180,'ZYYT10','','阴闭痰湿证','YBTSZ','',1,'Z',1217 FROM dual UNION all
+    select 42181,'ZYYT20','','阴虚痰热证','YXTRZ','',1,'Z',1217 FROM dual UNION all
+    select 42182,'ZYYT30','','阴虚痰火证','YXTHZ','',1,'Z',1217 FROM dual UNION all
+    select 42183,'ZYYU10','','阴虚火动证','YXHDZ','',1,'Z',1218 FROM dual UNION all
+    select 42184,'ZYYU20','','阴虚火浮证','YXHFZ','',1,'Z',1218 FROM dual UNION all
+    select 42185,'ZYYU30','','阴虚火旺证','YXHWZ','',1,'Z',1218 FROM dual UNION all
+    select 42186,'ZYYU31','','阴虚火炽证','YXHCZ','',1,'Z',1218 FROM dual UNION all
+    select 42187,'ZYYU40','','虚火上炎证','XHSYZ','',1,'Z',1218 FROM dual UNION all
+    select 42188,'ZYYU41','','虚火上浮证','XHSFZ','',1,'Z',1218 FROM dual UNION all
+    select 42189,'ZYYU50','','虚火灼络证','XHZLZ','',1,'Z',1218 FROM dual UNION all
+    select 42190,'ZYYV10','','阴伤气耗证','YSQHZ','',1,'Z',1213 FROM dual UNION all
+    select 42191,'ZYYX10','','阴虚邪恋证','YXXLZ','',1,'Z',1219 FROM dual UNION all
+    select 42192,'ZYYX11','','阴虚邪留证','YXXLZ','',1,'Z',1219 FROM dual UNION all
+    select 42193,'ZYYXA0','','阴虚血瘀证','YXXYZ','',1,'Z',1219 FROM dual UNION all
+    select 42194,'ZYYXB0','','阴虚血热证','YXXRZ','',1,'Z',1219 FROM dual UNION all
+    select 42195,'ZYYXC0','','阴虚血燥证','YXXZZ','',1,'Z',1219 FROM dual UNION all
+    select 42196,'ZYYZ10','','阴虚燥热证','YXZRZ','',1,'Z',1221 FROM dual UNION all
+    select 42197,'ZZF010','','肺脏亏虚证','FZKXZ','',1,'Z',1280 FROM dual UNION all
+    select 42198,'ZZF020','','肺失治节、水道不利证','FSZJASDBLZ','',1,'Z',1280 FROM dual UNION all
+    select 42199,'ZZF030','','肺虚不固证','FXBGZ','',1,'Z',1280 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42200,'ZZF040','','肺卫不固证','FWBGZ','',1,'Z',1280 FROM dual UNION all
+    select 42201,'ZZF041','','肺卫气虚证','FWQXZ','',1,'Z',1280 FROM dual UNION all
+    select 42202,'ZZF40','','肺肾阳虚证','FSYXZ','',1,'Z',1280 FROM dual UNION all
+    select 42203,'ZZFG10','','肺肝风热证','FGFRZ','',1,'Z',1281 FROM dual UNION all
+    select 42204,'ZZFG11','','肺肝风热、血热壅滞证','FGFRAXRYZZ','',1,'Z',1281 FROM dual UNION all
+    select 42205,'ZZFG20','','肝肺热盛证','GFRSZ','',1,'Z',1281 FROM dual UNION all
+    select 42206,'ZZFH10','','肺、寒证类','FAHZL','',1,'Z',1282 FROM dual UNION all
+    select 42207,'ZZFH20','','肺虚感寒证','FXGHZ','',1,'Z',1282 FROM dual UNION all
+    select 42208,'ZZFJ10','','肺经风热证','FJFRZ','',1,'Z',1284 FROM dual UNION all
+    select 42209,'ZZFJ20','','肺经热盛证','FJRSZ','',1,'Z',1284 FROM dual UNION all
+    select 42210,'ZZFJ30','','肺经受热证','FJSRZ','',1,'Z',1284 FROM dual UNION all
+    select 42211,'ZZFJ31','','肺经受热、痰湿凝滞证','FJSRATSNZZ','',1,'Z',1284 FROM dual UNION all
+    select 42212,'ZZFJ40','','肺经湿热证','FJSRZ','',1,'Z',1284 FROM dual UNION all
+    select 42213,'ZZFJ41','','肺经湿热、壅结鼻窍证','FJSRAYJBQZ','',1,'Z',1284 FROM dual UNION all
+    select 42214,'ZZFJ50','','肺经虚热证','FJXRZ','',1,'Z',1284 FROM dual UNION all
+    select 42215,'ZZFJ60','','肺经郁火证','FJYHZ','',1,'Z',1284 FROM dual UNION all
+    select 42216,'ZZFJ70','','肺经蕴热证','FJYRZ','',1,'Z',1284 FROM dual UNION all
+    select 42217,'ZZFJ71','','肺经蕴热、邪毒外袭证','FJYRAXDWXZ','',1,'Z',1284 FROM dual UNION all
+    select 42218,'ZZFJ80','','肺经燥热证','FJZRZ','',1,'Z',1284 FROM dual UNION all
+    select 42219,'ZZFJ90','','肺经瘀阻证','FJYZZ','',1,'Z',1284 FROM dual UNION all
+    select 42220,'ZZFJA0','','肺络不畅证','FLBCZ','',1,'Z',1284 FROM dual UNION all
+    select 42221,'ZZFJB0','','肠风伤络证','CFSLZ','',1,'Z',1284 FROM dual UNION all
+    select 42222,'ZZFJB1','','风伤肠络证','FSCLZ','',1,'Z',1284 FROM dual UNION all
+    select 42223,'ZZFM10','','肠道湿热证','CDSRZ','',1,'Z',1283 FROM dual UNION all
+    select 42224,'ZZFM11','','大肠湿热证','DCSRZ','',1,'Z',1283 FROM dual UNION all
+    select 42225,'ZZFP10','','肺脾两虚证','FPLXZ','',1,'Z',1285 FROM dual UNION all
+    select 42226,'ZZFP11','','肺脾两虚、邪滞鼻窍证','FPLXAXZBQZ','',1,'Z',1285 FROM dual UNION all
+    select 42227,'ZZFP20','','肺脾气虚证','FPQXZ','',1,'Z',1285 FROM dual UNION all
+    select 42228,'ZZFP30','','肺脾湿热证','FPSRZ','',1,'Z',1285 FROM dual UNION all
+    select 42229,'ZZFP40','','肺脾积热证','FPJRZ','',1,'Z',1285 FROM dual UNION all
+    select 42230,'ZZFP50','','肺胃热盛证','FWRSZ','',1,'Z',1285 FROM dual UNION all
+    select 42231,'ZZFP60','','肺胃积热证','FWJRZ','',1,'Z',1285 FROM dual UNION all
+    select 42232,'ZZFP61','','肺胃蕴热证','FWYRZ','',1,'Z',1285 FROM dual UNION all
+    select 42233,'ZZFP70','','肺胃实热证','FWSRZ','',1,'Z',1285 FROM dual UNION all
+    select 42234,'ZZFP80','','肺胃湿热证','FWSRZ','',1,'Z',1285 FROM dual UNION all
+    select 42235,'ZZFP90','','肺胃燥热证','FWZRZ','',1,'Z',1285 FROM dual UNION all
+    select 42236,'ZZFPA0','','肺胃阴伤证','FWYSZ','',1,'Z',1285 FROM dual UNION all
+    select 42237,'ZZFPB0','','肠胃湿热证','CWSRZ','',1,'Z',1285 FROM dual UNION all
+    select 42238,'ZZFPC0','','肠胃实热证','CWSRZ','',1,'Z',1285 FROM dual UNION all
+    select 42239,'ZZFR00','','肺热证','FRZ','',1,'Z',1287 FROM dual UNION all
+    select 42240,'ZZFR10','','肺热亢盛证','FRKSZ','',1,'Z',1287 FROM dual UNION all
+    select 42241,'ZZFR11','','肺热壅盛证','FRYSZ','',1,'Z',1287 FROM dual UNION all
+    select 42242,'ZZFR20','','肺热气壅证','FRQYZ','',1,'Z',1287 FROM dual UNION all
+    select 42243,'ZZFR30','','肺热津伤证','FRJSZ','',1,'Z',1287 FROM dual UNION all
+    select 42244,'ZZFR31','','肺热津伤、筋失濡润证','FRJSAJSRRZ','',1,'Z',1287 FROM dual UNION all
+    select 42245,'ZZFR40','','肺热失宣证','FRSXZ','',1,'Z',1287 FROM dual UNION all
+    select 42246,'ZZFR50','','肺热上郁证','FRSYZ','',1,'Z',1287 FROM dual UNION all
+    select 42247,'ZZFR60','','肺热下移证','FRXYZ','',1,'Z',1287 FROM dual UNION all
+    select 42248,'ZZFR70','','肺热血热证','FRXRZ','',1,'Z',1287 FROM dual UNION all
+    select 42249,'ZZFR80','','肺热血瘀证','FRXYZ','',1,'Z',1287 FROM dual UNION all
+    select 42250,'ZZFR90','','肺热移肠证','FRYCZ','',1,'Z',1287 FROM dual UNION all
+    select 42251,'ZZFRA0','','肺热发疹证','FRFZZ','',1,'Z',1287 FROM dual UNION all
+    select 42252,'ZZFRB0','','肠道实热证','CDSRZ','',1,'Z',1287 FROM dual UNION all
+    select 42253,'ZZFS10','','肺肾两虚证','FSLXZ','',1,'Z',1288 FROM dual UNION all
+    select 42254,'ZZFS20','','肺肾气虚证','FSQXZ','',1,'Z',1288 FROM dual UNION all
+    select 42255,'ZZFS30','','肺肾阴虚证','FSYXZ','',1,'Z',1288 FROM dual UNION all
+    select 42256,'ZZFV20','','肺氯虚寒证','FLXHZ','',1,'Z',1286 FROM dual UNION all
+    select 42257,'ZZFV30','','肺气郁痹证','FQYBZ','',1,'Z',1286 FROM dual UNION all
+    select 42258,'ZZFV40','','肠道气滞证','CDQZZ','',1,'Z',1286 FROM dual UNION all
+    select 42259,'ZZFX10','','肺虚邪滞证','FXXZZ','',1,'Z',1289 FROM dual UNION all
+    select 42260,'ZZFY10','','肺阴不足证','FYBZZ','',1,'Z',1290 FROM dual UNION all
+    select 42261,'ZZFY20','','肺阴亏虚证','FYKXZ','',1,'Z',1290 FROM dual UNION all
+    select 42262,'ZZFY21','','肺阴亏耗证','FYKHZ','',1,'Z',1290 FROM dual UNION all
+    select 42263,'ZZFY30','','肺阴伤证','FYSZ','',1,'Z',1290 FROM dual UNION all
+    select 42264,'ZZFY40','','肺阴火旺证','FYHWZ','',1,'Z',1290 FROM dual UNION all
+    select 42265,'ZZFZ00','','肺燥证','FZZ','',1,'Z',1291 FROM dual UNION all
+    select 42266,'ZZFZ10','','肺燥郁热证','FZYRZ','',1,'Z',1291 FROM dual UNION all
+    select 42267,'ZZFZ20','','肺燥伤阴证','FZSYZ','',1,'Z',1291 FROM dual UNION all
+    select 42268,'ZZFZ21','','肺燥津伤证','FZJSZ','',1,'Z',1291 FROM dual UNION all
+    select 42269,'ZZFZ30','','肺燥肠闭证','FZCBZ','',1,'Z',1291 FROM dual UNION all
+    select 42270,'ZZFZ40','','肺燥肠热证','FZCRZ','',1,'Z',1291 FROM dual UNION all
+    select 42271,'ZZFZ41','','肺燥肠热、络伤咳血证','FZCRALSKXZ','',1,'Z',1291 FROM dual UNION all
+    select 42272,'ZZFZ50','','肺虚燥证','FXZZ','',1,'Z',1291 FROM dual UNION all
+    select 42273,'ZZFZ60','','肠燥津伤证','CZJSZ','',1,'Z',1291 FROM dual UNION all
+    select 42274,'ZZG010','','肝郁证','GYZ','',1,'Z',1307 FROM dual UNION all
+    select 42275,'ZZG011','','肝郁不舒证','GYBSZ','',1,'Z',1307 FROM dual UNION all
+    select 42276,'ZZGA10','','肝阳暴亢证','GYBKZ','',1,'Z',1308 FROM dual UNION all
+    select 42277,'ZZGA11','','肝阳暴亢、风火上逆证','GYBKAFHSNZ','',1,'Z',1308 FROM dual UNION all
+    select 42278,'ZZGA12','','肝阳暴亢、风火上扰证','GYBKAFHSQZ','',1,'Z',1308 FROM dual UNION all
+    select 42279,'ZZGA20','','肝阳化风证','GYHFZ','',1,'Z',1308 FROM dual UNION all
+    select 42280,'ZZGA21','','肝阳化风、痰热上扰证','GYHFATRSQZ','',1,'Z',1308 FROM dual UNION all
+    select 42281,'ZZGA30','','肝阳上亢证','GYSKZ','',1,'Z',1308 FROM dual UNION all
+    select 42282,'ZZGA31','','肝阳上亢、脉络瘀阻证','GYSKAMLYZZ','',1,'Z',1308 FROM dual UNION all
+    select 42283,'ZZGA32','','肝阳上亢、痰邪阻窍证','GYSKATXZQZ','',1,'Z',1308 FROM dual UNION all
+    select 42284,'ZZGA40','','肝阳上扰证','GYSQZ','',1,'Z',1308 FROM dual UNION all
+    select 42285,'ZZGA50','','风阳内动证','FYNDZ','',1,'Z',1308 FROM dual UNION all
+    select 42286,'ZZGA60','','风阳痰火证','FYTHZ','',1,'Z',1308 FROM dual UNION all
+    select 42287,'ZZGF01','','肝风证','GFZ','',1,'Z',1309 FROM dual UNION all
+    select 42288,'ZZGF10','','肝风内动证','GFNDZ','',1,'Z',1309 FROM dual UNION all
+    select 42289,'ZZGF11','','肝风内动——风窜络脉证','GFNDAAFCLM','',1,'Z',1309 FROM dual UNION all
+    select 42290,'ZZGF12','','肝风内动——阴虚风动证','GFNDAAYXFD','',1,'Z',1309 FROM dual UNION all
+    select 42291,'ZZGF13','','虚风内动证','XFNDZ','',1,'Z',1309 FROM dual UNION all
+    select 42292,'ZZGF20','','肝风痰浊证','GFTZZ','',1,'Z',1309 FROM dual UNION all
+    select 42293,'ZZGJ10','','肝经风热证','GJFRZ','',1,'Z',1311 FROM dual UNION all
+    select 42294,'ZZGJ20','','肝经积热证','GJJRZ','',1,'Z',1311 FROM dual UNION all
+    select 42295,'ZZGJ30','','肝经热盛证','GJRSZ','',1,'Z',1311 FROM dual UNION all
+    select 42296,'ZZGJ40','','肝经郁热证','GJYRZ','',1,'Z',1311 FROM dual UNION all
+    select 42297,'ZZGJ50','','肝经火盛证','GJHSZ','',1,'Z',1311 FROM dual UNION all
+    select 42298,'ZZGJ60','','肝经郁火证','GJYHZ','',1,'Z',1311 FROM dual UNION all
+    select 42299,'ZZGJ70','','肝经湿热证','GJSRZ','',1,'Z',1311 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42300,'ZZGJ80','','胆经郁热证','DJYRZ','',1,'Z',1311 FROM dual UNION all
+    select 42301,'ZZGM10','','肝郁湿热证','GYSRZ','',1,'Z',1310 FROM dual UNION all
+    select 42302,'ZZGM20','','肝胆湿热证','GDSRZ','',1,'Z',1310 FROM dual UNION all
+    select 42303,'ZZGM21','','肝胆湿热上蒸证','GDSRSZZ','',1,'Z',1310 FROM dual UNION all
+    select 42304,'ZZGP10','','肝脾亏虚证','GPKXZ','',1,'Z',1312 FROM dual UNION all
+    select 42305,'ZZGP20','','肝脾两虚证','GPLXZ','',1,'Z',1312 FROM dual UNION all
+    select 42306,'ZZGP30','','肝脾气滞证','GPQZZ','',1,'Z',1312 FROM dual UNION all
+    select 42307,'ZZGP40','','肝脾湿热证','GPSRZ','',1,'Z',1312 FROM dual UNION all
+    select 42308,'ZZGP41','','肝脾湿火证','GPSHZ','',1,'Z',1312 FROM dual UNION all
+    select 42309,'ZZGP50','','肝脾血瘀证','GPXYZ','',1,'Z',1312 FROM dual UNION all
+    select 42310,'ZZGP60','','肝旺脾虚证','GWPXZ','',1,'Z',1312 FROM dual UNION all
+    select 42311,'ZZGP70','','肝旺脾困证','GWPKZ','',1,'Z',1312 FROM dual UNION all
+    select 42312,'ZZGP80','','肝胃不和证','GWBHZ','',1,'Z',1312 FROM dual UNION all
+    select 42313,'ZZGP90','','肝胃气滞证','GWQZZ','',1,'Z',1312 FROM dual UNION all
+    select 42314,'ZZGPA0','','肝胃虚寒证','GWXHZ','',1,'Z',1312 FROM dual UNION all
+    select 42315,'ZZGPA1','','肝胃虚寒、饮邪上犯证','GWXHAYXSFZ','',1,'Z',1312 FROM dual UNION all
+    select 42316,'ZZGPB0','','肝胃阴虚证','GWYXZ','',1,'Z',1312 FROM dual UNION all
+    select 42317,'ZZGPC0','','肝胃郁热证','GWYRZ','',1,'Z',1312 FROM dual UNION all
+    select 42318,'ZZGPD0','','肝郁脾虚证','GYPXZ','',1,'Z',1312 FROM dual UNION all
+    select 42319,'ZZGPE0','','肝木犯胃证','GMFWZ','',1,'Z',1312 FROM dual UNION all
+    select 42320,'ZZGR10','','肝热上扰证','GRSQZ','',1,'Z',1314 FROM dual UNION all
+    select 42321,'ZZGR20','','肝郁化热证','GYHRZ','',1,'Z',1314 FROM dual UNION all
+    select 42322,'ZZGR30','','肝胆热毒证','GDRDZ','',1,'Z',1314 FROM dual UNION all
+    select 42323,'ZZGR40','','肝胆郁热证','GDYRZ','',1,'Z',1314 FROM dual UNION all
+    select 42324,'ZZGR50','','肝郁胆热证','GYDRZ','',1,'Z',1314 FROM dual UNION all
+    select 42325,'ZZGR60','','胆腑郁热证','DFYRZ','',1,'Z',1314 FROM dual UNION all
+    select 42326,'ZZGR70','','胆热证','DRZ','',1,'Z',1314 FROM dual UNION all
+    select 42327,'ZZGS10','','肝肾不足证','GSBZZ','',1,'Z',1315 FROM dual UNION all
+    select 42328,'ZZGS11','','肝肾亏损证','GSKSZ','',1,'Z',1315 FROM dual UNION all
+    select 42329,'ZZGS20','','肝肾亏虚证','GSKXZ','',1,'Z',1315 FROM dual UNION all
+    select 42330,'ZZGS21','','肝肾亏虚、髓枯筋痿证','GSKXASKJWZ','',1,'Z',1315 FROM dual UNION all
+    select 42331,'ZZGS22','','肝肾亏虚、阴血不足证','GSKXAYXBZZ','',1,'Z',1315 FROM dual UNION all
+    select 42332,'ZZGS30','','肝肾两虚证','GSLXZ','',1,'Z',1315 FROM dual UNION all
+    select 42333,'ZZGS31','','肝肾两亏证','GSLKZ','',1,'Z',1315 FROM dual UNION all
+    select 42334,'ZZGS32','','肝肾两虚、约束无权证','GSLXAYSWQZ','',1,'Z',1315 FROM dual UNION all
+    select 42335,'ZZGS40','','肝肾阴虚证','GSYXZ','',1,'Z',1315 FROM dual UNION all
+    select 42336,'ZZGS41','','肝肾阴虚、风阳上扰证','GSYXAFYSQZ','',1,'Z',1315 FROM dual UNION all
+    select 42337,'ZZGS42','','肝肾阴虚、肝阳上亢证','GSYXAGYSKZ','',1,'Z',1315 FROM dual UNION all
+    select 42338,'ZZGS50','','肝郁肾虚证','GYSXZ','',1,'Z',1315 FROM dual UNION all
+    select 42339,'ZZGT10','','肝郁痰火证','GYTHZ','',1,'Z',1316 FROM dual UNION all
+    select 42340,'ZZGT20','','肝郁痰凝证','GYTNZ','',1,'Z',1316 FROM dual UNION all
+    select 42341,'ZZGU10','','肝火炽盛证','GHCSZ','',1,'Z',1317 FROM dual UNION all
+    select 42342,'ZZGU11','','肝火亢盛证','GHKSZ','',1,'Z',1317 FROM dual UNION all
+    select 42343,'ZZGU12','','肝火旺盛证','GHWSZ','',1,'Z',1317 FROM dual UNION all
+    select 42344,'ZZGU20','','肝火上炎证','GHSYZ','',1,'Z',1317 FROM dual UNION all
+    select 42345,'ZZGU21','','肝火上扰证','GHSQZ','',1,'Z',1317 FROM dual UNION all
+    select 42346,'ZZGU22','','肝火上扰清窍证','GHSQQQZ','',1,'Z',1317 FROM dual UNION all
+    select 42347,'ZZGU30','','肝火湿热证','GHSRZ','',1,'Z',1317 FROM dual UNION all
+    select 42348,'ZZGU31','','肝火湿热上攻证','GHSRSGZ','',1,'Z',1317 FROM dual UNION all
+    select 42349,'ZZGU40','','肝火痰热证','GHTRZ','',1,'Z',1317 FROM dual UNION all
+    select 42350,'ZZGU50','','肝火犯肺证','GHFFZ','',1,'Z',1317 FROM dual UNION all
+    select 42351,'ZZGU60','','肝火犯胃证','GHFWZ','',1,'Z',1317 FROM dual UNION all
+    select 42352,'ZZGU70','','肝火流筋证','GHLJZ','',1,'Z',1317 FROM dual UNION all
+    select 42353,'ZZGU80','','肝郁化火证','GYHHZ','',1,'Z',1317 FROM dual UNION all
+    select 42354,'ZZGU90','','肝郁火旺证','GYHWZ','',1,'Z',1317 FROM dual UNION all
+    select 42355,'ZZGUA0','','肝胆火炽证','GDHCZ','',1,'Z',1317 FROM dual UNION all
+    select 42356,'ZZGUA1','','肝胆火炽、风火攻目证','GDHCAFHGMZ','',1,'Z',1317 FROM dual UNION all
+    select 42357,'ZZGUB0','','肝胆火热证','GDHRZ','',1,'Z',1317 FROM dual UNION all
+    select 42358,'ZZGUC0','','肝胆火盛证','GDHSZ','',1,'Z',1317 FROM dual UNION all
+    select 42359,'ZZGUC1','','肝胆火盛、邪热外侵证','GDHSAXRWQZ','',1,'Z',1317 FROM dual UNION all
+    select 42360,'ZZGUD0','','肝胆火旺证','GDHWZ','',1,'Z',1317 FROM dual UNION all
+    select 42361,'ZZGUE0','','胆火上逆证','DHSNZ','',1,'Z',1317 FROM dual UNION all
+    select 42362,'ZZGV10','','肝气郁结证','GQYJZ','',1,'Z',1313 FROM dual UNION all
+    select 42363,'ZZGV11','','肝气郁结、气滞血瘀证','GQYJAQZXYZ','',1,'Z',1313 FROM dual UNION all
+    select 42364,'ZZGV12','','肝气郁滞证','GQYZZ','',1,'Z',1313 FROM dual UNION all
+    select 42365,'ZZGV20','','肝气乘脾证','GQCPZ','',1,'Z',1313 FROM dual UNION all
+    select 42366,'ZZGV30','','肝气犯胃证','GQFWZ','',1,'Z',1313 FROM dual UNION all
+    select 42367,'ZZGV40','','肝郁气滞证','GYQZZ','',1,'Z',1313 FROM dual UNION all
+    select 42368,'ZZGV41','','肝郁气滞、气火上逆证','GYQZAQHSNZ','',1,'Z',1313 FROM dual UNION all
+    select 42369,'ZZGV42','','肝郁气滞、痰浊阻络证','GYQZATZZLZ','',1,'Z',1313 FROM dual UNION all
+    select 42370,'ZZGX10','','肝血不足证','GXBZZ','',1,'Z',1318 FROM dual UNION all
+    select 42371,'ZZGX11','','肝血不足、风中脉络证','GXBZAFZMLZ','',1,'Z',1318 FROM dual UNION all
+    select 42372,'ZZGX12','','肝血不足、外感风邪证','GXBZAWGFXZ','',1,'Z',1318 FROM dual UNION all
+    select 42373,'ZZGX20','','肝血亏虚证','GXKXZ','',1,'Z',1318 FROM dual UNION all
+    select 42374,'ZZGX30','','肝郁血热证','GYXRZ','',1,'Z',1318 FROM dual UNION all
+    select 42375,'ZZGX40','','肝郁血虚证','GYXXZ','',1,'Z',1318 FROM dual UNION all
+    select 42376,'ZZGX50','','肝郁血瘀证','GYXYZ','',1,'Z',1318 FROM dual UNION all
+    select 42377,'ZZGX60','','肝胆瘀阻证','GDYZZ','',1,'Z',1318 FROM dual UNION all
+    select 42378,'ZZGY10','','肝阴不足证','GYBZZ','',1,'Z',1319 FROM dual UNION all
+    select 42379,'ZZGY20','','肝阴亏虚证','GYKXZ','',1,'Z',1319 FROM dual UNION all
+    select 42380,'ZZJ010','','冲任失调证','CRSDZ','',1,'Z',1330 FROM dual UNION all
+    select 42381,'ZZJ020','','络脉不和证','LMBHZ','',1,'Z',1330 FROM dual UNION all
+    select 42382,'ZZJ030','','络脉空虚证','LMKXZ','',1,'Z',1330 FROM dual UNION all
+    select 42383,'ZZJ031','','络脉空虚、风邪入中证','LMKXAFXRZZ','',1,'Z',1330 FROM dual UNION all
+    select 42384,'ZZJ040','','络脉破损证','LMPSZ','',1,'Z',1330 FROM dual UNION all
+    select 42385,'ZZJ050','','胸络不和证','XLBHZ','',1,'Z',1330 FROM dual UNION all
+    select 42386,'ZZJ060','','窍络被蒙证','QLBMZ','',1,'Z',1330 FROM dual UNION all
+    select 42387,'ZZJ070','','络气不和证','LQBHZ','',1,'Z',1330 FROM dual UNION all
+    select 42388,'ZZJX10','','络伤出血证','LSCXZ','',1,'Z',1331 FROM dual UNION all
+    select 42389,'ZZJX20','','伤络便血证','SLBXZ','',1,'Z',1331 FROM dual UNION all
+    select 42390,'ZZJX30','','经络瘀滞证','JLYZZ','',1,'Z',1331 FROM dual UNION all
+    select 42391,'ZZJX31','','经络瘀阻证','JLYZZ','',1,'Z',1331 FROM dual UNION all
+    select 42392,'ZZJX32','','经脉搏瘀阻证','JMBYZZ','',1,'Z',1331 FROM dual UNION all
+    select 42393,'ZZP010','','脾虚证','PXZ','',1,'Z',1292 FROM dual UNION all
+    select 42394,'ZZP020','','脾虚不摄证','PXBSZ','',1,'Z',1292 FROM dual UNION all
+    select 42395,'ZZP030','','脾虚不固证','PXBGZ','',1,'Z',1292 FROM dual UNION all
+    select 42396,'ZZP040','','脾虚失运证','PXSYZ','',1,'Z',1292 FROM dual UNION all
+    select 42397,'ZZP041','','脾虚失运、中气不足证','PXSYAZQBZZ','',1,'Z',1292 FROM dual UNION all
+    select 42398,'ZZP050','','脾虚中衰证','PXZSZ','',1,'Z',1292 FROM dual UNION all
+    select 42399,'ZZP051','','脾虚中衰、清阳不升证','PXZSAQYBSZ','',1,'Z',1292 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42400,'ZZP060','','脾失健运证','PSJYZ','',1,'Z',1292 FROM dual UNION all
+    select 42401,'ZZP061','','脾失健运、湿浊流注证','PSJYASZLZZ','',1,'Z',1292 FROM dual UNION all
+    select 42402,'ZZP070','','脾胃亏虚证','PWKXZ','',1,'Z',1292 FROM dual UNION all
+    select 42403,'ZZP071','','脾胃亏虚、肝阴不足证','PWKXAGYBZZ','',1,'Z',1292 FROM dual UNION all
+    select 42404,'ZZP072','','脾胃专虚、精微不运证','PWZXAJWBYZ','',1,'Z',1292 FROM dual UNION all
+    select 42405,'ZZP073','','脾胃专职虚、余湿未尽证','PWZZXAYSWJ','',1,'Z',1292 FROM dual UNION all
+    select 42406,'ZZP080','','脾胃虚弱证','PWXRZ','',1,'Z',1292 FROM dual UNION all
+    select 42407,'ZZP090','','脾胃失调证','PWSDZ','',1,'Z',1292 FROM dual UNION all
+    select 42408,'ZZP091','','脾胃失调、湿热郁蒸证','PWSDASRYZZ','',1,'Z',1292 FROM dual UNION all
+    select 42409,'ZZP092','','脾胃不和证','PWBHZ','',1,'Z',1292 FROM dual UNION all
+    select 42410,'ZZP100','','胃腑不和证','WFBHZ','',1,'Z',1292 FROM dual UNION all
+    select 42411,'ZZPA10','','脾阳不足证','PYBZZ','',1,'Z',1293 FROM dual UNION all
+    select 42412,'ZZPA20','','脾阳亏虚证','PYKXZ','',1,'Z',1293 FROM dual UNION all
+    select 42413,'ZZPA30','','脾阳虚衰证','PYXSZ','',1,'Z',1293 FROM dual UNION all
+    select 42414,'ZZPA40','','脾胃阳虚证','PWYXZ','',1,'Z',1293 FROM dual UNION all
+    select 42415,'ZZPA50','','脾阳不振证','PYBZZ','',1,'Z',1293 FROM dual UNION all
+    select 42416,'ZZPF10','','脾肺气虚证','PFQXZ','',1,'Z',1294 FROM dual UNION all
+    select 42417,'ZZPF11','','脾肺气虚、膀胱失约证','PFQXABGSYZ','',1,'Z',1294 FROM dual UNION all
+    select 42418,'ZZPF20','','胃肠积热证','WCJRZ','',1,'Z',1294 FROM dual UNION all
+    select 42419,'ZZPF30','','胃肠湿热证','WCSRZ','',1,'Z',1294 FROM dual UNION all
+    select 42420,'ZZPF40','','胃肠虚热证','WCXRZ','',1,'Z',1294 FROM dual UNION all
+    select 42421,'ZZPG10','','脾虚肝热证','PXGRZ','',1,'Z',1295 FROM dual UNION all
+    select 42422,'ZZPG20','','脾虚肝旺证','PXGWZ','',1,'Z',1295 FROM dual UNION all
+    select 42423,'ZZPH10','','胃寒证','WHZ','',1,'Z',1296 FROM dual UNION all
+    select 42424,'ZZPH20','','脾虚寒湿证','PXHSZ','',1,'Z',1296 FROM dual UNION all
+    select 42425,'ZZPH30','','脾胃虚寒证','PWXHZ','',1,'Z',1296 FROM dual UNION all
+    select 42426,'ZZPH40','','中焦虚寒证','ZJXHZ','',1,'Z',1296 FROM dual UNION all
+    select 42427,'ZZPH50','','中虚脏寒证','ZXZHZ','',1,'Z',1296 FROM dual UNION all
+    select 42428,'ZZPH60','','胃中寒冷证','WZHLZ','',1,'Z',1296 FROM dual UNION all
+    select 42429,'ZZPJ10','','脾经风热证','PJFRZ','',1,'Z',1298 FROM dual UNION all
+    select 42430,'ZZPJ20','','脾经湿热证','PJSRZ','',1,'Z',1298 FROM dual UNION all
+    select 42431,'ZZPJ30','','脾经血燥证','PJXZZ','',1,'Z',1298 FROM dual UNION all
+    select 42432,'ZZPM10','','脾虚湿蕴证','PXSYZ','',1,'Z',1297 FROM dual UNION all
+    select 42433,'ZZPM20','','脾虚湿泛证','PXSFZ','',1,'Z',1297 FROM dual UNION all
+    select 42434,'ZZPM30','','脾虚湿困证','PXSKZ','',1,'Z',1297 FROM dual UNION all
+    select 42435,'ZZPM31','','脾虚湿困、上犯耳窍证','PXSKASFEQZ','',1,'Z',1297 FROM dual UNION all
+    select 42436,'ZZPM32','','脾虚湿困、虚火上浮证','PXSKAXHSFZ','',1,'Z',1297 FROM dual UNION all
+    select 42437,'ZZPM40','','脾虚湿滞证','PXSZZ','',1,'Z',1297 FROM dual UNION all
+    select 42438,'ZZPM41','','脾虚湿阻证','PXSZZ','',1,'Z',1297 FROM dual UNION all
+    select 42439,'ZZPM50','','脾虚湿热证','PXSRZ','',1,'Z',1297 FROM dual UNION all
+    select 42440,'ZZPM60','','脾虚湿盛证','PXSSZ','',1,'Z',1297 FROM dual UNION all
+    select 42441,'ZZPM61','','脾虚湿盛、风痰阻络证','PXSSAFTZLZ','',1,'Z',1297 FROM dual UNION all
+    select 42442,'ZZPM70','','脾胃湿热证','PWSRZ','',1,'Z',1297 FROM dual UNION all
+    select 42443,'ZZPR10','','脾胃伏热证','PWFRZ','',1,'Z',1300 FROM dual UNION all
+    select 42444,'ZZPR20','','脾胃积热证','PWJRZ','',1,'Z',1300 FROM dual UNION all
+    select 42445,'ZZPR21','','脾胃积热、血热伤络证','PWJRAXRSLZ','',1,'Z',1300 FROM dual UNION all
+    select 42446,'ZZPR30','','脾胃热盛证','PWRSZ','',1,'Z',1300 FROM dual UNION all
+    select 42447,'ZZPR40','','脾胃实热证','PWSRZ','',1,'Z',1300 FROM dual UNION all
+    select 42448,'ZZPR50','','胃热证','WRZ','',1,'Z',1300 FROM dual UNION all
+    select 42449,'ZZPR60','','胃热炽盛证','WRCSZ','',1,'Z',1300 FROM dual UNION all
+    select 42450,'ZZPR61','','胃热壅盛证','WRYSZ','',1,'Z',1300 FROM dual UNION all
+    select 42451,'ZZPR70','','胃热薰蒸证','WRXZZ','',1,'Z',1300 FROM dual UNION all
+    select 42452,'ZZPR80','','胃热津亏证','WRJKZ','',1,'Z',1300 FROM dual UNION all
+    select 42453,'ZZPR90','','胃热阴虚证','WRYXZ','',1,'Z',1300 FROM dual UNION all
+    select 42454,'ZZPRA0','','胃热灼阴证','WRZYZ','',1,'Z',1300 FROM dual UNION all
+    select 42455,'ZZPRB0','','胃中积热证','WZJRZ','',1,'Z',1300 FROM dual UNION all
+    select 42456,'ZZPRB1','','胃中蕴热证','WZYRZ','',1,'Z',1300 FROM dual UNION all
+    select 42457,'ZZPRC0','','胃热滞脾证','WRZPZ','',1,'Z',1300 FROM dual UNION all
+    select 42458,'ZZPS10','','脾肾不固证','PSBGZ','',1,'Z',1301 FROM dual UNION all
+    select 42459,'ZZPS20','','脾肾不足证','PSBZZ','',1,'Z',1301 FROM dual UNION all
+    select 42460,'ZZPS30','','脾肾亏虚证','PSKXZ','',1,'Z',1301 FROM dual UNION all
+    select 42461,'ZZPS31','','脾肾亏虚、浊阴上逆证','PSKXAZYSNZ','',1,'Z',1301 FROM dual UNION all
+    select 42462,'ZZPS40','','脾肾两虚证ZZPS50、脾肾气虚证','PSLXZAPSQX','',1,'Z',1301 FROM dual UNION all
+    select 42463,'ZZPS60','','脾肾虚衰证','PSXSZ','',1,'Z',1301 FROM dual UNION all
+    select 42464,'ZZPS61','','脾肾虚弱证','PSXRZ','',1,'Z',1301 FROM dual UNION all
+    select 42465,'ZZPS70','','脾肾阳衰证','PSYSZ','',1,'Z',1301 FROM dual UNION all
+    select 42466,'ZZPS80','','脾肾阳虚证','PSYXZ','',1,'Z',1301 FROM dual UNION all
+    select 42467,'ZZPS90','','脾肾阴虚证','PSYXZ','',1,'Z',1301 FROM dual UNION all
+    select 42468,'ZZPT10','','脾虚痰湿证','PXTSZ','',1,'Z',1302 FROM dual UNION all
+    select 42469,'ZZPT11','','脾虚痰湿、风邪犯耳证','PXTSAFXFEZ','',1,'Z',1302 FROM dual UNION all
+    select 42470,'ZZPT20','','脾虚痰盛证','PXTSZ','',1,'Z',1302 FROM dual UNION all
+    select 42471,'ZZPT30','','脾虚痰阻证','PXTZZ','',1,'Z',1302 FROM dual UNION all
+    select 42472,'ZZPT40','','脾虚痰浊证','PXTZZ','',1,'Z',1302 FROM dual UNION all
+    select 42473,'ZZPT50','','脾虚水泛证','PXSFZ','',1,'Z',1302 FROM dual UNION all
+    select 42474,'ZZPT60','','脾虚水困证','PXSKZ','',1,'Z',1302 FROM dual UNION all
+    select 42475,'ZZPU10','','脾虚火旺证','PXHWZ','',1,'Z',1303 FROM dual UNION all
+    select 42476,'ZZPU20','','脾胃火毒证','PWHDZ','',1,'Z',1303 FROM dual UNION all
+    select 42477,'ZZPU30','','胃火上逆证','WHSNZ','',1,'Z',1303 FROM dual UNION all
+    select 42478,'ZZPU40','','胃火炽盛证','WHCSZ','',1,'Z',1303 FROM dual UNION all
+    select 42479,'ZZPV10','','脾气不足证','PQBZZ','',1,'Z',1299 FROM dual UNION all
+    select 42480,'ZZPV11','','脾气不足、胃阴损伤证ZZPV20、脾气亏虚证','PQBZAWYSSZ','',1,'Z',1299 FROM dual UNION all
+    select 42481,'ZZPV30','','脾虚气弱证','PXQRZ','',1,'Z',1299 FROM dual UNION all
+    select 42482,'ZZPV40','','脾虚气陷证','PXQXZ','',1,'Z',1299 FROM dual UNION all
+    select 42483,'ZZPV50','','脾气不升证','PQBSZ','',1,'Z',1299 FROM dual UNION all
+    select 42484,'ZZPV60','','脾胃气虚证','PWQXZ','',1,'Z',1299 FROM dual UNION all
+    select 42485,'ZZPV70','','胃气不和证','WQBHZ','',1,'Z',1299 FROM dual UNION all
+    select 42486,'ZZPV71','','胃气失和证','WQSHZ','',1,'Z',1299 FROM dual UNION all
+    select 42487,'ZZPV80','','胃气虚败证','WQXBZ','',1,'Z',1299 FROM dual UNION all
+    select 42488,'ZZPX10','','脾不统血证','PBTXZ','',1,'Z',1304 FROM dual UNION all
+    select 42489,'ZZPX20','','脾虚血亏证','PXXKZ','',1,'Z',1304 FROM dual UNION all
+    select 42490,'ZZPX30','','脾虚血燥证','PXXZZ','',1,'Z',1304 FROM dual UNION all
+    select 42491,'ZZPY10','','脾胃阴虚证','PWYXZ','',1,'Z',1305 FROM dual UNION all
+    select 42492,'ZZPY20','','胃阴不足证','WYBZZ','',1,'Z',1305 FROM dual UNION all
+    select 42493,'ZZPY30','','胃阴亏虚证','WYKXZ','',1,'Z',1305 FROM dual UNION all
+    select 42494,'ZZPZ00','','脾燥证','PZZ','',1,'Z',1306 FROM dual UNION all
+    select 42495,'ZZPZ10','','胃燥津伤证','WZJSZ','',1,'Z',1306 FROM dual UNION all
+    select 42496,'ZZPZ20','','胃燥血虚证','WZXXZ','',1,'Z',1306 FROM dual UNION all
+    select 42497,'ZZS010','','肾精不足证','SJBZZ','',1,'Z',1320 FROM dual UNION all
+    select 42498,'ZZS011','','肾精亏耗证','SJKHZ','',1,'Z',1320 FROM dual UNION all
+    select 42499,'ZZS012','','肾精亏损证','SJKSZ','',1,'Z',1320 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42500,'ZZS020','','肾精亏虚证','SJKXZ','',1,'Z',1320 FROM dual UNION all
+    select 42501,'ZZS030','','肾虚证','SXZ','',1,'Z',1320 FROM dual UNION all
+    select 42502,'ZZS040','','肾虚精亏证','SXJKZ','',1,'Z',1320 FROM dual UNION all
+    select 42503,'ZZS050','','肾虚不固证','SXBGZ','',1,'Z',1320 FROM dual UNION all
+    select 42504,'ZZS051','','肾虚失约证','SXSYZ','',1,'Z',1320 FROM dual UNION all
+    select 42505,'ZZS052','','肾虚不固——阳虚证','SXBGAAYXZ','',1,'Z',1320 FROM dual UNION all
+    select 42506,'ZZS053','','肾虚不固——阴虚证','SXBGAAYXZ','',1,'Z',1320 FROM dual UNION all
+    select 42507,'ZZS060','','肾虚骨弱证','SXGRZ','',1,'Z',1320 FROM dual UNION all
+    select 42508,'ZZS070','','肾虚滑脱证','SXHWZ','',1,'Z',1320 FROM dual UNION all
+    select 42509,'ZZS071','','肾虚滑脱、精关不固证','SXHWAJGBGZ','',1,'Z',1320 FROM dual UNION all
+    select 42510,'ZZS080','','肾虚髓亏证','SXSKZ','',1,'Z',1320 FROM dual UNION all
+    select 42511,'ZZS081','','肾虚髓减证','SXSJZ','',1,'Z',1320 FROM dual UNION all
+    select 42512,'ZZS090','','肾元不足证','SYBZZ','',1,'Z',1320 FROM dual UNION all
+    select 42513,'ZZS091','','肾元不足、内风暗煽证','SYBZANFASZ','',1,'Z',1320 FROM dual UNION all
+    select 42514,'ZZS100','','肾元亏虚证','SYKXZ','',1,'Z',1320 FROM dual UNION all
+    select 42515,'ZZS101','','肾元亏虚、邪毒停聚证','SYKXAXDTJZ','',1,'Z',1320 FROM dual UNION all
+    select 42516,'ZZS110','','膀胱损伤证','BGSSZ','',1,'Z',1320 FROM dual UNION all
+    select 42517,'ZZS120','','膀胱虚冷证','BGXLZ','',1,'Z',1320 FROM dual UNION all
+    select 42518,'ZZSA10','','肾阳不足证','SYBZZ','',1,'Z',1321 FROM dual UNION all
+    select 42519,'ZZSA11','','肾阳不足、气化无权证','SYBZAQHWQZ','',1,'Z',1321 FROM dual UNION all
+    select 42520,'ZZSA20','','肾阳亏虚证','SYKXZ','',1,'Z',1321 FROM dual UNION all
+    select 42521,'ZZSA30','','肾阳虚损证','SYXSZ','',1,'Z',1321 FROM dual UNION all
+    select 42522,'ZZSA40','','肾阳虚衰证','SYXSZ','',1,'Z',1321 FROM dual UNION all
+    select 42523,'ZZSA41','','肾阳衰惫证','SYSBZ','',1,'Z',1321 FROM dual UNION all
+    select 42524,'ZZSA42','','肾阳衰微证','SYSWZ','',1,'Z',1321 FROM dual UNION all
+    select 42525,'ZZSA50','','命门火衰证','MMHSZ','',1,'Z',1321 FROM dual UNION all
+    select 42526,'ZZSA51','','命门火衰、脾阳不足证','MMHSAPYBZZ','',1,'Z',1321 FROM dual UNION all
+    select 42527,'ZZSG10','','肾虚肝亢证','SXGKZ','',1,'Z',1322 FROM dual UNION all
+    select 42528,'ZZSH10','','肾虚寒凝证','SXHNZ','',1,'Z',1323 FROM dual UNION all
+    select 42529,'ZZSH20','','肾虚寒湿证','SXHSZ','',1,'Z',1323 FROM dual UNION all
+    select 42530,'ZZSH30','','肾虚寒痰证','SXHTZ','',1,'Z',1323 FROM dual UNION all
+    select 42531,'ZZSH40','','下元虚寒证','XYXHZ','',1,'Z',1323 FROM dual UNION all
+    select 42532,'ZZSH41','','下元虚寒、肾气不足证','XYXHASQBZZ','',1,'Z',1323 FROM dual UNION all
+    select 42533,'ZZSM10','','肾虚湿热证','SXSRZ','',1,'Z',1324 FROM dual UNION all
+    select 42534,'ZZSM20','','膀胱湿热证','BGSRZ','',1,'Z',1324 FROM dual UNION all
+    select 42535,'ZZSR10','','肾虚内热证','SXNRZ','',1,'Z',1326 FROM dual UNION all
+    select 42536,'ZZSR20','','肾虚髓热证','SXSRZ','',1,'Z',1326 FROM dual UNION all
+    select 42537,'ZZST10','','肾虚水泛证','SXSFZ','',1,'Z',1327 FROM dual UNION all
+    select 42538,'ZZSU10','','肾虚火旺证','SXHWZ','',1,'Z',1328 FROM dual UNION all
+    select 42539,'ZZSU20','','相火炽盛证','XHCSZ','',1,'Z',1328 FROM dual UNION all
+    select 42540,'ZZSU30','','相火上炎证','XHSYZ','',1,'Z',1328 FROM dual UNION all
+    select 42541,'ZZSU40','','君相火动证','JXHDZ','',1,'Z',1328 FROM dual UNION all
+    select 42542,'ZZSU41','','君相火动、心肾不交证','JXHDAXSBJZ','',1,'Z',1328 FROM dual UNION all
+    select 42543,'ZZSU42','','君相火旺证','JXHWZ','',1,'Z',1328 FROM dual UNION all
+    select 42544,'ZZSV10','','肾气不足证','SQBZZ','',1,'Z',1325 FROM dual UNION all
+    select 42545,'ZZSV11','','肾气不充证','SQBCZ','',1,'Z',1325 FROM dual UNION all
+    select 42546,'ZZSV20','','肾气亏虚证','SQKXZ','',1,'Z',1325 FROM dual UNION all
+    select 42547,'ZZSV21','','肾气亏虚——阴虚证','SQKXAAYXZ','',1,'Z',1325 FROM dual UNION all
+    select 42548,'ZZSV22','','肾气亏虚——阳虚证','SQKXAAYXZ','',1,'Z',1325 FROM dual UNION all
+    select 42549,'ZZSV30','','肾气衰微证','SQSWZ','',1,'Z',1325 FROM dual UNION all
+    select 42550,'ZZSV40','','肾气不固证','SQBGZ','',1,'Z',1325 FROM dual UNION all
+    select 42551,'ZZSV50','','肾气不摄证','SQBSZ','',1,'Z',1325 FROM dual UNION all
+    select 42552,'ZZSV60','','肾不纳气证','SBNQZ','',1,'Z',1325 FROM dual UNION all
+    select 42553,'ZZSY10','','肾阴不足证','SYBZZ','',1,'Z',1329 FROM dual UNION all
+    select 42554,'ZZSY11','','肾阴不足、水液不利证','SYBZASYBLZ','',1,'Z',1329 FROM dual UNION all
+    select 42555,'ZZSY20','','肾阴亏虚证','SYKXZ','',1,'Z',1329 FROM dual UNION all
+    select 42556,'ZZSY30','','肾阴耗损证','SYHSZ','',1,'Z',1329 FROM dual UNION all
+    select 42557,'ZZSY31','','肾阴虚损证','SYXSZ','',1,'Z',1329 FROM dual UNION all
+    select 42558,'ZZX010','','心神不宁证','XSBNZ','',1,'Z',1269 FROM dual UNION all
+    select 42559,'ZZX020','','心神惑乱证','XSHLZ','',1,'Z',1269 FROM dual UNION all
+    select 42560,'ZZX030','','素体不足、劳心过度证','STBZALXGDZ','',1,'Z',1269 FROM dual UNION all
+    select 42561,'ZZXA10','','心阳不足证','XYBZZ','',1,'Z',1270 FROM dual UNION all
+    select 42562,'ZZXA20','','心阳亏虚证','XYKXZ','',1,'Z',1270 FROM dual UNION all
+    select 42563,'ZZXA30','','心阳虚衰证','XYXSZ','',1,'Z',1270 FROM dual UNION all
+    select 42564,'ZZXA40','','心阳不振证','XYBZZ','',1,'Z',1270 FROM dual UNION all
+    select 42565,'ZZXA50','','心阳欲脱证','XYYWZ','',1,'Z',1270 FROM dual UNION all
+    select 42566,'ZZXA60','','心阳暴脱证','XYBWZ','',1,'Z',1270 FROM dual UNION all
+    select 42567,'ZZXF10','','心肺风热证','XFFRZ','',1,'Z',1271 FROM dual UNION all
+    select 42568,'ZZXF20','','心肺热毒证','XFRDZ','',1,'Z',1271 FROM dual UNION all
+    select 42569,'ZZXF30','','心肺郁热证','XFYRZ','',1,'Z',1271 FROM dual UNION all
+    select 42570,'ZZXF40','','心肺气虚证','XFQXZ','',1,'Z',1271 FROM dual UNION all
+    select 42571,'ZZXF50','','心肺阴虚证','XFYXZ','',1,'Z',1271 FROM dual UNION all
+    select 42572,'ZZXG10','','心肝风火证','XGFHZ','',1,'Z',1272 FROM dual UNION all
+    select 42573,'ZZXG20','','心肝热炽证','XGRCZ','',1,'Z',1272 FROM dual UNION all
+    select 42574,'ZZXG21','','心肝热炽、热壅血瘀证','XGRCARYXYZ','',1,'Z',1272 FROM dual UNION all
+    select 42575,'ZZXG30','','心肝阴虚证','XGYXZ','',1,'Z',1272 FROM dual UNION all
+    select 42576,'ZZXG40','','心胆气虚证','XDQXZ','',1,'Z',1272 FROM dual UNION all
+    select 42577,'ZZXG50','','心虚胆怯证','XXDQZ','',1,'Z',1272 FROM dual UNION all
+    select 42578,'ZZXJ10','','心经积热证','XJJRZ','',1,'Z',1273 FROM dual UNION all
+    select 42579,'ZZXJ20','','心经火盛证','XJHSZ','',1,'Z',1273 FROM dual UNION all
+    select 42580,'ZZXJ30','','心经实火证','XJSHZ','',1,'Z',1273 FROM dual UNION all
+    select 42581,'ZZXJ40','','心经虚火证','XJXHZ','',1,'Z',1273 FROM dual UNION all
+    select 42582,'ZZXJ50','','心脉搏痹阻证','XMBBZZ','',1,'Z',1273 FROM dual UNION all
+    select 42583,'ZZXP10','','心脾风热证','XPFRZ','',1,'Z',1274 FROM dual UNION all
+    select 42584,'ZZXP20','','心脾火炽证','XPHCZ','',1,'Z',1274 FROM dual UNION all
+    select 42585,'ZZXP30','','心脾火郁证','XPHYZ','',1,'Z',1274 FROM dual UNION all
+    select 42586,'ZZXP40','','心脾积热证','XPJRZ','',1,'Z',1274 FROM dual UNION all
+    select 42587,'ZZXP41','','心脾积热、循经上炎证','XPJRAXJSYZ','',1,'Z',1274 FROM dual UNION all
+    select 42588,'ZZXP50','','心脾亏虚证','XPKXZ','',1,'Z',1274 FROM dual UNION all
+    select 42589,'ZZXP60','','心脾两虚证','XPLXZ','',1,'Z',1274 FROM dual UNION all
+    select 42590,'ZZXP61','','心脾两虚、虚风动越证','XPLXAXFDYZ','',1,'Z',1274 FROM dual UNION all
+    select 42591,'ZZXP70','','心脾气虚证','XPQXZ','',1,'Z',1274 FROM dual UNION all
+    select 42592,'ZZXP80','','心脾血虚证','XPXXZ','',1,'Z',1274 FROM dual UNION all
+    select 42593,'ZZXP90','','心脾湿热证','XPSRZ','',1,'Z',1274 FROM dual UNION all
+    select 42594,'ZZXPA0','','心脾受损证','XPSSZ','',1,'Z',1274 FROM dual UNION all
+    select 42595,'ZZXPB0','','心脾郁热证','XPYRZ','',1,'Z',1274 FROM dual UNION all
+    select 42596,'ZZXPC0','','劳伤心脾证','LSXPZ','',1,'Z',1274 FROM dual UNION all
+    select 42597,'ZZXPC1','','劳伤心脾、气不摄精证','LSXPAQBSJZ','',1,'Z',1274 FROM dual UNION all
+    select 42598,'ZZXS10','','心肾不交证','XSBJZ','',1,'Z',1276 FROM dual UNION all
+    select 42599,'ZZXS20','','心肾亏虚证','XSKXZ','',1,'Z',1276 FROM dual;
+
+Insert Into 疾病编码目录 (ID,编码,附码,名称,简码,说明,序号,类别,分类ID)
+    select 42600,'ZZXS30','','心肾气虚证','XSQXZ','',1,'Z',1276 FROM dual UNION all
+    select 42601,'ZZXS40','','心肾阳虚证','XSYXZ','',1,'Z',1276 FROM dual UNION all
+    select 42602,'ZZXS50','','心肾阴虚证','XSYXZ','',1,'Z',1276 FROM dual UNION all
+    select 42603,'ZZXU10','','心火炽盛证','XHCSZ','',1,'Z',1277 FROM dual UNION all
+    select 42604,'ZZXU11','','心火偏亢证','XHPKZ','',1,'Z',1277 FROM dual UNION all
+    select 42605,'ZZXU20','','心火上炎证','XHSYZ','',1,'Z',1277 FROM dual UNION all
+    select 42606,'ZZXV10','','心气不足证','XQBZZ','',1,'Z',1275 FROM dual UNION all
+    select 42607,'ZZXV20','','心气亏虚证','XQKXZ','',1,'Z',1275 FROM dual UNION all
+    select 42608,'ZZXX10','','心血不足证','XXBZZ','',1,'Z',1278 FROM dual UNION all
+    select 42609,'ZZXX20','','心血亏虚证','XXKXZ','',1,'Z',1278 FROM dual UNION all
+    select 42610,'ZZXX30','','心血瘀阻证','XXYZZ','',1,'Z',1278 FROM dual UNION all
+    select 42611,'ZZXX40','','心脉搏瘀阻证','XMBYZZ','',1,'Z',1278 FROM dual UNION all
+    select 42612,'ZZXX50','','心虚血少证','XXXSZ','',1,'Z',1278 FROM dual UNION all
+    select 42613,'ZZXY10','','心阴不足证','XYBZZ','',1,'Z',1279 FROM dual UNION all
+    select 42614,'ZZXY20','','心阴亏虚证','XYKXZ','',1,'Z',1279 FROM dual UNION all
+    select 42615,'ZZXY21','','心阴亏损证','XYKSZ','',1,'Z',1279 FROM dual UNION all
+    select 42616,'ZZXY22','','心营亏虚证','XYKXZ','',1,'Z',1279 FROM dual UNION all
+    select 42617,'ZZXY30','','心营耗损证','XYHSZ','',1,'Z',1279 FROM dual UNION all
+    select 42618,'ZZXY31','','心营耗损、肝肾不足证','XYHSAGSBZZ','',1,'Z',1279 FROM dual;
+
+--补充五笔码
+Update 疾病编码目录 Set 五笔码 = ZLTOOLS.zlWbCode(名称, 20);

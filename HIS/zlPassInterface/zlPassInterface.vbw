@@ -1,0 +1,16 @@
+mdlPass = 175, 175, 922, 624, Z
+mdlPublic = 100, 100, 991, 549, 
+mdlPassDefine_MK = 0, 0, 0, 0, C
+mdlPassDefine_DT = 0, 0, 0, 0, C
+mdlPassDefine_TYT = 0, 0, 0, 0, C
+mdlPassDefine_YWS = 0, 0, 0, 0, C
+clsPassDefine_TYT = 0, 0, 0, 0, C
+clsPassDefine_YWS = 0, 0, 0, 0, C
+clsPatient = 0, 0, 0, 0, C
+clsPass = 125, 125, 980, 574, 
+clsPassMap = 0, 0, 0, 0, C
+clsVSCOL = 0, 0, 0, 0, C
+clsDiagItem = 0, 0, 0, 0, C
+clsDiags = 0, 0, 0, 0, C
+frmPhysicalSel = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmIcons = 0, 0, 0, 0, C, 0, 0, 0, 0, C

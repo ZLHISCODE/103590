@@ -1,0 +1,5 @@
+仪器设置
+手工发送:
+F8 setup =>Communications=>Send&Receive Operations=>
+Send Result=>在SID中输入标本号,Apply to 中选 Current result only
+按Send Reult 发送 

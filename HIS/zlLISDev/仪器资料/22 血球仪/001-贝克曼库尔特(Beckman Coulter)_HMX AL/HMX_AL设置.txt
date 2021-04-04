@@ -1,0 +1,24 @@
+9－25针标准线，然后25针端加上：4-5短接；6－20短接 
+仪器端设定时，必须设定不要应答。
+
+
+仪器设置：
+主菜单-->"special functions"-->"setup"-->"system setup"-->"Communication def"(输入密码:super)-->"Host computer definition"如下设置：
+STK 2A Host Mode:	no		Overall Retics:		Yes
+Time out:		9		DF5:			No
+Baud rate:		9600		DF6:			No
+parity:			None		
+Stop bits:		1		Enable Spooler:		Yes
+Handshake:		None		Replace Null bysp:	No
+Block size:		256
+
+DF1:			Yes
+DF2:			No
+VCS histograms:		Yes
+RBC histogram:		Yes
+PLT histogram:		Yes
+
+运行时打开或关闭通讯：主菜单-->F5弹出选单，选择Host，按F6可关闭或打开Host
+
+数据手工发送：
+必须仪器在停止(Standby)状态，按下Ctrl+F9可以使机器停下，第一菜单下：可能是Database Log下,右边出现选单，输入时间或变本号的范围，按F8就能列出所选范围内的标本，按F7单个选中或F8全选所要发送的标本，按F5确认-->按F8发送!!

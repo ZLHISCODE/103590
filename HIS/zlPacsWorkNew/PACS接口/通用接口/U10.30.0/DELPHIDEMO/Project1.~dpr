@@ -1,0 +1,15 @@
+program Project1;
+
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' {Form1},
+  zlPacsInterface_TLB in 'D:\Program Files\Borland\Delphi7\Imports\zlPacsInterface_TLB.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'Pacs接口测试工具';
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

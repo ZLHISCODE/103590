@@ -1,0 +1,4 @@
+// Icons for this application
+WORDDOC		ICON    MOVEABLE        PRELOAD         WordDoc.ico
+WORD		ICON    MOVEABLE        PRELOAD         Word.ico
+PICTRUES	ICON	MOVEABLE		PRELOAD			Pictures.ico

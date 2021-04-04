@@ -1,0 +1,5 @@
+mdlLedVoice = 66, 66, 662, 419, C
+frmSetting = 88, 88, 684, 441, C, 22, 22, 618, 375, C
+frmDisplay = 86, 83, 603, 436, C, 37, 65, 633, 418, C
+mdlSwfFlash = 161, 161, 1080, 674, C
+ClsLedVoice = 44, 44, 640, 397, C

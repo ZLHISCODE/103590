@@ -1,0 +1,13 @@
+[History]
+1=#P0#=mb	#P1#=LogSourceToString	#P2#=zlLisComPrint/mdlPubLog/LogSourceToString	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621105725	#P7#=0	#P8#=13	.
+2=#P0#=mb	#P1#=ShowLog	#P2#=zlLisComPrint/mdlPubLog/ShowLog	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621105618	#P7#=0	#P8#=4	.
+3=#P0#=mb	#P1#=ReportPrint	#P2#=zlLisComPrint/mdlPrint/ReportPrint	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621105946	#P7#=0	#P8#=33	.
+4=#P0#=mb	#P1#=GetReportCode	#P2#=zlLisComPrint/mdlPrint/GetReportCode	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621133853	#P7#=0	#P8#=32	.
+5=#P0#=mb	#P1#=ReadSampleImage	#P2#=zlLisComPrint/mdlImage/ReadSampleImage	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621111020	#P7#=0	#P8#=50	.
+6=#P0#=mb	#P1#=zlGetPrintList	#P2#=zlLisComPrint/clsComPrint/zlGetPrintList	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621141641	#P7#=0	#P8#=33	.
+7=#P0#=mb	#P1#=zlPrintReport	#P2#=zlLisComPrint/clsComPrint/zlPrintReport	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621110449	#P7#=0	#P8#=11	.
+8=#P0#=mb	#P1#=UpdateKey	#P2#=zlLisComPrint/mdlLogin/UpdateKey	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120620152441	#P7#=0	#P8#=0	.
+9=#P0#=mb	#P1#=OraDataOpen	#P2#=zlLisComPrint/mdlLogin/OraDataOpen	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621110325	#P7#=0	#P8#=52	.
+10=#P0#=mb	#P1#=zlLogin	#P2#=zlLisComPrint/clsComPrint/zlLogin	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621111242	#P7#=0	#P8#=0	.
+11=#P0#=mb	#P1#=ComInitComLib	#P2#=zlLisComPrint/mdlPubComLib/ComInitComLib	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120620150446	#P7#=0	#P8#=36	.
+12=#P0#=mb	#P1#=zlLoginOut	#P2#=zlLisComPrint/clsComPrint/zlLoginOut	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20120621111113	#P7#=0	#P8#=0	.

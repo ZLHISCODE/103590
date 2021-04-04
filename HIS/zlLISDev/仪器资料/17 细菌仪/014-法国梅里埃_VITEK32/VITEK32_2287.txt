@@ -1,0 +1,98 @@
+Port opened by process "Viteck32.exe" (PID: 1576)
+
+Port closed
+
+Port opened by process "Viteck32.exe" (PID: 1576)
+
+Answer: 2008-8-19 16:29:51.77764
+
+ 05                                                .               
+
+Request: 2008-8-19 16:29:52.27764 (+0.5000 seconds)
+
+ 06                                                .               
+
+Answer: 2008-8-19 16:29:52.73064 (+0.4531 seconds)
+
+ 02 1E 6D 74 72 73 6C 7C 70 69 32 30 30 38 30 38   ..mtrsl|pi200808
+ 31 39 7C 73 69 7C 63 69 30 30 32 32 38 37 7C 72   19|si|ci002287|r
+ 74 67 6E 73 2D 31 34 33 7C 72 6E 47 72 61 6D 20   tgns-143|rnGram 
+ 4E 65 67 61 74 69 76 65 20 47 65 6E 65 72 61 6C   Negative General
+ 20 53 75 73 63 65 70 74 69 62 69 6C 69 74 79 20    Susceptibility 
+ 31 34 1E 33 7C 72 72 31 7C 74 32 53 55 7C 74 31   14.3|rr1|t2SU|t1
+ 30 7C 6F 31 65 6E 74 61 65 72 7C 6F 32 45 6E 74   0|o1entaer|o2Ent
+ 65 72 6F 62 61 63 74 65 72 20 61 65 72 6F 67 65   erobacter aeroge
+ 6E 65 73 7C 61 31 61 6D 7C 61 32 41 6D 70 69 63   nes|a1am|a2Ampic
+ 69 6C 6C 69 6E 7C 61 33 3E 3D 33 32 7C 61 34 52   illin|a3>=32|a4R
+ 7C 61 31 1E 61 6D 73 7C 61 32 41 6D 70 69 63 69   |a1.ams|a2Ampici
+ 6C 6C 69 6E 2F 73 75 6C 62 61 63 74 61 6D 7C 61   llin/sulbactam|a
+ 33 3E 3D 33 32 7C 61 34 52 7C 61 31 61 7A 6D 7C   3>=32|a4R|a1azm|
+ 61 32 41 7A 74 72 65 6F 6E 61 6D 7C 61 33 31 36   a2Aztreonam|a316
+ 7C 61 34 49 7C 61 31 63 7A 7C 61 32 43 65 66 61   |a4I|a1cz|a2Cefa
+ 7A 6F 6C 69 1E 6E 7C 61 33 3E 3D 33 32 7C 61 34   zoli.n|a3>=32|a4
+ 52 7C 61 31 66 65 70 7C 61 32 43 65 66 65 70 69   R|a1fep|a2Cefepi
+ 6D 65 7C 61 33 3E 3D 33 32 7C 61 34 52 7C 61 31   me|a3>=32|a4R|a1
+ 74 61 7A 7C 61 32 43 65 66 74 61 7A 69 64 69 6D   taz|a2Ceftazidim
+ 65 7C 61 33 31 36 7C 61 34 49 7C 61 31 63 74 72   e|a316|a4I|a1ctr
+ 7C 61 32 43 65 1E 66 74 72 69 61 78 6F 6E 65 7C   |a2Ce.ftriaxone|
+ 61 33 3E 3D 36 34 7C 61 34 52 7C 61 31 63 69 70   a3>=64|a4R|a1cip
+ 7C 61 32 43 69 70 72 6F 66 6C 6F 78 61 63 69 6E   |a2Ciprofloxacin
+ 7C 61 33 3C 3D 30 2E 35 7C 61 34 53 7C 61 31 67   |a3<=0.5|a4S|a1g
+ 6D 7C 61 32 47 65 6E 74 61 6D 69 63 69 6E 7C 61   m|a2Gentamicin|a
+ 33 3C 3D 30 2E 35 1E 7C 61 34 53 7C 61 31 69 6D   3<=0.5.|a4S|a1im
+ 69 7C 61 32 49 6D 69 70                           i|a2Imip        
+
+Request: 2008-8-19 16:29:52.73064 (+0.0000 seconds)
+
+ 06                                                .               
+
+Answer: 2008-8-19 16:29:52.01264 (+0.2813 seconds)
+
+ 65 6E 65 6D 7C 61 33 3C 3D 34 7C 61 34 53 7C 61   enem|a3<=4|a4S|a
+ 31 66 64 7C 61 32 4E 69 74 72 6F 66 75 72 61 6E   1fd|a2Nitrofuran
+ 74 6F 69 6E 7C 61 33 36 34 7C 61 34 49 7C 61 31   toin|a364|a4I|a1
+ 74 7A 70 7C 61 32 50 69 70 65 72 61 63 69 6C 1E   tzp|a2Piperacil.
+ 6C 69 6E 2F 74 61 7A 6F 62 61 63 74 61 6D 7C 61   lin/tazobactam|a
+ 33 36 34 7C 61 34 49 7C 61 31 74 6F 62 7C 61 32   364|a4I|a1tob|a2
+ 54 6F 62 72 61 6D 79 63 69 6E 7C 61 33 3C 3D 30   Tobramycin|a3<=0
+ 2E 35 7C 61 34 53 7C 61 31 73 78 74 7C 61 32 54   .5|a4S|a1sxt|a2T
+ 72 69 6D 65 74 68 6F 70 72 69 6D 2F 53 75 6C 66   rimethoprim/Sulf
+ 1E 61 7C 61 33 3C 3D 31 30 7C 61 34 53 7C 61 31   .a|a3<=10|a4S|a1
+ 6C 65 76 7C 61 32 4C 65 76 6F 66 6C 6F 78 61 63   lev|a2Levofloxac
+ 69 6E 7C 61 33 32 7C 61 34 53 7C 7A 7A 7C 1D 64   in|a32|a4S|zz|.d
+ 65 03 04                                          e..             
+
+Request: 2008-8-19 16:29:52.01264 (+0.0000 seconds)
+
+ 06 06                                             ..              
+
+Answer: 2008-8-19 16:29:55.26264 (+2.2344 seconds)
+
+ 05                                                .               
+
+Request: 2008-8-19 16:29:55.26264 (+0.0000 seconds)
+
+ 06                                                .               
+
+Answer: 2008-8-19 16:29:55.38764 (+0.1250 seconds)
+
+ 02 1E 6D 74 72 73 6C 7C 70 69 32 30 30 38 30 38   ..mtrsl|pi200808
+ 31 39 7C 73 69 7C 63 69 30 30 32 32 38 37 7C 72   19|si|ci002287|r
+ 74 67 6E 69 2B 7C 72 6E 47 72 61 6D 20 4E 65 67   tgni+|rnGram Neg
+ 61 74 69 76 65 20 49 64 65 6E 74 69 66 69 63 61   ative Identifica
+ 74 69 6F 6E 7C 72 72 32 7C 74 32 49 44 7C 74 31   tion|rr2|t2ID|t1
+ 30 7C 1E 6F 31 65 6E 74 61 65 72 7C 6F 32 45 6E   0|.o1entaer|o2En
+
+Request: 2008-8-19 16:29:55.38764 (+0.0000 seconds)
+
+ 06                                                .               
+
+Answer: 2008-8-19 16:29:55.77764 (+0.3906 seconds)
+
+ 74 65 72 6F 62 61 63 74 65 72 20 61 65 72 6F 67   terobacter aerog
+ 65 6E 65 73 7C 7A 7A 7C 1D 30 37 03 04            enes|zz|.07..   
+
+Request: 2008-8-19 16:29:55.77764 (+0.0000 seconds)
+
+ 06 06                                             ..              
+

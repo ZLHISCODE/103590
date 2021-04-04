@@ -1,0 +1,12 @@
+frmSetting = 175, 175, 1129, 572, , 125, 125, 1083, 548, C
+mdlDefine = 0, 0, 954, 397, 
+clsDrugPacker = 75, 75, 1056, 415, 
+frmLink = 175, 175, 1131, 557, , 100, 100, 1081, 440, C
+frmDeviceReg = 0, 0, 981, 340, , 125, 125, 1106, 465, C
+clsDevice = 25, 25, 1006, 365, 
+clsConnect = 50, 50, 1031, 390, Z
+mdlProcessData = 150, 150, 1131, 492, C
+mdlDrugPacker = 0, 0, 981, 342, 
+frmDrugInfo = 100, 100, 1056, 482, , 125, 125, 1081, 507, C
+frmDeviceState = 75, 75, 1031, 457, , 75, 75, 1031, 457, C
+frmDeviceSetting = 0, 0, 956, 382, , 50, 50, 1006, 432, C

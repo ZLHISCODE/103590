@@ -1,0 +1,11 @@
+frmErrAsk = 200, 200, 1150, 604, C, 66, 87, 881, 496, C
+UsrProgressBar = 210, 210, 1271, 688, , 90, 90, 1151, 568, C
+frmHisCrust = 175, 175, 932, 579, , 100, 100, 857, 535, C
+mdlDatabase = 200, 200, 957, 604, 
+mdlHisCrust = 100, 100, 857, 504, 
+mdlPubDefine = 125, 125, 882, 529, 
+clsConnect = 200, 200, 957, 604, 
+clsPEReader = 100, 100, 857, 504, 
+clsRegCom = 125, 125, 882, 560, 
+clsTrace = 90, 90, 1085, 421, 
+mdlBusiness = 75, 75, 832, 479, Z

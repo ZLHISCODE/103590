@@ -1,0 +1,35 @@
+CD1200手册:（美国雅培CELL_DNY1200型血球分析仪）。仪器只能保存当前样本结果数据。
+  
+   一. 通讯参数设定:
+       
+       1.在主菜单MainMenu中点击[Setup MENU]后，点击[INSTRMT SETUP]
+       2.再点击[HOST Setup]
+       3.然后逐一设置：
+          OFF  Automatic transmission to a computer
+          OFF  Automatic transmission of histograms
+          0.3  Transmission Time-Out(0.1 to 9.9 seconds)
+          OFF  Transmission CTS enabled
+          baud rate    9600       
+          Parity       None      
+          Data Bits    8      	
+          Stop Bits    2
+          将光标移到OFF处，按 ENTER键进行修改。  
+          ACK:#6' NAK:#21' 开始符:#2'   结束符:#3'
+   
+   二. 接线方式       
+       CD1200 的接口为 9针
+            COMPUTER(9孔)--------------->(9孔)CD1700 标准接线方式。
+                                                               
+   三. 数据传输
+
+      1.手工传输：
+       (1)在主画面，点击右下角[RUN]按键；
+       (2)点击[REVIEW DATA]按键；
+       (3)点击下面[DATA LOG]按键；
+       (4)点击下面[DISPLAY SPEC]按键；
+       (5)点击下面[XMIT REPORT]传输开始；   
+
+      2.自动传输：
+       (1) 将  Automatic transmission to a computer设置为ON，
+           将  Automatic transmission of histograms设置为ON，
+       (2) 当样本作完检验后，结果自动传输

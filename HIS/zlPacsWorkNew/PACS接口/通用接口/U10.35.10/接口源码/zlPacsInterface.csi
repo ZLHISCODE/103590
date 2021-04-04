@@ -1,0 +1,17 @@
+[History]
+1=#P0#=mb	#P1#=ExecuteProcedure	#P2#=zlPacsInterface/mdlComLib/ExecuteProcedure	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130304095842	#P7#=0	#P8#=1	.
+2=#P0#=mb	#P1#=SendReportAffix	#P2#=zlPacsInterface/clsPacsInterface/SendReportAffix	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130207124143	#P7#=0	#P8#=61	.
+3=#P0#=mb	#P1#=ExecutePacsProcedure	#P2#=zlPacsInterface/clsPacsInterface/ExecutePacsProcedure	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130304095824	#P7#=0	#P8#=18	.
+4=#P0#=mb	#P1#=GetAdoData	#P2#=zlPacsInterface/clsPacsInterface/GetAdoData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130207123925	#P7#=-2147483640	#P8#=34	.
+5=#P0#=mb	#P1#=GetPacsCursor	#P2#=zlPacsInterface/clsPacsInterface/GetPacsCursor	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130304095749	#P7#=0	#P8#=56	.
+6=#P0#=mb	#P1#=OpenCursor	#P2#=zlPacsInterface/mdlComLib/OpenCursor	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130304094759	#P7#=0	#P8#=22	.
+7=#P0#=mb	#P1#=SendElectrocardioReport	#P2#=zlPacsInterface/clsPacsInterface/SendElectrocardioReport	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130207115337	#P7#=0	#P8#=64	.
+8=#P0#=mb	#P1#=SendReportImages	#P2#=zlPacsInterface/clsPacsInterface/SendReportImages	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130205090405	#P7#=0	#P8#=46	.
+9=#P0#=mb	#P1#=InitInterface	#P2#=zlPacsInterface/clsPacsInterface/InitInterface	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130204164948	#P7#=0	#P8#=9	.
+10=#P0#=mb	#P1#=OraDataOpen	#P2#=zlPacsInterface/mdlPacsInterface/OraDataOpen	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130128144706	#P7#=0	#P8#=17	.
+11=#P0#=mb	#P1#=zlBlobSave	#P2#=zlPacsInterface/clsPacsInterface/zlBlobSave	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130128115859	#P7#=0	#P8#=28	.
+12=#P0#=mb	#P1#=GetRecordValueByColumnIndex	#P2#=zlPacsInterface/clsPacsInterface/GetRecordValueByColumnIndex	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130111153551	#P7#=0	#P8#=6	.
+13=#P0#=mb	#P1#=RollbackTrans	#P2#=zlPacsInterface/clsPacsInterface/RollbackTrans	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20130111111424	#P7#=0	#P8#=21	.
+14=#P0#=mb	#P1#=SendReport	#P2#=zlPacsInterface/clsPacsInterface/SendReport	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20121218163945	#P7#=-2147483640	#P8#=19	.
+15=#P0#=mb	#P1#=Tables	#P2#=zlPacsInterface/clsPacsInterface/Tables [Get]	#P3#=	#P4#=	#P5#=MembPropertyPrivate	#P6#=20121218163824	#P7#=-2147483640	#P8#=1	.
+16=#P0#=mb	#P1#=GetRequestInfo1	#P2#=zlPacsInterface/clsPacsInterface/GetRequestInfo1	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20121218150931	#P7#=0	#P8#=1	.

@@ -1,0 +1,12 @@
+clsXML = 125, 125, 1153, 493, 
+mdlDefine = 75, 75, 1103, 443, 
+clsINF = 100, 100, 1103, 468, 
+clsINF_IIP = 125, 125, 1128, 493, 
+mdlDrugMachine = 100, 100, 1128, 468, 
+clsLog = 0, 0, 1003, 368, C
+clsDrugMachine = 25, 25, 1032, 419, 
+clsPublic = 150, 150, 1153, 518, 
+clsINF_WillachHeise = 175, 175, 1178, 543, 
+clsINF_TOSHO = 175, 175, 1178, 535, 
+clsINF_DIH = 0, 0, 1003, 360, 
+clsINF_Grani = 75, 75, 1089, 449, Z

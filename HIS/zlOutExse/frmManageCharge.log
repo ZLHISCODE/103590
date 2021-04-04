@@ -1,0 +1,10 @@
+行 143: 控件 tbSub 的类 XtremeSuiteControls.TabControl 不是一个已加载的控件类。
+行 467: 控件 imgGray 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 534: 控件 imgColor 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 619: 控件 dtpStartDate 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 632: 控件 dtpEndDate 的类 MSComCtl2.DTPicker 不是一个已加载的控件类。
+行 701: 控件 cbr 的类 ComCtl3.CoolBar 不是一个已加载的控件类。
+行 718: 控件 tbr 的类 MSComctlLib.Toolbar 不是一个已加载的控件类。
+行 859: 控件 stbThis 的类 MSComctlLib.StatusBar 不是一个已加载的控件类。
+行 923: 控件 mshFact 的类 MSHierarchicalFlexGridLib.MSHFlexGrid 不是一个已加载的控件类。
+行 946: 控件 tbPage 的类 XtremeSuiteControls.TabControl 不是一个已加载的控件类。

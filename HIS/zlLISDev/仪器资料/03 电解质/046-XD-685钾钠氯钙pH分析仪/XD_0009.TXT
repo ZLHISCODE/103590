@@ -1,0 +1,14 @@
+     XD  685
+DATE  2008-08-28
+TIME       18:19
+Test type: Serum
+Sample No.:00009
+K  = 4.14 mmol/L
+Na =143.5 mmol/L
+Cl =104.2 mmol/L
+nCa= 1.30 mmol/L
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,9 @@
+frmMain = 50, 50, 844, 555, Z, 25, 25, 819, 530, C
+mdlCommbar = 75, 75, 869, 580, C
+frmXMLValidator = 200, 200, 994, 705, , 175, 175, 969, 680, C
+mdlMIPZLHISSdk = 225, 225, 1019, 730, 
+clsXMLValidator = 25, 25, 819, 530, 
+frmMakeXMLShema = 50, 50, 844, 555, , 75, 75, 869, 580, C
+clsXMLSchema = 50, 50, 844, 555, 
+frmMakeScripter = 175, 175, 969, 680, , 200, 200, 994, 705, C
+clsMessageScripter = 250, 250, 1044, 755, 

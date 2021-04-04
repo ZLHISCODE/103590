@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBC15B93-2D28-4E5C-9E9C-3D9FF1FA8B3F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>zlShortMsg</RootNamespace>
+    <AssemblyName>zlShortMsg</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>around-the-globe.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ReferenceLib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReferenceLib\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Json\JSONException.cs" />
+    <Compile Include="Json\JSONObject.cs" />
+    <Compile Include="SendMsg\SendMsg.cs" />
+    <Compile Include="SendMsg\SendMsgAli.cs" />
+    <Compile Include="SendMsg\SendMsgHuawei.cs" />
+    <Compile Include="SendMsg\SendMsgTencent.cs" />
+    <Compile Include="Tools\Encrypt.cs" />
+    <Compile Include="Tools\HttpHelper.cs" />
+    <Compile Include="Tools\LogWriter.cs" />
+    <Compile Include="Tools\MainHelper.cs" />
+    <Compile Include="Tools\RegistryHelper.cs" />
+    <Compile Include="Tools\StringHelper.cs" />
+    <Compile Include="UIClass\DataGridViewCheckBoxHeaderCell.cs" />
+    <Compile Include="UIClass\DgvDrawer.cs" />
+    <Compile Include="frmAddSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddSetting.Designer.cs">
+      <DependentUpon>frmAddSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFailure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFailure.Designer.cs">
+      <DependentUpon>frmFailure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLog.Designer.cs">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMsgSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMsgSet.Designer.cs">
+      <DependentUpon>frmMsgSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIClass\MenuItemRenderer.cs" />
+    <Compile Include="UIClass\ParaInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIClass\ParaInput.Designer.cs">
+      <DependentUpon>ParaInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddSetting.resx">
+      <DependentUpon>frmAddSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFailure.resx">
+      <DependentUpon>frmFailure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLog.resx">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMsgSet.resx">
+      <DependentUpon>frmMsgSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIClass\ParaInput.resx">
+      <DependentUpon>ParaInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="around-the-globe.ico" />
+    <None Include="Resources\消息hot.png" />
+    <None Include="Resources\消息.png" />
+    <None Include="Resources\设置hot.png" />
+    <None Include="Resources\设置.png" />
+    <None Include="Resources\错误hot.png" />
+    <None Include="Resources\错误.png" />
+    <None Include="Resources\normal.png" />
+    <None Include="Resources\active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\zlMsgBLL\zlMsgBLL.csproj">
+      <Project>{781ace6a-4a05-40d2-8524-2df72f18de8f}</Project>
+      <Name>zlMsgBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zlMsgModel\zlMsgModel.csproj">
+      <Project>{c4595c8d-5d99-4390-83a6-4fd7305fb420}</Project>
+      <Name>zlMsgModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

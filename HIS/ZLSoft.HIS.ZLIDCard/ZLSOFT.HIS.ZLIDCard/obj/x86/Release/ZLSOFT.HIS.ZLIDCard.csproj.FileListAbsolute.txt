@@ -1,0 +1,7 @@
+D:\C#项目\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\bin\x86\Release\ZLSOFT.HIS.ZLIDCard.dll.config
+D:\C#项目\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\bin\x86\Release\ZLSOFT.HIS.ZLIDCard.dll
+D:\C#项目\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\obj\x86\Release\ZLSOFT.HIS.ZLIDCard.dll
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\bin\x86\Release\ZLSOFT.HIS.ZLIDCard.dll.config
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\bin\x86\Release\ZLSOFT.HIS.ZLIDCard.dll
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\obj\x86\Release\ZLSOFT.HIS.ZLIDCard.csprojResolveAssemblyReference.cache
+C:\Users\JTZ\Desktop\提交文件\ZLSOFT.HIS.ZLIDCard\ZLSOFT.HIS.ZLIDCard\obj\x86\Release\ZLSOFT.HIS.ZLIDCard.dll

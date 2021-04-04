@@ -1,0 +1,20 @@
+-- Create the user 
+create user MUSE
+  identified by "HIS"
+  default tablespace USERS
+  temporary tablespace TEMP
+  profile DEFAULT;
+
+-- Grant/Revoke object privileges 
+grant execute on b_Hl7interface to MUSE;
+grant select on HL7待发消息 to MUSE;
+grant select on HL7服务配置 to MUSE;
+grant select on HL7消息定义 to MUSE;
+grant select on HL7消息段配置 to MUSE;
+grant select on HL7消息对码 to MUSE;
+grant select on HL7重发消息 to MUSE;
+grant select on 病人医嘱发送 to MUSE;
+grant select on 病人医嘱记录 to MUSE;
+
+-- Grant/Revoke role privileges 
+grant connect to MUSE;

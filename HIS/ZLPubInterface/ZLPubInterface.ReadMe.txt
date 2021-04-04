@@ -1,0 +1,58 @@
+'======================================================================================================================
+'接口           GetConnection           验证三方接口的APPID与授权码，成功，则返回的连接为Open状态，否则为Closed状态
+'返回值         Connection对象
+'入参列表:
+'参数名         类型                    说明
+'Key            String                  三方接口授权码的明文
+'Server         String                  三方接口要连接的服务器，或者可以直接指定IP:Port/SID
+'bytProvider    Byte（Optional）        打开数据库连接的两种方式,0-msODBC方式,1-OraOLEDB方式，缺省为0-msODBC方式。(C#版本没有该参数)
+'strErrNote     String(Out,Optional)    返回错误信息
+'======================================================================================================================
+使用举例：
+    Dim objInterface As Object
+    Dim cnnTmp      As ADODB.Connection
+    Dim strError    As String
+
+    Set objInterface = CreateObject("ZLPubInterface.clsPubInterface")
+    Set cnnTmp = objInterface.GetConnection("D04DD6969FE844", "TEST", , strError)
+    --Set cnnTmp = objInterface.GetConnection("D04DD6969FE844", "127.0.0.1/TEST", , strError)
+    --Set cnnTmp = objInterface.GetConnection("D04DD6969FE844", "127.0.0.1:1521/TESTPARA", , strError)
+    --测试连接是否关闭，关闭则失败
+    trTestResult.AssertEqualsLong cnnTmp.State, adStateOpen, "GetConnection获取连接失败：" & strError
+
+'======================================================================================================================
+'接口           GetUnitName             验证三方接口的授权码，成功返回单位名称，否则返回空串
+'返回值         String
+'入参列表:
+'参数名         类型                    说明
+'Key            String                  三方接口授权码的明文
+'varServerOrConnection   String         三方接口要连接的服务器（可以直接指定IP:Port/SID）或者已经打开的连接对象
+'strErrNote     String(Out,Optional)    返回错误信息
+'======================================================================================================================
+    Dim objInterface As Object
+    Dim cnnTmp      As ADODB.Connection
+    Dim strError    As String
+
+    Set objInterface = CreateObject("ZLPubInterface.clsPubInterface")
+
+    --若返回的单位名称为空，则失败
+    trTestResult.Assert objInterface.GetUnitName("8D0C1DB4134D43", "127.0.0.1:1521/TESTPARA", strError) <> "", "GetUnitName测试失败：" & strError
+	
+    strError = ""
+    --传递通过GetConnection方法获取的连接，来获取单位名称
+    Set cnnTmp = objInterface.GetConnection("D04DD6969FE844", "TEST", , strError)
+    trTestResult.AssertEqualsLong cnnTmp.State, adStateOpen, "GetConnection获取连接失败：" & strError
+    strError = ""
+    trTestResult.Assert objInterface.GetUnitName("8D0C1DB4134D43", cnnTmp, strError) <> "", "GetUnitName(传连接)测试失败：" & strError
+
+'======================================================================================================================
+'接口           GetPassword             验证三方接口的授权码，成功返回用户的登录密码，否则返回空串
+'返回值         String
+'入参列表:
+'参数名         类型                    说明
+'Key            String                  三方接口授权码的明文
+'varServerOrConnection   String         三方接口要连接的服务器（可以直接指定IP:Port/SID）或者已经打开的连接对象
+'strUserName    String                  用户名称
+'lngSys         Long                    系统编号，-1缺省从标准版读取。没有读到则从其他系统读取，优先系统编号比较小的
+'strErrNote     String(Out,Optional)    返回错误信息
+'======================================================================================================================

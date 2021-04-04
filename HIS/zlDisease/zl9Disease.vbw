@@ -1,0 +1,16 @@
+clsDisease = 175, 175, 916, 680, C
+frmDiseaseQuery = 25, 25, 882, 530, C, 50, 50, 907, 555, C
+frmDiseaseReportSend = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDiseaseStation = 0, 0, 1090, 505, C, 250, 250, 1107, 755, C
+mdlPublic = 100, 100, 957, 605, C
+mdlPubDefine = 125, 125, 982, 630, C
+frmSelectTime = 225, 225, 1082, 730, C, 200, 200, 1057, 705, C
+frmDiseaseStationSet = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDockEPRContent = 200, 200, 1213, 697, C, 75, 75, 932, 580, C
+frmDiseaseRegist = 25, 25, 882, 530, C, 50, 50, 907, 555, C
+frmDiseaseAduit = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmFeedBackList = 0, 0, 857, 505, C, 250, 250, 1107, 755, C
+frmDiseaseReportSetting = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+cDockDisease = 225, 225, 1058, 722, C
+frmSendInfo = 0, 0, 0, 0, C, 175, 175, 1032, 680, C
+frmReason = 0, 0, 0, 0, C, 150, 150, 1007, 655, C

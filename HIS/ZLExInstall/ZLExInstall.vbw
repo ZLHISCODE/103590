@@ -1,0 +1,8 @@
+mdlMain = 100, 100, 1328, 451, 
+clsPEReader = 125, 125, 1353, 476, 
+cls7zZip = 150, 150, 1378, 501, 
+clsRegCom = 0, 0, 1228, 351, 
+mdlRegistry = 25, 25, 1253, 376, 
+mdlOO4O = 50, 50, 1278, 401, Z
+mdlPublic = 75, 75, 1303, 426, 
+clsTrace = 100, 100, 1328, 451, 

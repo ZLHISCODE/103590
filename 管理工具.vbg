@@ -1,0 +1,9 @@
+VBGROUP 5.0
+Project=HIS\ZL9CommEvents\zl9CommEvents.vbp
+Project=HIS\ZlPrintMode\zl9PrintMode.vbp
+Project=HIS\zlICCard\zlICCard.vbp
+Project=HIS\zlIDCard\zlIDCard.vbp
+Project=HIS\zlIDKind\zlIDKind.vbp
+Project=HIS\ZlComLib\zl9ComLib.vbp
+Project=HIS\ZlBillEdit\zl9BillEdit.vbp
+StartupProject=HIS\ZLSvrTools\zlSvrStudio.vbp

@@ -1,0 +1,10 @@
+frmTimeSet = 110, 110, 565, 554, C, 22, 22, 477, 466, C
+clsCashBill = 0, 0, 0, 0, C
+frmBillEdit = 0, 0, 0, 0, C, 44, 44, 499, 488, C
+frmBillSupervise = 0, 0, 0, 0, C, 66, 66, 521, 510, C
+frmCashPay = 0, 0, 0, 0, C, 88, 88, 543, 532, C
+frmCashSupervise = 132, 132, 587, 576, C, 154, 154, 609, 598, C
+frmBillUses = 0, 0, 0, 0, C, 132, 132, 587, 576, C
+frmBillDiscard = 0, 0, 0, 0, C, 154, 154, 609, 598, C
+frmCashPayAll = 44, 44, 499, 488, Z, 176, 176, 631, 620, C
+mdlCashBill = 0, 0, 0, 0, C

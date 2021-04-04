@@ -1,0 +1,14 @@
+clsToolsMain = 79, 72, 1423, 540, Z
+frmComments = 75, 75, 1259, 543, , 50, 50, 1234, 518, C
+frmEditHint = 50, 50, 1234, 518, , 75, 75, 1259, 543, C
+frmIdxInfo = 175, 175, 1359, 643, , 100, 100, 1284, 568, C
+frmResizeUndo = 100, 100, 1284, 568, , 150, 150, 1334, 618, C
+mdlInptCk = 25, 25, 1369, 493, 
+frmKillBlockers = 125, 125, 1065, 650, , 75, 75, 1015, 600, C
+frmUserCheckLogin = 0, 0, 940, 525, , 25, 25, 965, 550, C
+mdlLoadServer = 175, 175, 1112, 700, 
+frmReused = 50, 50, 1394, 518, , 100, 100, 1284, 568, C
+frmTunning = 25, 25, 1209, 493, , 100, 100, 1284, 568, C
+frmMonitorMain = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+mdlMain = 225, 225, 1409, 693, 
+mdlSave = 0, 0, 0, 0, C

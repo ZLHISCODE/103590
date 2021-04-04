@@ -1,0 +1,12 @@
+frmBrowserStation = 75, 75, 651, 513, , 50, 50, 626, 510, C
+frmPACSImg = 50, 50, 626, 488, , 75, 75, 701, 411, C
+mdlPubDefine = 125, 125, 701, 563, C
+mdlPublic = 200, 200, 1082, 638, 
+mdlPACSWork = 75, 75, 651, 513, C
+frmPACSFilter = 50, 50, 777, 481, , 150, 150, 776, 486, C
+frmDegreeCard = 0, 0, 0, 0, C, 25, 25, 651, 361, C
+frmSplash = 0, 0, 0, 0, C, 125, 125, 751, 461, C
+frmUserLogin = 75, 75, 651, 513, , 100, 100, 676, 538, C
+FrmChangePass = 0, 0, 0, 0, C, 50, 50, 676, 386, C
+clsFtp = 200, 200, 927, 631, 
+ucReadCard = 0, 0, 0, 0, C, 0, 0, 0, 0, C

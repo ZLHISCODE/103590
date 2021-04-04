@@ -1,0 +1,16 @@
+
+NO.010     2007-09-05
+             09:23:40
+
+*WBC +-     15Cell/uL
+ KET -       0 mmol/L
+ NIT -               
+ URO       Normal    
+ BIL -       0 umol/L
+ PRO -       0    g/L
+ GLU -       0 mmol/L
+ SG        1.015     
+*BLD +2     80Cell/uL
+ pH        5.0       
+ Vc  -       0 mmol/L
+

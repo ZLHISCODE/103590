@@ -1,0 +1,109 @@
+---------------------------------------------------------------------
+--		病案评分部分 Start
+---------------------------------------------------------------------
+
+--病案评分方案数据
+insert into 病案评分方案(ID,名称,总分,上值,下值,类型,分制,选用,启用时间,停用时间) values (病案评分方案_ID.nextval,'《住院病历评分标准》',100,90,75,'住院','扣分制',0,Sysdate,Null);
+
+--病案评分标准数据
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-1,'首页','项目齐全、准确，字迹清楚，严禁涂改。出院后24小时内完成。',10,Null,Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-2,Null,'★3项未填写（自然缺项除外）',null,'乙',Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-3,Null,'★传染病漏报',null,'乙',Null,2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-4,Null,'门（急）诊诊断未填写',1,Null,Null,3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-5,Null,'门（急）诊诊断填写有缺陷',.5,Null,Null,4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-6,Null,'入院诊断未填写',1,Null,Null,5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-6,病案评分方案_ID.nextval-7,Null,'入院诊断填写有缺陷',.5,Null,Null,6);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-7,病案评分方案_ID.nextval-8,Null,'出院诊断未填写',2,Null,Null,7);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-8,病案评分方案_ID.nextval-9,Null,'出院诊断填写有缺陷',.5,Null,Null,8);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-9,病案评分方案_ID.nextval-10,Null,'出院情况未填写或有缺陷',.5,Null,'项',9);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-10,病案评分方案_ID.nextval-11,Null,'医院感染未填写',2,Null,Null,10);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-11,病案评分方案_ID.nextval-12,Null,'手术、操作名称未填写',2,Null,Null,11);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-12,病案评分方案_ID.nextval-13,Null,'手术、操作名称填写有缺陷',.5,Null,Null,12);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-13,病案评分方案_ID.nextval-14,Null,'有病理诊断报告，病历诊断未填写',1,Null,'项',13);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-14,病案评分方案_ID.nextval-15,Null,'病历诊断填写有缺陷',.5,Null,'项',14);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-15,病案评分方案_ID.nextval-16,Null,'过敏药物空白或填写错误',1,Null,Null,15);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-16,病案评分方案_ID.nextval-17,Null,'缺各级医生签名',2,Null,'处',16);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-18,'入院记录','1、入院24小时内由住院医师完成。2、一般项目齐全（10项）。3、主诉体现症状（或体症）＋持续时间。4、现病史必须与主诉相关、相符，能反映本次疾病起始、演变、诊疗过程及一般情况变化，重点突出、概念明确，运用术语准确，有鉴别诊断资料。5、既往史、个人史、月经生育史、家族史齐全，传染病有流行病史，小儿有喂养史。6、体格检查项目齐全，记录全面系统，有专科重点检查。7、辅助检查（入院时已获得）结果抄录正确。8、诊断确切，依据充分，主次排列有序。9、主治医师在48小时内有审核签字。',20,Null,Null,2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-19,Null,'入院记录（再次或多次入院记录）未按时完成',5,Null,Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-20,Null,'一般项目填写不全',.5,Null,'项',2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-21,Null,'主诉描述有缺陷',1,Null,Null,3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-22,Null,'有症状（或体症）而以诊断代替主诉',1,Null,Null,4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-23,Null,'现病史描述主要症状不明确',3,Null,Null,5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-6,病案评分方案_ID.nextval-24,Null,'发病诱因、主要疾病发展变化过程、诊治情况叙述不清，描述不准确',2,Null,'项',6);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-7,病案评分方案_ID.nextval-25,Null,'叙述混乱、颠倒、层次不清',2,Null,Null,7);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-8,病案评分方案_ID.nextval-26,Null,'缺必要的鉴别诊断资料',2,Null,Null,8);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-9,病案评分方案_ID.nextval-27,Null,'缺四史（既往史、个人史、婚育史、家族史）',2,Null,'项',9);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-10,病案评分方案_ID.nextval-28,Null,'体格检查一般项目遗漏',.5,Null,'项',10);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-11,病案评分方案_ID.nextval-29,Null,'★体格检查遗漏系统或主要阳性体症',null,'乙',Null,11);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-12,病案评分方案_ID.nextval-30,Null,'缺有鉴别诊断意义的阴性体症',2,Null,Null,12);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-13,病案评分方案_ID.nextval-31,Null,'体格检查记录描述不规范',1,Null,Null,13);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-14,病案评分方案_ID.nextval-32,Null,'★缺必要的专科或重点检查',null,'乙',Null,14);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-15,病案评分方案_ID.nextval-33,Null,'必要的辅助检查空缺',2,Null,Null,15);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-16,病案评分方案_ID.nextval-34,Null,'辅助检查抄录有缺陷',.5,Null,'处',16);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-17,病案评分方案_ID.nextval-35,Null,'诊断不确切、依据不充分',2,Null,Null,17);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-18,病案评分方案_ID.nextval-36,Null,'诊断主次颠倒',1,Null,Null,18);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-19,病案评分方案_ID.nextval-37,Null,'★主要疾病遗漏',null,'丙',Null,19);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-20,病案评分方案_ID.nextval-38,Null,'应有而无最后诊断或修正诊断',2,Null,Null,20);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-21,病案评分方案_ID.nextval-39,Null,'无医师签字',2,Null,Null,21);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-22,病案评分方案_ID.nextval-40,Null,'48小时内无主治医师审核签字',2,Null,Null,22);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-41,'病程记录','1、首次病程记录应在患者入院后8小时内完成，内容包括病例特点、诊断依据、鉴别诊断或诊疗计划等。2、日常病程记录：要及时反映病情变化，分析判断，处理措施，疗效观察，更改医嘱时间，辅助检查结果异常的结果、分析及处理措施。有反映医师履行告知义务和解答患者疑问的记录。3、病程记录时限：病危：随时记录，每天至少一次，时间应具体到分钟。病重：至少2天记录一次。稳定（一般）：3天记录一次。慢性：至少5天一次。4、上级医师首次查房记录应当在患者入院48小时内完成，内容包括补充的病史和体症，诊断依据与鉴别诊断的分析及诊疗计划。5、上级医师查房记录：病危患者每天、病重患者3天内、病情稳定者5天内必须有上级医师查房记录，疑难危重病人必须有主任或副主任医师以上人员的查房记录。6、疑难，危重病例有病情讨论记录。7、交接班或转科必须有记录，交班（转出）记录要在交班（转出）前书写完成，接班（转入）记录要在接班（转入）后24小时内完成。8、住院时间超过一个月的要有阶段小结。9、抢救记录必须及时完成，特殊情况下必须在抢救后6小时内补记。10、死亡讨论记录在患者死亡后一周内完成。11、会诊记录内容齐全，包括会诊时间及医师签字。12、术前要有手术者，麻醉师查看病人记录，有手术前一天的病程记录，有术前小结，患者病情较重或手术难度较大的要有术前讨论。13、手术记录由手术者书写，特殊情况下由第一助手书写，必须有手术者签字。14、术后首次病程记录要及时完成，术后连续三天要有病程记录，三天内要有手术者或主治医师的查房记录。15、麻醉记录项目齐全，有麻醉医师签字。16、特殊检查（治疗）操作应及时记录。',40,Null,Null,3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-42,Null,'首次病程记录未在8小时内完成',5,Null,Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-43,Null,'首次病程记录中缺诊断依据、鉴别诊断或诊疗计划',3,Null,'项',2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-44,Null,'首次病程记录内容不规范',1,Null,'项',3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-45,Null,'未按规定时间书写病程记录',2,Null,'次',4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-46,Null,'病程记录内容不全面（包括其他特殊记录）',1,Null,'项',5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-6,病案评分方案_ID.nextval-47,Null,'★抢救病历无抢救记录',null,'乙',Null,6);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-7,病案评分方案_ID.nextval-48,Null,'抢救记录内容有缺陷（指病情变化、抢救时间及措施、参加抢救人员姓名、职称）',2,Null,'项',7);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-8,病案评分方案_ID.nextval-49,Null,'无交班记录',2,Null,'次',8);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-9,病案评分方案_ID.nextval-50,Null,'无阶段小结',3,Null,'次',9);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-10,病案评分方案_ID.nextval-51,Null,'★无转出、转入记录',null,'乙',Null,10);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-11,病案评分方案_ID.nextval-52,Null,'缺特殊检查（治疗）记录',5,Null,Null,11);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-12,病案评分方案_ID.nextval-53,Null,'特殊检查（治疗）记录有缺陷',2,Null,Null,12);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-13,病案评分方案_ID.nextval-54,Null,'★缺死亡讨论记录',null,'乙',Null,13);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-14,病案评分方案_ID.nextval-55,Null,'死亡讨论记录有缺陷',1,Null,Null,14);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-15,病案评分方案_ID.nextval-56,Null,'缺会诊记录单',2,Null,'次',15);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-16,病案评分方案_ID.nextval-57,Null,'会诊记录有缺陷',1,Null,'处',16);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-17,病案评分方案_ID.nextval-58,Null,'上级医师首次查房未在48小时内完成',3,Null,Null,17);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-18,病案评分方案_ID.nextval-59,Null,'上级医师首次查房记录有缺陷',1,Null,Null,18);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-19,病案评分方案_ID.nextval-60,Null,'规定时间内无上级医师查房记录',2,Null,'次',19);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-20,病案评分方案_ID.nextval-61,Null,'★择期手术缺术前小结',null,'乙',Null,20);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-21,病案评分方案_ID.nextval-62,Null,'★病情较重或难度较大的手术缺术前讨论记录',null,'乙',Null,21);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-22,病案评分方案_ID.nextval-63,Null,'缺术前手术者查看病人记录',2,Null,Null,22);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-23,病案评分方案_ID.nextval-64,Null,'缺麻醉医师术前看过病人记录',2,Null,Null,23);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-24,病案评分方案_ID.nextval-65,Null,'★缺麻醉记录单',null,'丙',Null,24);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-25,病案评分方案_ID.nextval-66,Null,'麻醉记录单有缺陷',1,Null,'项',25);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-26,病案评分方案_ID.nextval-67,Null,'★缺手术记录',null,'丙',Null,26);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-27,病案评分方案_ID.nextval-68,Null,'手术记录未在术后24小时内完成',5,Null,Null,27);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-28,病案评分方案_ID.nextval-69,Null,'手术记录由第一助手书写而无手术者签字',3,Null,Null,28);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-29,病案评分方案_ID.nextval-70,Null,'缺术后当天病程记录',3,Null,Null,29);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-30,病案评分方案_ID.nextval-71,Null,'术后病程记录有缺陷',1,Null,Null,30);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-31,病案评分方案_ID.nextval-72,Null,'术后三天病程记录不连续',1,Null,'次',31);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-32,病案评分方案_ID.nextval-73,Null,'术后三天内无上级医师查看病人记录',5,Null,Null,32);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-74,'出院记录','患者出院后24小时内完成，内容全面，包括主诉、入院情况、入院诊断、诊疗经过、出院情况，出院诊断，出院医嘱、医师签名。',10,Null,Null,4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-75,Null,'★缺出院（死亡）记录',null,'乙',Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-76,Null,'出院（死亡）记录24小时内未完成',5,Null,Null,2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-77,Null,'出院（死亡）记录缺某一部分内容',2,Null,'部分',3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-78,Null,'出院（死亡）记录某一部分内容不全',1,Null,'部分',4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-79,Null,'出院（死亡）记录缺两级医师签字',2,Null,'项',5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-80,'辅助检查','按省常见病基本诊疗规范的要求，完善各项检验。',5,Null,Null,5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-81,Null,'★缺与主要诊断相关的辅助检查报告单',null,'乙',Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-82,Null,'缺应有的检查报告单',1,Null,'张',2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-83,Null,'报告单、检验单粘贴不规范，不整齐或缺标记',1,Null,Null,3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-84,'基本要求和医嘱单','1、字迹清楚、无错别字、无自造字，不允许有任何涂改；2、签名要能辨认；3、医嘱内容应当准确、清楚，每项医嘱应当只包含一个内容，并注明下达时间，应当具体到分钟。4、医嘱不得涂改。需要取消时，应当使用红色墨水标注“取消”字样并签名。',5,Null,Null,6);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-85,Null,'★缺整页病历记录造成病历不完整',null,'乙',Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-86,Null,'★缺主要项目造成病历不完整（如：入院记录、病程记录……）',null,'丙',Null,2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-87,Null,'有明显涂改',1,Null,'处',3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-88,Null,'正常修改后按规定需重抄的，而未重抄',5,Null,Null,4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-89,Null,'字迹潦草不能辨认',2,Null,Null,5);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-6,病案评分方案_ID.nextval-90,Null,'病历楣栏填写不完整（姓名、页、住院号等）',.2,Null,'项',6);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-7,病案评分方案_ID.nextval-91,Null,'用蓝黑、碳素之外的墨水书写',5,Null,Null,7);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-8,病案评分方案_ID.nextval-92,Null,'缺医嘱时间或医师签名',2,Null,'处',8);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,Null,病案评分方案_ID.nextval-93,'知情同意书','手术同意书内容包括术前诊断、手术名称、术中或术后可能出现的并发症、手术风险、患者（近亲属）和医师签名等。特殊检查（治疗）同意书包括特殊检查（治疗）项目名称、目的、可能出现的并发症及风险、患者和医师签名等。',10,Null,Null,7);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-1,病案评分方案_ID.nextval-94,Null,'缺特殊检查（治疗）同意书或缺患者（近亲属）签名',null,'乙',Null,1);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-2,病案评分方案_ID.nextval-95,Null,'缺手术同意书或缺患者（近亲属）签名',null,'乙',Null,2);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-3,病案评分方案_ID.nextval-96,Null,'特殊检查（治疗）、手术同意书缺项',2,Null,'项',3);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-4,病案评分方案_ID.nextval-97,Null,'放弃治疗或抢救，缺患者（近亲属）意见或签名',5,Null,Null,4);
+insert into 病案评分标准(ID,上级ID,方案ID,名称,描述,标准分值,缺陷等级,评分单位,序号) values (病案评分标准_ID.nextval,病案评分标准_ID.nextval-5,病案评分方案_ID.nextval-98,Null,'缺尸体解剖同意书',5,Null,Null,5);
+---------------------------------------------------------------------
+--		病案评分部分 End
+---------------------------------------------------------------------

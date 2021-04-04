@@ -1,0 +1,292 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form frmClientCopy 
+   BackColor       =   &H80000005&
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "自动升级"
+   ClientHeight    =   6120
+   ClientLeft      =   45
+   ClientTop       =   330
+   ClientWidth     =   8655
+   ControlBox      =   0   'False
+   Icon            =   "frmClientCopy.frx":0000
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   6120
+   ScaleWidth      =   8655
+   StartUpPosition =   2  '屏幕中心
+   Begin zlHisCrust.UsrProgressBar prgPross 
+      Height          =   260
+      Left            =   45
+      TabIndex        =   4
+      Top             =   1245
+      Width           =   6795
+      _ExtentX        =   11986
+      _ExtentY        =   450
+      Color           =   14322239
+      Value           =   100
+   End
+   Begin VB.CommandButton cmdLog 
+      Caption         =   "查看日志(&C)"
+      Height          =   375
+      Left            =   3615
+      TabIndex        =   3
+      Top             =   4545
+      Visible         =   0   'False
+      Width           =   1575
+   End
+   Begin VB.FileListBox File1 
+      Height          =   450
+      Left            =   5145
+      TabIndex        =   2
+      Top             =   105
+      Visible         =   0   'False
+      Width           =   1515
+   End
+   Begin VB.Timer Timer1 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   0
+      Top             =   0
+   End
+   Begin VB.CommandButton cmdOK 
+      Caption         =   "完成(&O)"
+      Height          =   375
+      Left            =   5220
+      TabIndex        =   1
+      Top             =   4545
+      Visible         =   0   'False
+      Width           =   1575
+   End
+   Begin MSComctlLib.ListView lvwMan 
+      Height          =   2430
+      Left            =   60
+      TabIndex        =   0
+      Top             =   2040
+      Width           =   6810
+      _ExtentX        =   12012
+      _ExtentY        =   4286
+      View            =   3
+      Arrange         =   1
+      LabelEdit       =   1
+      LabelWrap       =   -1  'True
+      HideSelection   =   0   'False
+      FullRowSelect   =   -1  'True
+      GridLines       =   -1  'True
+      _Version        =   393217
+      Icons           =   "img2"
+      SmallIcons      =   "img2"
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      Appearance      =   1
+      NumItems        =   11
+      BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         Text            =   "部件"
+         Object.Width           =   4304
+      EndProperty
+      BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   1
+         Text            =   "升级信息"
+         Object.Width           =   7585
+      EndProperty
+      BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   2
+         Text            =   "现版本号"
+         Object.Width           =   1764
+      EndProperty
+      BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   3
+         Text            =   "原版本号"
+         Object.Width           =   1764
+      EndProperty
+      BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   4
+         Text            =   "现修改日期"
+         Object.Width           =   3528
+      EndProperty
+      BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   5
+         Text            =   "原修改日期"
+         Object.Width           =   3528
+      EndProperty
+      BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   6
+         Text            =   "业务部件"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   7
+         Text            =   "安装路径"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(9) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   8
+         Text            =   "MD5"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(10) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   9
+         Text            =   "自动升级"
+         Object.Width           =   0
+      EndProperty
+      BeginProperty ColumnHeader(11) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+         SubItemIndex    =   10
+         Text            =   "强制覆盖"
+         Object.Width           =   0
+      EndProperty
+   End
+   Begin MSComctlLib.ImageList img2 
+      Left            =   5535
+      Top             =   1815
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   3
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":030A
+            Key             =   "Ok"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":08A4
+            Key             =   "Err"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":0E3E
+            Key             =   "List"
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ImageList img1 
+      Left            =   4725
+      Top             =   1830
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   32
+      ImageHeight     =   32
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   3
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":13D8
+            Key             =   "OK"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":16F2
+            Key             =   "Err"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmClientCopy.frx":1A0C
+            Key             =   "List"
+         EndProperty
+      EndProperty
+   End
+   Begin VB.Label lblTitle 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "客户端正在升级,请稍候..."
+      BeginProperty Font 
+         Name            =   "黑体"
+         Size            =   15.75
+         Charset         =   134
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   315
+      Left            =   1815
+      TabIndex        =   6
+      Top             =   495
+      Width           =   4020
+   End
+   Begin VB.Label lblInfor 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "正在注册部件"
+      Height          =   180
+      Left            =   60
+      TabIndex        =   5
+      Top             =   1710
+      Width           =   1080
+   End
+   Begin VB.Image Image1 
+      Height          =   720
+      Left            =   315
+      Picture         =   "frmClientCopy.frx":1B66
+      Top             =   255
+      Width           =   720
+   End
+End
+Attribute VB_Name = "frmClientCopy"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Dim mintColumn As Integer
+Dim blnOk As Boolean
+Dim blnAutoRun As Boolean '是否下载批处理文件
+Dim strAutoRun As String '批处理文件路径
+Dim strAutoRunBat As String
+
+Private Sub CallHISEXE(Optional bln用户及密码 As Boolean = True)
+    '调用HIS
+    Dim strUserName As String, strPassWord As String, mError As String
+    Dim strFile As String
+    
+    '如果是ZLBH融合启动，则不再回调
+    If UCase(gstrAppEXE) = UCase("zlActMain.exe") Then
+        MsgBox "自动升级完成,请重新执行模块!", vbInformation, "自动升级"
+        Exit Sub
+    End If
+    If gblnPreUpgrade Then Exit Sub
+    
+    If bln用户及密码 Then
+        Call AnalyseUserNameAndPassWord(strUserName, strPassWord)
+    End If
+    
+    '确定文件是否存在
+    On Error Resume Next
+    If gstrAppEXE <> "" Then
+        strFile = gstrAppPath & "\" & gstrAppEXE
+    Else
+        strFile = gstrAppPath & "\ZLHIS90.exe"
+    End If
+    If FindFile(strFile) = False Then
+        strFile = gstrAppPath & "\ZLHIS+.exe"
+        If FindFile(strFile) = False Then
+            If gstrAppEXE <> "" Then
+                strFile = gstrAppPath & "\ZLHIS90.exe"
+            End If
+        End If
+    End If
+    
+    If bln用户及密码 Then
+        mError = Shell(strFile & " " & IIf(gstrHisCommand <> "", gstrHisCommand, strUserName & "/" & strPassWord), vbNormalFocus)
+    Else
+        mError = Shell(strFile, vbNormalFocus)
+    End If
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+

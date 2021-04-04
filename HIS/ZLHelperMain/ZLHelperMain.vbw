@@ -1,0 +1,17 @@
+clsLogger = 50, 50, 1290, 430, 
+mdlHelperMain = 25, 25, 1265, 405, 
+clsEnvironment = 75, 75, 1315, 455, Z
+mdlPubMethod = 100, 100, 1340, 480, 
+mdlAPI = 125, 125, 1365, 505, 
+clsProcess = 175, 175, 1415, 555, 
+clsRegistry = 175, 175, 1415, 555, 
+clsMemoryShare = 0, 0, 1240, 380, 
+clsMutex = 25, 25, 1265, 405, 
+clsQueue = 50, 50, 1290, 430, 
+mdlSM4 = 0, 0, 0, 0, C
+clsService = 0, 0, 0, 0, C
+clsServerInfo = 100, 100, 1340, 480, 
+clsJob = 75, 75, 1315, 455, 
+frmMain = 150, 150, 1390, 530, , 125, 125, 1365, 505, C
+frmMsgBox = 0, 0, 0, 0, C, 100, 100, 1340, 480, C
+mdlDataBase = 0, 0, 1240, 380, 

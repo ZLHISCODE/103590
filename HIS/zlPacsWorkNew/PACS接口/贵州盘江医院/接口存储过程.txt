@@ -1,0 +1,100 @@
+
+
+--接口存储过程
+CREATE OR REPLACE PROCEDURE ZLPACS_住院记帐记录_Insert (
+	NO_IN			病人费用记录.NO%Type,
+	序号_IN			病人费用记录.序号%Type,
+	主页ID_IN		病人费用记录.主页ID%Type,
+	标识号_IN		病人费用记录.标识号%Type,
+	姓名_IN			病人费用记录.姓名%Type,
+	性别_IN			病人费用记录.性别%Type,
+	年龄_IN			病人费用记录.年龄%Type,
+	加班标志_IN		病人费用记录.加班标志%Type,
+	开单部门ID_IN		病人费用记录.开单部门ID%Type,
+	开单人_IN		病人费用记录.开单人%Type,
+	收费细目ID_IN		病人费用记录.收费细目ID%Type,
+	收费类别_IN		病人费用记录.收费类别%Type,
+	计算单位_IN		病人费用记录.计算单位%Type,
+	数次_IN			病人费用记录.数次%Type,
+	执行部门ID_IN		病人费用记录.执行部门ID%Type,
+	标准单价_IN		病人费用记录.标准单价%Type,
+	应收金额_IN		病人费用记录.应收金额%Type,
+	实收金额_IN		病人费用记录.实收金额%Type,
+	操作员编号_IN		病人费用记录.操作员编号%Type,
+	操作员姓名_IN		病人费用记录.操作员姓名%Type,
+	医嘱序号_IN		病人费用记录.医嘱序号%TYPE
+	)
+AS
+--功能：插入一条住院记账记录
+	v_PatientId      Number;
+	v_床号		 Number;
+	v_病区ID	 Number;
+	v_类别ID	 Number;
+	v_费别		 VarChar2(10);
+	v_收入项目ID	 Number;
+	v_收据费目	 VarChar2(20);
+	Err_Custom 	 Exception;
+  	v_Error 	 Varchar2(255);
+BEGIN
+--执行 zl_住院记账记录_Insert 存储过程，简化一些参数
+--查询病人信息表，获取病人ID
+	Begin
+		select 病人ID into v_PatientId from 病人信息 where 住院号 = 标识号_IN;
+	EXCEPTION
+    WHEN No_Data_Found THEN
+    	v_Error:='住院号错误，通过住院号无法查到病人ID';
+    	Raise Err_Custom;
+  END;
+--查询病人床号
+	Begin
+		select 床号 into v_床号 from 床位状况记录 where 病人ID =v_PatientId;
+	EXCEPTION
+    WHEN No_Data_Found THEN
+    	v_Error:='无床号';
+  END;
+--查询病人病区ID,费别
+	Begin
+		select 当前病区ID ,费别 into  v_病区ID,v_费别 from 病案主页 where 病人ID = v_PatientId and 主页ID = 主页ID_IN;
+	EXCEPTION
+    WHEN No_Data_Found THEN
+    	v_Error:='无法查询到病人费别';
+    	Raise Err_Custom;
+  END;
+--查询类别ID
+	Begin
+		select 类别ID into v_类别ID from 药品单据性质 where 单据 = 9;
+	EXCEPTION
+    WHEN No_Data_Found THEN
+    	v_Error:='无法查询到 类别ID';
+    	Raise Err_Custom;
+  END;
+--查询收据费目，收入项目ID
+	Begin
+	  Select B.收入项目ID,C.收据费目 into v_收入项目ID,v_收据费目 
+	    From 收费细目 A,收费价目 B,收入项目 C 
+	    Where B.收费细目ID = A.ID And C.ID = B.收入项目ID And 
+	    ((To_Char(Sysdate,'YYYY-MM-DD HH24:MI:SS') Between To_Char(B.执行日期,'YYYY-MM-DD HH24:MI:SS') and To_Char(B.终止日期,'YYYY-MM-DD HH24:MI:SS')) 
+	    or (To_Char(Sysdate,'YYYY-MM-DD HH24:MI:SS')>=To_Char(B.执行日期,'YYYY-MM-DD HH24:MI:SS') And B.终止日期 is NULL)) 
+	    And A.ID=收费细目ID_IN;
+	EXCEPTION
+    WHEN No_Data_Found THEN
+    	v_Error:='无法查询到 收据费目，收入项目ID';
+    	Raise Err_Custom;
+    END;	 
+--调用 住院记账insert 存储过程
+	zl_住院记帐记录_Insert(
+	                       NO_IN,序号_IN,v_PatientId,主页ID_IN,标识号_IN,姓名_IN,性别_IN,
+	                       年龄_IN	,v_床号	,v_费别,v_病区ID,开单部门ID_IN,加班标志_IN,
+	                       0,开单部门ID_IN	,开单人_IN,NULL	,收费细目ID_IN	,收费类别_IN,
+	                       计算单位_IN,NULL,NULL,NULL,1,
+	                       数次_IN	,0,执行部门ID_IN,NULL,v_收入项目ID,v_收据费目,
+	                       标准单价_IN,应收金额_IN	,实收金额_IN,NULL,
+	                       Sysdate	, Sysdate ,NULL,2,操作员编号_IN	,
+	                       操作员姓名_IN,0 ,v_类别ID,NULL,	NULL,
+	                       0,医嘱序号_IN,NULL,NULL,NULL,NULL,NULL,0);
+EXCEPTION
+	WHEN Err_Custom THEN
+    		Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+	WHEN OTHERS THEN zl_ErrorCenter (SQLCODE, SQLERRM);
+END ZLPACS_住院记帐记录_Insert;
+/

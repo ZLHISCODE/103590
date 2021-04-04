@@ -1,0 +1,393 @@
+create or replace package b_kodak is
+
+Type t_Refcur Is Ref Cursor;
+
+  procedure SP_BaseInfo_For_Kodak(Cursor_Out Out t_Refcur,
+                                  CodeType   IN number,
+                                  Code       IN varchar);
+  -----------------------------
+  -----基本信息集成
+  -----------------------------
+  procedure SP_RIS_CheckItem_For_Kodak(HIS_ACCESSION_NO IN 影像检查记录.医嘱ID%Type,
+                                       HIS_PID          in 病人信息.病人ID%Type,
+                                       PAT_NAME_CHN     in 病人信息.姓名%Type,
+                                       PAT_NAME_ENG     in Varchar2,
+                                       BIRTH_TIME       in varchar2,
+                                       SEX              in VARCHAR2,
+                                       PROCEDURE_CODE   in varchar2,
+                                       PROCEDURE_DESC   in varchar2,
+                                       MODALITY_NAME    in 影像检查记录.影像类别%Type,
+                                       REPORT_DATE_TIME in date);
+  --------------------------------------
+  --病人检查状态回传集成
+  --------------------------------------
+
+Procedure SP_RIS_Report_For_Kodak(HIS_ACCESSION_NO IN 影像检查记录.医嘱ID%Type,
+                                    HIS_PID          in 病人信息.病人ID%Type,
+                                    PAT_NAME_CHN     in 病人信息.姓名%Type,
+                                    PAT_NAME_ENG     in Varchar2,
+                                    BIRTH_TIME       in varchar2,
+                                    SEX              in VARCHAR2,
+                                    PROCEDURE_CODE   in varchar2,
+                                    MODALITY_NAME    in 影像检查记录.影像类别%Type,
+                                    REPORT_DOCTOR    in 电子病历记录.创建人%Type,
+                                    REPORT_APPROVER  in 电子病历记录.保存人%Type,
+                                    REPORT_DATE_TIME in varchar2,
+                                    REPORT_CONTENT   in varchar2);
+-------------------------------------
+---病人检查报告回传集成
+-------------------------------------
+ Procedure SP_PACS报告单_Update(
+	医嘱ID_In In 病人医嘱记录.id%Type,
+	报告内容_In In Varchar2,
+	报告人_IN	in 电子病历记录.创建人%Type,
+	审核人_IN  in 电子病历记录.保存人%Type,
+	报告时间_in in date) ;
+-------------------------------------
+---病人检查报告回传集成子程序
+-------------------------------------
+
+ 
+end b_kodak;
+
+/
+
+create or replace package body b_kodak is
+                             
+-----------------------------
+-----基本信息集成
+-----------------------------
+procedure SP_BaseInfo_For_Kodak(Cursor_Out Out t_Refcur,
+                                  CodeType   IN number,
+                                  Code       IN varchar) As
+	v_Error Varchar2(255);
+	Err_Custom 	 Exception;
+begin
+-----住院号
+ If CodeType = 1001 then
+    Begin 
+      open Cursor_Out for
+      Select 1 HIS_PAT_TYPE,住院号 HIS_EXTER_ID, 病人ID HIS_PID ,姓名 PAT_NAME_CHN,
+          null PAT_NAME_ENG,
+          Decode(性别,'男','1','女','2','未知','4') As SEX,
+          出生日期 BIRTH_TIME, 身份证号 ID_NO ,家庭电话 PHONE,家庭地址 ADDRESS,
+                   '' NOTE       
+             From 病人信息 where 住院号 =Code;
+    EXCEPTION
+        WHEN No_Data_Found THEN
+          v_Error:='住院号错误，通过住院号无法查到病人';
+        Raise Err_Custom;
+    End;
+  ----门诊号    
+  Elsif CodeType = 1002 then
+          Begin
+             open Cursor_Out for
+            Select 2 HIS_PAT_TYPE,门诊号 HIS_EXTER_ID,
+                  病人ID HIS_PID ,姓名 PAT_NAME_CHN,null PAT_NAME_ENG,
+                  Decode(性别,'男','1','女','2','未知','4') As SEX,出生日期 BIRTH_TIME,
+                  身份证号 ID_NO ,家庭电话 PHONE,家庭地址 ADDRESS  ,'' NOTE
+                      From 病人信息 where 门诊号 =Code;
+          EXCEPTION
+              WHEN No_Data_Found THEN
+                v_Error:='门诊号错误，通过门诊号无法查到病人';
+              Raise Err_Custom;
+          End;
+    ---市医保                   
+   Elsif CodeType = 1003  then
+      Begin
+         open Cursor_Out for
+        Select decode(入院时间 ,Null,2,decode(出院时间,null,1,2)) As HIS_PAT_TYPE,
+								 decode(入院时间 ,Null,a.门诊号,decode(出院时间,null,a.住院号,a.门诊号)) As HIS_EXTER_ID,
+								 a.病人ID As HIS_PID,姓名 As PAT_NAME_CHN,'' As PAT_NAME_ENG,
+								 Decode(性别,'男','1','女','2','未知','4') As SEX,出生日期 As BIRTH_TIME ,
+								 身份证号 As ID_NO,家庭电话 As PHONE,家庭地址 As ADDRESS,'' As NOTE 
+							   From 病人信息 a , 医保病人关联表 b
+  							 where a.病人ID = b.病人ID And b.险类 = 65 And b.医保号= Code;
+      EXCEPTION
+          WHEN No_Data_Found THEN
+               v_Error:='市医保号错误，通过市医保号无法查到病人';
+          Raise Err_Custom;
+      End ;
+    ---省医保                   
+   Elsif CodeType = 1004  then
+      Begin
+         open Cursor_Out for
+        Select decode(入院时间 ,Null,2,decode(出院时间,null,1,2)) As HIS_PAT_TYPE,
+								 decode(入院时间 ,Null,a.门诊号,decode(出院时间,null,a.住院号,a.门诊号)) As HIS_EXTER_ID,
+								 a.病人ID As HIS_PID,姓名 As PAT_NAME_CHN,'' As PAT_NAME_ENG,
+								 Decode(性别,'男','1','女','2','未知','4') As SEX,出生日期 As BIRTH_TIME ,
+								 身份证号 As ID_NO,家庭电话 As PHONE,家庭地址 As ADDRESS,'' As NOTE 
+							   From 病人信息 a , 医保病人关联表 b
+  							 where a.病人ID = b.病人ID And b.险类 = 88 And b.医保号= Code;
+      EXCEPTION
+          WHEN No_Data_Found THEN
+               v_Error:='省医保号错误，通过市医保号无法查到病人';
+          Raise Err_Custom;
+      End ; 
+    elsif CodeType = 1005 then
+    Begin 
+      open Cursor_Out for
+      Select decode(入院时间,null,2,decode(出院时间,null,1,2)) HIS_PAT_TYPE,
+          		 decode(入院时间 ,Null,门诊号,decode(出院时间,null,住院号,门诊号)) As HIS_EXTER_ID,     
+          病人ID HIS_PID ,姓名 PAT_NAME_CHN,'' As PAT_NAME_ENG,
+          Decode(性别,'男','1','女','2','未知','4') As SEX,
+          出生日期 BIRTH_TIME, 身份证号 ID_NO ,家庭电话 PHONE,家庭地址 ADDRESS,
+          '' NOTE         
+             From 病人信息 where 就诊卡号 =Code and 险类 is null;
+    EXCEPTION
+        WHEN No_Data_Found THEN
+          v_Error:='卡条码号错误，通过条码号无法查到病人';
+        Raise Err_Custom;
+    End;
+    
+    ---六合医保                   
+   Elsif CodeType = 1006  then
+      Begin
+         open Cursor_Out for
+        Select decode(入院时间 ,Null,2,decode(出院时间,null,1,2)) As HIS_PAT_TYPE,
+								 decode(入院时间 ,Null,a.门诊号,decode(出院时间,null,a.住院号,a.门诊号)) As HIS_EXTER_ID,
+								 a.病人ID As HIS_PID,姓名 As PAT_NAME_CHN,'' As PAT_NAME_ENG,
+								 Decode(性别,'男','1','女','2','未知','4') As SEX,出生日期 As BIRTH_TIME ,
+								 身份证号 As ID_NO,家庭电话 As PHONE,家庭地址 As ADDRESS,'' As NOTE 
+							   From 病人信息 a , 医保病人关联表 b
+  							 where a.病人ID = b.病人ID And b.险类 =66 And a.医保号= Code;
+      EXCEPTION
+          WHEN No_Data_Found THEN
+               v_Error:='六合医保号错误，通过市医保号无法查到病人';
+          Raise Err_Custom;
+      End ;
+      ---------合疗
+   Elsif CodeType = 1007  then
+      Begin
+         open Cursor_Out for
+        Select decode(入院时间 ,Null,2,decode(出院时间,null,1,2)) As HIS_PAT_TYPE,
+								 decode(入院时间 ,Null,a.门诊号,decode(出院时间,null,a.住院号,a.门诊号)) As HIS_EXTER_ID,
+								 a.病人ID As HIS_PID,姓名 As PAT_NAME_CHN,'' As PAT_NAME_ENG,
+								 Decode(性别,'男','1','女','2','未知','4') As SEX,出生日期 As BIRTH_TIME ,
+								 身份证号 As ID_NO,家庭电话 As PHONE,家庭地址 As ADDRESS,'' As NOTE 
+							   From 病人信息 a , 医保病人关联表 b
+  							 where a.病人ID = b.病人ID And b.险类 =999 And a.医保号= Code;
+      EXCEPTION
+          WHEN No_Data_Found THEN
+               v_Error:='六合医保号错误，通过市医保号无法查到病人';
+          Raise Err_Custom;
+      End ;             
+  ----门诊收费单据号   
+  Elsif CodeType = 1008 then
+          Begin
+             open Cursor_Out for
+            Select distinct 2 HIS_PAT_TYPE,1 HIS_EXTER_ID,
+                  no HIS_PID ,姓名 PAT_NAME_CHN,null PAT_NAME_ENG,
+                  Decode(性别,'男','1','女','2','未知','4') As SEX,'' BIRTH_TIME,
+                  '' ID_NO ,'' PHONE,'' ADDRESS  ,'' NOTE
+                      From 病人费用记录 where 记录性质=1 and 记录状态=1 and 
+                           no =Code;
+          EXCEPTION
+              WHEN No_Data_Found THEN
+                v_Error:='门诊号错误，通过门诊号无法查到病人';
+              Raise Err_Custom;
+          End;            
+  end if;
+EXCEPTION
+  WHEN Err_Custom THEN
+        Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+	WHEN OTHERS THEN zl_ErrorCenter (SQLCODE, SQLERRM);
+END SP_BaseInfo_For_Kodak;
+
+  --------------------------------------
+  --病人检查状态回传集成
+  --------------------------------------
+  
+ procedure SP_RIS_CheckItem_For_Kodak(
+	HIS_ACCESSION_NO   IN   影像检查记录.医嘱ID%Type,
+	HIS_PID 	in 病人信息.病人ID%Type,
+	PAT_NAME_CHN  in   病人信息.姓名%Type,
+	PAT_NAME_ENG  in  Varchar2,
+	BIRTH_TIME	in varchar2,
+	SEX		in VARCHAR2,
+	PROCEDURE_CODE in varchar2,
+	PROCEDURE_DESC in varchar2,
+	MODALITY_NAME in 影像检查记录.影像类别%Type,
+	REPORT_DATE_TIME in date
+	)
+	--只通过医嘱ID来修改医嘱的执行过程，不检查其他信息
+as
+	v_Error Varchar2(255);
+	Err_Custom 	 Exception;
+begin
+	update 病人医嘱发送 set 执行过程 = 3 where 医嘱ID = HIS_ACCESSION_NO AND 执行状态=3;
+ 	If Sql%Rowcount = 0 Then
+      		v_Error:='病人检查状态无法更新';
+    		Raise Err_Custom;
+  End If;
+  commit;
+EXCEPTION
+	WHEN Err_Custom THEN
+    		Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+	WHEN OTHERS THEN zl_ErrorCenter (SQLCODE, SQLERRM);
+END SP_RIS_CheckItem_For_Kodak;
+
+-------------------------------------
+---病人检查报告回传集成
+-------------------------------------
+ procedure SP_RIS_Report_For_Kodak(
+	HIS_ACCESSION_NO   IN   影像检查记录.医嘱ID%Type,
+	HIS_PID 	in 病人信息.病人ID%Type,
+	PAT_NAME_CHN  in   病人信息.姓名%Type,
+	PAT_NAME_ENG  in  Varchar2,
+	BIRTH_TIME	in varchar2,
+	SEX		in VARCHAR2,
+	PROCEDURE_CODE in varchar2,
+	MODALITY_NAME in 影像检查记录.影像类别%Type,
+	REPORT_DOCTOR	in 电子病历记录.创建人%Type,
+	REPORT_APPROVER  in 电子病历记录.保存人%Type,
+	REPORT_DATE_TIME in varchar2,
+	REPORT_CONTENT  in varchar2
+	)
+	--只通过医嘱ID来新增或者修改报告内容，不检查其他信息
+As
+	v_发送号   Number;
+begin
+	--保存报告
+ b_kodak.SP_PACS报告单_Update(HIS_ACCESSION_NO,REPORT_CONTENT,REPORT_DOCTOR,REPORT_APPROVER,to_date(REPORT_DATE_TIME,'yyyy-mm-dd hh24:mi:ss'));
+  --设置病人医嘱为“已审核”状态
+	Begin
+			 Select 发送号 Into v_发送号 From 病人医嘱发送 Where 医嘱ID = HIS_ACCESSION_NO;
+	Exception
+				WHEN OTHERS THEN zl_ErrorCenter (SQLCODE, SQLERRM);	 
+	End;
+	Zl_影像检查_State(HIS_ACCESSION_NO,v_发送号,5);
+Exception
+	WHEN OTHERS THEN zl_ErrorCenter (SQLCODE, SQLERRM);
+END SP_RIS_Report_For_Kodak;
+
+--病人检查报告回传子过程
+
+ Procedure SP_PACS报告单_Update(
+	医嘱ID_In In 病人医嘱记录.id%Type,
+	报告内容_In In Varchar2,
+	报告人_IN	in 电子病历记录.创建人%Type,
+	审核人_IN  in 电子病历记录.保存人%Type,
+	报告时间_in in date
+) Is
+
+	v_主页id     病人医嘱记录.主页id%Type;
+	v_开嘱科室id 病人医嘱记录.开嘱科室id%Type;
+	v_病人来源   病人医嘱记录.病人来源%Type;
+	v_病人id     病人医嘱记录.病人id%Type;
+	v_婴儿       病人医嘱记录.婴儿%Type;
+	v_病历文件id 病历单据应用.病历文件id%Type;
+	v_病历文件名 病历文件列表.名称%Type;
+	v_当前父id   电子病历内容.父id%Type;
+	v_父id_In    电子病历内容.父id%Type;
+	v_写入报告   Number := 0; --1=写入PACS报告内容
+	v_文件id     电子病历内容.文件id%Type;
+	v_Nextid     电子病历内容.Id%Type;
+	v_Loop       Number := 0;
+	v_替换内容   电子病历内容.内容文本%Type;
+
+	Cursor v_Source Is
+		Select Id, 文件id, Nvl(父id, 0) As 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次, 内容文本,
+					 是否换行, 预制提纲id 复用提纲, 使用时机, 诊治要素id, 替换域, 要素名称, 要素类型, 要素长度, 要素小数, 要素单位,
+					 要素表示, 输入形态, 要素值域
+		From 病历文件结构
+		Where 文件id = v_病历文件id
+		Order By 对象序号;
+
+Begin
+	Select Nvl(b.主页id, 0), Decode(b.病人来源, 2, 2, 4, 4, 1), Nvl(b.病人id, 0), Nvl(b.开嘱科室id, 0),
+				 Nvl(b.婴儿, 0)
+	Into v_主页id, v_病人来源, v_病人id, v_开嘱科室id, v_婴儿
+	From  病人医嘱记录 b
+	Where b.id =医嘱ID_In;
+
+	Begin
+		Select 病历文件id, c.名称
+		Into v_病历文件id, v_病历文件名
+		From 病人医嘱记录 a, 病历单据应用 b, 病历文件列表 c
+		Where a.诊疗项目id = b.诊疗项目id And b.病历文件id = c.Id And a.id = 医嘱ID_In And b.应用场合 = v_病人来源 And
+					Rownum <= 1;
+	Exception
+		When Others Then
+			Return;
+	End;
+
+	--删除以前的报告记录
+	Begin
+		Select 病历id Into v_文件id From 病人医嘱报告 Where 医嘱id = 医嘱ID_In And Rownum <= 1;
+		Delete 病人医嘱报告 Where 医嘱id = 医嘱ID_In;
+		Delete 电子病历记录 Where Id = v_文件id;
+		Delete 电子病历内容 Where 文件id = v_文件id;
+	Exception
+		When Others Then
+			Delete 病人医嘱报告 Where 医嘱id = 医嘱ID_In;
+	End;
+
+	Select 电子病历记录_Id.Nextval Into v_文件id From Dual;
+
+	Insert Into 电子病历记录
+		(Id, 病人来源, 病人id, 主页id, 婴儿, 科室id, 病历种类, 文件id, 病历名称, 创建人, 创建时间, 保存人, 保存时间,
+		 最后版本, 签名级别,完成时间)
+	Values
+		(v_文件id, v_病人来源, v_病人id, v_主页id, v_婴儿, v_开嘱科室id, 7, v_病历文件id, v_病历文件名, 报告人_IN, 报告时间_in,
+		 审核人_IN, 报告时间_in, 1, 0,报告时间_in);
+
+	Insert Into 病人医嘱报告 (医嘱id, 病历id) Values (医嘱ID_In,v_文件id);
+
+	For r_Source In v_Source Loop
+
+		If v_写入报告 = 1 Then
+			--插入PACS报告文本
+			v_Loop := v_Loop + 1;
+			Select 电子病历内容_Id.Nextval Into v_Nextid From Dual;
+
+			Insert Into 电子病历内容
+				(Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次, 内容文本,
+				 是否换行)
+			Values
+				(v_Nextid, v_文件id, 1, 0, v_当前父id, v_Loop, 2, v_Loop, Null, 0, Null, 报告内容_In, 1);
+		End If;
+
+		v_Loop := v_Loop + 1;
+		Select 电子病历内容_Id.Nextval Into v_Nextid From Dual;
+		v_写入报告 := 0;
+
+		If r_Source.父id = 0 Then
+			v_当前父id := v_Nextid;
+			v_父id_In  := Null;
+		Else
+			v_父id_In := v_当前父id;
+		End If;
+
+		If r_Source.对象类型 = 4 And r_Source.替换域 = 1 Then
+			v_替换内容 := Zl_Replace_Element_Value(r_Source.要素名称, v_病人id, v_主页id, v_病人来源, 医嘱ID_In);
+			Insert Into 电子病历内容
+				(Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次, 内容文本,
+				 是否换行)
+			Values
+				(v_Nextid, v_文件id, 1, 0, v_父id_In, v_Loop, r_Source.对象类型, r_Source.对象标记, r_Source.保留对象,
+				 r_Source.对象属性, r_Source.内容行次, v_替换内容, r_Source.是否换行);
+		Elsif r_Source.对象类型 = 1 And r_Source.内容文本 = '影像描述' Then
+			Insert Into 电子病历内容
+				(Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次, 内容文本,
+				 是否换行)
+			Values
+				(v_Nextid, v_文件id, 1, 0, v_父id_In, v_Loop, r_Source.对象类型, r_Source.对象标记, r_Source.保留对象,
+				 r_Source.对象属性, r_Source.内容行次, r_Source.内容文本, r_Source.是否换行);
+			v_写入报告 := 1;
+		Else
+			Insert Into 电子病历内容
+				(Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次, 内容文本,
+				 是否换行)
+			Values
+				(v_Nextid, v_文件id, 1, 0, v_父id_In, v_Loop, r_Source.对象类型, r_Source.对象标记, r_Source.保留对象,
+				 r_Source.对象属性, r_Source.内容行次, r_Source.内容文本, r_Source.是否换行);
+		End If;
+	End Loop;
+
+Exception
+	When Others Then
+		Zl_Errorcenter(Sqlcode, Sqlerrm);
+End SP_PACS报告单_Update;
+end b_kodak;
+/

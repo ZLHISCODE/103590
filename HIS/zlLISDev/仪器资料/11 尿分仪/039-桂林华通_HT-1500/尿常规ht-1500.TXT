@@ -1,0 +1,76 @@
+
+ No.0073 2007-12-06 
+           09:55:09 
+                    
+ GLU  -     0mmol/L 
+ NIT  -             
+ BLD  -     0  mg/L 
+*PRO  +2  1.0   g/L 
+ KET  -     0  mg/L 
+ SG     1.025       
+ PH       6.0       
+ BIL  -     0umol/L 
+*URO  +1   34umol/L 
+ LEU  -     0Leu/uL 
+ VC         0mmol/L 
+
+ No.0074 2007-12-06 
+           10:00:16 
+                    
+ GLU  -     0mmol/L 
+ NIT  -             
+ BLD  -     0  mg/L 
+ PRO  -     0   g/L 
+ KET  -     0  mg/L 
+ SG   <=1.005       
+ PH       6.0       
+ BIL  -     0umol/L 
+ URO  -     0umol/L 
+ LEU  -     0Leu/uL 
+ VC         0mmol/L 
+
+ No.0075 2007-12-06 
+           10:00:42 
+                    
+ GLU  -     0mmol/L 
+ NIT  -             
+ BLD  -     0  mg/L 
+ PRO  -     0   g/L 
+ KET  -     0  mg/L 
+ SG     1.025       
+ PH       5.5       
+ BIL  -     0umol/L 
+ URO  -     0umol/L 
+ LEU  -     0Leu/uL 
+ VC         0mmol/L 
+
+ No.0076 2007-12-06 
+           10:01:34 
+                    
+ GLU  -     0mmol/L 
+ NIT  -             
+*BLD  +1  1.0  mg/L 
+*PRO  +1  0.3   g/L 
+ KET  -     0  mg/L 
+ SG     1.020       
+ PH       5.0       
+ BIL  -     0umol/L 
+ URO  -     0umol/L 
+ LEU  -     0Leu/uL 
+ VC       0.6mmol/L 
+
+ No.0077 2007-12-06 
+           10:02:52 
+                    
+ GLU  -     0mmol/L 
+ NIT  -             
+ BLD  -     0  mg/L 
+ PRO  -     0   g/L 
+ KET  -     0  mg/L 
+ SG     1.020       
+ PH       5.5       
+ BIL  -     0umol/L 
+ URO  -     0umol/L 
+ LEU  -     0Leu/uL 
+ VC         0mmol/L 
+

@@ -1,0 +1,87 @@
+依赖项目：
+C:\APPSOFT\PUBLIC\ZLPubInterfaceNET.dll：该部件为32位部件
+C:\Windows\System32\ZLSM4.dll(64位操作系统位为C:\Windows\SYSWow64\ZLSM4.dll)：该部件为32位部件
+ODP托管数据访问部件：Oracle.ManagedDataAccess.dll
+
+
+using Oracle.ManagedDataAccess.Client;
+using ZLPubInterface;
+//'======================================================================================================================
+//'接口           GetConnection           验证三方接口的APPID与授权码，成功，则返回的连接为Open状态，否则为Closed状态
+//'返回值         Connection对象
+//'入参列表:
+//'参数名         类型                    说明
+//'Key            String                  三方接口授权码的明文
+//'Server         String                  三方接口要连接的服务器(IP:Port/SID)，Port为1521可以省略，此时格式为IP/SID
+//'strErrNote     String(Out)             返回错误信息      
+//'======================================================================================================================
+
+使用用例：
+            clsInterface objInterface = new clsInterface();
+            string strError = null;
+            textBox1.Text ="测试GetConnection";
+            OracleConnection connTmp = objInterface.GetConnection("8D0C1DB4134D43", "127.0.0.1:1521/TESTPARA", out  strError);
+            if (connTmp.State == ConnectionState.Closed)
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetConnection失败:" + strError;
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetConnection成功";
+            }
+            connTmp.Dispose();
+
+//'======================================================================================================================
+//'接口           GetUnitName             验证三方接口的授权码，成功返回单位名称，否则返回空串
+//'返回值         String
+//'入参列表:
+//'参数名         类型                    说明
+//'Key            String                  三方接口授权码的明文
+//'varServerOrConnection   String         三方接口要连接的服务器（(IP:Port/SID)，Port为1521可以省略，此时格式为IP/SID 或者已经打开的连接对象
+//'strErrNote     String(Out,Optional)    返回错误信息     
+//'======================================================================================================================
+
+使用用例：
+            clsInterface objInterface = new clsInterface();
+            string strError = null;
+            textBox1.Text ="测试GetConnection";
+            OracleConnection connTmp = objInterface.GetConnection("8D0C1DB4134D43", "127.0.0.1:1521/TESTPARA", out  strError);
+            if (connTmp.State == ConnectionState.Closed)
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetConnection失败:" + strError;
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetConnection成功";
+            }
+            string strUnit = null;
+            strUnit = objInterface.GetUnitName("B44E608078FF47", "127.0.0.1/TESTPARA", out  strError);
+            if (strUnit != null)
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetUnitName成功:" + strUnit;
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetUnitName失败:" + strError;
+            }
+            strUnit = objInterface.GetUnitName("8D0C1DB4134D43", connTmp, out  strError);
+            if (strUnit != null)
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetUnitName(连接方式)成功:" + strUnit;
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "\r\n----GetUnitName(连接方式)失败:" + strError;
+            }
+            connTmp.Dispose();
+'======================================================================================================================
+'接口           GetPassword             验证三方接口的授权码，成功返回用户的登录密码，否则返回空串
+'返回值         String
+'入参列表:
+'参数名         类型                    说明
+'Key            String                  三方接口授权码的明文
+'varServerOrConnection   String         三方接口要连接的服务器（可以直接指定IP:Port/SID）或者已经打开的连接对象
+'strUserName    String                  用户名称
+'strErrNote     String(Out,Optional)    返回错误信息
+'lngSys         Long                    系统编号，-1缺省从标准版读取。没有读到则从其他系统读取，优先系统编号比较小的
+'======================================================================================================================

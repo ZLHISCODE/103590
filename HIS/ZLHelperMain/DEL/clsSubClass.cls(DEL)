@@ -1,0 +1,297 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+  Persistable = 0  'NotPersistable
+  DataBindingBehavior = 0  'vbNone
+  DataSourceBehavior  = 0  'vbNone
+  MTSTransactionMode  = 0  'NotAnMTSObject
+END
+Attribute VB_Name = "clsSubClass"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Option Explicit
+'==================================================================================================
+'编写           lshuo
+'日期           2019/1/23
+'模块           clsSubClassM
+'说明           子类化消息类，支持多次子类化以及程序中止不崩溃（无模隐藏窗体必须手工Unload）。
+'使用方法：
+'Private WithEvents mobjSubClass             As clsSubClass
+'   子类化
+'    Set mobjSubClass = New clsSubClass
+'    Call mobjSubClass.RelatedControl(frmMain)
+'   取消子类化，手动关闭窗口，或设置Nothing
+'   Set mobjSubClass = Nothing
+' 消息处理，放在mobjSubClass的SubclassedMessage（窗口消息截取）与CopyData（进程或不同窗口通信）中处理。
+'==================================================================================================
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+'返回值：如果窗口句柄标识了一个已存在的窗口，返回值为非零；如果窗口句柄未标识一个已存在窗口，返回值为零
+Private Declare Function isWindow Lib "user32" Alias "IsWindow" (ByVal hwnd As Long) As Long
+Private mlngHwnd                    As Long                     '窗体句柄
+Private mlngSCIndex                 As Long                     '子类化索引，请勿修改，支持多次子类化
+Private mcdsCur                     As COPYDATASTRUCT           '传递字符串消息的内存结构
+Private mstrMultiMsgMutextID        As String
+'参数名         类型                    说明
+'uMsg           Long                    消息ID
+'wParam         Long                    消息参数
+'lParam         Long                    消息参数指针
+'lngRet         Long                    是否阻塞缺省消息处理，0-不阻塞，1-阻塞
+'-------------------------------------------------------------------------------------------------
+Public Event SubclassedMessage(ByVal uMsg As Long, ByVal wParam As Long, ByVal lParam As Long, ByRef lngRet As Long)
+Public Event CopyData(ByVal wParam As Long, ByVal dwData As Long, ByVal strData As String, ByRef lngRet As Long)
+'子类化索引，请勿修改，支持多次子类化
+Public Property Get SCIndex() As Long
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.SCIndex")
+    SCIndex = mlngSCIndex
+    Call PopMethod("ZLHelperMain.clsSubClass.SCIndex", SCIndex)
+    Exit Property
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.SCIndex") = 1 Then
+        Resume
+    End If
+End Property
+
+Public Property Let SCIndex(ByVal lngScIndex As Long)
+    If lngScIndex = 0 Then
+        mlngSCIndex = lngScIndex
+    End If
+End Property
+
+Public Property Get hwnd() As Long
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.hwnd")
+    hwnd = mlngHwnd
+    Call PopMethod("ZLHelperMain.clsSubClass.hwnd", hwnd)
+    Exit Property
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.hwnd") = 1 Then
+        Resume
+    End If
+End Property
+
+'--------------------------------------------------------------------------------------------------
+'方法           RelatedControl
+'功能           子类化关联一个控件
+'返回值         Boolean                 是否子类化成功
+'入参列表:
+'参数名         类型                    说明
+'objControl     Object                  关联的控件或窗体
+'strMultiMsgMutextID    String          多个窗体之间相互消息交互时的消息ID。一般对一组消息取GUID作为消息ID
+'-------------------------------------------------------------------------------------------------
+Public Function RelatedControl(objControl As Object, Optional ByVal strMultiMsgMutextID As String) As Boolean
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.RelatedControl", objControl, strMultiMsgMutextID)
+    If mlngHwnd <> 0 Then
+        Call RemoveSubClass(Me)
+        mlngSCIndex = 0
+    End If
+    mlngHwnd = objControl.hwnd
+    If CreateSubClass(Me) Then
+        RelatedControl = True
+        mstrMultiMsgMutextID = strMultiMsgMutextID
+    Else
+        mlngHwnd = 0
+    End If
+    Call PopMethod("ZLHelperMain.clsSubClass.RelatedControl", RelatedControl)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.RelatedControl") = 1 Then
+        Resume
+    End If
+
+End Function
+
+'--------------------------------------------------------------------------------------------------
+'方法           UnRelatedControl
+'功能           取消控件子类化关联。该方法仅供内部调用，外部只需将对象实例设置为Noting即可
+'返回值         Boolean
+'入参列表:
+'参数名         类型                    说明
+'blnDestory     Boolean                 是否窗体卸载时。该参数传True仅供内部调用。
+'-------------------------------------------------------------------------------------------------
+Public Function UnRelatedControl(Optional ByVal blnDestory As Boolean) As Boolean
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.UnRelatedControl", blnDestory)
+    mlngSCIndex = 0
+    mlngHwnd = 0
+    mstrMultiMsgMutextID = ""
+    '窗体卸载时批量处理。
+    If Not blnDestory Then
+        Call RemoveSubClass(Me)
+    End If
+    Call PopMethod("ZLHelperMain.clsSubClass.UnRelatedControl", UnRelatedControl)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.UnRelatedControl") = 1 Then
+        Resume
+    End If
+End Function
+
+'--------------------------------------------------------------------------------------------------
+'方法           SendCopyData
+'功能           向另一个窗口发送CopyData消息。主要用于跨窗口或进程传递数据
+'返回值         Boolean
+'入参列表:
+'参数名         类型                    说明
+'lngToHwnd      Long                    目标窗口的窗口句柄
+'wParam         Long                    消息参数
+'dwData         Long                    CopyData的Long数据
+'strData        String                  CopyData的String数据
+'-------------------------------------------------------------------------------------------------
+Public Function SendCopyData(ByVal lngToHwnd As Long, ByVal wParam As Long, ByVal dwData As Long, ByVal strData As String) As Boolean
+    Dim buf(1 To 1024)      As Byte
+    Dim objMutex            As New clsMutex
+    Dim blnDo               As Boolean
+    Dim lngResult           As Long, lngRet     As Long
+ 
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.SendCopyData", lngToHwnd, wParam, dwData, strData)
+    If mstrMultiMsgMutextID <> "" Then
+        If Not objMutex.CheckMutex(mstrMultiMsgMutextID) Then '没有互斥体，则自动创建，该函数结束时，会自动释放互斥体
+            blnDo = True
+        End If
+    Else
+        blnDo = True
+    End If
+    If blnDo Then
+        Call CopyMemory(buf(1), ByVal strData, ActualLen(strData))
+        mcdsCur.dwData = dwData
+        mcdsCur.cbData = ActualLen(strData) + 1
+        '使用buf发送，可以控制消息在1024之内
+        mcdsCur.lpData = VarPtr(buf(1))
+        If isWindow(lngToHwnd) <> 0 Then
+            lngRet = SendMessageTimeout(lngToHwnd, WM_COPYDATA, wParam, mcdsCur, SMTO_ABORTIFHUNG Or SMTO_BLOCK, 1000, lngResult)
+            LogInfo "发送消息", "消息结果", lngResult, "API结果", lngRet, "Error", GetLastDllErr(Err.LastDllError)
+        Else
+            LogInfo "发送消息", "isWindow", False
+        End If
+        SendCopyData = True
+    End If
+    Call PopMethod("ZLHelperMain.clsSubClass.SendCopyData", SendCopyData)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.SendCopyData") = 1 Then
+        Resume
+    End If
+End Function
+'--------------------------------------------------------------------------------------------------
+'方法           SendOtherMessage
+'功能           向目标窗口发送其他消息
+'返回值         Boolean
+'入参列表:
+'参数名         类型                    说明
+'lngToHwnd      Long                    目标窗口的窗口句柄
+'wParam         Long                    消息参数
+'dwData         Long                    CopyData的Long数据
+'strData        String                  CopyData的String数据
+'-------------------------------------------------------------------------------------------------
+Public Function SendOtherMessage(ByVal lngToHwnd As Long, ByVal uMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Boolean
+    Dim objMutex            As New clsMutex
+    Dim blnDo               As Boolean
+    Dim lngResult           As Long, lngRet     As Long
+    
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.SendOtherMessage", lngToHwnd, uMsg, wParam, lParam)
+    If mstrMultiMsgMutextID <> "" Then
+        If Not objMutex.CheckMutex(mstrMultiMsgMutextID) Then '没有互斥体，则自动创建，该函数结束时，会自动释放互斥体
+            blnDo = True
+        End If
+    Else
+        blnDo = True
+    End If
+    If blnDo Then
+        If isWindow(lngToHwnd) <> 0 Then
+            lngRet = SendMessageTimeout(lngToHwnd, uMsg, wParam, lParam, SMTO_ABORTIFHUNG Or SMTO_BLOCK, 1000, lngResult)
+            LogInfo "发送消息", "消息结果", lngResult, "API结果", lngRet, "Error", GetLastDllErr(Err.LastDllError)
+        Else
+            LogInfo "发送消息", "isWindow", False
+        End If
+        SendOtherMessage = True
+    End If
+
+    Call PopMethod("ZLHelperMain.clsSubClass.SendOtherMessage", SendOtherMessage)
+    Exit Function
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.SendOtherMessage") = 1 Then
+        Resume
+    End If
+End Function
+'--------------------------------------------------------------------------------------------------
+'方法           SCMessage
+'功能           消息代理函数。外部无需调用
+'返回值
+'入参列表:
+'参数名         类型                    说明
+'uMsg           Long                    消息ID
+'wParam         Long                    消息参数
+'lParam         Long                    消息参数指针
+'lngRet         Long                    是否阻塞缺省消息处理，0-不阻塞，1-阻塞
+'-------------------------------------------------------------------------------------------------
+Public Sub SCMessage(ByVal uMsg As Long, ByVal wParam As Long, ByVal lParam As Long, ByRef lngRet As Long)
+
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.SCMessage", uMsg, wParam, lParam, lngRet)
+    If uMsg = WM_COPYDATA Then
+        Call SCCopyData(wParam, lParam, lngRet)
+    Else
+        RaiseEvent SubclassedMessage(uMsg, wParam, lParam, lngRet)
+    End If
+    Call PopMethod("ZLHelperMain.clsSubClass.SCMessage")
+    Exit Sub
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.SCMessage") = 1 Then
+        Resume
+    End If
+End Sub
+'--------------------------------------------------------------------------------------------------
+'方法           SCCopyData
+'功能           获取消息内容。外部无需调用
+'返回值
+'入参列表:
+'参数名         类型                    说明
+'wParam         Long                    消息参数
+'lParam         Long                    消息内容地址
+'lngRet         Long                    是否阻塞缺省消息处理，0-不阻塞，1-阻塞
+'-------------------------------------------------------------------------------------------------
+Private Sub SCCopyData(ByVal wParam As Long, ByVal lParam As Long, ByRef lngRet As Long)
+    Dim bytBuf(1 To 1024)      As Byte
+    Dim strMsg              As String
+
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.SCCopyData", wParam, lParam, lngRet)
+    Call CopyMemory(mcdsCur, ByVal lParam, Len(mcdsCur))
+    Call CopyMemory(bytBuf(1), ByVal mcdsCur.lpData, mcdsCur.cbData)
+    strMsg = StrConv(bytBuf, vbUnicode)
+    strMsg = Left$(strMsg, InStr(1, strMsg, Chr$(0)) - 1)
+    RaiseEvent CopyData(wParam, mcdsCur.dwData, strMsg, lngRet)
+    Call PopMethod("ZLHelperMain.clsSubClass.SCCopyData")
+    Exit Sub
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.SCCopyData") = 1 Then
+        Resume
+    End If
+End Sub
+
+Private Function ActualLen(ByVal strAsk As String) As Long
+'功能：求取指定字符串的实际长度，用于判断实际包含双字节字符串的
+'       实际数据存储长度
+    ActualLen = LenB(StrConv(strAsk, vbFromUnicode))
+End Function
+
+Private Sub Class_Terminate()
+    On Error GoTo ErrH
+    Call PushMethod("ZLHelperMain.clsSubClass.Class_Terminate")
+    If mlngHwnd <> 0 Then
+        Call RemoveSubClass(Me)
+    End If
+    Call PopMethod("ZLHelperMain.clsSubClass.Class_Terminate")
+    Exit Sub
+ErrH:
+    If ErrorCenter("ZLHelperMain.clsSubClass.Class_Terminate") = 1 Then
+        Resume
+    End If
+End Sub

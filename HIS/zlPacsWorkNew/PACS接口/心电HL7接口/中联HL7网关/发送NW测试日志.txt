@@ -1,0 +1,57 @@
+发送数据：
+MSH|^~\&|SCM|AGH|MUSE|SITE0001|20120222094137||ORM^O01||P|2.4
+PID|1||病人号4|患者第二编号|名^姓||19591105|M|中文名4|C|地址1^地址2^市^省^邮编^国籍||电话1|电话2|||Protestant|150035926198|232-654-9988
+PV1|1|INPAT|HIS科室^房间号^床位号^^^^^^第二科室|X|||会诊医生ID^SHARIF^SAIMA|转诊医师ID^Dosch^Justin|主治医师ID^Last Name^First Name|HON||||EO|8||接诊医师ID^接诊医师名^接诊医师姓|S|就诊号|||||||||||||||||UNK|||Fac|||||201202220941|201203050941|||||第二就诊号
+ORC|NW|医嘱号^SCM|fillers number||||^^^201202230941^^Routine|parent num|201202220941|Place医师ID^Martin^Tom||开单医生ORDID^Dosch^Justin
+OBR|1|||ECGGDT^12 Lead ECG^60200151^^12 Lead ECG||20070617235953|20070617235953|||||明尼苏达码||||535724^Dosch Justin|||||||||||^^^^^Routine||||^检查原因 (786.50)
+NTE|1||医嘱注解|
+OBX|1||||^181|
+OBX|2||||^80|
+DG1|1||第一结论|Admit Diagnosis|
+DG1|2||Secondary diagnosis||
+DG1|3||Tertiary diagnosis||
+
+
+接收到ACK:
+MSH|^~\&|MUSE|SITE0001|SCM|AGH|201203141820||ACK|20120314182037|P|2.4|
+MSA|AE||Unable to find Segment: ORC
+
+
+发送数据：
+MSH|^~\&|SCM|AGH|MUSE|SITE0001|20120222094137||ORM^O01||P|2.4
+PID|1||病人号4|患者第二编号|名^姓||19591105|M|中文名4|C|地址1^地址2^市^省^邮编^国籍||电话1|电话2|||Protestant|150035926198|232-654-9988
+PV1|1|INPAT|HIS科室^房间号^床位号^^^^^^第二科室|X|||会诊医生ID^SHARIF^SAIMA|转诊医师ID^Dosch^Justin|主治医师ID^Last Name^First Name|HON||||EO|8||接诊医师ID^接诊医师名^接诊医师姓|S|就诊号|||||||||||||||||UNK|||Fac|||||201202220941|201203050941|||||第二就诊号
+ORC|NW|医嘱号^SCM|fillers number||||^^^201202230941^^Routine|parent num|201202220941|Place医师ID^Martin^Tom||开单医生ORDID^Dosch^Justin
+OBR|1|||ECGGDT^12 Lead ECG^60200151^^12 Lead ECG||20070617235953|20070617235953|||||明尼苏达码||||535724^Dosch Justin|||||||||||^^^^^Routine||||^检查原因 (786.50)
+NTE|1||医嘱注解|
+OBX|1||||^181|
+OBX|2||||^80|
+DG1|1||第一结论|Admit Diagnosis|
+DG1|2||Secondary diagnosis||
+DG1|3||Tertiary diagnosis||
+
+
+接收到ACK:
+MSH|^~\&|MUSE|SITE0001|SCM|AGH|201203141821||ACK|20120314182123|P|2.4|
+MSA|AA||
+
+
+发送数据：
+MSH|^~\&|SCM|ZLHIS|HIS001|SITE0001|20120222094137||ORM^O01||P|2.4
+PID|1||病人号5|患者第二编号|名^姓||19591105|M|中联测试|C|地址1^地址2^市^省^邮编^国籍||电话1|电话2|||Protestant|150035926198|232-654-9988
+PV1|1|INPAT|HIS科室^房间号^床位号^^^^^^第二科室|X|||会诊医生ID^SHARIF^SAIMA|转诊医师ID^Dosch^Justin|主治医师ID^Last Name^First Name|HON||||EO|8||接诊医师ID^接诊医师名^接诊医师姓|S|就诊号|||||||||||||||||UNK|||Fac|||||201202220941|201203050941|||||第二就诊号
+ORC|NW|123456^SCM|fillers number||||^^^201202230941^^Routine|parent num|201202220941|Place医师ID^Martin^Tom||开单医生ORDID^Dosch^Justin
+OBR|1|||ECGGDT^12 Lead ECG^60200151^^12 Lead ECG||20070617235953|20070617235953|||||明尼苏达码||||535724^Dosch Justin|||||||||||^^^^^Routine||||^检查原因 (786.50)
+NTE|1||医嘱注解|
+OBX|1||||^181|
+OBX|2||||^80|
+DG1|1||第一结论|Admit Diagnosis|
+DG1|2||Secondary diagnosis||
+DG1|3||Tertiary diagnosis||
+
+
+接收到ACK:
+MSH|^~\&|HIS001|SITE0001|SCM|ZLHIS|201203141822||ACK|20120314182230|P|2.4|
+MSA|AA||
+
+

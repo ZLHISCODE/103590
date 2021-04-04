@@ -1,0 +1,7 @@
+1. CecDeviceToHis.dll -- 嵌入HIS的动态库。
+2. vcredist_x86.exe  -- 在有此机器上，不能运行MCSCPP.exe和不能调用CecDeviceToHis.dll，此机器缺一些Windows动态库，安装vcredist_x86.exe后可解决此类问题.
+3. call_dll.exe -- 此程序运行可测试动态库调用成功,并实现显示监护仪数据.call_dll.exe必须与CecDeviceToHis.dll放在一起.或者要把CecDeviceToHis.dll拷贝到Windows\system32目录下。
+4. CECServiceCpl.cpl --把这个文件拷贝到Windows\system32目录，可在控制面板中看到“中电深迈服务配置”,双击可配置服务程序CECMCS.exe的各样参数。
+5. CECMCS.exe -- 服务程序，可在DOS Like中用CECMCS.exe -i 安装为手动启动服务，参数-a 安装为自动启动服务 参数-u 删除服务，参数-?查看帮助, 参数-v 版本信息。
+
+6.到这里服务程序就已经开启了,可以再开启摸拟监护仪或者真实的监护仪,通过服务所在的机器,接入HIS软件。

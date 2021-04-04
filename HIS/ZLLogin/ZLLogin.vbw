@@ -1,0 +1,9 @@
+FrmAccoutChoose = 26, 26, 821, 506, C, 156, 156, 948, 636, C
+FrmChangePass = 0, 0, 0, 0, C, 182, 182, 974, 662, C
+frmSplash = 0, 0, 0, 0, C, 208, 208, 1000, 688, C
+frmUserLogin = 52, 52, 847, 532, C, 104, 104, 931, 584, C
+mdlLogin = 78, 78, 873, 558, C
+clsLogin = 130, 130, 957, 610, C
+clsConnect = 156, 156, 966, 636, C
+mdlHisCrust = 156, 156, 799, 636, C
+frmSelClient = 0, 0, 0, 0, C, 26, 26, 818, 506, C

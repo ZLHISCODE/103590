@@ -1,0 +1,7 @@
+行 89: 控件 imgList 的类 MSComctlLib.ImageList 不是一个已加载的控件类。
+行 107: 控件 sta 的类 MSComctlLib.StatusBar 不是一个已加载的控件类。
+行 187: 控件 Bill 的类 ZL9BillEdit.BillEdit 不是一个已加载的控件类。
+行 398: 控件 txtDate 的类 MSMask.MaskEdBox 不是一个已加载的控件类。
+行 467: 控件 mshMoney 的类 MSHierarchicalFlexGridLib.MSHFlexGrid 不是一个已加载的控件类。
+行 763: 控件 IDKind 的类 zlIDKind.IDKindNew 不是一个已加载的控件类。
+行 935: 控件 com 的类 MSCommLib.MSComm 不是一个已加载的控件类。

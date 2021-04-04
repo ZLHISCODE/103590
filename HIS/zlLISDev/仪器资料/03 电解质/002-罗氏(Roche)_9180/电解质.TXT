@@ -1,0 +1,18 @@
+4-     9180     -
+ELECTROLYTE ISE
+-   NA-K-CL    -
+ 28JUN07  14:46
+  A             
+
+Name: ..........
+      ..........
+Sample: SERUM
+
+Sample No.28121
+
+*  CONVERTED   *
+Na=140.4  mmol/L
+K = 6.83 mmol/L
+Cl=108.0  mmol/L
+
+

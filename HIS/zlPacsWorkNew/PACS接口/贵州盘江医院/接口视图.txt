@@ -1,0 +1,29 @@
+
+----将以前的a.开单科室id as RequestingDepartmentCode 改为了
+  --- decode(a.开单科室id,null,b.当前科室id,a.开单科室id) as RequestingDepartmentCode,
+-----d.名称 as RequestingDepartment 改为了decode(d.名称,null,f.名称,d.名称) as RequestingDepartment主-----要是为判断开单科室为空的记录,将b.门诊号 as HISPatientID 改为  decode(b.门诊号,null,a.id,b.门诊号) ------as HISPatientID，主要是为了不挂号人员时没有门诊号，就传为费用id
+create or replace view zlpacs_检查预约信息 as
+Select NULL as 单据号,a.ID as ExamNo,a.医嘱内容 as ExamItem,a.诊疗项目id as ExamCode,b.费别 as ChargeType,
+	       a.下医嘱医生 as RequestingDoctor,c.名称 as ReferringDepartment,decode(d.名称,null,f.名称,d.名称) as RequestingDepartment,
+	       a.下医嘱医生id as RequestingDoctorCode,a.执行科室id as ReferringDepartmentCode,
+	       decode(a.开单科室id,null,b.当前科室id,a.开单科室id) as RequestingDepartmentCode,a.开始执行时间 as RequestingDateTime,b.住院号 as HISPatientID,
+	       b.姓名 as ChineseName,b.性别 as Sex,b.出生日期 as BirthDate,a.主页ID as PatientVisitID,
+	       a.操作员姓名 as Operator,a.操作员编号 as OperatorCode,'住院' as PatientClass
+	From 医嘱记录 a,病人信息 b,部门表 c,部门表 d,病案主页 e,部门表 F
+	Where a.病人id = b.病人ID(+) and a.执行科室id = c.ID(+) and a.开单科室id = d.ID(+) and b.当前科室id=F.id(+)
+  and a.期效 = 2
+	      and a.病人ID = e.病人ID and a.主页ID = e.主页ID
+	      and a.校对护士 is not null and e.出院日期 is Null and a.停医嘱时间 <= sysdate
+	UNION
+	Select a.No as 单据号,a.ID as ExamNo,c.名称 as ExamItem,a.收费细目id as ExamCode,b.费别 as ChargeType,
+	       a.开单人 as RequestingDoctor,e.名称 as ReferringDepartment,d.名称 as RequestingDepartment,
+	       0 as RequestingDoctorCode,a.执行部门ID as ReferringDepartmentCode,
+	       a.开单部门id as RequestingDepartmentCode,a.登记时间 as RequestingDateTime,decode(b.门诊号,null,a.id,b.门诊号) as HISPatientID,
+	       a.姓名 as ChineseName,a.性别 as Sex,b.出生日期 as BirthDate,a.序号 as PatientVisitID,
+	       a.操作员姓名 as Operator,a.操作员编号 as OperatorCode,'门诊' as PatientClass
+	From 病人费用记录 a,病人信息 b,收费细目 c,部门表 d,部门表 e
+	Where a.病人id = b.病人ID(+) and a.收费细目id = c.id(+) and a.开单部门id = d.ID(+)
+        and a.执行部门ID=e.ID(+) and a.记录性质 = 1
+	      and a.操作员姓名 is not null and a.记录状态 =1 and nvl(a.门诊标志,0) = 1
+	      And a.登记时间<Sysdate
+

@@ -1,0 +1,2 @@
+--请使用“未发药品记录”的Owner帐户执行以下脚本
+--Alter Table zlhis.未发药品记录 Add(GroupNo Varchar2(40), OrderType Varchar2(20));

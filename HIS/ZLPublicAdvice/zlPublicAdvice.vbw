@@ -1,0 +1,11 @@
+clsScript = 0, 0, 0, 0, C
+clsInspectionAdvice = 0, 0, 0, 0, C
+clsOperationAdvice = 0, 0, 0, 0, C
+mdlAdvice = 0, 0, 0, 0, C
+clsExamineAdvice = 0, 0, 0, 0, C
+clsPublicAdvice = 150, 150, 1088, 502, C
+clsDockInAdvices = 0, 0, 740, 255, C
+clsDockOutAdvices = 0, 0, 0, 0, C
+mdlPublic = 0, 0, 938, 352, C
+clsArchiveMedRec = 0, 0, 0, 0, C
+frmMain = 0, 0, 0, 0, C, 0, 0, 0, 0, C

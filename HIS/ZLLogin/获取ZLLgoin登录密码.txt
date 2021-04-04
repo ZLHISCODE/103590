@@ -1,0 +1,56 @@
+如下两种方法均需10.35.40以上
+方法一：（10.35.120以上，体检LIS使用ZLLOGinAlone,ZLHIS使用ZLLogin，该方法只能ZLHIS进程使用）
+	Dim objTem		As  Object
+	
+	Set  objTem=CreateObject("ZLLogin.clsLogin")
+	Debug.Print objTem.InputPwd     '获取输入密码
+
+方法二：
+	业务部件类中CodeMan方法的第四个参数就是导航台主界面，
+	'CodeMan lngSys, Modul, gcnOracle, FrmMainface, gstrDbUser
+	可以直接使用
+	Debug.Print  FrmMainface.ObjLogin.InputPwd	 '获取输入密码
+
+其余属性：
+'属性，获取输入的用户名
+Public Property Get InputUser() As String
+End Property
+'属性，获取输入的密码
+Public Property Get InputPwd() As String
+End Property
+'属性，获取输入的服务器
+Public Property Get ServerName() As String
+End Property
+'属性，获取是否密码需要转换
+Public Property Get IsTransPwd() As Boolean
+End Property
+'属性，获取输入的用户对应的数据库用户
+Public Property Get DBUser() As String
+End Property
+'属性，获取是否系统所有者
+Public Property Get IsSysOwner() As Boolean
+End Property
+'属性，获取多帐套选择的Systems
+Public Property Get Systems() As String
+End Property
+'属性，获取菜单组
+Public Property Get MenuGroup() As String
+End Property
+'属性，获取菜单组
+Public Property Get DeptName() As String
+End Property
+'属性，获取EMR对象
+Public Property Get EMR() As Object
+End Property
+'属性，设置EMR对象
+Public Property Set EMR(ByRef objEMR As Object)
+End Property
+'属性，EMR的验证用户
+Public Property Get EMRUser() As String
+End Property
+'属性，EMR的验证密码，若是数据库密码增加[DBPASSWORD]前缀
+Public Property Get EMRPwd() As String
+End Property
+'属性，EMRUser、EMRPwd是否属于代理用户。如当LIS单独库时，使用ZLHIS账户来初始化EMR,此时该属性为TRUE
+Public Property Get IsEMRProxy() As Boolean
+End Property

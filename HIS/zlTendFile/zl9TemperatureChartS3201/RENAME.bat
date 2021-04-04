@@ -1,0 +1,2 @@
+RENAME UserBodyMutilEditor.ctl UsrMutilEditor.ctl
+RENAME UserBodyMutilEditor.ctx UsrMutilEditor.ctx

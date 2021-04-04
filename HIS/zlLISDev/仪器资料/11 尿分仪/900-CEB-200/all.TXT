@@ -1,0 +1,1066 @@
+
+2007/10/31     16:04
+GEB-11        No.068-056
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+*VC       2.8mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     16:13
+GEB-11        No.069-057
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     16:16
+GEB-11        No.070-058
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/08/17     08:15
+GEB-11        No.000-009
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+*BLD 2+  80cells/ul 
+*PRO 2+      1.0g/l 
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:12
+GEB-11        No.001-045
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:16
+GEB-11        No.002-046
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.5      
+*BLD 1+  25cells/ul 
+ PRO  -             
+*VC       1.4mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:19
+GEB-11        No.003-001
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.0      
+*BLD +-  10cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:20
+GEB-11        No.004-002
+
+ KET  -             
+*GLU +-   5.5mmol/l 
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+*PRO +-      0.1g/l 
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:20
+GEB-11        No.005-003
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+*PRO +-      0.1g/l 
+*VC       5.6mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU 2+ 125cells/ul 
+
+2007/10/31     08:21
+GEB-11        No.006-004
+
+*KET +-   0.5mmol/l 
+*GLU +-   5.5mmol/l 
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:22
+GEB-11        No.007-005
+
+ KET  -             
+*GLU +-   5.5mmol/l 
+ SG      1.020      
+ PH        6.0      
+*BLD +-  10cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:22
+GEB-11        No.008-006
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:23
+GEB-11        No.009-007
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:23
+GEB-11        No.010-008
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+*BLD 1+  25cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 2+             
+ URO      3.3umol/l 
+*NIT  +             
+*LEU 1+  70cells/ul 
+
+2007/10/31     08:24
+GEB-11        No.011-009
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+*BLD 2+  80cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:25
+GEB-11        No.012-010
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+*BLD +-  10cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:30
+GEB-11        No.013-001
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        5.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:41
+GEB-11        No.014-002
+
+ KET  -             
+*GLU 3+    55mmol/l 
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:43
+GEB-11        No.015-003
+
+ KET  -             
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+*BLD 2+  80cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     08:46
+GEB-11        No.016-004
+
+ KET  -             
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+*BLD 2+  80cells/ul 
+*PRO 1+      0.3g/l 
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU +-  15cells/ul 
+
+2007/10/31     08:56
+GEB-11        No.017-005
+
+*KET 2+   3.9mmol/l 
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU +-  15cells/ul 
+
+2007/10/31     09:10
+GEB-11        No.018-006
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU 1+  70cells/ul 
+
+2007/10/31     09:13
+GEB-11        No.019-007
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:15
+GEB-11        No.020-008
+
+ KET  -             
+*GLU +-   5.5mmol/l 
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:17
+GEB-11        No.021-009
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:18
+GEB-11        No.022-010
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:21
+GEB-11        No.023-011
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+*BLD 1+  25cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:27
+GEB-11        No.024-012
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:37
+GEB-11        No.025-013
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+*PRO 2+      1.0g/l 
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:41
+GEB-11        No.026-014
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:47
+GEB-11        No.027-015
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO       16umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:51
+GEB-11        No.028-016
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     09:56
+GEB-11        No.029-017
+
+*KET 1+   1.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+*PRO +-      0.1g/l 
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO       16umol/l 
+ NIT  -             
+*LEU 1+  70cells/ul 
+
+2007/10/31     09:59
+GEB-11        No.030-018
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU 1+  70cells/ul 
+
+2007/10/31     10:03
+GEB-11        No.031-019
+
+ KET  -             
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:05
+GEB-11        No.032-020
+
+ KET  -             
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:07
+GEB-11        No.033-021
+
+ KET  -             
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+*BLD +-  10cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:08
+GEB-11        No.034-022
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU +-  15cells/ul 
+
+2007/10/31     10:12
+GEB-11        No.035-023
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:20
+GEB-11        No.036-024
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:27
+GEB-11        No.037-025
+
+*KET 2+   3.9mmol/l 
+*GLU 3+    55mmol/l 
+ SG      1.020      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+*PRO 2+      1.0g/l 
+ VC       0.0mmol/l 
+*BIL 3+             
+ URO      3.3umol/l 
+*NIT  +             
+*LEU 2+ 125cells/ul 
+
+2007/10/31     10:36
+GEB-11        No.038-026
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+*BLD +-  10cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:47
+GEB-11        No.039-027
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     10:52
+GEB-11        No.040-028
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU +-  15cells/ul 
+
+2007/10/31     10:58
+GEB-11        No.041-029
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:01
+GEB-11        No.042-030
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:04
+GEB-11        No.043-031
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.020      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:08
+GEB-11        No.044-032
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:17
+GEB-11        No.045-033
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:30
+GEB-11        No.046-034
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.0      
+ BLD  -             
+*PRO +-      0.1g/l 
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU 1+  70cells/ul 
+
+2007/10/31     11:38
+GEB-11        No.047-035
+
+ KET  -             
+*GLU 3+    55mmol/l 
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+*VC       5.6mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:39
+GEB-11        No.048-036
+
+ KET  -             
+*GLU 1+    14mmol/l 
+ SG      1.015      
+ PH        6.5      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+*VC       1.4mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     11:42
+GEB-11        No.049-037
+
+ KET  -             
+*GLU 1+    14mmol/l 
+ SG      1.015      
+ PH        6.5      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+*VC       1.4mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     12:01
+GEB-11        No.050-038
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+*BLD 1+  25cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     13:00
+GEB-11        No.051-039
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     13:50
+GEB-11        No.052-040
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+*BLD 1+  25cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     13:57
+GEB-11        No.053-041
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:15
+GEB-11        No.054-042
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:24
+GEB-11        No.055-043
+
+ KET  -             
+ GLU  -             
+ SG      1.020      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU +-  15cells/ul 
+
+2007/10/31     14:32
+GEB-11        No.056-044
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:41
+GEB-11        No.057-045
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+*BLD 2+  80cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:45
+GEB-11        No.058-046
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        5.5      
+*BLD 2+  80cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+*LEU 2+ 125cells/ul 
+
+2007/10/31     14:48
+GEB-11        No.059-047
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:51
+GEB-11        No.060-048
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:54
+GEB-11        No.061-049
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:57
+GEB-11        No.062-050
+
+ KET  -             
+ GLU  -             
+ SG      1.015      
+ PH        6.5      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     14:59
+GEB-11        No.063-051
+
+ KET  -             
+*GLU 2+    28mmol/l 
+ SG      1.015      
+ PH        6.5      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     15:00
+GEB-11        No.064-052
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     15:12
+GEB-11        No.065-053
+
+ KET  -             
+ GLU  -             
+ SG      1.010      
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+ VC       0.0mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     15:16
+GEB-11        No.066-054
+
+*KET +-   0.5mmol/l 
+ GLU  -             
+ SG      1.025      
+ PH        6.0      
+*BLD 3+ 200cells/ul 
+ PRO  -             
+ VC       0.0mmol/l 
+*BIL 1+             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+
+2007/10/31     15:18
+GEB-11        No.067-055
+
+ KET  -             
+ GLU  -             
+ SG      <=1.005    
+ PH        6.0      
+ BLD  -             
+ PRO  -             
+*VC       5.6mmol/l 
+ BIL  -             
+ URO      3.3umol/l 
+ NIT  -             
+ LEU  -             
+

@@ -1,0 +1,8 @@
+frmLCDShow = 0, 0, 661, 404, , 198, 198, 859, 602, C
+frmLCDSetup = 44, 44, 705, 448, C, 22, 22, 683, 426, C
+frmDrugShow = 75, 75, 1010, 580, , 25, 25, 960, 530, C
+clsLCDShow = 132, 132, 1083, 536, Z
+mdlLCDShowPublic = 44, 44, 766, 448, 
+frmDrugSetup = 100, 100, 1035, 605, , 50, 50, 985, 555, C
+frmProSetup = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmProShow = 0, 0, 0, 0, C, 0, 0, 0, 0, C

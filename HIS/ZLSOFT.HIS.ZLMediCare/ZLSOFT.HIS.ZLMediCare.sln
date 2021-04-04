@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZLSOFT.HIS.ZLMediCare", "ZLSOFT.HIS.ZLMediCare\ZLSOFT.HIS.ZLMediCare.csproj", "{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Debug|x86.ActiveCfg = Debug|x86
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Debug|x86.Build.0 = Debug|x86
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Release|x86.ActiveCfg = Release|x86
+		{8D3D7283-8DFC-4D2D-8E8C-BC15F66561A3}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ZLSOFT.HIS.ZLMediCare\\ZLSOFT.HIS.ZLMediCare.csproj
+		SccProjectName1 = \u0022$/ZLSOFT10/ZLHIS10/U10.35.0/ZLSOFT.HIS.ZLMediCare/ZLSOFT.HIS.ZLMediCare\u0022,\u0020YBTLAAAA
+		SccLocalPath1 = ZLSOFT.HIS.ZLMediCare
+	EndGlobalSection
+EndGlobal

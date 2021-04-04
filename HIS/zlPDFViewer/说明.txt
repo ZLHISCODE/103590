@@ -1,0 +1,1 @@
+1.在编译该部件时需要在本机安装PDF阅读器，推建安装 Adobe Reader 9  或者Adobe Reader最新版

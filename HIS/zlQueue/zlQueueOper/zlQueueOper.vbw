@@ -1,0 +1,11 @@
+UcQueue = 110, 110, 851, 621, , 176, 176, 850, 687, C
+frmUpdateInfo = 25, 25, 847, 395, , 0, 0, 822, 370, C
+frmPriorityCause = 154, 154, 966, 603, , 44, 44, 723, 493, C
+mdlPubDefine = 198, 198, 1077, 648, C
+mdlQueue = 0, 0, 679, 450, 
+frmSetup = 175, 175, 852, 640, C, 200, 200, 877, 665, C
+clsQueueMsgCenter = 182, 182, 960, 622, 
+clsQueueOperation = 50, 50, 718, 469, C
+frmFilter = 25, 25, 799, 523, C, 75, 75, 849, 573, C
+frmRestoreQueue = 75, 75, 806, 489, , 25, 25, 913, 439, C
+clsMipModuleEvent = 182, 182, 960, 622, Z

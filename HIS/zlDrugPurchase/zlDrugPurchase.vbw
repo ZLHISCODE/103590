@@ -1,0 +1,11 @@
+clsDrugPurchase = 0, 0, 0, 0, C
+mdlDrugPurchase = 0, 0, 0, 0, C
+frmPurchasePlan = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmPublic = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmMessage = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmOutsideLinkSet = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmBillNumber = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmDeliveryInvoice = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmBillNumber34 = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmBillNumber35110 = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmBillNumber3410 = 0, 0, 0, 0, C, 0, 0, 0, 0, C

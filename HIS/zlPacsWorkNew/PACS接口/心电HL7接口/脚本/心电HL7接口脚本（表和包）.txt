@@ -1,0 +1,778 @@
+--结构
+
+create table HL7待发消息
+(
+  ID       NUMBER not null,
+  动作类型 VARCHAR2(20),
+  业务ID串 VARCHAR2(100),
+  产生时间 DATE,
+  重试次数 NUMBER default 0,
+  发送次数 NUMBER default 1,
+  直接发送 NUMBER
+);
+
+create table HL7服务配置
+(
+  ID           NUMBER not null,
+  IP地址       VARCHAR2(15),
+  端口号       VARCHAR2(5),
+  服务类型     NUMBER,
+  发送程序名称 VARCHAR2(40),
+  发送设备名称 VARCHAR2(40),
+  接收程序名称 VARCHAR2(40),
+  接收设备名称 VARCHAR2(40)
+);
+
+create table HL7消息定义
+(
+  ID         NUMBER not null,
+  服务ID     NUMBER,
+  动作类型   VARCHAR2(20),
+  消息名称   VARCHAR2(20),
+  消息类型   VARCHAR2(20),
+  消息段组合 VARCHAR2(1000)
+);
+
+create table HL7消息段配置
+(
+  ID         NUMBER not null,
+  消息ID     NUMBER,
+  消息段名称 VARCHAR2(20),
+  段内序号   NUMBER,
+  数据类型   VARCHAR2(20),
+  接收数据值 VARCHAR2(500),
+  发送数据值 VARCHAR2(500),
+  元素名称   VARCHAR2(100)
+);
+
+create table HL7消息对码
+(
+  ID         NUMBER not null,
+  消息ID     NUMBER,
+  字段名称   VARCHAR2(100),
+  字段内容   VARCHAR2(1024),
+  字段对码   VARCHAR2(1024)
+);
+
+create table HL7重发消息
+(
+  ID       NUMBER not null,
+  动作类型 VARCHAR2(20),
+  业务ID串 VARCHAR2(100),
+  产生时间 DATE,
+  发送次数 NUMBER default 1,
+  直接发送 NUMBER,
+  重发时间 DATE,
+  消息时效 NUMBER default 1
+);
+
+--序列
+create sequence HL7待发消息_ID
+start with 1
+increment by 1;
+
+create sequence HL7服务配置_ID
+start with 1
+increment by 1;
+
+create sequence HL7消息定义_ID
+start with 1
+increment by 1;
+
+create sequence HL7消息段配置_ID
+start with 1
+increment by 1;
+
+create sequence HL7重发消息_ID
+start with 1
+increment by 1;
+
+--约束
+alter table HL7待发消息
+  add constraint HL7待发消息_ID primary key (ID);
+
+alter table HL7服务配置
+  add constraint HL7服务配置_ID primary key (ID);
+
+alter table HL7消息定义
+  add constraint HL7消息定义_ID primary key (ID);
+alter table HL7消息定义
+  add constraint HL7消息定义_服务ID foreign key (服务ID)
+  references HL7服务配置 (ID) on delete cascade;
+
+
+alter table HL7消息段配置
+  add constraint HL7消息段配置_ID primary key (ID);
+alter table HL7消息段配置
+  add constraint HL7消息段配置_消息ID foreign key (消息ID)
+  references HL7消息定义 (ID) on delete cascade;
+create index HL7消息段配置_IX_消息ID on HL7消息段配置 (消息ID);
+create index HL7消息段配置_IX_消息段名称 on HL7消息段配置 (消息段名称);
+
+alter table HL7重发消息
+  add constraint HL7重发消息_ID primary key (ID);
+
+alter table HL7消息对码
+  add constraint HL7消息对码_ID primary key (ID);
+
+-- 过程包
+
+CREATE OR REPLACE Package b_Hl7interface Is
+	Type t_Refcur Is Ref Cursor;
+
+-----------------------------------------------------------------------------
+	-- 功    能：插入HL7待发消息临时表
+	-----------------------------------------------------------------------------
+
+Procedure Hl7待发消息_Insert
+	(
+		动作类型_In Hl7待发消息.动作类型%Type,
+		发送次数_In Hl7待发消息.发送次数%Type,
+		业务id串_In Hl7待发消息.业务id串%Type
+	) ;
+  
+  	-----------------------------------------------------------------------------
+	-- 功    能：更新HL7待发消息临时表，消息发成功，删除其中的内容，没有发送成功，记录重发次数，重发次数超过10次，则转移到重发消息表
+	-----------------------------------------------------------------------------
+procedure HL7待发消息_UPDATE
+(
+	ID_IN	      hl7待发消息.ID%Type,
+	ActionType_IN     Number
+) ;
+
+	-----------------------------------------------------------------------------
+	-- 功    能：接收心电检查结果
+	-----------------------------------------------------------------------------
+	Procedure Recevieresult
+	(
+		医嘱id_In   病人医嘱发送.医嘱id%Type,
+		检查技师_In 人员表.姓名%Type := Null,
+		执行说明_In 病人医嘱发送.执行说明%Type := Null,
+		单独执行_In Number := 0
+	);
+
+	-----------------------------------------------------------------------------
+	-- 功    能：发送报告文本信息
+  	-- 调用列表：
+  	--
+  	--
+	-----------------------------------------------------------------------------
+  	procedure SendReport
+  	(
+		医嘱id_IN       病人医嘱发送.医嘱ID%TYPE,
+  		报告所见_IN     电子病历内容.内容文本%TYPE,
+		报告建议_IN     电子病历内容.内容文本%TYPE,
+		报告医生_IN     电子病历记录.创建人%Type
+  	);
+
+	-----------------------------------------------------------------------------
+	-- 功    能：更新HL7重发消息临时表，消息发成功，删除其中的内容，没有发送成功，记录重发时间，重发时间超过3天，则修改消息时效
+	-----------------------------------------------------------------------------
+ procedure HL7重发消息_UPDATE
+ (
+	ID_IN	      hl7待发消息.ID%Type,
+	ActionType_IN     Number
+ ) ;
+
+-----------------------------------------------------------------------------
+-- 功    能：提取对应元素的函数，根据元素名称，从数据库提取并返回数据
+-----------------------------------------------------------------------------
+Function HL7_Replace_Element_Value(
+  元素名_In   In 诊治所见项目.中文名%Type,  
+  病人id_In   In 电子病历记录.病人id%Type,
+  医嘱id_In   In 病人医嘱发送.医嘱Id%Type,  
+  发送号_In   In 病人医嘱发送.发送号%Type,
+  消息id_In   In hl7消息定义.id%Type  
+)Return Varchar2;
+
+End b_Hl7interface;
+
+
+/
+
+CREATE OR REPLACE Package Body b_Hl7interface Is
+
+	-----------------------------------------------------------------------------
+	-- 功    能：插入HL7待发消息临时表
+	-----------------------------------------------------------------------------
+	Procedure Hl7待发消息_Insert
+	(
+		动作类型_In Hl7待发消息.动作类型%Type,
+		发送次数_In Hl7待发消息.发送次数%Type,
+		业务id串_In Hl7待发消息.业务id串%Type
+	) As
+		v_Id            Hl7待发消息.Id%Type;
+		v_医嘱id        病人医嘱发送.医嘱id%Type;
+		v_发送号        病人医嘱发送.发送号%Type;
+		v_Count         Number;
+		v_Insertmessage Number;
+		v_发送数次      Hl7待发消息.发送次数%Type;
+    v_直接发送      Number;
+	Begin
+		v_Insertmessage := 0;
+	
+		--先判断是否心电系统能够接收的医嘱
+		If 动作类型_In = '发送新医嘱' Or 动作类型_In = '发送取消医嘱' Then
+			v_医嘱id := To_Number(Substr(业务id串_In, 1, Instr(业务id串_In, ';', 1, 1) - 1));
+      
+			--直接查询心电系统能够接收的诊疗项目ID，并且过滤掉子医嘱
+			Select Count(*)
+			Into v_Count
+			From 病人医嘱记录
+			Where Id = v_医嘱id And 诊疗项目id In (18031, 18032, 18033, 18034, 18038, 18039, 16865) And 相关id Is Null;
+		
+			If v_Count > 0 Then
+				v_Insertmessage := 1;
+				v_发送数次      := 发送次数_In;
+        v_发送号 := To_Number(Substr(业务id串_In, Instr(业务id串_In, ';', 1, 1) + 1,
+																			 Length(业务id串_In) - Instr(业务id串_In, ';', 1, 1)));
+				--如果是取消医嘱，还需要再查询发送数次
+				If 动作类型_In = '发送取消医嘱' Then
+					Select 发送数次 Into v_发送数次 From 病人医嘱发送 Where 医嘱id = v_医嘱id And 发送号 = v_发送号;
+          v_直接发送 := 1;
+        Elsif 动作类型_In = '发送新医嘱' Then
+          --查询收费情况，住院医嘱直接发送，门诊和体检的医嘱，只有收费了才直接发送
+          Select Count(*) Into v_Count  From 病人医嘱发送 
+                 Where 记录性质=1 And 计费状态 In (1,2) And 医嘱id = v_医嘱id And 发送号 = v_发送号;
+          If v_Count >0 Then 
+              v_直接发送 := 0;
+          Else
+              v_直接发送 := 1;
+          End If; 
+				End If;
+			End If;
+		End If;
+	
+		If v_Insertmessage = 1 Then
+			Select Hl7待发消息_Id.Nextval Into v_Id From Dual;
+		
+			Insert Into Hl7待发消息
+				(Id, 动作类型, 业务id串, 产生时间, 重试次数, 发送次数,直接发送)
+			Values
+				(v_Id, 动作类型_In, 业务id串_In, Sysdate, 0, v_发送数次,v_直接发送);
+		End If;
+	
+	Exception
+		When Others Then
+			v_发送数次 := 1;
+	End Hl7待发消息_Insert;
+  
+	-----------------------------------------------------------------------------
+	-- 功    能：更新HL7待发消息临时表，消息发成功，删除其中的内容，没有发送成功，记录重发次数，重发次数超过10次，则转移到重发消息表
+	-----------------------------------------------------------------------------
+procedure HL7待发消息_UPDATE
+(
+	ID_IN	      hl7待发消息.ID%Type,
+	ActionType_IN     Number
+) As
+--ActionType_IN 0,删除；1-重试数+1
+    Cursor c_HL7Message Is
+         Select 动作类型,业务ID串,产生时间,发送次数,直接发送 From hl7待发消息 Where ID=ID_IN;
+    r_HL7Message c_HL7Message%Rowtype;
+    
+    v_重试次数 hl7待发消息.重试次数%Type;
+Begin
+  
+  If ActionType_IN = 0 Then 
+      Delete From hl7待发消息 Where id = ID_IN;
+  Elsif ActionType_IN = 1 Then 
+      Update  hl7待发消息 Set 重试次数=重试次数+1 Where id = ID_IN;
+      If Sql%RowCount <> 0 Then 
+         Select 重试次数 Into v_重试次数  From hl7待发消息 Where id = ID_IN;
+         If v_重试次数>10 Then 
+              --将这条消息转到重发消息表
+              Open c_HL7Message; 
+              Fetch c_HL7Message Into r_HL7Message;
+              If c_HL7Message%Rowcount > 0 Then
+                 Insert Into hl7重发消息(ID,动作类型,业务ID串,产生时间,发送次数,直接发送,重发时间,消息时效) 
+                        Values (hl7重发消息_ID.Nextval,r_HL7Message.动作类型,r_HL7Message.业务ID串,r_HL7Message.产生时间,
+                        r_HL7Message.发送次数,r_HL7Message.直接发送,Sysdate,1);
+              End If;
+              Close c_HL7Message;
+              
+              Delete From hl7待发消息 Where id = ID_IN;
+         End If;
+      End If;
+  End If;
+
+Exception
+	When Others Then
+		Zl_Errorcenter(Sqlcode, Sqlerrm);
+End HL7待发消息_UPDATE ;
+
+	-----------------------------------------------------------------------------
+	-- 功    能：接收心电检查结果
+	-----------------------------------------------------------------------------
+	Procedure Recevieresult
+	(
+		医嘱id_In   病人医嘱发送.医嘱id%Type,
+		检查技师_In 人员表.姓名%Type := Null,
+		执行说明_In 病人医嘱发送.执行说明%Type := Null,
+		单独执行_In Number := 0
+		--参数：医嘱ID_IN=单独执行的医嘱ID。
+		--      单独执行_In=检查医嘱组合是否采用对每个项目分散单独执行的方式
+	) Is
+	
+		v_人员编号 人员表.编号%Type;
+		v_人员姓名 人员表.姓名%Type;
+		v_Count    Number;
+		v_Error    Varchar2(255);
+		Err_Custom Exception;
+	  
+    Cursor c_ExecutAdvice(v_组ID Number) Is
+         Select 医嘱ID,发送号 From 病人医嘱记录 a,病人医嘱发送 b
+         Where a.ID=b.医嘱ID And (a.id =v_组ID Or a.相关ID =v_组ID ) ;
+    r_ExecutAdvice c_ExecutAdvice%Rowtype;
+    
+	Begin
+	
+     --先检查是否已经出院的住院病人，已经预出院或者出院的检查申请，保存结果后不更改执行状态
+     Select Count(*) Into v_Count From 病人医嘱记录 a, 病案主页 b
+        Where  a.病人ID=b.病人ID And a.主页ID = b.主页ID And b.出院日期 Is Not Null And a.Id = 医嘱id_In;
+        
+		If v_Count =0 Then
+           --更新医嘱状态，更新为 完成状态，审核过程,记录执行结果
+           Update 病人医嘱发送 Set 执行说明 = 执行说明_In
+           Where 医嘱id in(select id from 病人医嘱记录 where id= 医嘱id_In or 相关id=医嘱id_In);
+
+           --处理操作员姓名和编号，如果 检查技师_IN 为空，则填写 user
+           If 检查技师_In Is Null Then
+              v_人员姓名 := User;
+              v_人员编号 := User;
+           Else
+               Begin
+                    Select 编号,姓名 Into v_人员编号,v_人员姓名 From 人员表 a,部门人员 b
+                    Where a.Id = b.人员ID And b.部门ID=(Select 执行科室id From 病人医嘱记录 Where id =医嘱id_In ) And a.别名=检查技师_In And Rownum =1;
+               Exception
+                    When Others Then
+                         v_人员姓名 := User;
+                         v_人员编号 := User;
+               End;
+           End If;
+
+           --处理费用
+           For r_ExecutAdvice In c_ExecutAdvice(医嘱id_In) Loop
+               --处理费用
+               zl_病人医嘱执行_finish (r_ExecutAdvice.医嘱ID,r_ExecutAdvice.发送号 , null,单独执行_In,v_人员编号,v_人员姓名);
+           End Loop;
+    End If;
+	
+	Exception
+		When Err_Custom Then
+			Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+		When Others Then
+			Zl_Errorcenter(Sqlcode, Sqlerrm);
+	End Recevieresult;
+
+  -----------------------------------------------------------------------------
+  -- 功    能：发送报告文本信息
+  -----------------------------------------------------------------------------
+  procedure SendReport
+  (
+    医嘱id_IN       病人医嘱发送.医嘱ID%TYPE,
+    报告所见_IN     电子病历内容.内容文本%TYPE,
+    报告建议_IN     电子病历内容.内容文本%TYPE,
+    报告医生_IN     电子病历记录.创建人%Type
+  )Is
+
+    --提取病人医嘱及报告的相关信息
+    CURSOR c_Advice(v_组ID Number) IS
+        Select E.Id,E.病人来源,E.病人ID,E.主页ID,E.婴儿,E.病人科室ID,E.文件id, E.病历种类,E.病历名称,F.病历ID,E.执行科室ID
+        From (Select C.ID,C.病人来源,C.病人ID,C.主页ID,C.婴儿,C.病人科室ID,C.文件id, D.种类 病历种类, D.名称 病历名称,C.执行科室ID
+          From (Select A.ID,A.病人来源,A.病人ID,A.主页ID,A.婴儿,A.病人科室ID, B.病历文件id 文件id,A.执行科室ID
+                     From 病人医嘱记录 A, 病历单据应用 B
+                     Where A.Id=v_组ID And A.诊疗项目id = B.诊疗项目id(+) And B.应用场合(+) = Decode(A.病人来源, 2, 2, 4, 4, 1)) C,病历文件列表 D
+          Where C.文件id = D.Id(+)) E,病人医嘱报告 F
+        Where E.Id=F.医嘱ID(+);
+
+    --查找文件的组成元素
+    CURSOR c_File(v_File number) IS
+        Select A.Id, A.文件id, A.父id, A.对象序号, A.对象类型, A.对象标记, A.保留对象, A.对象属性, A.内容行次,
+               A.内容文本, A.是否换行, A.预制提纲id, A.复用提纲, A.使用时机, A.诊治要素id, A.替换域, A.要素名称,
+               A.要素类型, A.要素长度, A.要素小数, A.要素单位, A.要素表示, A.输入形态, A.要素值域
+        From 病历文件结构 A
+        Where A.文件id = v_File
+        Order By A.对象序号;
+
+    Cursor c_Report(v_电子病历记录ID Number) Is
+        Select /*+ rule */ B.Id, A.内容文本
+               From 电子病历内容 A, 电子病历内容 B
+               Where A.文件id = v_电子病历记录ID And Nvl(A.定义提纲id, 0) <> 0 And
+                     (A.内容文本 like '%所见%' Or A.内容文本 like '%建议%') And
+                     B.父id = A.Id And B.是否换行 = 1;
+
+    Cursor c_ExecutAdvice(v_组ID Number) Is
+         Select 医嘱ID,发送号 From 病人医嘱记录 a,病人医嘱发送 b
+         Where a.ID=b.医嘱ID And (a.id =v_组ID Or a.相关ID =v_组ID ) And b.执行状态 = 3;
+    r_ExecutAdvice c_ExecutAdvice%Rowtype;
+
+    r_Advice      c_Advice%Rowtype;
+    v_病历id      电子病历内容.文件ID%Type;
+    v_病历内容id  电子病历内容.Id%Type;
+    v_病历内容idNew  电子病历内容.Id%Type;
+    v_对象序号    电子病历内容.对象序号%Type;
+    v_父ID        电子病历内容.父ID%Type;
+    v_内容文本    电子病历内容.内容文本%Type;
+    v_定义提纲ID  电子病历内容.定义提纲ID%Type;
+    --v_格式内容    电子病历格式.内容%Type;
+    v_Error         Varchar2(255);
+    Err_Custom      Exception;
+    v_Count         Number;
+    v_主医嘱ID      病人医嘱发送.医嘱ID%Type;
+    v_人员编号      人员表.编号%Type;
+    v_人员姓名      人员表.姓名%Type;
+  Begin
+
+    -- 提取主医嘱ID ，防止因为传入部位医嘱，导致报告保存出错
+    Select Nvl(相关id, ID) As 组id Into v_主医嘱ID From 病人医嘱记录 Where ID = 医嘱id_In;
+
+    Open c_Advice(v_主医嘱ID);
+      Fetch c_Advice Into r_Advice;
+
+    If Nvl(r_Advice.文件ID,0)=0 Then
+        v_Error:='本次检查项目没有对应相关的检查报告，请与管理员联系！';
+        Raise Err_Custom;
+    Else
+        If Nvl(r_Advice.病历id,0)>0 Then  ----产生过报告
+            --找出检查已填写的报告提纲中含有'%所见%','%描述%,'%建议%','%意见%',并用传入的参数更新
+            For r_Report In c_Report(r_Advice.病历id) Loop
+                If r_Report.内容文本 like '%所见%' Then
+                    Update 电子病历内容 Set 内容文本=报告所见_IN Where ID=r_Report.Id;
+                Elsif r_Report.内容文本 like '%建议%' Then
+                    Update 电子病历内容 Set 内容文本=报告建议_IN Where ID=r_Report.Id;
+                End If;
+            End Loop;
+            --更新保存时间
+            Update 电子病历记录 Set 完成时间=Sysdate,保存人=报告医生_IN,保存时间=Sysdate Where ID=r_Advice.病历id;
+        Else
+            --产生电子病历记录
+            Select 电子病历记录_ID.Nextval Into v_病历id From Dual;
+            Insert Into 电子病历记录
+              (Id, 病人来源, 病人id, 主页id, 婴儿, 科室id, 病历种类, 文件id, 病历名称, 创建人, 创建时间, 完成时间,
+               保存人, 保存时间, 最后版本, 签名级别)
+            Values
+              (v_病历id, r_Advice.病人来源, r_Advice.病人id, r_Advice.主页id, r_Advice.婴儿, r_Advice.病人科室id,
+               r_Advice.病历种类, r_Advice.文件id, r_Advice.病历名称, 报告医生_IN, Sysdate, Sysdate, 报告医生_IN, Sysdate, 1, 2);
+
+            --产生医嘱报告记录
+            Insert Into 病人医嘱报告 (医嘱ID,病历ID) Values(v_主医嘱ID,v_病历ID);
+
+            --新产生报告内容
+            For r_File In c_File(r_Advice.文件ID) Loop
+                Select 电子病历内容_ID.Nextval Into v_病历内容id From Dual;
+                If nvl(v_对象序号,0)=0 Then
+                   v_对象序号:=r_File.对象序号;
+                Else
+                   v_对象序号:=v_对象序号+1;
+                End If;
+
+                If NVL(r_File.父ID,0)<>0 And (r_File.内容文本 like '%所见%') Then--所见定义行(非提纲)
+                     v_内容文本:=报告所见_IN || Chr(13) || Chr(13);
+                     v_定义提纲ID:=0;
+                Elsif NVL(r_File.父ID,0)<>0 And (r_File.内容文本 like '%建议%') Then--建议定义行(非提纲)
+                     v_内容文本:=报告建议_IN || Chr(13) || Chr(13);
+                     v_定义提纲ID:=0;
+                Elsif nvl(r_File.对象类型,0)=1 And NVL(r_File.父ID,0)=0 Then--提纲定义行
+                     v_父ID:=v_病历内容id;
+                     v_内容文本:=r_File.内容文本;
+                     v_定义提纲ID:=r_File.id;
+                Elsif nvl(r_File.对象类型,0)=4 And r_File.要素名称 Is Not Null Then  --自动替换要素
+                     v_内容文本:=zl_replace_element_value(r_File.要素名称,r_Advice.病人ID,r_Advice.主页ID,r_Advice.病人来源,r_Advice.Id);
+                     v_定义提纲ID:=0;
+                Else
+                    v_内容文本:=r_File.内容文本;
+                    v_定义提纲ID:=0;
+                End If;
+
+                --报告内容单独写一行
+                If NVL(r_File.父ID,0)<>0 And (r_File.内容文本 like '%所见%' Or r_File.内容文本 like '%建议%') Then--先写提纲显示名称，再写内容，同时对象序号发生变化
+                   Select 电子病历内容_ID.Nextval Into v_病历内容idNew From Dual;
+                   v_对象序号 := v_对象序号 + 1;
+                    Insert Into 电子病历内容
+                      (Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次,
+                       内容文本, 是否换行, 预制提纲id, 复用提纲, 使用时机, 诊治要素id, 替换域, 要素名称, 要素类型,
+                       要素长度, 要素小数, 要素单位, 要素表示, 输入形态, 要素值域, 定义提纲id)
+                    Values
+                      (v_病历内容idNew, v_病历id, 0, 0, Decode(v_定义提纲id, 0, v_父id, Null), v_对象序号, r_File.对象类型,
+                       r_File.对象标记, r_File.保留对象, 0, Null, v_内容文本, r_File.是否换行,
+                       r_File.预制提纲id, r_File.复用提纲, r_File.使用时机, r_File.诊治要素id, r_File.替换域,
+                       r_File.要素名称, r_File.要素类型, r_File.要素长度, r_File.要素小数, r_File.要素单位,
+                       r_File.要素表示, r_File.输入形态, r_File.要素值域, Decode(v_定义提纲id, 0, Null, v_定义提纲id));
+                    v_对象序号 := v_对象序号 - 1;
+                    v_内容文本:=r_File.内容文本;
+                End If;
+
+                Insert Into 电子病历内容
+                  (Id, 文件id, 开始版, 终止版, 父id, 对象序号, 对象类型, 对象标记, 保留对象, 对象属性, 内容行次,
+                   内容文本, 是否换行, 预制提纲id, 复用提纲, 使用时机, 诊治要素id, 替换域, 要素名称, 要素类型, 要素长度,
+                   要素小数, 要素单位, 要素表示, 输入形态, 要素值域, 定义提纲id)
+                Values
+                  (v_病历内容id, v_病历id, 1, 0, Decode(v_定义提纲id, 0, v_父id, Null), v_对象序号, r_File.对象类型,
+                   r_File.对象标记, r_File.保留对象, r_File.对象属性, Null, v_内容文本, r_File.是否换行, r_File.预制提纲id,
+                   r_File.复用提纲, r_File.使用时机, r_File.诊治要素id, r_File.替换域, r_File.要素名称, r_File.要素类型,
+                   r_File.要素长度, r_File.要素小数, r_File.要素单位, r_File.要素表示, r_File.输入形态, r_File.要素值域,
+                   Decode(v_定义提纲id, 0, Null, v_定义提纲id));
+             End Loop;
+
+        /* 因电子病历格式中含了内容文字格式，此种方法导入之后内容文字将不可见
+        Select 内容 Into v_格式内容 From 病历文件格式 Where 文件ID=r_Advice.文件ID;
+        Insert Into 电子病历格式 (文件ID,内容) Values (v_病历id,v_格式内容);
+        */
+
+        End If;
+
+        --先检查是否已经出院的住院病人，已经预出院的检查申请，添加报告后不更改执行状态
+        Select Count(*) Into v_Count From 病人医嘱记录 a, 病案主页 b
+        Where  a.病人ID=b.病人ID And a.主页ID = b.主页ID And b.出院日期 Is Not Null And a.Id = v_主医嘱ID;
+
+        If v_Count =0 Then
+           --只对已经接收申请，正在执行的医嘱才更新，更新为 完成状态，审核过程
+           Update 病人医嘱发送 Set 执行状态=1, 执行过程=6, 完成时间=sysdate
+           Where 医嘱id in(select id from 病人医嘱记录 where id= v_主医嘱ID or 相关id=v_主医嘱ID)
+                 And 执行状态 = 3 ;
+
+           --处理操作员姓名和编号，如果 检查技师_IN 为空，则填写 user
+           If 报告医生_IN Is Null Then
+              v_人员姓名 := User;
+              v_人员编号 := User;
+           Else
+               Begin
+                    Select 编号,姓名 Into v_人员编号,v_人员姓名 From 人员表 a,部门人员 b
+                    Where a.Id = b.人员ID And b.部门ID=r_Advice.执行科室ID And a.别名=报告医生_IN And Rownum =1;
+               Exception
+                    When Others Then
+                         v_人员姓名 := User;
+                         v_人员编号 := User;
+               End;
+           End If;
+
+           --处理费用
+           For r_ExecutAdvice In c_ExecutAdvice(v_主医嘱ID) Loop
+               zl_影像费用执行(r_ExecutAdvice.医嘱ID,r_ExecutAdvice.发送号 , 6,1,v_人员编号,v_人员姓名);
+           End Loop;
+        End If;
+
+      End If;
+      Close c_Advice;
+    Exception
+      When Err_Custom Then
+        Raise_Application_Error(-20101, '[ZLSOFT]' || v_Error || '[ZLSOFT]');
+      When Others Then
+        Zl_ErrorCenter(Sqlcode, Sqlerrm);
+  end SendReport;
+
+-----------------------------------------------------------------------------
+-- 功    能：更新HL7重发消息临时表，消息发成功，删除其中的内容，没有发送成功，记录重发时间，重发时间超过3天，则修改消息时效
+-----------------------------------------------------------------------------
+ procedure HL7重发消息_UPDATE
+(
+	ID_IN	      hl7待发消息.ID%Type,
+	ActionType_IN     Number
+) As
+--ActionType_IN 0,删除；1-重试数+1    
+Begin
+  
+  If ActionType_IN = 0 Then 
+      Delete From hl7重发消息 Where id = ID_IN;
+  Elsif ActionType_IN = 1 Then 
+      Update  hl7重发消息 Set 重发时间=Sysdate Where id = ID_IN;
+      If Sql%RowCount <> 0 Then 
+           --将这条消息的消息时效设置成0
+           Update  hl7重发消息 Set 消息时效=0 Where id = ID_IN And  Sysdate -产生时间 >3;
+      End If;
+  End If;
+
+Exception
+	When Others Then
+		Zl_Errorcenter(Sqlcode, Sqlerrm);
+End HL7重发消息_UPDATE ;
+
+-----------------------------------------------------------------------------
+-- 功    能：提取对应元素的函数，根据元素名称，从数据库提取并返回数据
+-----------------------------------------------------------------------------
+Function HL7_Replace_Element_Value
+(  
+  元素名_In   In 诊治所见项目.中文名%Type,  
+  病人id_In   In 电子病历记录.病人id%Type, 
+  医嘱id_In   In 病人医嘱发送.医嘱Id%Type,  
+  发送号_In   In 病人医嘱发送.发送号%Type,
+  消息id_In   In hl7消息定义.id%Type
+) Return Varchar2 Is  
+  v_Return Varchar2(4000) := Null;  
+  Cursor c_Patient Is  
+    Select  姓名,性别, Decode(性别,'男','M','女','F','O') As 性别编码 ,出生日期,
+            病人ID,联系人地址,家庭电话,联系人电话,婚姻状况,身份证号,
+            当前科室ID ,当前病区ID,当前床号 as 床号,就诊卡号,入院时间,
+            出院时间  
+     From  病人信息 
+     Where 病人ID =病人id_In; 
+  r_Patient c_Patient%RowType;  
+  
+  Cursor c_Order Is
+     Select 主页ID,婴儿,decode(病人来源,1,'OUTPAT',2,'INPAT','UNK') as 病人来源,开嘱医生,开嘱时间,
+            校对护士,医嘱内容,紧急标志,执行科室ID
+     From 病人医嘱记录
+     Where  Id =医嘱id_In;
+  r_Order c_Order%Rowtype;
+  
+  Cursor c_Diagnose Is
+         Select 诊断描述 || Decode(Nvl(是否疑诊, 0), 0, '', ' (？)') As 临床诊断
+         From 病人诊断医嘱 a,病人诊断记录 b 
+         Where a.医嘱ID = 医嘱id_In And a.诊断ID = b.id;
+  r_Diagnose c_Diagnose%Rowtype;
+  
+  
+  --获取指定表的行类型  
+  Procedure p_Get_Rowtype(Table_In In Varchar2) Is  
+  Begin  
+    If Table_In = '病人信息' Then  
+      Open c_Patient;  
+      Fetch c_Patient  
+      Into r_Patient;  
+    Elsif Table_In = '病人医嘱记录' Then  
+      Open c_Order;  
+      Fetch c_Order  
+      Into r_Order;  
+    Elsif Table_In = '病人诊断记录' Then
+      Open c_Diagnose;  
+      Fetch c_Diagnose  
+      Into r_Diagnose;   
+    End If;  
+  Exception  
+    When Others Then  
+      Null;  
+  End p_Get_Rowtype;  
+  
+Begin  
+  Case   
+    --直接返回的输入元素
+    When 元素名_In ='医嘱ID' Then 
+          v_Return := 医嘱id_In;
+    When 元素名_In ='发送号' Then 
+          v_Return := 发送号_In;
+    When 元素名_In ='病人ID' Then 
+          v_Return := 病人id_In;
+           
+    --姓名，性别单独处理，可能是婴儿
+    When Instr(',姓名,性别,性别编码,出生日期,', ',' || 元素名_In || ',') > 0 Then  
+      p_Get_Rowtype('病人医嘱记录');  
+      p_Get_Rowtype('病人信息'); 
+      If Nvl(r_Order.婴儿, 0) = 0  Then  
+        If 元素名_In = '姓名' Then  
+          v_Return := r_Patient.姓名;  
+        Elsif 元素名_In = '性别' Then  
+          v_Return := r_Patient.性别;
+        Elsif 元素名_In = '性别编码' Then  
+          v_Return := r_Patient.性别编码;
+        Elsif 元素名_In = '出生日期' Then  
+          v_Return := To_Char(r_Patient.出生日期, 'YYYYMMDDMISS');     
+        End If;    
+      Else  
+        If 元素名_In = '姓名' Then  
+          Select Decode(婴儿姓名, Null, r_Patient.姓名 || '之婴' || Trim(To_Char(序号, '9')), 婴儿姓名) As 婴儿姓名  
+          Into v_Return  
+          From 病人新生儿记录  
+          Where 病人id = 病人id_In And 主页id = r_Order.主页ID And 序号 = Nvl(r_Order.婴儿, 0);  
+        Elsif Instr('性别',元素名_In ) > 0  Then  
+          Select 婴儿性别  
+          Into v_Return  
+          From 病人新生儿记录  
+          Where 病人id = 病人id_In And 主页id = r_Order.主页ID And 序号 = Nvl(r_Order.婴儿, 0); 
+          If 元素名_In = '性别编码' Then  
+             Select Decode(v_Return,'男','M','女','F','O') Into v_Return From dual;
+          End If;
+        Elsif 元素名_In = '出生日期' Then  
+          Select 出生时间  
+          Into v_Return  
+          From 病人新生儿记录  
+          Where 病人id = 病人id_In And 主页id = r_Order.主页ID And 序号 = Nvl(r_Order.婴儿, 0); 
+          v_Return := To_Char(v_Return, 'YYYYMMDDMISS');
+        End If;  
+      End If;  
+      
+    --查询病人信息表返回的元素
+    When Instr(',联系人地址,家庭电话,联系人电话,婚姻状况,身份证号,床号,就诊卡号,入院时间,出院时间,', ',' || 元素名_In || ',') > 0 Then  
+         p_Get_Rowtype('病人信息');  
+         Case 元素名_In 
+              When  '联系人地址'  Then 
+                   v_Return := r_Patient.联系人地址; 
+              When  '家庭电话'  Then 
+                   v_Return := r_Patient.家庭电话; 
+              When  '联系人电话'  Then 
+                   v_Return := r_Patient.联系人电话; 
+              When  '婚姻状况'  Then 
+                   v_Return := r_Patient.婚姻状况; 
+              When  '身份证号'  Then 
+                   v_Return := r_Patient.身份证号; 
+              When  '床号'  Then 
+                   v_Return := r_Patient.床号; 
+              When  '就诊卡号'  Then 
+                   v_Return := r_Patient.就诊卡号; 
+              When  '入院时间'  Then 
+                   v_Return := To_Char(r_Patient.入院时间, 'YYYYMMDDMISS'); 
+              When  '出院时间'  Then 
+                   v_Return := To_Char(r_Patient.出院时间, 'YYYYMMDDMISS'); 
+              Else
+                  v_Return := '';  
+          End Case;
+    --查询医嘱表返回的元素
+    When instr(',病人来源,开嘱医生,开嘱时间,校对护士,医嘱内容,紧急标志,紧急标志对码,',',' || 元素名_In || ',') >0 Then 
+         p_Get_Rowtype('病人医嘱记录');  
+         Case 元素名_In 
+              When  '病人来源'  Then 
+                   v_Return := r_Order.病人来源; 
+              When  '开嘱医生'  Then 
+                   v_Return := r_Order.开嘱医生; 
+              When  '开嘱时间'  Then 
+                   v_Return := To_Char(r_Order.开嘱时间, 'YYYYMMDDMISS');
+              When  '校对护士'  Then 
+                   v_Return := r_Order.校对护士; 
+              When  '医嘱内容'  Then 
+                   v_Return := r_Order.医嘱内容; 
+              When '医嘱内容对码' Then 
+                   Select  字段对码 Into v_Return From  hl7消息对码 
+                   Where  消息ID = 消息id_In And  字段名称 = '医嘱内容' And 字段内容 = r_Order.医嘱内容;
+              When  '紧急标志'  Then 
+                   v_Return := r_Order.紧急标志; 
+              When  '紧急标志对码'  Then 
+                   Select  字段对码 Into v_Return From  hl7消息对码 
+                   Where  消息ID = 消息id_In And  字段名称 = '紧急标志' And 字段内容 = r_Order.紧急标志;   
+         End Case;
+    --查询诊断记录返回的元素
+    When 元素名_In ='临床诊断' Then 
+         p_Get_Rowtype('病人诊断记录'); 
+         v_Return := r_Diagnose.临床诊断; 
+     
+    Else  
+      --自行查询SQL返回值的元素  
+      If  元素名_In ='执行站点' Then 
+          p_Get_Rowtype('病人医嘱记录'); 
+          Select decode(站点,1,'SITE0002',2,'SITE0001',3,'SITE0003','SITE0001') Into v_Return From 部门表 Where id = r_Order.执行科室ID;
+      End If;
+      If  元素名_In ='当前科室名称' Then 
+          p_Get_Rowtype('病人信息'); 
+          Select 名称 Into v_Return From 部门表 Where id = r_Patient.当前科室ID;
+      End If;
+      If  元素名_In ='病区名称' Then 
+          p_Get_Rowtype('病人信息'); 
+          Select 名称 Into v_Return From 部门表 Where id = r_Patient.当前病区ID;
+      End If;
+      If  元素名_In ='标识号' Then 
+          Select decode(a.病人来源,1,c.门诊号,2,decode(c.住院号,null,c.门诊号,c.住院号),4,c.健康号,c.门诊号)  Into v_Return 
+          From 病人医嘱记录 a,病人信息 c 
+          Where a.病人ID =c.病人id And a.id = 医嘱id_In;
+      End If;
+  End Case;  
+  
+  Return Trim(v_Return);  
+Exception  
+  When Others Then  
+    Return Null;  
+End HL7_Replace_Element_Value;
+
+
+End b_Hl7interface;
+
+
+
+/

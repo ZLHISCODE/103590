@@ -1,0 +1,18 @@
+[History]
+1=#P0#=mb	#P1#=LoadServer	#P2#=病理历史数据导入工具/frmUserLogin/LoadServer	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110926155147	#P7#=0	#P8#=54	.
+2=#P0#=mb	#P1#=Form_Load	#P2#=病理历史数据导入工具/frmUserLogin/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110926155025	#P7#=0	#P8#=7	.
+3=#P0#=mb	#P1#=cmdOK_Click	#P2#=病理历史数据导入工具/frmUserLogin/cmdOK_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110926155010	#P7#=0	#P8#=78	.
+4=#P0#=mb	#P1#=LoadOldPathologyData	#P2#=病理历史数据导入工具/frmMain/LoadOldPathologyData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110926142945	#P7#=0	#P8#=8	.
+5=#P0#=mb	#P1#=cmdOK_Click	#P2#=病理历史数据导入工具/frmMain/cmdOK_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110926120141	#P7#=0	#P8#=77	.
+6=#P0#=mb	#P1#=SetRegister	#P2#=病理历史数据导入工具/mdlMain/SetRegister	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110926120103	#P7#=0	#P8#=-1	.
+7=#P0#=mb	#P1#=Main	#P2#=病理历史数据导入工具/mdlMain/Main	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110926120032	#P7#=0	#P8#=39	.
+8=#P0#=mb	#P1#=Form_Load	#P2#=病理历史数据导入工具/frmMain/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110926115519	#P7#=0	#P8#=3	.
+9=#P0#=mb	#P1#=InitVfgData	#P2#=病理历史数据导入工具/frmMain/InitVfgData	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110927091039	#P7#=0	#P8#=17	.
+10=#P0#=mb	#P1#=cmdCancel_Click	#P2#=病理历史数据导入工具/frmMain/cmdCancel_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110926091856	#P7#=0	#P8#=3	.
+11=#P0#=mb	#P1#=cmdCancel_Click	#P2#=病理历史数据导入工具/frmUserLogin/cmdCancel_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110922181712	#P7#=0	#P8#=0	.
+12=#P0#=mb	#P1#=cboServerName_Click	#P2#=病理历史数据导入工具/frmUserLogin/cboServerName_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110922181630	#P7#=0	#P8#=8	.
+13=#P0#=mb	#P1#=cboServerName_Change	#P2#=病理历史数据导入工具/frmUserLogin/cboServerName_Change	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110922181628	#P7#=0	#P8#=8	.
+14=#P0#=mb	#P1#=OraDataOpen	#P2#=病理历史数据导入工具/mdlMain/OraDataOpen	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110922142647	#P7#=0	#P8#=10	.
+15=#P0#=mb	#P1#=OraDataClose	#P2#=病理历史数据导入工具/mdlMain/OraDataClose	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110922114356	#P7#=0	#P8#=12	.
+16=#P0#=mb	#P1#=GetRegister	#P2#=病理历史数据导入工具/mdlMain/GetRegister	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20110921180945	#P7#=0	#P8#=14	.
+17=#P0#=mb	#P1#=Form_KeyPress	#P2#=病理历史数据导入工具/frmUserLogin/Form_KeyPress	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20110921155654	#P7#=0	#P8#=0	.

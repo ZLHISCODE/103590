@@ -1,0 +1,11 @@
+frmMain = 50, 50, 637, 324, , 25, 25, 992, 661, C
+mdlDcn = 150, 150, 1217, 558, 
+mdlPublic = 125, 125, 1192, 533, 
+mdlSockServer = 100, 100, 637, 466, 
+frmUserCheckLogin = 0, 0, 0, 0, C, 150, 150, 687, 516, C
+frmFlash = 0, 0, 0, 0, C, 175, 175, 712, 541, C
+frmNoticeList = 100, 100, 1292, 508, , 0, 0, 537, 366, C
+frmNoticeSet = 75, 75, 787, 349, , 175, 175, 1242, 583, C
+frmLogClear = 150, 150, 1217, 558, , 75, 75, 612, 441, C
+clsStringBulider = 0, 0, 0, 0, C
+frmNoticeLog = 50, 50, 1117, 458, Z, 25, 25, 562, 391, C

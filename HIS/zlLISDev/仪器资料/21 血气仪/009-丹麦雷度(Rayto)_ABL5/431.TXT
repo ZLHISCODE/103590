@@ -1,0 +1,25 @@
+Pc40RIOMETER ABL5
+
+Watient report                 #431
+-----------------------------------
+Time                   17:42
+Date                   19.03.08
+Operator ID            
+Patient ID             
+Type                       Arterial
+Temp                    37.0 R[CPc40R               150 g/L
+FIO2                    21.0 %
+-----------------------------------
+ pH                     7.43 
+ pCO2                    4.5 kPa
+ pO2                     8.9 kPa
+-----------------------------------
+ HCO3-                    22 mmol/L
+ sO2                      93 %
+ tCO2                     23 mmol/L
+ ABE                      -1 mmol/L
+ SBC                      23 mmol/L
+ SBE                      -2 mmol/L
+
+-----------------------------------
+Analyzer #                  

@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="clb病人来源.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb病人来源.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb意识形态.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb意识形态.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb陪同人员.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb陪同人员.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb既往史.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAL9JREFUOE+9
+        k68OwjAQxveIs53mJdC8BBo5JtAosBimsFSjEGAwH/1GLu11l9AiuOTL1rve7/4kbdyAtutx7rZAjVyP
+        K3ObcPB5sFihMAF2sFD/B6xPwOMVz1UAJtP4FV8xQJKPXvsVYDMCy72+QEny5TaPKYC/f+ZbHaKPFWmM
+        LXbRL1IAVn8GAI1VJZk+qzNqtgNpN7W0o1zmEqUyLd24JRPAWTlzvnFLJqBGBPz8mMKLHKfnzB/rwhd5
+        N6B9A6LzGSKi8bRZAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb既往史.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAGxJREFUOE/t
+        ktEJgDAMRLuxyQR2o7qJ3aBuovdqBT8j+NmDB+HIHflIQnariTNIc/flHcbcRA7CLhmj4MDobR9ERuwM
+        NOXhh0WG7CyYBb8V8Mpl+GEpwytXBsQVRaxB2CVjTxuqAjMCuwqndAG4et1H3vjHtwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="clb三无患者.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb三无患者.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb复合伤.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb复合伤.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb成批就诊.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb成批就诊.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb睁眼反应.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb睁眼反应.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb语言反应.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb语言反应.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb活动反应.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb活动反应.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb疼痛描述.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb疼痛描述.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb修改分级.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb修改分级.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb绿色通道.PictureChecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAONJREFUOE+N
+        UsENwjAM7AiMwAiM4hEYhQ3ST8KXEdik3QA2gG8jpOJL3OKaBHLSqYlzZ8epOws6z3sK0ZGPA3/nxLx2
+        OBNZGSzsV1OdTuRb8MFohHXyjcSW0Vh5S/Zkc+65LNL08cg88Pq5xvAmTdXZnKoxyE8nFe9t7yMLrmpv
+        zHwDHx/qbEAC2Ux3cvMuCUO8iKBuFn4ShOm2JAAovEiWVTO4bQEDo5IA2Ke4MimO34+okvwxQ8uPWPqN
+        MOVr183gMtrIVBT8IqprcLB9lNF7CU03sZUt0pvkRGbAOLb0vKLr3qitIUW1UEovAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="clb绿色通道.PictureUnchecked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
+        U8ENwyAMzAgdoZuk2yHgARu0G9FNkg1SHzmQk6IQiZMskfP5sJ1kOsMY87TWBudcktgYCRxylLUhwqiK
+        mgEjyo+QxFeJPt77VwjhgcAZnDJKLNshRL5ZRCvEpP9Ao5UmMZOYi8R2VVwATdHnncAJD2iRmi7UOLHO
+        fuf2AtVFQge5HSyL+S6gLXXjBiMjoHZ8icOvEYATyeXKhMULtfuHVFB2wXhLzFgWFzaTy/k8ewuS7P5M
+        Esebz+BOou6I51hnrpimH/bKJ+xX7AsYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="layGroup病人信息.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAB10RVh0VGl0
+        bGUAQ2FyZDtDYXJkVmlldztWaWV3Q2FyZDuRh0uNAAAAbUlEQVQ4T6WTwQnAMAhFs2CXKu7jtbv03nsn
+        +CUBS1KlmvjhQRB80UAKgBRmcYZCRMjQBKtRgvO6se1Ho569KIE0C17CAmZW1ChBagVplvSS0ARy85e/
+        hAWhCfr9Be8dBsFKXkEG84PMYBbjoDwxtjU+9MZUnQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="layoutGroup就诊信息.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAmRJREFUOE+1
+        kW9IE3EYx0fvkoJICklYUIFIvulN74RslTohIuhFhNCLCIRssqlZgcxp+cK5Wn+k3M3amrPJKhf+yZXJ
+        pgbzz9zUF6Zt2TQX6ibnbt5yZ9/urqOLVq+iDzzccdz38/ye3yP5b+h0uiyCICYNBoNPq9VKhc9/J3k3
+        R5a0FI5sWOTkZ3MxNfnOuRkIBBAKheB7a2c+3ZdRa/pskmzMHlmqk8qEmEiyTe7ddBYD3hL09b4EwzCg
+        aZov7v1NTwfQeRLJ9uOINh7wCjGRr61FFEZLQDQ3QaG4jNraWqjVar40Gg1KL5XCeE8LdMixVL+PEmIi
+        CXMhBc8FtFpM+B32AEgkgMqKK4CjCOE6aapg3ZRPYeg8LE8eIRZLYnycxMREHIODQXR1DcLvn0NFOSt4
+        UYhQTWaqgDLkUXCfg9nUwneNRBKIRjcQDscRDK5icZERBAWYq85IFaw9yF1H/1mYHhvZIIO+vlUMDFDo
+        6QnAZnPB4wn+FMxc2xUTYiJk02Ear8+gxUhgeXkD/f1f4HavoLd3Fna7C8PD3AiVgP0E3lftJIWYSFR/
+        iMar0zASBnb3cTgcPnR3T7FPD6zWTvYuZn4I2o9hqmJHqmDlVg7N7bn5IYGFBbDdZzE0FIDLNQ2nc4y9
+        1AjKVazAJsOEatsfBA1ZNLei5jsNfCfu519LpazE7Rs1gPUIfGVpqYKl+v3+hDkXeF7ArwrP8vl5+WKP
+        jadHgbY8RPUH4VNsHRViIsGr6afCN/d+W9BIMV+TiXn1HnyszsCH67sxXZXOzQ2/cjvGytKmvRe3KIXY
+        vyKRfAeH4tQ7T3O85QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="layGroup生命体征.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAYNJREFUOE+V
+        k0tIAlEYhWfdqlXgToj2UhC0EKPQfZuKoEikwlJx0QtCKGhhiNmiEIpeiwoiqITESKlF215MKGolJYE6
+        olIQ0ainueOYr7HswAdz5875fu7ApcoTSkIaZKAohntXL2xXT+8m5CYHDHcv6VQgChRzcpXyjm3HpzYu
+        0SN8XpoOK8xtZoBgWL7GrvuxBMXQOppNCXQuAi4aG0KtEG7jNi/4C/sFGKFWyH8ECy5AqBWSFyx5IJqn
+        eI0Cgnq7kp7VGgVKG6DdqaTLXqPAcgp8fFUSTtQoEGNy2oG3PgneNU1wzlkQ07aC7a5D1jp0KNR/F1xr
+        VHyBkLHrf54JuPcaeYFqCbRYmXCm04AdbkR6Qo7s+R6yrnWkbWqwehlA+2Z5AfenGbEyQTmfBDPSkps6
+        KEF6RQe2vwFwH7Pw+aRUMALjTRgYPwAGt8QZXUsiNDOQk3CTWY8Dz6+fIF3KH8VR+eWpRty5jxTtx0Mk
+        w69Jlz9CIAYZd23b/wPpUBRFfQNzLmQigr3rYgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="layoutGroupGCS.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAUdJREFUOE91
+        ks1RxDAMhVOCkwoogQ52O4AS6AQ62AtxjksHpAPoAM4xM6GD3Q7gfYqVn1lHMxpb0pOeZKsqSejSsenS
+        cx3TO8o9xHTI4X0hsY7D2MT0V9K6Hb5CO9xn+FYUeFrAwxvFwmkMpvHnEZ/Hwea0SaxlGGK67jJIiIHJ
+        RRZc3abftRPWph3OjGMj6Y7PYsIYmcbBntlp0WwBVfACk/RT9x4CfF7ExyG3atr0MhvroOac5k8HOtiQ
+        2JvIVi7t95aQq8M2F6BdgdzHOFZAWLOVu1tA50XniSLOSOymwN4I+PGFbryjG/OVRig+oj0gP2Cb+EE3
+        +LzL+Z0yaSXwtznW3ygQLaPcPdneRVhysE28C5i8SEmIgVmTzSLHssoszmt6gNVU9+UrLXm7yi7GkMcp
+        KbEb5pLYSNP/s4W9/0gOr6Sq/gEy0H5PdsmsNwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="layoutGroup疼痛数字评分.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAABGdBTUEAALGPC/xhBQAAAYVJREFUOE+F
+        U6FSw0AQjUMg6CdUIiPbVIDDIGLw/QOQDA00EkFb/gA+IX9AJY4aZIcaDIKmCGZQy3ubzc02ocObucnu
+        3u7bvXeXqIk4l04/k/NkJC+DTISLNtZDciWxpe1Gksk9kleDkVz4Atq2V2JvZuE2sPmIrgtOYqEWuAei
+        AnlPrTx0yf8j8GBDTmZuxQ6Cde9SuhbaCd8EJPNQw/OTWR2AE0GDobkBqgv0MjeC+GmoI6MX0SbbIqoJ
+        fB5BoWtjix0+r1NvyMJRL5NjJcYer9/CnFrUCGwAuze7eVADP6EnKf4q5LH613LE1RQdLyX9mey9nmSf
+        Gw1wbF6xOg48kurF5Y4Mglim0Qrf/P2u+6xBHbEhmsZQbK6+C+pCGwRzEHg7pV1NA9Hqd8AC+G8gGuvi
+        f4QcmyKQm1+YW3Vjcj0RifxibDk5PP2aHdzSrgGScDEKm6jUv7h9vPHZzXLzPdn/wAQqNL5DkISHGsAC
+        JasELXGNa9qclHvUAIULfIUEMos6v2u5O3KVrjU0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="layoutGroup人工评定.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAARVJREFUOE91
+        UtsNwjAMzAhpJ2AERugojMAIbAA/CZ+wASOUDeA7RioblA3A57glTdKTTmrtu8SPmBz2TF3rwqVx4dF6
+        +oL6fUROZSXscbCNp342efpYF3YgvpN4D63aIli0bRyNk0iEfKs9DxswrSbmaIRH7cZw4J0KZiHflla1
+        zIVB7caUgnCV8rlnoac9H3TPdWrnCnx4IoBeF6UliO1QB41q75qSGcigINLQAjJgzIG3gwtwADyajigC
+        itmsZeOQ1r1Oml4CYnkD3JL8S8lhmM3KYo0Tkllg+rfcOLFaLYI1cZWODmr7A6uqiiusV8D91sQ5ZVvr
+        MygfS8G1DQDx3defNYghr94+AYL86cp2eHCl2ZgfWiyHnVONjtcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="layoutControl分诊信息.CaptionImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACZ0RVh0VGl0
+        bGUATWVldGluZztWaWV3TWVldGluZztNZWV0aW5nVmlldztpMs/hAAABF0lEQVQ4T2NoaWn5TyoGAgYY
+        po4BMHDmzBkoC5WNDEDqfZt2MMAwigHYwNcfv//P2Hbtf3z//v/RPfvAbKBGXhQDYLbdLQxBwSBQNWc/
+        SAM6XgDEmC6AaQIBGDugZSc2A74DMXEGhHfuwWbAayAmzgvls7B6YSUQExeId559RPEGlG2E1QBc0Xj4
+        6vP/cX37wfjQlecgA8Ca4QaAFKNjmMbECQf+P3/3DcwHgRfvv4EMeADEAXADYACmEQTuPv/0P7B1F9jZ
+        +bOO/n/29uv/J2++/M+efgQsBsQ/gVgLpwEdq8/DFOLDC8EGoGMQiAGmOiwa0PEzeKZAxkAJEL6PpBAX
+        vo3PABcgPgvEP4AYXSNI7LRv0w4rAC4a3uu4QD2IAAAAAElFTkSuQmCC
+</value>
+  </data>
+</root>
